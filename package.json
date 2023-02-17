@@ -5,7 +5,9 @@
     "start": "govuk-prototype-kit start"
   },
   "dependencies": {
+    "@hmlr/frontend": "^1.1.0",
     "govuk-frontend": "^4.5.0",
-    "govuk-prototype-kit": "^13.2.4"
+    "govuk-prototype-kit": "^13.3.0",
+    "jquery": "^3.6.3"
   }
 }
