@@ -12,36 +12,48 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
   }
 
   .govuk-width-container {
-    max-width: 1280px;
+    max-width: 1440px;
   }
 
   .scroll {
     overflow: auto;
-    background: #565656;
-    color: #fff;
+
   }
 
-  .ap-font {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
+  .govuk-template__body {
+    background-color: #f1f1f1
+
 }
+
+
+/* page background colour - header bottom border (behind the green) off-white */
+	.govuk-header--hmlr {
+    border-bottom-color: #789904;
+  }
+
+
+.register-font {
+  font-family: Arial, Helvetica, sans-serif
+}
+
+.ap-font {
+  font-family: Arial, Helvetica, sans-serif
+}
+
 </style>
 
 <!-- Style: at the top the ones overriding, and then the new ones -->
 
-<div class="govuk-width-container">
+<div class="govuk-width-container" >
   <main class="govuk-main-wrapper govuk-main-wrapper--l">
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-one-half column scroll  " style="background-color:#ffffff">
-        <h1 class="govuk-heading-l ap-font govuk-!-font-size-24
+      <div class="govuk-grid-column-one-half column scroll "
+      >
+        <h1 class="govuk-heading-m ap-font">Register</h1>
 
-        ">Register</h1>
+        <h2 class="govuk-heading-s ap-font">A: Property register</h2>
 
-        <h2 class="govuk-heading-m ap-font govuk-!-font-size-19
-
-        ">A: Property register</h2>
-
-        <ol class="govuk-list govuk-list--number ap-font">
+        <ol class="govuk-list govuk-list--number register-font govuk-list--spaced">
           <li>(19.09.2008) The Freehold land shown edged with red on the plan of the above title filed at the Registry
             and being 245 Apsen Rowans, Swasils, Dorset BA22 2QC.</li>
           <li>(19.09.2008) The land was formerly copyhold of the Manor of Barringtons and on the enfranchisement thereof
@@ -49,11 +61,9 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
             This registration takes effect subject to such reservation..</li>
         </ol>
 
-        <h2 class="govuk-heading-m ap-font govuk-!-font-size-19
-
-        ">B: Proprietorship register
+        <h2 class="govuk-heading-s ap-font">B: Proprietorship register
         </h2>
-        <ol class="govuk-list govuk-list--number ap-font">
+        <ol class="govuk-list govuk-list--number register-font govuk-list--spaced">
           <li>(11.06.2012) PROPRIETOR: %CHANDLER AIDEN WOODSTOMP% and %MARGUERITTE HOPE WOODSTOMP% of 245 Aspen Rowans,
             Swaslis, *Dorset* BA22 2QC.</li>
           <li>(11.06.2012) The price stated to have been paid on 24 May 2012 was £93,000.</li>
@@ -68,11 +78,9 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
         </ol>
 
 
-        <h2 class="govuk-heading-m ap-font govuk-!-font-size-19
-
-        ">C: Charge register
+        <h2 class="govuk-heading-s ap-font">C: Charge register
         </h2>
-        <ol class="govuk-list govuk-list--number ap-font">
+        <ol class="govuk-list govuk-list--number register-font govuk-list--spaced">
           <li>11.06.2012) A Deed of Covenant dated 24 September 1934 made between (1) Emily King and others (Owners) and
             (2) Mitchells & Butlers Limited (Company) contains the following covenants by the owners.
 <br>
@@ -92,16 +100,15 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
       <!-- Tasks section starts here -->
 
-      <div class="govuk-grid-column-one-half column" style="background-color:#f9f9f9">
+      <div class="govuk-grid-column-one-half column"
+      >
 
 
 
 
 
 
-        <h1 class="govuk-heading-l ap-font govuk-!-font-size-24
-
-        ">Tasks</h1>
+        <h1 class="govuk-heading-m ap-font">Tasks</h1>
 
 
         <!-- First task - yes no  -->
@@ -282,7 +289,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
         <!-- Button -->
 
 
-        <button class="govuk-button ap-font" data-module="govuk-button">
+        <button class="govuk-button" data-module="govuk-button">
           Go to next page
         </button>
 

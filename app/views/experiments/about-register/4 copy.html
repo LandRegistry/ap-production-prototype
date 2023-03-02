@@ -12,7 +12,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
   }
 
   .govuk-width-container {
-    max-width: 1280px;
+    max-width: 1440px;
   }
 
   .scroll {
@@ -21,9 +21,8 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
     color: #fff;
   }
 
-  .ap-font {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
+  .register-font {
+  font-family: Arial, Helvetica, sans-serif
 }
 </style>
 
@@ -32,16 +31,12 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 <div class="govuk-width-container">
   <main class="govuk-main-wrapper govuk-main-wrapper--l">
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-one-half column scroll  " style="background-color:#ffffff">
-        <h1 class="govuk-heading-l ap-font govuk-!-font-size-24
+      <div class="govuk-grid-column-one-half column scroll " style="background-color:#ffffff">
+        <h1 class="govuk-heading-l">Register</h1>
 
-        ">Register</h1>
+        <h2 class="govuk-heading-m">A: Property register</h2>
 
-        <h2 class="govuk-heading-m ap-font govuk-!-font-size-19
-
-        ">A: Property register</h2>
-
-        <ol class="govuk-list govuk-list--number ap-font">
+        <ol class="govuk-list govuk-list--number register-font">
           <li>(19.09.2008) The Freehold land shown edged with red on the plan of the above title filed at the Registry
             and being 245 Apsen Rowans, Swasils, Dorset BA22 2QC.</li>
           <li>(19.09.2008) The land was formerly copyhold of the Manor of Barringtons and on the enfranchisement thereof
@@ -49,11 +44,9 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
             This registration takes effect subject to such reservation..</li>
         </ol>
 
-        <h2 class="govuk-heading-m ap-font govuk-!-font-size-19
-
-        ">B: Proprietorship register
+        <h2 class="govuk-heading-m">B: Proprietorship register
         </h2>
-        <ol class="govuk-list govuk-list--number ap-font">
+        <ol class="govuk-list govuk-list--number register-font">
           <li>(11.06.2012) PROPRIETOR: %CHANDLER AIDEN WOODSTOMP% and %MARGUERITTE HOPE WOODSTOMP% of 245 Aspen Rowans,
             Swaslis, *Dorset* BA22 2QC.</li>
           <li>(11.06.2012) The price stated to have been paid on 24 May 2012 was £93,000.</li>
@@ -68,11 +61,9 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
         </ol>
 
 
-        <h2 class="govuk-heading-m ap-font govuk-!-font-size-19
-
-        ">C: Charge register
+        <h2 class="govuk-heading-m">C: Charge register
         </h2>
-        <ol class="govuk-list govuk-list--number ap-font">
+        <ol class="govuk-list govuk-list--number register-font">
           <li>11.06.2012) A Deed of Covenant dated 24 September 1934 made between (1) Emily King and others (Owners) and
             (2) Mitchells & Butlers Limited (Company) contains the following covenants by the owners.
 <br>
@@ -92,16 +83,14 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
       <!-- Tasks section starts here -->
 
-      <div class="govuk-grid-column-one-half column" style="background-color:#f9f9f9">
+      <div class="govuk-grid-column-one-half column" style="background-color:#ffffff">
 
 
 
 
 
 
-        <h1 class="govuk-heading-l ap-font govuk-!-font-size-24
-
-        ">Tasks</h1>
+        <h1 class="govuk-heading-l">Tasks</h1>
 
 
         <!-- First task - yes no  -->
@@ -109,20 +98,20 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              <h1 class="govuk-fieldset__heading ap-font">
+              <h1 class="govuk-fieldset__heading">
                 Do the documents match? And if they do, would you be interested in telling me more about them?
               </h1>
             </legend>
             <div class="govuk-radios govuk-radios--small govuk-radios--inline" data-module="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="match" name="match" type="radio" value="yes">
-                <label class="govuk-label govuk-radios__label ap-font" for="match">
+                <label class="govuk-label govuk-radios__label" for="match">
                   Yes
                 </label>
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="match-no" name="match" type="radio" value="no">
-                <label class="govuk-label govuk-radios__label ap-font" for="match-no">
+                <label class="govuk-label govuk-radios__label" for="match-no">
                   No
                 </label>
               </div>
@@ -135,17 +124,17 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="birthday-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              <h1 class="govuk-fieldset__heading ap-font">
+              <h1 class="govuk-fieldset__heading">
                 When is your birthday?
               </h1>
             </legend>
-            <div id=" birthday-hint" class="govuk-hint ap-font">
+            <div id=" birthday-hint" class="govuk-hint">
               For example, 27 3 2007
             </div>
             <div class="govuk-date-input" id="birthday">
               <div class="govuk-date-input__item">
                 <div class="govuk-form-group">
-                  <label class="govuk-label govuk-date-input__label ap-font" for="birthday-day">
+                  <label class="govuk-label govuk-date-input__label" for="birthday-day">
                     Day
                   </label>
                   <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="birthday-day"
@@ -154,7 +143,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
               </div>
               <div class="govuk-date-input__item">
                 <div class="govuk-form-group">
-                  <label class="govuk-label govuk-date-input__label ap-font" for="birthday-month">
+                  <label class="govuk-label govuk-date-input__label" for="birthday-month">
                     Month
                   </label>
                   <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="birthday-month"
@@ -163,7 +152,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
               </div>
               <div class="govuk-date-input__item">
                 <div class="govuk-form-group">
-                  <label class="govuk-label govuk-date-input__label ap-font" for="birthday-year">
+                  <label class="govuk-label govuk-date-input__label" for="birthday-year">
                     Year
                   </label>
                   <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="birthday-year"
@@ -180,7 +169,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              <h1 class="govuk-fieldset__heading ap-font">
+              <h1 class="govuk-fieldset__heading">
                 Do you like sports?
               </h1>
             </legend>
@@ -189,13 +178,13 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
               <div class="govuk-radios__item  ">
                 <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email"
                   data-aria-controls="conditional-contact">
-                <label class="govuk-label govuk-radios__label ap-font" for="contact">
+                <label class="govuk-label govuk-radios__label" for="contact">
                   Yes
                 </label>
               </div>
               <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
                 <div class="govuk-form-group">
-                  <label class="govuk-label ap-font" for="contact-by-email">
+                  <label class="govuk-label" for="contact-by-email">
                     Why?
                   </label>
                   <input class="govuk-input govuk-!-width-one-third" id="contact-by-email" name="contact-by-email"
@@ -205,13 +194,13 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="phone"
                   data-aria-controls="conditional-contact-2">
-                <label class="govuk-label govuk-radios__label ap-font" for="contact-2">
+                <label class="govuk-label govuk-radios__label" for="contact-2">
                   No
                 </label>
               </div>
               <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
                 <div class="govuk-form-group">
-                  <label class="govuk-label ap-font" for="contact-by-phone">
+                  <label class="govuk-label" for="contact-by-phone">
                     Why?
                   </label>
                   <input class="govuk-input govuk-!-width-one-third" id="contact-by-phone" name="contact-by-phone"
@@ -228,20 +217,20 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              <h1 class="govuk-fieldset__heading ap-font">
+              <h1 class="govuk-fieldset__heading">
                 Do I want to ask you something?
               </h1>
             </legend>
             <div class="govuk-radios govuk-radios--small govuk-radios--inline" data-module="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="ask" name="ask" type="radio" value="yes">
-                <label class="govuk-label govuk-radios__label ap-font" for="ask">
+                <label class="govuk-label govuk-radios__label" for="ask">
                   Yes
                 </label>
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="ask-no" name="ask" type="radio" value="no">
-                <label class="govuk-label govuk-radios__label ap-font" for="ask-no">
+                <label class="govuk-label govuk-radios__label" for="ask-no">
                   No
                 </label>
               </div>
@@ -255,20 +244,20 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              <h1 class="govuk-fieldset__heading ap-font">
+              <h1 class="govuk-fieldset__heading">
                 Maybe I can also ask you something more?
               </h1>
             </legend>
             <div class="govuk-radios govuk-radios--small govuk-radios--inline" data-module="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="more" name="more" type="radio" value="yes">
-                <label class="govuk-label govuk-radios__label ap-font" for="more">
+                <label class="govuk-label govuk-radios__label" for="more">
                   Yes
                 </label>
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="more-no" name="more" type="radio" value="no">
-                <label class="govuk-label govuk-radios__label ap-font" for="more-no">
+                <label class="govuk-label govuk-radios__label" for="more-no">
                   No
                 </label>
               </div>
@@ -282,7 +271,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
         <!-- Button -->
 
 
-        <button class="govuk-button ap-font" data-module="govuk-button">
+        <button class="govuk-button" data-module="govuk-button">
           Go to next page
         </button>
 
