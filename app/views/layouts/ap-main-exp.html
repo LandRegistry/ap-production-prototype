@@ -1,0 +1,35 @@
+{#
+For guidance on how to use layouts see:
+https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
+
+{% block header %}
+	{% from "hmlr/components/header/macro.njk" import hmlrHeader %}
+	{{ hmlrHeader({
+	  serviceName: "Application Processing",
+	  serviceUrl: "#"
+	}) }}
+
+{% endblock %}
+
+
+
+
+{% block footer %}
+	{% from "hmlr/components/footer/macro.njk" import hmlrFooter %}
+	{{ hmlrFooter({
+   meta: {
+     items: [
+       {
+         href: "/",
+         text: "Accessibility statement (opens in new tab)"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+
+{% endblock %}
+
