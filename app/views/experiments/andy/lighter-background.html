@@ -39,21 +39,21 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
 		/* 99% white mixed in with header border green = #fefefc */
 		/* 98% white mixed in with header border green = #fcfdfa */
-/*		background-color: #fcfdfa; */
+		background-color: #fcfdfa; 
 
 		
 		/* grey - home office recommendation https://design.homeoffice.gov.uk/styles/colour */
-		background-color: #f1f1f1;  
+/*		background-color: #f1f1f1;  */
 	}
 
 	/* page background colour - header bottom border (behind the green) off-white */
 	.govuk-header--hmlr {
 
 		/* 98% white mixed in with header border green */
-/*		border-bottom-color: #fcfdfa;*/
+		border-bottom-color: #fcfdfa;
 
 		/* grey - home office recommendation https://design.homeoffice.gov.uk/styles/colour */
-		border-bottom-color: #f1f1f1;
+/*		border-bottom-color: #f1f1f1;*/
 	}
 
 	/* * end block * */
@@ -111,47 +111,17 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
   
 	/* ********************************** */
-  /* register scrolling - if required.  these need checking */
+  /* register scrolling */
   /* ********************************** */
 
-  #register-column {
+  .register-column {
     height: 820px;
   }
 
-/*  .scroll {
+  .scroll {
     overflow: auto;
-  }*/
 
-  .scrollbar
-{
-	overflow-y: scroll;
-}
-
-.force-overflow
-{
-	min-height: 450px;
-}
-
-#register-column::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	border-radius: 10px;
-	background-color: #F5F5F5;
-}
-
-#register-column::-webkit-scrollbar
-{
-	width: 12px;
-	background-color: #F5F5F5;
-}
-
-#register-column::-webkit-scrollbar-thumb
-{
-	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: #555;
-}
-
+  }
 </style>
 
 <!-- Style: at the top the ones overriding, and then the new ones -->
@@ -177,8 +147,8 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 <!-- <hr> -->
 
 <div class="govuk-grid-row govuk-!-margin-top-4">
-  <div id="register-column" class="govuk-grid-column-one-half scrollbar">
-  	<div id="register-container" class="force-overflow">
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
 
     	{% include "./includes/register.html" %}
 
