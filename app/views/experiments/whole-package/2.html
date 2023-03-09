@@ -1,0 +1,302 @@
+{% extends "layouts/ap-main.html" %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<style>
+  .column {
+    height: 820px;
+  }
+
+  .govuk-width-container {
+    max-width: 1440px;
+  }
+
+  .scroll {
+    overflow: auto;
+
+  }
+
+  .govuk-template__body {
+    background-color: #f1f1f1
+
+}
+
+.card-white {
+    background-color: #ffffff
+
+}
+
+
+/* page background colour - header bottom border (behind the green) off-white */
+	.govuk-header--hmlr {
+    border-bottom-color: #789904;
+  }
+
+
+.register-font {
+  font-family: Arial, Helvetica, sans-serif
+}
+
+.ap-font {
+  font-family: Arial, Helvetica, sans-serif
+}
+
+</style>
+
+<!-- Style: at the top the ones overriding, and then the new ones -->
+
+<div class="govuk-width-container" >
+  <main class="govuk-main-wrapper govuk-main-wrapper--l">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half column scroll "
+      >
+        <h1 class="govuk-heading-m ap-font">Register</h1>
+
+        <h2 class="govuk-heading-s ap-font">A: Property register</h2>
+
+        <ol class="govuk-list govuk-list--number register-font govuk-list--spaced">
+          <li>(19.09.2008) The Freehold land shown edged with red on the plan of the above title filed at the Registry
+            and being 245 Apsen Rowans, Swasils, Dorset BA22 2QC.</li>
+          <li>(19.09.2008) The land was formerly copyhold of the Manor of Barringtons and on the enfranchisement thereof
+            there were reserved the mines, minerals and other rights referred to in section 23 of the Copyhold Act 1894.
+            This registration takes effect subject to such reservation..</li>
+        </ol>
+
+        <h2 class="govuk-heading-s ap-font">B: Proprietorship register
+        </h2>
+        <ol class="govuk-list govuk-list--number register-font govuk-list--spaced">
+          <li>(11.06.2012) PROPRIETOR: %CHANDLER AIDEN WOODSTOMP% and %MARGUERITTE HOPE WOODSTOMP% of 245 Aspen Rowans,
+            Swaslis, *Dorset* BA22 2QC.</li>
+          <li>(11.06.2012) The price stated to have been paid on 24 May 2012 was £93,000.</li>
+          <li>(11.06.2012) RESTRICTION: No disposition by a sole proprietor of the registered estate (except a trust
+            corporation) under which capital money arises is to be registered unless authorised by an order of the
+            court.</li>
+
+          <li>(11.06.2012) The Transfer to the proprietor contains a covenant to observe and perform the covenants
+            referred to in the Charges Register and of indemnity in respect thereof.
+          </li>
+
+        </ol>
+
+
+        <h2 class="govuk-heading-s ap-font">C: Charge register
+        </h2>
+        <ol class="govuk-list govuk-list--number register-font govuk-list--spaced">
+          <li>11.06.2012) A Deed of Covenant dated 24 September 1934 made between (1) Emily King and others (Owners) and
+            (2) Mitchells & Butlers Limited (Company) contains the following covenants by the owners.
+<br>
+<br>
+            "The Owners with intent to benefit and protect the licensed and other properties of the Company in the City
+            of Birmingham and elsewhere adjoining or near to the said Estate (and to bind the property hereinafter
+            specified into whosoever hands the same may come but not so as to render the Owners personally liable in
+            damages for any breach of covenant committed after they shall have parted with all interest in the premises
+            in respect of which such breach shall occur) Do hereby COVENANT with the Company and their successors in
+            title owners or occupiers for the time being of all or any of the Company's said properties that the Owners
+            and their successors in title will not nor shall at any time hereafter."</li>
+
+
+        </ol>
+      </div>
+
+
+      <!-- Tasks section starts here -->
+
+      <div class="govuk-grid-column-one-half column"
+      >
+
+
+
+
+
+
+        <h1 class="govuk-heading-m ap-font">Tell us which documents you want to keep</h1>
+
+
+        <!--  document   -->
+
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper card-white">
+            <h2 class="govuk-summary-card__title">1. TR1</h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Document type
+                </dt>
+                <dd class="govuk-summary-list__value">
+                Transfer
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">
+                    Change<span class="govuk-visually-hidden"> age</span>
+                  </a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Document date
+                </dt>
+                <dd class="govuk-summary-list__value">
+                 22 November 2021
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">
+                    <span class="govuk-visually-hidden"> nationality</span>
+                  </a>
+                </dd>
+              </div>
+
+            </dl>
+
+          </div>
+        </div>
+
+          <!-- document 1 -->
+
+          <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper card-white">
+              <h2 class="govuk-summary-card__title">2. SDLT</h2>
+            </div>
+            <div class="govuk-summary-card__content">
+              <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Document type
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                   Evidence
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden"> age</span>
+                    </a>
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Document date
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    <div class="govuk-form-group">
+                      <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+
+
+                        <div class="govuk-date-input" id="passport-issued">
+                          <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                              <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                                Day
+                              </label>
+                              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+                            </div>
+                          </div>
+                          <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                              <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                                Month
+                              </label>
+                              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+                            </div>
+                          </div>
+                          <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                              <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                                Year
+                              </label>
+                              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+                            </div>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                      <span class="govuk-visually-hidden"> nationality</span>
+                    </a>
+                  </dd>
+                </div>
+
+              </dl>
+
+            </div>
+          </div>
+
+
+            <!-- document 3  -->
+
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper card-white">
+            <h2 class="govuk-summary-card__title">3. AP1</h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action"> <a class="govuk-link" href="#">
+                 Remove from list <span class="govuk-visually-hidden"> of University of Gloucestershire</span>
+                </a>
+              </li>
+
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Document type
+                </dt>
+                <dd class="govuk-summary-list__value">
+                 Application form
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">
+                    Change<span class="govuk-visually-hidden"> age</span>
+                  </a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Document date
+                </dt>
+                <dd class="govuk-summary-list__value">
+                 22 November 2021
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">
+                    <span class="govuk-visually-hidden"> nationality</span>
+                  </a>
+                </dd>
+              </div>
+
+            </dl>
+
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Button -->
+
+
+        <button class="govuk-button" data-module="govuk-button">
+         Submit
+        </button>
+
+
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}
