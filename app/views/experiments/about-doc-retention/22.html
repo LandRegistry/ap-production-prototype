@@ -8,7 +8,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
 <style>
   .column {
-    height: 1220px;
+    height: 820px;
   }
 
   .govuk-width-container {
@@ -18,6 +18,10 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
   .scroll {
     overflow: auto;
 
+  }
+
+  .checkbox-fake {
+    background-color: #ff0a0a
   }
 
   .govuk-template__body {
@@ -42,6 +46,9 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
   .ap-font {
     font-family: Arial, Helvetica, sans-serif
   }
+
+
+
 </style>
 
 <!-- Style: at the top the ones overriding, and then the new ones -->
@@ -107,96 +114,76 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
 
 
-        <table class="govuk-table">
-          <caption class="govuk-table__caption govuk-table__caption--m">Tell us which documents you want to keep
-          </caption>
-          <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header ">Document</th>
-              <th scope="col" class="govuk-table__header   ">Document type</th>
-              <th scope="col" class="govuk-table__header  ">Document date</th>
-              <th scope="col" class="govuk-table__header govuk-table__header--numeric ">Actions</th>
-            </tr>
-          </thead>
-          <tbody class="govuk-table__body">
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">1. AP1 form </th>
-              <td class="govuk-table__cell">Application Form </td>
-              <td class="govuk-table__cell">12 April 2020</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric"> <a href="../../experiments/whole-package/9-change-type.html" class="govuk-link">Act on this doc</a>  </td>
 
 
-
-            </tr>
-
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">2. TR1 form </th>
-              <td class="govuk-table__cell">Transfer</td>
-              <td class="govuk-table__cell">
-
-                <div class="govuk-form-group" style="
-              margin-bottom: 10px;">
-                  <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+        <h1 class="govuk-heading-m ap-font">Tell us which documents you want to keep</h1>
 
 
-                    <div class="govuk-date-input" id="passport-issued">
-                      <div class="govuk-date-input__item">
-                        <div class="govuk-form-group ">
-                          <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
-                            Day
+        <!--  DOCUMENT 1 -->
+
+        <div class="govuk-summary-card">
+
+          <div class="govuk-summary-card__title-wrapper card-white">
+            <h2 class="govuk-summary-card__title">1. TR1</h2>
+          </div>
+
+          <div class="govuk-summary-card__content">
+
+            <dl class="govuk-summary-list">
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Document type
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Transfer
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">
+                    Change<span class="govuk-visually-hidden"> document type</span>
+                  </a>
+                </dd>
+              </div>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Document date
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  22 November 2021
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">
+                    <span class="govuk-visually-hidden"></span>
+                  </a>
+                </dd>
+              </div>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__value">
+                      <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
+                          <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                            Exclude this doc
                           </label>
-                          <input class="govuk-input govuk-date-input__input govuk-input--width-2"
-                            id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
-                        </div>
                       </div>
-                      <div class="govuk-date-input__item">
-                        <div class="govuk-form-group">
-                          <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
-                            Month
-                          </label>
-                          <input class="govuk-input govuk-date-input__input govuk-input--width-2"
-                            id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
-                        </div>
-                      </div>
-                      <div class="govuk-date-input__item">
-                        <div class="govuk-form-group">
-                          <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
-                            Year
-                          </label>
-                          <input class="govuk-input govuk-date-input__input govuk-input--width-4"
-                            id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
-                        </div>
-                      </div>
-                    </div>
-                  </fieldset>
-                </div>
-
-
-              </td>
-              <td class="govuk-table__cell govuk-table__cell--numeric"> <a href="#" class="govuk-link">Act on this doc</a>  </td>
+                  </div>
+                </dt>
 
 
 
-            </tr>
+              </div>
 
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">3. Evidence</th>
-              <td class="govuk-table__cell">Miscellaneous</td>
-              <td class="govuk-table__cell">12 April 2020</td>
+            </dl>
 
-              <td class="govuk-table__cell govuk-table__cell--numeric"> <a href="../../experiments/whole-package/9-change-type-remove.html" class="govuk-link">Act on this doc</a>  </td>
-
-            </tr>
+          </div>
+        </div>
 
 
 
 
 
-              </td>
-
-
-          </tbody>
-        </table>
 
 
 
