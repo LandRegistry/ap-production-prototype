@@ -1,0 +1,230 @@
+{% extends "layouts/ap-main.html" %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<style>
+  .column {
+    height: 1220px;
+  }
+
+  .govuk-width-container {
+    max-width: 1440px;
+  }
+
+  .scroll {
+    overflow: auto;
+
+  }
+
+  .govuk-template__body {
+    background-color: #f1f1f1
+  }
+
+  .card-white {
+    background-color: #ffffff
+  }
+
+
+  /* page background colour - header bottom border (behind the green) off-white */
+  .govuk-header--hmlr {
+    border-bottom-color: #789904;
+  }
+
+
+  .register-font {
+    font-family: Arial, Helvetica, sans-serif
+  }
+
+  .ap-font {
+    font-family: Arial, Helvetica, sans-serif
+  }
+</style>
+
+<!-- Style: at the top the ones overriding, and then the new ones -->
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l">
+    <div class="govuk-grid-row">
+
+
+
+      <!-- Tasks section starts here -->
+
+      <div class="govuk-grid-column-two-thirds column">
+
+
+
+
+
+
+        <!--  DOCUMENT 1 -->
+
+
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Documents</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row govuk-!-width-one-quarter">
+              <th scope="col" class="govuk-table__header "> Remove </th>
+              <th scope="col" class="govuk-table__header">Document</th>
+              <th scope="col" class="govuk-table__header ">Document date</th>
+              <th scope="col" class="govuk-table__header ">Document type</th>
+              <th scope="col" class="govuk-table__header "></th>
+
+
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+
+
+
+
+              <td class="govuk-table__cell govuk-table__cell--numeric" style="
+              padding-top: 2px;  ">
+                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox"
+                      value="hmrc">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                    </label>
+                  </div>
+                </div>
+              </td>
+              <th scope="row" class="govuk-table__header">   1. TR1</th>
+
+
+
+
+              <td class="govuk-table__cell ">21 April 2020</td>
+              <td class="govuk-table__cell ">Transfer</td>
+              <td class="govuk-table__cell "> <a class="govuk-link" href="#">
+                  Change document type
+                </a>
+              </td>
+            </tr>
+
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell govuk-table__cell--numeric" style="
+              padding-top: 2px;  ">
+                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox"
+                      value="hmrc">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                    </label>
+                  </div>
+                </div>
+              </td>
+              <th scope="row" class="govuk-table__header">2. TR1</th>
+              <td class="govuk-table__cell ">21 April 2020</td>
+              <td class="govuk-table__cell ">Transfer</td>
+              <td class="govuk-table__cell "> <a class="govuk-link" href="#">
+                  Change document type
+                </a>
+              </td>
+            </tr>
+
+
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell govuk-table__cell--numeric" style="
+              padding-top: 2px;  ">
+                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox"
+                      value="hmrc">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                    </label>
+                  </div>
+                </div>
+              </td>
+              <th scope="row" class="govuk-table__header">3. CHG</th>
+              <td class="govuk-table__cell ">21 April 2020</td>
+              <td class="govuk-table__cell ">Charge</td>
+              <td class="govuk-table__cell "> <a class="govuk-link" href="#">
+                  Change document type
+                </a>
+              </td>
+            </tr>
+
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell govuk-table__cell--numeric" style="
+              padding-top: 2px;  ">
+                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox"
+                      value="hmrc">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                    </label>
+                  </div>
+                </div>
+              </td>
+              <th scope="row" class="govuk-table__header">2. TR1</th>
+              <td class="govuk-table__cell ">21 April 2020</td>
+              <td class="govuk-table__cell ">Transfer</td>
+              <td class="govuk-table__cell "> <a class="govuk-link" href="#">
+                  Change document type
+                </a>
+              </td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+
+          </tbody>
+        </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Button -->
+
+
+        <button class="govuk-button" data-module="govuk-button">
+          Submit
+        </button>
+
+
+
+      </div>
+    </div>
+  </main>
+</div>
+
+
+
+{% endblock %}
+
+<script>
+  $(document).ready(function () {
+    $(".govuk-button").click(function () {
+      $("#culo").hide();
+    });
+    $(".btn2").click(function () {
+      $("p").show();
+    });
+  });
+</script>

@@ -1,0 +1,351 @@
+{% extends "layouts/ap-main.html" %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<style>
+  .column {
+    height: 820px;
+  }
+
+  .govuk-width-container {
+    max-width: 1440px;
+  }
+
+  .scroll {
+    overflow: auto;
+
+  }
+
+  .govuk-template__body {
+    background-color: #f1f1f1
+  }
+
+
+  /* page background colour - header bottom border (behind the green) off-white */
+  .govuk-header--hmlr {
+    border-bottom-color: #789904;
+  }
+
+
+  .register-font {
+    font-family: Arial, Helvetica, sans-serif
+  }
+
+  .ap-font {
+    font-family: Arial, Helvetica, sans-serif
+  }
+</style>
+
+<!-- Style: at the top the ones overriding, and then the new ones -->
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half column scroll ">
+        <h1 class="govuk-heading-m ap-font">Register</h1>
+
+        <h2 class="govuk-heading-s ap-font">A: Property register</h2>
+
+        <ol class="govuk-list govuk-list--number register-font govuk-list--spaced">
+          <li>(19.09.2008) The Freehold land shown edged with red on the plan of the above title filed at the Registry
+            and being 245 Apsen Rowans, Swasils, Dorset BA22 2QC.</li>
+          <li>(19.09.2008) The land was formerly copyhold of the Manor of Barringtons and on the enfranchisement thereof
+            there were reserved the mines, minerals and other rights referred to in section 23 of the Copyhold Act 1894.
+            This registration takes effect subject to such reservation..</li>
+        </ol>
+
+        <h2 class="govuk-heading-s ap-font">B: Proprietorship register
+        </h2>
+        <ol class="govuk-list govuk-list--number register-font govuk-list--spaced">
+          <li>(11.06.2012) PROPRIETOR: %CHANDLER AIDEN WOODSTOMP% and %MARGUERITTE HOPE WOODSTOMP% of 245 Aspen Rowans,
+            Swaslis, *Dorset* BA22 2QC.</li>
+          <li>(11.06.2012) The price stated to have been paid on 24 May 2012 was £93,000.</li>
+          <li>(11.06.2012) RESTRICTION: No disposition by a sole proprietor of the registered estate (except a trust
+            corporation) under which capital money arises is to be registered unless authorised by an order of the
+            court.</li>
+
+          <li>(11.06.2012) The Transfer to the proprietor contains a covenant to observe and perform the covenants
+            referred to in the Charges Register and of indemnity in respect thereof.
+          </li>
+
+        </ol>
+
+
+        <h2 class="govuk-heading-s ap-font">C: Charge register
+        </h2>
+        <ol class="govuk-list govuk-list--number register-font govuk-list--spaced">
+          <li>11.06.2012) A Deed of Covenant dated 24 September 1934 made between (1) Emily King and others (Owners) and
+            (2) Mitchells & Butlers Limited (Company) contains the following covenants by the owners.
+            <br>
+            <br>
+            "The Owners with intent to benefit and protect the licensed and other properties of the Company in the City
+            of Birmingham and elsewhere adjoining or near to the said Estate (and to bind the property hereinafter
+            specified into whosoever hands the same may come but not so as to render the Owners personally liable in
+            damages for any breach of covenant committed after they shall have parted with all interest in the premises
+            in respect of which such breach shall occur) Do hereby COVENANT with the Company and their successors in
+            title owners or occupiers for the time being of all or any of the Company's said properties that the Owners
+            and their successors in title will not nor shall at any time hereafter."
+          </li>
+
+
+        </ol>
+      </div>
+
+
+      <!-- Tasks section starts here -->
+
+      <div class="govuk-grid-column-one-half column">
+
+
+        <a href="../../experiments/whole-package/9.html" class="govuk-back-link">Back</a>
+
+
+
+
+        <h1 class="govuk-heading-m ap-font">Tasks</h1>
+
+
+        <!-- First task - yes no  -->
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              <h1 class="govuk-fieldset__heading ap-font">
+                What is the document type for 3. Evidence?
+              </h1>
+            </legend>
+            <div class="govuk-form-group">
+
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="Abstract">Abstract</option>
+
+
+
+                <option value="Agreement">Agreement</option>
+
+
+
+                <option value="Application Form">Application Form</option>
+
+
+
+                <option value="Assent">Assent</option>
+
+
+
+                <option value="Assignment">Assignment</option>
+
+
+
+                <option value="Charge">Charge</option>
+
+
+
+                <option value="Commonhold">Commonhold</option>
+
+
+
+                <option value="Commonhold Community Statement">Commonhold Community Statement</option>
+
+
+
+                <option value="Complaint Record ">Complaint Record </option>
+
+
+
+                <option value="Conveyance">Conveyance</option>
+
+
+
+                <option value="Correspondence">Correspondence</option>
+
+
+
+                <option value="Court Order ">Court Order </option>
+
+
+
+                <option value="Customer Correspondence">Customer Correspondence</option>
+
+
+
+                <option value="Deed">Deed</option>
+
+
+
+                <option value="Discharge">Discharge</option>
+
+
+
+                <option value="Document List">Document List</option>
+
+
+
+                <option value="E383">E383</option>
+
+
+
+                <option value="Evidence">Evidence</option>
+
+
+
+                <option value="EX1">EX1</option>
+
+
+
+                <option value="EX1A">EX1A</option>
+
+
+
+                <option value="EX3">EX3</option>
+
+
+
+                <option value="Fee Adjustment">Fee Adjustment</option>
+
+
+
+                <option value="Identity">Identity</option>
+
+
+
+                <option value="Indemnity">Indemnity</option>
+
+
+
+                <option value="Indenture">Indenture</option>
+
+
+
+                <option value="Investigation of Crime">Investigation of Crime</option>
+
+
+
+                <option value="Land Registry Correspondence">Land Registry Correspondence</option>
+
+
+
+                <option value="Land Transaction Tax">Land Transaction Tax</option>
+
+
+
+                <option value="Lease">Lease</option>
+
+
+
+                <option value="Licence">Licence</option>
+
+
+
+                <option value="Master Title Record">Master Title Record</option>
+
+
+
+                <option value="Memorandum and Articles of Association">Memorandum and Articles of Association</option>
+
+
+
+                <option value="Miscellaneous">Miscellaneous</option>
+
+
+
+                <option value="Order of the Registrar">Order of the Registrar</option>
+
+
+
+                <option value="Plan">Plan</option>
+
+
+
+                <option value="Power of Attorney">Power of Attorney</option>
+
+
+
+                <option value="Register">Register</option>
+
+
+
+                <option value="Restraint Order">Restraint Order</option>
+
+
+
+                <option value="RQ">RQ</option>
+
+
+
+                <option value="Stamp Duty Land Tax">Stamp Duty Land Tax</option>
+
+
+
+                <option value="Statement of Truth">Statement of Truth</option>
+
+
+
+                <option value="Statutory Declaration">Statutory Declaration</option>
+
+
+
+                <option value="Sub-Charge">Sub-Charge</option>
+
+
+
+                <option value="Surrender of Development Rights">Surrender of Development Rights</option>
+
+
+
+                <option value="Termination Document">Termination Document</option>
+
+
+
+                <option value="Transfer">Transfer</option>
+
+
+
+                <option value="Witness Statement (3rd Party)">Witness Statement (3rd Party)</option>
+
+
+
+                <option value="Witness Statement (LR Staff)">Witness Statement (LR Staff)</option>
+
+
+              </select>
+            </div>
+          </fieldset>
+        </div>
+
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
+                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+               I want to remove this document from the list
+                </label>
+              </div>
+
+            </div>
+          </fieldset>
+        </div>
+
+
+        <!-- Button -->
+
+
+        {{ govukButton({
+          text: "Save changes",
+          href: "../whole-package/9-removed"
+        }) }}
+
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}
