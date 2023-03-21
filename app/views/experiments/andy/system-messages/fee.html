@@ -1,0 +1,243 @@
+{% extends "layouts/ap-main.html" %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+	/* ********************************** */
+	/* arial as default font on all elements */
+	/* ********************************** */
+  * {
+  font-family: Arial, Helvetica, sans-serif !important;
+	}
+	/* * end block * */
+
+
+	/* ********************************** */
+	/* set max page contents width */
+	/* more work to do for left and right whitespace either side of content for responsivness */
+	/* ********************************** */
+	.govuk-width-container {
+    max-width: 1440px;
+  }
+  /* * end block * */
+
+
+  /* ********************************** */
+	/* page background colour - off-white */
+	/* ********************************** */
+	.govuk-template__body {
+
+		/* see
+		https://css-tricks.com/snippets/sass/tint-shade-functions/ for how to use sass mix to get a tint
+		and
+		https://www.sassmeister.com/ for running sass to give us the css value */
+
+		/* 99% white mixed in with header border green = #fefefc */
+		/* 98% white mixed in with header border green = #fcfdfa */
+/*		background-color: #fcfdfa; */
+
+		
+		/* grey - home office recommendation https://design.homeoffice.gov.uk/styles/colour */
+		background-color: #f1f1f1;  
+	}
+
+	/* page background colour - header bottom border (behind the green) off-white */
+	.govuk-header--hmlr {
+
+		/* 98% white mixed in with header border green */
+/*		border-bottom-color: #fcfdfa;*/
+
+		/* grey - home office recommendation https://design.homeoffice.gov.uk/styles/colour */
+		border-bottom-color: #f1f1f1;
+	}
+
+	/* * end block * */
+
+
+  /* ********************************** */
+	/* body content to be close to the header.  allow application information bar to be flush to header */
+	/* ********************************** */
+
+	.govuk-main-wrapper {
+		padding-top: 0;
+	}
+	/* * end block * */
+
+
+  /* ********************************** */
+	/* application information bar */
+	/* ********************************** */
+	#application-info-container {
+		padding-top: 15px;
+		padding-bottom: 35px;
+	}
+
+	#documents-launcher {
+		text-align: right;
+	}
+
+	.title-number, .abr {
+		font-weight: 800;
+	}
+
+	.abr {
+		margin-right: 15px;
+	}
+
+	h1.application-type {
+		display: inline;
+		margin-right:15px;
+	}
+
+	/* * end block * */
+
+
+  /* ********************************** */
+	/* register */
+	/* ********************************** */
+	#register-container {
+		padding-right: 25px;
+	/*	background-color:#f6f6f6;*/
+		border: none;
+		border-bottom: 3px double #a0a0a0;
+	}
+
+	/* * end block * */
+
+  
+	/* ********************************** */
+  /* register scrolling */
+  /* ********************************** */
+
+  .register-column {
+    height: 820px;
+  }
+
+  .scroll {
+    overflow: auto;
+  }
+</style>
+
+<!-- Style: at the top the ones overriding, and then the new ones -->
+
+<div class="govuk-grid-row">
+	<div id="application-info-container">
+		<div class="govuk-grid-column-three-quarters">
+  		<h1 class="govuk-heading-s application-type">Charge and RX1: </h1>
+
+  				<span>ABR: </span><span class="abr">123456</span>
+  				<span>Title: </span><span class="title-number">EX365565</span>
+
+	  </div>
+	  
+	  <div class="govuk-grid-column-one-quarter">
+	  	<p id="documents-launcher">
+	      <a href="_document-viewer" class="govuk-link document-link js-documents-window" target="_blank">Application documents</a>
+			</p>
+		</div>
+	</div>
+</div>
+
+<!-- <hr> -->
+
+<div class="govuk-grid-row govuk-!-margin-top-4">
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "../includes/register.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+
+
+    <h2 class="govuk-heading-l">Tasks</h2>
+
+
+    <!-- First task - yes no  -->
+
+      {{ govukRadios({
+        idPrefix: 'correct-fee',
+        name: 'correct-fee',
+        classes: 'govuk-radios--small govuk-radios--inline',
+        fieldset: {
+          legend: {
+            text: 'Has the correct fee been paid?',
+            classes: 'govuk-fieldset__legend--s'
+          }
+        },
+        hint: {
+          html: '<p><a class="govuk-link" href="#0">Open fee calculator (opens a new tab)</a></p>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>Fee paid: £105</li>
+                  <li>Channel: Business Gateway</li>
+                </ul>'
+        },
+        items: [
+          {
+            html: 'Yes',
+            value: 'Yes',
+            checked: checked('correct-fee','Yes')
+          },
+          {
+            html: 'No',
+            value: 'No',
+            checked: checked('correct-fee','No')
+          }
+        ]
+      }) }}
+
+
+      {{ govukRadios({
+        idPrefix: 'correct-fee',
+        name: 'correct-fee',
+        classes: 'govuk-radios--small govuk-radios--inline',
+        fieldset: {
+          legend: {
+            text: 'Has the correct fee been paid?',
+            classes: 'govuk-fieldset__legend--s'
+          }
+        },
+        hint: {
+          html: '<p><a class="govuk-link" href="#0">Open fee calculator (opens a new tab)</a></p>
+                <p>
+                	Manually Look up the fee paid in Daylist.  AP is unable to look up the fee paid right now.
+                </p>'
+        },
+        items: [
+          {
+            html: 'Yes',
+            value: 'Yes',
+            checked: checked('correct-fee','Yes')
+          },
+          {
+            html: 'No',
+            value: 'No',
+            checked: checked('correct-fee','No')
+          }
+        ]
+      }) }}
+
+    <!-- Button -->
+
+
+    <button class="govuk-button" data-module="govuk-button">
+      Go to next page
+    </button>
+
+
+
+  </div>
+
+</div>
+
+{% endblock %}
