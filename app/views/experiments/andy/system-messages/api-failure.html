@@ -162,7 +162,24 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
   <div class="govuk-grid-column-one-half register-column scroll ">
   	<div id="register-container">
 
-    	{% include "../includes/register.html" %}
+    	<!-- {% include "../includes/register.html" %} -->
+    	
+    	<div class="govuk-notification-banner govuk-notification-banner--error" role="region"
+			  aria-labelledby="govuk-notification-banner-title"
+			  data-module="govuk-notification-banner">
+			  <div class="govuk-notification-banner__header">
+			    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+			      System error
+			    </h2>
+			  </div>
+			  <div class="govuk-notification-banner__content">
+			    <p class="govuk-notification-banner__heading">
+			      Unable to load the register.
+			      <a class="govuk-notification-banner__link" href="#">Reload the register</a>
+			    </p>
+			    <p>If this continues to be a problem call the service desk.</p>
+			  </div>
+			</div>
 
     </div>
   </div>
@@ -176,7 +193,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
     <h2 class="govuk-heading-l">Tasks</h2>
 
 
-<div class="govuk-notification-banner" role="region"
+<!-- <div class="govuk-notification-banner" role="region"
   aria-labelledby="govuk-notification-banner-title"
   data-module="govuk-notification-banner">
   <div class="govuk-notification-banner__header">
@@ -190,9 +207,9 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
       <a class="govuk-notification-banner__link" href="#">View application</a>.
     </p>
   </div>
-</div>
+</div> -->
 
-<div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
+<!-- <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
   aria-labelledby="govuk-notification-banner-title"
   data-module="govuk-notification-banner">
   <div class="govuk-notification-banner__header">
@@ -206,10 +223,10 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
     </h3>
     <p class="govuk-body">Contact <a class="govuk-notification-banner__link" href="#">example@department.gov.uk</a> if you think there’s a problem.</p>
   </div>
-</div>
+</div> -->
 
 
-<div class="govuk-notification-banner govuk-notification-banner--error" role="region"
+<!-- <div class="govuk-notification-banner govuk-notification-banner--error" role="region"
   aria-labelledby="govuk-notification-banner-title"
   data-module="govuk-notification-banner">
   <div class="govuk-notification-banner__header">
@@ -224,7 +241,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
     </p>
     <p>If this continues to be a problem call the service desk.</p>
   </div>
-</div>
+</div> -->
 
     <!-- First task - yes no  -->
 
