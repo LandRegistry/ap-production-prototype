@@ -597,19 +597,26 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
 
 
+
         <!-- Button -->
 
 
-        <button class="govuk-button" data-module="govuk-button">
-          Submit
-        </button>
 
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: "Submit"
+
+  }) }}
+
+  <a class="govuk-link" href="#">Return to Workflow</a>
+</div>
 
 
       </div>
 
 
 
-{% endblock %}
 
+
+{% endblock %}
 
