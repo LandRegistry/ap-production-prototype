@@ -195,7 +195,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
           }
         ]
       }) }}
-
+<hr>
 
       {{ govukRadios({
         idPrefix: 'correct-fee',
@@ -210,7 +210,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
         hint: {
           html: '<p><a class="govuk-link" href="#0">Open fee calculator (opens a new tab)</a></p>
                 <p>
-                	Manually Look up the fee paid in Daylist.  AP is unable to look up the fee paid right now.
+                	<a class="govuk-notification-banner__link" href="#">Check daylist</a> for fee paid and channel information
                 </p>'
         },
         items: [
@@ -226,7 +226,94 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
           }
         ]
       }) }}
+<hr>
 
+      {% set html %}
+
+      <p><a class="govuk-link" href="#0">Open fee calculator (opens a new tab)</a></p>
+
+<div class="govuk-notification-banner" role="region"
+  aria-labelledby="govuk-notification-banner-title"
+  data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Important
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-body">
+      <a class="govuk-notification-banner__link" href="#">Check daylist</a> for fee paid and channel information
+    </p>
+  </div>
+</div>
+
+      {% endset %}
+
+
+      {{ govukRadios({
+        idPrefix: 'correct-fee',
+        name: 'correct-fee',
+        classes: 'govuk-radios--small govuk-radios--inline',
+        fieldset: {
+          legend: {
+            text: 'Has the correct fee been paid?',
+            classes: 'govuk-fieldset__legend--s'
+          }
+        },
+        hint: {
+          html: html
+        },
+        items: [
+          {
+            html: 'Yes',
+            value: 'Yes',
+            checked: checked('correct-fee','Yes')
+          },
+          {
+            html: 'No',
+            value: 'No',
+            checked: checked('correct-fee','No')
+          }
+        ]
+      }) }}
+
+<hr>
+      {% set html %}
+
+<p><a class="govuk-link" href="#0">Open fee calculator (opens a new tab)</a></p>
+<div class="govuk-inset-text">
+  <a class="govuk-notification-banner__link" href="#">Check daylist</a> for fee paid and channel information
+</div>
+
+      {% endset %}
+
+
+      {{ govukRadios({
+        idPrefix: 'correct-fee',
+        name: 'correct-fee',
+        classes: 'govuk-radios--small govuk-radios--inline',
+        fieldset: {
+          legend: {
+            text: 'Has the correct fee been paid?',
+            classes: 'govuk-fieldset__legend--s'
+          }
+        },
+        hint: {
+          html: html
+        },
+        items: [
+          {
+            html: 'Yes',
+            value: 'Yes',
+            checked: checked('correct-fee','Yes')
+          },
+          {
+            html: 'No',
+            value: 'No',
+            checked: checked('correct-fee','No')
+          }
+        ]
+      }) }}
     <!-- Button -->
 
 
