@@ -1,0 +1,287 @@
+{% extends "layouts/ap-main.html" %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+	/* ********************************** */
+	/* arial as default font on all elements */
+	/* ********************************** */
+  * {
+  font-family: Arial, Helvetica, sans-serif !important;
+	}
+	/* * end block * */
+
+
+	/* ********************************** */
+	/* set max page contents width */
+	/* more work to do for left and right whitespace either side of content for responsivness */
+	/* ********************************** */
+	.govuk-width-container {
+    max-width: 1440px;
+  }
+  /* * end block * */
+
+
+  /* ********************************** */
+	/* page background colour - off-white */
+	/* ********************************** */
+	.govuk-template__body {
+
+		/* see
+		https://css-tricks.com/snippets/sass/tint-shade-functions/ for how to use sass mix to get a tint
+		and
+		https://www.sassmeister.com/ for running sass to give us the css value */
+
+		/* 99% white mixed in with header border green = #fefefc */
+		/* 98% white mixed in with header border green = #fcfdfa */
+/*		background-color: #fcfdfa; */
+
+		
+		/* grey - home office recommendation https://design.homeoffice.gov.uk/styles/colour */
+		background-color: #f1f1f1;  
+	}
+
+	/* page background colour - header bottom border (behind the green) off-white */
+	.govuk-header--hmlr {
+
+		/* 98% white mixed in with header border green */
+/*		border-bottom-color: #fcfdfa;*/
+
+		/* grey - home office recommendation https://design.homeoffice.gov.uk/styles/colour */
+		border-bottom-color: #f1f1f1;
+	}
+
+	/* * end block * */
+
+
+  /* ********************************** */
+	/* body content to be close to the header.  allow application information bar to be flush to header */
+	/* ********************************** */
+
+	.govuk-main-wrapper {
+		padding-top: 0;
+	}
+	/* * end block * */
+
+
+  /* ********************************** */
+	/* application information bar */
+	/* ********************************** */
+	#application-info-container {
+		padding-top: 15px;
+		padding-bottom: 35px;
+	}
+
+	#documents-launcher {
+		text-align: right;
+	}
+
+	.title-number, .abr {
+		font-weight: 800;
+	}
+
+	.abr {
+		margin-right: 15px;
+	}
+
+	h1.application-type {
+		display: inline;
+		margin-right:15px;
+	}
+
+	/* * end block * */
+
+
+  /* ********************************** */
+	/* register */
+	/* ********************************** */
+	#register-container {
+		padding-right: 25px;
+	/*	background-color:#f6f6f6;*/
+		border: none;
+		border-bottom: 3px double #a0a0a0;
+	}
+
+	/* * end block * */
+
+  
+	/* ********************************** */
+  /* register scrolling */
+  /* ********************************** */
+
+  .register-column {
+    height: 820px;
+  }
+
+  .scroll {
+    overflow: auto;
+  }
+
+  /* * end block * */
+
+
+	/* ********************************** */
+  /* notification banner for in-page system errors */
+  /* ********************************** */
+  .govuk-notification-banner--error {
+		border-color: #d4351c;
+		background-color: #d4351c;
+  }
+
+  /* * end block * */
+</style>
+
+<!-- Style: at the top the ones overriding, and then the new ones -->
+
+<div class="govuk-grid-row">
+	<div id="application-info-container">
+		<div class="govuk-grid-column-three-quarters">
+  		<h1 class="govuk-heading-s application-type">Charge and RX1: </h1>
+
+  				<span>ABR: </span><span class="abr">123456</span>
+  				<span>Title: </span><span class="title-number">EX365565</span>
+
+	  </div>
+	  
+	  <div class="govuk-grid-column-one-quarter">
+	  	<p id="documents-launcher">
+	      <a href="_document-viewer" class="govuk-link document-link js-documents-window" target="_blank">Application documents</a>
+			</p>
+		</div>
+	</div>
+</div>
+
+<!-- <hr> -->
+
+<div class="govuk-grid-row govuk-!-margin-top-4">
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+
+    <div class="casework-tasks-container">
+
+      <div class="checklist" data-testid="task-checklist-container">
+        <div class="checklist-header">
+          <h2 class="govuk-heading-m">Verified by automation</h2>
+          <p class="govuk-body govuk-body__extra-margin">You do not need to check these details.</p>
+        </div>
+        <div class="checklist-container">
+          <div class="checklist-items">
+            <h3 class="govuk-heading-s">Daylist</h3>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>No prior applications</li>
+              <li>No official searches</li>
+              <li>Not a development title</li>
+              <li>Not a closed title</li>
+            </ul>
+            <br>
+          </div>
+        </div>
+      </div>
+
+
+      <h2 class="govuk-heading-l">Tasks</h2>
+
+
+		<div class="govuk-notification-banner" role="region"
+		  aria-labelledby="govuk-notification-banner-title"
+		  data-module="govuk-notification-banner">
+		  <div class="govuk-notification-banner__header">
+		    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+		      Important
+		    </h2>
+		  </div>
+		  <div class="govuk-notification-banner__content">
+		    <p class="govuk-notification-banner__heading">
+		      <a class="govuk-notification-banner__link" href="#">Send to workflow</a> to complete this applciation.
+		    </p>
+		  </div>
+		</div>
+
+
+
+    <!-- First task - yes no  -->
+
+      {{ govukRadios({
+        idPrefix: 'property-match',
+        name: 'property-match',
+        classes: 'js-no-return-to-workflow / govuk-radios--small govuk-radios--inline',
+        fieldset: {
+          legend: {
+            html: 'Does the property match?',
+            classes: 'govuk-fieldset__legend--s'
+          }
+        },
+        items: [
+          {
+            html: 'Yes',
+            value: 'Yes',
+            checked: checked('property-match','Yes')
+          },
+          {
+            html: 'No',
+            value: 'No',
+            checked: checked('property-match','No')
+          }
+        ]
+      }) }}
+
+      {{ govukRadios({
+        idPrefix: 'customer-match',
+        name: 'customer-match',
+        classes: 'js-no-return-to-workflow / govuk-radios--small govuk-radios--inline',
+        fieldset: {
+          legend: {
+            html: 'Do following customer details match documents?',
+            classes: 'govuk-fieldset__legend--s'
+          }
+        },
+        hint: {
+          html: '<ul class="govuk-list govuk-list--bullet">
+                  <li>Key number: 6596212</li>
+                  <li>Customer name(s): Perry, Barton & Shaw LLP & Affiliates</li>
+                </ul>'
+        },
+        items: [
+          {
+            html: 'Yes',
+            value: 'Yes',
+            checked: checked('customer-match','Yes')
+          },
+          {
+            html: 'No',
+            value: 'No',
+            checked: checked('customer-match','No')
+          }
+        ]
+      }) }}
+
+
+    <!-- Button -->
+
+
+    <button class="govuk-button" data-module="govuk-button">
+      Go to next page
+    </button>
+
+
+
+  </div>
+
+</div>
+
+{% endblock %}

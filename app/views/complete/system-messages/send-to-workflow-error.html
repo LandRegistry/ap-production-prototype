@@ -1,0 +1,20 @@
+{% extends "layouts/ap-main.html" %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Sorry, there is a problem sending this application to workflow</h1>
+      <p>You can:</p>
+      <ul class="govuk-list govuk-list--bullet">
+	      <li>try again to <a class="govuk-link" href="#">send to workflow</a></li>
+	      <li>contact your team leader</li>
+	    </ul>
+    </div>
+  </div>
+{% endblock %}
