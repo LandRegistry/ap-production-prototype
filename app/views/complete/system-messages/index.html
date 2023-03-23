@@ -1,0 +1,34 @@
+{% extends "layouts/ap-main.html" %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h2 class="govuk-heading-l">System messages</h2>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        <a class="govuk-link" href="https://design-system.service.gov.uk/components/error-message/">Error messages</a> and <a class="govuk-link" href="https://design-system.service.gov.uk/components/error-summary/">Error summary</a> - as per the Gov design system
+      </li>
+
+      <li>
+        <a class="govuk-link" href="send-to-workflow-error">system is unable to send the application to workflow</a> (i.e. the microservice that performs that action is not responding)
+        <br>- not yet tested with caseworkers
+      </li>
+
+      <li>
+        <a class="govuk-link" href="preliminary-page-eligibility">application cannot be processed in AP</a>. On the preminiary questions page, No to one of the answers that means we dont want to start drafting, it should go to workflow to be investigated/rejected/requisitioned in legacy systems
+        <br>- not yet tested with caseworkers
+      </li>
+    </ul>
+
+
+  </div>
+</div>
+
+{% endblock %}
