@@ -7,6 +7,88 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 {% set mainClasses = "govuk-main-wrapper--l" %}
 
 {% block content %}
+
+<style>
+
+	/* ********************************** */
+	/* arial as default font on all elements */
+	/* ********************************** */
+  * {
+  font-family: Arial, Helvetica, sans-serif !important;
+	}
+	/* * end block * */
+
+  /* ********************************** */
+	/* body content to be close to the header.  allow application information bar to be flush to header */
+	/* ********************************** */
+
+	.govuk-main-wrapper {
+		padding-top: 0;
+	}
+	/* * end block * */
+
+
+  /* ********************************** */
+	/* application information bar */
+	/* ********************************** */
+	#application-info-container {
+		padding-top: 15px;
+		padding-bottom: 35px;
+		border-bottom: 1px black solid;
+	}
+
+	.ap-no-column-l-r-padding {
+		padding-left:0px;
+		padding-right:0px;
+	}
+
+	.ap-no-row-l-r-margin {
+		margin-left:0px;
+		margin-right:0px;
+	}
+
+	#documents-launcher {
+		text-align: right;
+	}
+
+	.title-number, .abr {
+		font-weight: 800;
+	}
+
+	.abr {
+		margin-right: 15px;
+	}
+
+	h1.application-type {
+		display: inline;
+		margin-right:15px;
+	}
+
+	/* * end block * */
+
+</style>
+
+
+	<div class="govuk-grid-row ap-no-row-l-r-margin govuk-!-margin-bottom-4">
+		<div id="application-info-container">
+			<div class="govuk-grid-column-three-quarters ap-no-column-l-r-padding">
+	  		<h1 class="govuk-heading-s application-type">Charge and RX1: </h1>
+
+	  				<span>ABR: </span><span class="abr">123456</span>
+	  				<span>Title: </span><span class="title-number">EX365565</span>
+
+		  </div>
+		  
+		  <div class="govuk-grid-column-one-quarter ap-no-column-l-r-padding">
+<!-- 		  	<p id="documents-launcher">
+		      <a href="_document-viewer" class="govuk-link document-link js-documents-window" target="_blank">Application documents</a>
+				</p> -->
+			</div>
+		</div>
+	</div>
+
+
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-l">Sorry, there is a problem sending this application to workflow</h1>

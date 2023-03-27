@@ -75,6 +75,17 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 	#application-info-container {
 		padding-top: 15px;
 		padding-bottom: 35px;
+		border-bottom: 1px black solid;
+	}
+
+	.ap-no-column-l-r-padding {
+		padding-left:0px;
+		padding-right:0px;
+	}
+
+	.ap-no-row-l-r-margin {
+		margin-left:0px;
+		margin-right:0px;
 	}
 
 	#documents-launcher {
@@ -138,9 +149,9 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
 <!-- Style: at the top the ones overriding, and then the new ones -->
 
-<div class="govuk-grid-row">
+<div class="govuk-grid-row ap-no-row-l-r-margin govuk-!-margin-bottom-4">
 	<div id="application-info-container">
-		<div class="govuk-grid-column-three-quarters">
+		<div class="govuk-grid-column-three-quarters ap-no-column-l-r-padding">
   		<h1 class="govuk-heading-s application-type">Charge and RX1: </h1>
 
   				<span>ABR: </span><span class="abr">123456</span>
@@ -148,7 +159,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
 	  </div>
 	  
-	  <div class="govuk-grid-column-one-quarter">
+	  <div class="govuk-grid-column-one-quarter ap-no-column-l-r-padding">
 	  	<p id="documents-launcher">
 	      <a href="_document-viewer" class="govuk-link document-link js-documents-window" target="_blank">Application documents</a>
 			</p>
@@ -158,7 +169,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
 <!-- <hr> -->
 
-<div class="govuk-grid-row govuk-!-margin-top-4">
+<div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half register-column scroll ">
   	<div id="register-container">
 
@@ -207,7 +218,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 		  </div>
 		  <div class="govuk-notification-banner__content">
 		    <p class="govuk-notification-banner__heading">
-		      <a class="govuk-notification-banner__link" href="#">Send to workflow</a> to complete this applciation.
+		      <a class="govuk-notification-banner__link" href="#">Send to workflow</a> to complete this application.
 		    </p>
 		  </div>
 		</div>
