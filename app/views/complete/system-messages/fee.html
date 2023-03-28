@@ -68,6 +68,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 	}
 	/* * end block * */
 
+
   /* ********************************** */
 	/* application information bar */
 	/* ********************************** */
@@ -132,19 +133,6 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
   .scroll {
     overflow: auto;
   }
-
-  /* * end block * */
-
-
-	/* ********************************** */
-  /* notification banner for in-page system errors */
-  /* ********************************** */
-  .govuk-notification-banner--error {
-		border-color: #d4351c;
-		background-color: #d4351c;
-  }
-
-  /* * end block * */
 </style>
 
 <!-- Style: at the top the ones overriding, and then the new ones -->
@@ -167,9 +155,9 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 		</div>
 	</div>
 
+<!-- <hr> -->
 
-
-<div class="govuk-grid-row">
+<div class="govuk-grid-row govuk-!-margin-top-4">
   <div class="govuk-grid-column-one-half register-column scroll ">
   	<div id="register-container">
 
@@ -183,104 +171,40 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
   <div class="govuk-grid-column-one-half column">
 
-    <div class="casework-tasks-container">
 
-      <div class="checklist" data-testid="task-checklist-container">
-        <div class="checklist-header">
-          <h2 class="govuk-heading-m">Verified by automation</h2>
-          <p class="govuk-body govuk-body__extra-margin">You do not need to check these details.</p>
-        </div>
-        <div class="checklist-container">
-          <div class="checklist-items">
-            <h3 class="govuk-heading-s">Daylist</h3>
-            <ul class="govuk-list govuk-list--bullet">
-              <li>No prior applications</li>
-              <li>No official searches</li>
-              <li>Not a development title</li>
-              <li>Not a closed title</li>
-            </ul>
-            <br>
-          </div>
-        </div>
-      </div>
+    <h2 class="govuk-heading-l">Tasks</h2>
 
 
-      <h2 class="govuk-heading-l">Tasks</h2>
-
-
-		<div class="govuk-notification-banner" role="region"
-		  aria-labelledby="govuk-notification-banner-title"
-		  data-module="govuk-notification-banner">
-		  <div class="govuk-notification-banner__header">
-		    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-		      Important
-		    </h2>
-		  </div>
-		  <div class="govuk-notification-banner__content">
-		    <p class="govuk-notification-banner__heading">
-		      <a class="govuk-notification-banner__link" href="#">Send to Workflow</a> to complete this application.
-		    </p>
-		  </div>
-		</div>
-
-
-
-    <!-- First task - yes no  -->
 
       {{ govukRadios({
-        idPrefix: 'property-match',
-        name: 'property-match',
-        classes: 'js-no-return-to-workflow / govuk-radios--small govuk-radios--inline',
+        idPrefix: 'correct-fee',
+        name: 'correct-fee',
+        classes: 'govuk-radios--small govuk-radios--inline',
         fieldset: {
           legend: {
-            html: 'Does the property match?',
-            classes: 'govuk-fieldset__legend--s'
-          }
-        },
-        items: [
-          {
-            html: 'Yes',
-            value: 'Yes',
-            checked: checked('property-match','Yes')
-          },
-          {
-            html: 'No',
-            value: 'No',
-            checked: 'true'
-          }
-        ]
-      }) }}
-
-      {{ govukRadios({
-        idPrefix: 'customer-match',
-        name: 'customer-match',
-        classes: 'js-no-return-to-workflow / govuk-radios--small govuk-radios--inline',
-        fieldset: {
-          legend: {
-            html: 'Do following customer details match documents?',
+            text: 'Has the correct fee been paid?',
             classes: 'govuk-fieldset__legend--s'
           }
         },
         hint: {
-          html: '<ul class="govuk-list govuk-list--bullet">
-                  <li>Key number: 6596212</li>
-                  <li>Customer name(s): Perry, Barton & Shaw LLP & Affiliates</li>
-                </ul>'
+          html: '<p><a class="govuk-link" href="#0">Open fee calculator (opens a new tab)</a></p>
+                <p>
+                	<a class="govuk-notification-banner__link" href="#">Check Daylist</a> for fee paid and channel information
+                </p>'
         },
         items: [
           {
             html: 'Yes',
             value: 'Yes',
-            checked: checked('customer-match','Yes')
+            checked: checked('correct-fee','Yes')
           },
           {
             html: 'No',
             value: 'No',
-            checked: checked('customer-match','No')
+            checked: checked('correct-fee','No')
           }
         ]
       }) }}
-
 
     <!-- Button -->
 
