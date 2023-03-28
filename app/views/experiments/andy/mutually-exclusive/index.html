@@ -1,0 +1,47 @@
+{% extends "layouts/ap-main.html" %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h2 class="govuk-heading-l">Andy experiment - mutually exclusive</h2>
+    <p class="">when the caseworker is asked for a or, b</p>
+
+    <h3 class="govuk-heading-m">show me it...</h3>
+    <ul class="govuk-list">
+    	<li><a href="charge-current">current as-is tasks</a> ported here, no JS</li>
+    	<li><a href="charge-amount">reworked amount</a> - not yet started</li>
+			<li><a href="charge-date">reworked date</a> - not yet started</li>
+    </ul>
+
+
+
+    <h3 class="govuk-heading-m">background information</h3>
+    <p>when the caseworker is asked for a or, b</p>
+
+    <p>current examples are:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+			<li>charge amount (input it), or not stated (say not stated)</li>
+      <li>charge date (input it), or no date (say no date)</li>
+      <li>document retention - whats the date of this document, or not given/cant read it</li>
+    </ul>
+
+    <p>Gov design system has <a href="https://design-system.service.gov.uk/components/checkboxes/">mutually exclusive pattern for checkboxes</a></p>
+    <p>We want to have an input field(s) or a check box</p>
+    <p>We dont want to ask a yes/ no question first - as almost all the time the caseworker will have the charge amount or date so we want them to just enter that and say not present occasionally.  Optimise around its always present</p>
+    <p>ONS have a mutually exclusive component - similar in behaviour to the Gov design system, for more than just checkbox list - that looks just like the circumstances we want: <a href="https://service-manual.ons.gov.uk/design-system/components/mutually-exclusive#date">Date</a> | <a href="https://service-manual.ons.gov.uk/design-system/components/mutually-exclusive#number">Number</a></p>
+
+    <p>we need a non Javascript example.  and can progressively enhance it for Javascript users (nearly all).  We like the ONS behaviour, but make it GOV styled - e.g. no borders round the checkbox, and GOV error styling.</p>
+
+    <p>In <a href="https://hmlr-application-processing.herokuapp.com/non-md-cre/v1/a/02-your-tasks">the current way we do charge date and amount</a>, we have Javascript behaviour that deactivates the date input.  We want to avoid deactivating, and improve the pattern making it more GOV like.</p>
+
+  </div>
+</div>
+
+{% endblock %}
