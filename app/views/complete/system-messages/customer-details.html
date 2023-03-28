@@ -175,33 +175,31 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
     <h2 class="govuk-heading-l">Tasks</h2>
 
 
-
       {{ govukRadios({
-        idPrefix: 'correct-fee',
-        name: 'correct-fee',
-        classes: 'govuk-radios--small govuk-radios--inline',
+        idPrefix: 'customer-match',
+        name: 'customer-match',
+        classes: 'js-no-return-to-workflow / govuk-radios--small govuk-radios--inline',
         fieldset: {
           legend: {
-            text: 'Has the correct fee been paid?',
+            html: 'Do following customer details match documents?',
             classes: 'govuk-fieldset__legend--s'
           }
         },
         hint: {
-          html: '<p><a class="govuk-link" href="#">Open fee calculator (opens a new tab)</a></p>
-                <p>
-                	<a class="govuk-link" href="#">Check Daylist</a> for fee paid and channel information
+          html: '<br><p>
+                	<a class="govuk-link" href="#">Check Daylist</a> for customer details
                 </p>'
         },
         items: [
           {
             html: 'Yes',
             value: 'Yes',
-            checked: checked('correct-fee','Yes')
+            checked: checked('customer-match','Yes')
           },
           {
             html: 'No',
             value: 'No',
-            checked: checked('correct-fee','No')
+            checked: checked('customer-match','No')
           }
         ]
       }) }}
