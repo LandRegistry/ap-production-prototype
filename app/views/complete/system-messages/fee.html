@@ -101,6 +101,10 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 		padding-right:0px;
 	}
 
+	.ap-no-column-r-padding {
+		padding-right:0px;
+	}
+
 	.ap-no-row-l-r-margin {
 		margin-left:0px;
 		margin-right:0px;
@@ -135,7 +139,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
   }
 </style>
 
-<!-- Style: at the top the ones overriding, and then the new ones -->
+	<!-- application information  -->
 
 	<div class="govuk-grid-row ap-no-row-l-r-margin">
 		<div id="application-info-container">
@@ -147,7 +151,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
 		  </div>
 
-		  <div class="govuk-grid-column-one-quarter">
+		  <div class="govuk-grid-column-one-quarter ap-no-column-r-padding">
 		  	<p id="documents-launcher">
 		      <a href="_document-viewer" class="govuk-link document-link js-documents-window" target="_blank">Application documents</a>
 				</p>
@@ -155,7 +159,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 		</div>
 	</div>
 
-<!-- <hr> -->
+	<!-- end - application information  -->
 
 <div class="govuk-grid-row govuk-!-margin-top-4">
   <div class="govuk-grid-column-one-half register-column scroll ">
@@ -210,7 +214,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
 
     <button class="govuk-button" data-module="govuk-button">
-      Go to next page
+      Next
     </button>
 
 
