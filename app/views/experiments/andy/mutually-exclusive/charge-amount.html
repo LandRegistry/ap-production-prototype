@@ -163,6 +163,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
 	/* ********************************** */
   /* ONS visually hidden for assitive technolgy features (text) on mutually exclusive */
+  /* this style can all be removed when line 6937 of the JS changes the class to govuk-visually-hidden */
   /* ********************************** */
   .ons-u-vh {
     border: 0;
@@ -1132,6 +1133,14 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
  /* * end block * */
 
 
+ /* * this class has been added to the ONS javascript to remove the need for all their visually hidden css - class ons-u-vh */
+ /* toggle this off to properly demo the assistive tech features in the ons code  * */
+ .govuk-visually-hidden--HMLR {
+ 	display:none;
+ }
+  /* * end block * */
+
+
 </style>
 
 <!-- Style: at the top the ones overriding, and then the new ones -->
@@ -1206,7 +1215,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
         ]
       }) }}
 
-<!-- original  -->
+<!-- original ONS code -->
 <!-- <div class="ons-question ons-u-mb-l">
   <div class="ons-question__answer ons-u-mb-m">
     <fieldset class="ons-fieldset">
@@ -1246,8 +1255,8 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
 <hr>
 
-<p>Gov-ified the ONS mutually exclusive pattern - using ONS's javascript.  Contains visually hidden content for assistive technology to inform whats happening</p>
-		<!-- gov-ifying ONS mutually exclusive -->
+<p>Gov-ified the ONS mutually exclusive pattern - using ONS's javascript.  Contains visually hidden content for assistive technology to inform whats happening.</p>
+		<!-- GOVUK-ified ONS mutually exclusive -->
 		  <div class="govuk-form-group">
 		    <fieldset class="govuk-fieldset">
 		      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
@@ -1257,44 +1266,22 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 	        <div class="ons-js-mutually-exclusive ons-mutually-exclusive">
 	          <label class="govuk-label govuk-label--s xx-govuk-visually-hidden" for="charge-amount">Charge amount</label>
 
-	<!--           <span class="ons-input-type ons-input-type--prefix">
-	            <span class="ons-input-type__inner">
-	              <input type="text" id="currency"
-	                class="ons-input ons-input--text ons-input-type__input ons-input-number--w-4 ons-js-exclusive-group-item"
-	                aria-labelledby="annual-salary-gpb-prefix" pattern="[0-9]*" inputmode="numeric" min />
-	              <abbr id="annual-salary-gpb-prefix" class="ons-input-type__type ons-js-input-abbr"
-	                title="British pounds (GBP)">£</abbr>
-	            </span>
-	          </span> -->
-
 	          <div class="govuk-input__wrapper">
 					    <div class="govuk-input__prefix" aria-hidden="true">£</div>
 					    <input class="govuk-input govuk-input--width-10 ons-js-exclusive-group-item" id="charge-amount" name="charge-amount" type="text" spellcheck="false">
 					  </div>
-
-	<!--           <p class="ons-checkboxes--mutually-exclusive__item ons-u-mt-s">
-	            <span class="ons-checkboxes__label ons-u-fs-r--b" aria-hidden="true">Or</span>
-	            <span class="ons-checkbox">
-	              <input type="checkbox" id="currency-checkbox"
-	                class="ons-checkbox__input ons-js-checkbox ons-js-exclusive-option" value="no-currency"
-	                name="no-currency" data-deselect-message="Selecting this will clear the charge amount">
-	              <label class=" ons-checkbox__label " for="currency-checkbox" id="currency-checkbox-label"><span
-	                  class="ons-u-vh">Or, </span> Undisclosed or 0.</label>
-	            </span>
-	          </p> -->
-
 
 						<div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
 							<div class="govuk-checkboxes__divider hmlr-checkboxes__divider--mutually-exclusive" aria-hidden="true">or</div>
 				      <div class="govuk-checkboxes__item">
 				        <input class="govuk-checkboxes__input ons-js-checkbox ons-js-exclusive-option" id="charge-undisclosed" name="charge-undisclosed" type="checkbox" value="undisclosed" data-deselect-message="Selecting this will clear the charge amount">
 				        <label class="govuk-label govuk-checkboxes__label" for="charge-undisclosed">
-				          <span class="ons-u-vh">Or, </span> Undisclosed or 0
+				          <span class="govuk-visually-hidden xx-ons-u-vh">Or, </span> Undisclosed or 0
 				        </label>
 				      </div>
 				    </div>
 
-	          <span class="ons-js-exclusive-alert ons-u-vh" role="alert" aria-live="polite" data-group-adjective="cleared" data-option-adjective="deselected"></span>
+	          <span class="ons-js-exclusive-alert govuk-visually-hidden xx-ons-u-vh" role="alert" aria-live="polite" data-group-adjective="cleared" data-option-adjective="deselected"></span>
 
 	        </div>
 
@@ -1304,6 +1291,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 <hr>
 
 <p>Gov-ified the ONS mutually exclusive pattern - using ONS's javascript.  Visually hidden classes <b>off</b> to show the content for assistive technology</p>
+<p>toggle display:none; off in to in-page class .govuk-visually-hidden--HMLR, to properly see all the assistive technology text.  Note: double Or is not a mistake, the divider 'or' is hidden from AT, and the 'Or,' is hidden visually.</p>
 		<!-- gov-ifying ONS mutually exclusive -->
 		  <div class="govuk-form-group">
 		    <fieldset class="govuk-fieldset">
@@ -1314,31 +1302,11 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 	        <div class="ons-js-mutually-exclusive ons-mutually-exclusive">
 	          <label class="govuk-label govuk-label--s xx-govuk-visually-hidden" for="charge-amount-1">Charge amount</label>
 
-	<!--           <span class="ons-input-type ons-input-type--prefix">
-	            <span class="ons-input-type__inner">
-	              <input type="text" id="currency"
-	                class="ons-input ons-input--text ons-input-type__input ons-input-number--w-4 ons-js-exclusive-group-item"
-	                aria-labelledby="annual-salary-gpb-prefix" pattern="[0-9]*" inputmode="numeric" min />
-	              <abbr id="annual-salary-gpb-prefix" class="ons-input-type__type ons-js-input-abbr"
-	                title="British pounds (GBP)">£</abbr>
-	            </span>
-	          </span> -->
 
 	          <div class="govuk-input__wrapper">
 					    <div class="govuk-input__prefix" aria-hidden="true">£</div>
 					    <input class="govuk-input govuk-input--width-10 ons-js-exclusive-group-item" id="charge-amount-1" name="charge-amount-1" type="text" spellcheck="false">
 					  </div>
-
-	<!--           <p class="ons-checkboxes--mutually-exclusive__item ons-u-mt-s">
-	            <span class="ons-checkboxes__label ons-u-fs-r--b" aria-hidden="true">Or</span>
-	            <span class="ons-checkbox">
-	              <input type="checkbox" id="currency-checkbox"
-	                class="ons-checkbox__input ons-js-checkbox ons-js-exclusive-option" value="no-currency"
-	                name="no-currency" data-deselect-message="Selecting this will clear the charge amount">
-	              <label class=" ons-checkbox__label " for="currency-checkbox" id="currency-checkbox-label"><span
-	                  class="ons-u-vh">Or, </span> Undisclosed or 0.</label>
-	            </span>
-	          </p> -->
 
 
 						<div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
