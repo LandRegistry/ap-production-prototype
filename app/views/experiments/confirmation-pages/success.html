@@ -1,0 +1,115 @@
+{% extends "layouts/ap-main.html" %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% block content %}
+
+<style>
+
+	/* ********************************** */
+	/* arial as default font on all elements */
+	/* ********************************** */
+  * {
+  font-family: Arial, Helvetica, sans-serif !important;
+	}
+	/* * end block * */
+
+  /* ********************************** */
+	/* body content to be close to the header.  allow application information bar to be flush to header */
+	/* ********************************** */
+
+	.govuk-main-wrapper {
+		padding-top: 0;
+	}
+	/* * end block * */
+
+
+  /* ********************************** */
+	/* application information bar */
+	/* ********************************** */
+	#application-info-container {
+		padding-top: 20px;
+		padding-bottom: 45px;
+    border-bottom: 1px solid #b1b4b6;
+    margin-bottom: 30px;
+	}
+
+	#documents-launcher {
+		text-align: right;
+	}
+
+	.title-number, .abr {
+		font-weight: 800;
+	}
+
+	.abr {
+		margin-right: 30px;
+	}
+
+	h1.application-type {
+		display: inline;
+		margin-right:50px;
+	}
+
+	.ap-no-column-l-r-padding {
+		padding-left:0px;
+		padding-right:0px;
+	}
+
+	.ap-no-column-r-padding {
+		padding-right:0px;
+	}
+
+	.ap-no-row-l-r-margin {
+		margin-left:0px;
+		margin-right:0px;
+	}
+
+	/* * end block * */
+
+</style>
+
+
+	<!-- application information  -->
+
+<!-- 	<div class="govuk-grid-row ap-no-row-l-r-margin">
+		<div id="application-info-container">
+			<div class="govuk-grid-column-three-quarters ap-no-column-l-r-padding">
+	  		<h1 class="govuk-heading-m application-type">Charge and RX1</h1>
+
+	  				<span class="govuk-body">ABR: </span><span class="abr govuk-body">123456</span>
+	  				<span class="govuk-body">Title: </span><span class="title-number govuk-body">EX365565</span>
+
+		  </div>
+
+		  <div class="govuk-grid-column-one-quarter ap-no-column-r-padding">
+		  	<p id="documents-launcher">
+		      <a href="_document-viewer" class="govuk-link document-link js-documents-window" target="_blank">Application documents</a>
+				</p>
+			</div>
+		</div>
+	</div> -->
+
+	<!-- end - application information  -->
+
+
+  <div class="govuk-grid-row govuk-body govuk-!-margin-top-6">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukPanel({
+        titleText: "Application complete",
+        html: "Register sent for mark-off"
+      }) }}
+
+      <!-- <h2 class="govuk-heading-m">What's next</h2> -->
+
+      <p class="govuk-body govuk-!-margin-top-6">
+        <a href="#" class="govuk-link">Start processing a new application</a> when you are ready.
+      </p>
+    </div>
+  </div>
+
+{% endblock %}

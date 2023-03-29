@@ -163,6 +163,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
 	/* ********************************** */
   /* ONS visually hidden for assitive technolgy features (text) on mutually exclusive */
+  /* this style can all be removed when line 6937 of the JS changes the class to govuk-visually-hidden */
   /* ********************************** */
   .ons-u-vh {
     border: 0;
@@ -1132,6 +1133,14 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
  /* * end block * */
 
 
+ /* * this class has been added to the ONS javascript to remove the need for all their visually hidden css - class ons-u-vh */
+ /* toggle this off to properly demo the assistive tech features in the ons code  * */
+ .govuk-visually-hidden--HMLR {
+ 	display:none;
+ }
+  /* * end block * */
+
+
 </style>
 
 <!-- Style: at the top the ones overriding, and then the new ones -->
@@ -1289,12 +1298,12 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 				      <div class="govuk-checkboxes__item">
 				        <input class="govuk-checkboxes__input ons-js-checkbox ons-js-exclusive-option" id="charge-undisclosed" name="charge-undisclosed" type="checkbox" value="undisclosed" data-deselect-message="Selecting this will clear the charge amount">
 				        <label class="govuk-label govuk-checkboxes__label" for="charge-undisclosed">
-				          <span class="ons-u-vh">Or, </span> Undisclosed or 0
+				          <span class="govuk-visually-hidden xx-ons-u-vh">Or, </span> Undisclosed or 0
 				        </label>
 				      </div>
 				    </div>
 
-	          <span class="ons-js-exclusive-alert ons-u-vh" role="alert" aria-live="polite" data-group-adjective="cleared" data-option-adjective="deselected"></span>
+	          <span class="ons-js-exclusive-alert govuk-visually-hidden xx-ons-u-vh" role="alert" aria-live="polite" data-group-adjective="cleared" data-option-adjective="deselected"></span>
 
 	        </div>
 
@@ -1304,6 +1313,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 <hr>
 
 <p>Gov-ified the ONS mutually exclusive pattern - using ONS's javascript.  Visually hidden classes <b>off</b> to show the content for assistive technology</p>
+<p>toggle display:none; off it the in page class .govuk-visually-hidden--HMLR to properly see the assistive tech messages</p>
 		<!-- gov-ifying ONS mutually exclusive -->
 		  <div class="govuk-form-group">
 		    <fieldset class="govuk-fieldset">
@@ -1350,6 +1360,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 				        </label>
 				      </div>
 				    </div>
+
 
 	          <span class="ons-js-exclusive-alert xx-ons-u-vh" role="alert" aria-live="polite" data-group-adjective="cleared" data-option-adjective="deselected"></span>
 
