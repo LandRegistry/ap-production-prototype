@@ -15,8 +15,8 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
     <h3 class="govuk-heading-m">show me it...</h3>
     <ul class="govuk-list">
     	<li><a href="charge-current">current as-is tasks</a> ported here, no JS</li>
-    	<li><a href="charge-amount">reworked amount</a> - not yet started</li>
-			<li><a href="charge-date">reworked date</a> - not yet started</li>
+    	<li><a href="charge-amount">reworked charge amount</a> - shows a working GOVUK-ified ONS pattern, which has interesting assistive technology features (to meet WCAG accessibility)</li>
+			<li><a href="charge-date">reworked charge date</a> - not yet started</li>
     </ul>
 
 
@@ -29,17 +29,23 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
     <ul class="govuk-list govuk-list--bullet">
 			<li>charge amount (input it), or not stated (say not stated)</li>
       <li>charge date (input it), or no date (say no date)</li>
-      <li>document retention - whats the date of this document, or not given/cant read it</li>
+      <li>md reference (input it), or no md-ref needed (say no md-ref)</li>
+      <li>document retention - what is the date of this document (input it), or not given/can't read it</li>
     </ul>
 
-    <p>Gov design system has <a href="https://design-system.service.gov.uk/components/checkboxes/">mutually exclusive pattern for checkboxes</a></p>
-    <p>We want to have an input field(s) or a check box</p>
-    <p>We dont want to ask a yes/ no question first - as almost all the time the caseworker will have the charge amount or date so we want them to just enter that and say not present occasionally.  Optimise around its always present</p>
-    <p>ONS have a mutually exclusive component - similar in behaviour to the Gov design system, for more than just checkbox list - that looks just like the circumstances we want: <a href="https://service-manual.ons.gov.uk/design-system/components/mutually-exclusive#date">Date</a> | <a href="https://service-manual.ons.gov.uk/design-system/components/mutually-exclusive#number">Number</a></p>
+    <p>Gov design system has a <a href="https://design-system.service.gov.uk/components/checkboxes/">mutually exclusive pattern for checkboxes</a></p>
+    <p>We want to have an input field(s) or, a check box</p>
 
-    <p>we need a non Javascript example.  and can progressively enhance it for Javascript users (nearly all).  We like the ONS behaviour, but make it GOV styled - e.g. no borders round the checkbox, and GOV error styling.</p>
+    <p>In <a href="https://hmlr-application-processing.herokuapp.com/non-md-cre/v1/a/02-your-tasks">the current way we do charge date and amount</a>, we have Javascript behaviour that deactivates the date input.  We want to avoid de-activating<super>*</super>, and improve the pattern visually making it more GOV like.</p>
 
-    <p>In <a href="https://hmlr-application-processing.herokuapp.com/non-md-cre/v1/a/02-your-tasks">the current way we do charge date and amount</a>, we have Javascript behaviour that deactivates the date input.  We want to avoid deactivating, and improve the pattern making it more GOV like.</p>
+    <p>We dont want to ask a yes/ no question first - as almost all the time the caseworker will have the charge amount or date so we want them to just enter that and say, not present only occasionally.  Optimise around - it is always present</p>
+
+    <p>ONS have a mutually exclusive component<super>*</super> - similar in behaviour to the Gov design system checkbox, for more than just checkbox list - that looks just like the circumstances we want: <a href="https://service-manual.ons.gov.uk/design-system/components/mutually-exclusive#date">Date</a> | <a href="https://service-manual.ons.gov.uk/design-system/components/mutually-exclusive#number">Number</a></p>
+    <p><super>*</super>note: porting over the ONS js code and html, but not the css illustrates the assistive technogy features built in to the ONS pattern (to make it pass WCAG accessibilty requiremements - presume these do make it pass).  If we continue with de-activating, or other behaviour, we also need to make it accessible.  Don't know what assistive technology feature code is in production currently.
+
+    <p>We need a non Javascript version.  and can progressively enhance it for Javascript users (nearly all).  We like the ONS behaviour, but lets make it GOV styled - e.g. no borders round the checkbox, and GOV error styling.</p>
+
+    <p>We need to document how the non js works, and write error messages for the non js version.  ONS and Gov checkboxes have the non js error messages behaviour we want to copy.</p>
 
   </div>
 </div>
