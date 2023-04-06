@@ -1,0 +1,456 @@
+{% extends "layouts/ap-main.html" %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+	/* ********************************** */
+	/* arial as default font on all elements */
+	/* ********************************** */
+  * {
+  font-family: Arial, Helvetica, sans-serif !important;
+	}
+	/* * end block * */
+
+
+	/* ********************************** */
+	/* set max page contents width */
+	/* more work to do for left and right whitespace either side of content for responsivness */
+	/* ********************************** */
+	.govuk-width-container {
+    max-width: 1440px;
+  }
+  /* * end block * */
+
+
+  /* ********************************** */
+	/* page background colour - off-white */
+	/* ********************************** */
+	.govuk-template__body {
+
+		/* see
+		https://css-tricks.com/snippets/sass/tint-shade-functions/ for how to use sass mix to get a tint
+		and
+		https://www.sassmeister.com/ for running sass to give us the css value */
+
+		/* 99% white mixed in with header border green = #fefefc */
+		/* 98% white mixed in with header border green = #fcfdfa */
+/*		background-color: #fcfdfa; */
+
+		
+		/* grey - home office recommendation https://design.homeoffice.gov.uk/styles/colour */
+		background-color: #f1f1f1;  
+	}
+
+	/* page background colour - header bottom border (behind the green) off-white */
+	.govuk-header--hmlr {
+
+		/* 98% white mixed in with header border green */
+/*		border-bottom-color: #fcfdfa;*/
+
+		/* grey - home office recommendation https://design.homeoffice.gov.uk/styles/colour */
+		border-bottom-color: #f1f1f1;
+	}
+
+	/* * end block * */
+
+
+  /* ********************************** */
+	/* body content to be close to the header.  allow application information bar to be flush to header */
+	/* ********************************** */
+
+	.govuk-main-wrapper {
+		padding-top: 0;
+	}
+	/* * end block * */
+
+
+  /* ********************************** */
+	/* application information bar */
+	/* ********************************** */
+	#application-info-container {
+		padding-top: 20px;
+		padding-bottom: 45px;
+    border-bottom: 1px solid #b1b4b6;
+    margin-bottom: 30px;
+	}
+
+	#documents-launcher {
+		text-align: right;
+	}
+
+	.title-number, .abr {
+		font-weight: 800;
+	}
+
+	.abr {
+		margin-right: 30px;
+	}
+
+	h1.application-type {
+		display: inline;
+		margin-right:50px;
+	}
+
+	.ap-no-column-l-r-padding {
+		padding-left:0px;
+		padding-right:0px;
+	}
+
+	.ap-no-column-r-padding {
+		padding-right:0px;
+	}
+
+	.ap-no-row-l-r-margin {
+		margin-left:0px;
+		margin-right:0px;
+	}
+
+	/* * end block * */
+
+
+  /* ********************************** */
+	/* register */
+	/* ********************************** */
+	#register-container {
+		padding-right: 25px;
+	/*	background-color:#f6f6f6;*/
+		border: none;
+/*		border-bottom: 3px double #a0a0a0;*/
+	}
+
+	/* * end block * */
+
+  
+	/* ********************************** */
+  /* register scrolling */
+  /* ********************************** */
+
+  .register-column {
+    height: 820px;
+  }
+
+  .scroll {
+    overflow: auto;
+  }
+
+  /* ********************************** */
+  /* notification banner for in-page system errors */
+  /* ********************************** */
+  .govuk-notification-banner--error {
+		border-color: #d4351c;
+		background-color: #d4351c;
+  }
+
+
+</style>
+
+	<!-- application information  -->
+
+	<div class="govuk-grid-row ap-no-row-l-r-margin">
+		<div id="application-info-container">
+			<div class="govuk-grid-column-three-quarters ap-no-column-l-r-padding">
+	  		<h1 class="govuk-heading-m application-type">Charge and RX1</h1>
+
+	  				<span class="govuk-body">ABR: </span><span class="abr govuk-body">123456</span>
+	  				<span class="govuk-body">Title: </span><span class="title-number govuk-body">EX365565</span>
+
+		  </div>
+
+		  <div class="govuk-grid-column-one-quarter ap-no-column-r-padding">
+		  	<p id="documents-launcher">
+		      <a href="_document-viewer" class="govuk-link document-link js-documents-window" target="_blank">Application documents</a>
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- end - application information  -->
+
+<div class="govuk-grid-row govuk-!-margin-top-4">
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	<div class="govuk-notification-banner govuk-notification-banner--error" role="region"
+			  aria-labelledby="govuk-notification-banner-title"
+			  data-module="govuk-notification-banner">
+			  <div class="govuk-notification-banner__header">
+			    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+			      Unable to load the register
+			    </h2>
+			  </div>
+			  <div class="govuk-notification-banner__content">
+			    <p class="govuk-notification-banner__heading">
+			      There is a problem loading the register
+			     </p>
+			    <p><a class="govuk-link" href="#">Reload the register</a>. If the problem continues access it from Daylist.</p>
+			  </div>
+			</div>
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+    <div class="govuk-grid-column-one-half column">
+
+
+    <h2 class="govuk-heading-l">Tasks</h2>
+
+
+<!-- <div class="govuk-notification-banner" role="region"
+  aria-labelledby="govuk-notification-banner-title"
+  data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Important
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading">
+      You have 7 days left to send your application.
+      <a class="govuk-notification-banner__link" href="#">View application</a>.
+    </p>
+  </div>
+</div> -->
+
+<!-- <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
+  aria-labelledby="govuk-notification-banner-title"
+  data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Success
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <h3 class="govuk-notification-banner__heading">
+      Training outcome recorded and trainee withdrawn
+    </h3>
+    <p class="govuk-body">Contact <a class="govuk-notification-banner__link" href="#">example@department.gov.uk</a> if you think there’s a problem.</p>
+  </div>
+</div> -->
+
+
+<!-- <div class="govuk-notification-banner govuk-notification-banner--error" role="region"
+  aria-labelledby="govuk-notification-banner-title"
+  data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      System error
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading">
+      Unable to load the register.
+      <a class="govuk-notification-banner__link" href="#">Reload the register</a>
+    </p>
+    <p>If this continues to be a problem call the service desk.</p>
+  </div>
+</div> -->
+
+    <!-- First task - yes no  -->
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+          <h3 class="govuk-fieldset__heading">
+            Do the documents match?
+          </h3>
+        </legend>
+        <div class="govuk-radios govuk-radios--small govuk-radios--inline" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="match" name="match" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="match">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="match-no" name="match" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="match-no">
+              No
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+
+    <!-- Third task - reveal -->
+
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+          <h3 class="govuk-fieldset__heading">
+            Do you like sports?
+          </h3>
+        </legend>
+
+        <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+          <div class="govuk-radios__item  ">
+            <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email"
+              data-aria-controls="conditional-contact">
+            <label class="govuk-label govuk-radios__label" for="contact">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="contact-by-email">
+                Why?
+              </label>
+              <input class="govuk-input govuk-!-width-one-third" id="contact-by-email" name="contact-by-email"
+                type="email" spellcheck="false" autocomplete="email">
+            </div>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="phone"
+              data-aria-controls="conditional-contact-2">
+            <label class="govuk-label govuk-radios__label" for="contact-2">
+              No
+            </label>
+          </div>
+          <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="contact-by-phone">
+                Why?
+              </label>
+              <input class="govuk-input govuk-!-width-one-third" id="contact-by-phone" name="contact-by-phone"
+                type="tel" autocomplete="tel">
+            </div>
+          </div>
+
+        </div>
+      </fieldset>
+    </div>
+
+    <!-- Fourth task - yes no  -->
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+          <h3 class="govuk-fieldset__heading">
+            Do I want to ask you something?
+          </h3>
+        </legend>
+        <div class="govuk-radios govuk-radios--small govuk-radios--inline" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="ask" name="ask" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="ask">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="ask-no" name="ask" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="ask-no">
+              No
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+
+    <!-- Fifth task - yes no  -->
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+          <h3 class="govuk-fieldset__heading">
+            Maybe I can also ask you something more?
+          </h3>
+        </legend>
+        <div class="govuk-radios govuk-radios--small govuk-radios--inline" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="more" name="more" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="more">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="more-no" name="more" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="more-no">
+              No
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+
+    <!-- sixth task - yes no  -->
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+          <h3 class="govuk-fieldset__heading">
+            Maybe I can also ask you something more?
+          </h3>
+        </legend>
+        <div class="govuk-radios govuk-radios--small govuk-radios--inline" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="more" name="more" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="more">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="more-no" name="more" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="more-no">
+              No
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+
+    <!-- seventh task - yes no  -->
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+          <h3 class="govuk-fieldset__heading">
+            Maybe I can also ask you something more?
+          </h3>
+        </legend>
+        <div class="govuk-radios govuk-radios--small govuk-radios--inline" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="more" name="more" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="more">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="more-no" name="more" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="more-no">
+              No
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+
+
+
+    <!-- Button -->
+
+
+    <button class="govuk-button" data-module="govuk-button">
+      Go to next page
+    </button>
+
+
+
+
+  </div>
+
+</div>
+
+{% endblock %}
