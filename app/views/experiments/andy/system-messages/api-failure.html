@@ -163,6 +163,23 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
   	<div id="register-container">
 
     	<!-- {% include "../includes/register.html" %} -->
+		
+		<div class="govuk-notification-banner govuk-notification-banner--error" role="region"
+			  aria-labelledby="govuk-notification-banner-title"
+			  data-module="govuk-notification-banner">
+			  <div class="govuk-notification-banner__header">
+			    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+			      System error
+			    </h2>
+			  </div>
+			  <div class="govuk-notification-banner__content">
+			    <p class="govuk-notification-banner__heading">
+			      Unable to load the register.
+			      <a class="govuk-notification-banner__link" href="#">Reload the register</a>
+			    </p>
+			    <p>If this continues to be a problem call the service desk.</p>
+			  </div>
+			</div>
     	
     	<div class="govuk-notification-banner govuk-notification-banner--error" role="region"
 			  aria-labelledby="govuk-notification-banner-title"
@@ -191,7 +208,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 			  <div class="govuk-notification-banner__content">
 			    <p class="govuk-notification-banner__heading">
 			      There is a problem loading the register.
-			      <a class="govuk-notification-banner__link" href="#">Refresh the page</a>
+			      <a class="govuk-link" href="#">Refresh the page</a>
 			    </p>
 			    <p>If the problem continues access the register from Daylist and contact the service desk.</p>
 			  </div>
