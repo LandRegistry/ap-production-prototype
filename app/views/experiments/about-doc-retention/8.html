@@ -22,34 +22,38 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
   .govuk-template__body {
     background-color: #f1f1f1
-  }
 
-  .card-white {
+}
+
+.card-white {
     background-color: #ffffff
-  }
+
+}
 
 
-  /* page background colour - header bottom border (behind the green) off-white */
-  .govuk-header--hmlr {
+/* page background colour - header bottom border (behind the green) off-white */
+	.govuk-header--hmlr {
     border-bottom-color: #789904;
   }
 
 
-  .register-font {
-    font-family: Arial, Helvetica, sans-serif
-  }
+.register-font {
+  font-family: Arial, Helvetica, sans-serif
+}
 
-  .ap-font {
-    font-family: Arial, Helvetica, sans-serif
-  }
+.ap-font {
+  font-family: Arial, Helvetica, sans-serif
+}
+
 </style>
 
 <!-- Style: at the top the ones overriding, and then the new ones -->
 
-<div class="govuk-width-container">
+<div class="govuk-width-container" >
   <main class="govuk-main-wrapper govuk-main-wrapper--l">
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-one-half column scroll ">
+      <div class="govuk-grid-column-one-half column scroll "
+      >
         <h1 class="govuk-heading-m ap-font">Register</h1>
 
         <h2 class="govuk-heading-s ap-font">A: Property register</h2>
@@ -84,16 +88,15 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
         <ol class="govuk-list govuk-list--number register-font govuk-list--spaced">
           <li>11.06.2012) A Deed of Covenant dated 24 September 1934 made between (1) Emily King and others (Owners) and
             (2) Mitchells & Butlers Limited (Company) contains the following covenants by the owners.
-            <br>
-            <br>
+<br>
+<br>
             "The Owners with intent to benefit and protect the licensed and other properties of the Company in the City
             of Birmingham and elsewhere adjoining or near to the said Estate (and to bind the property hereinafter
             specified into whosoever hands the same may come but not so as to render the Owners personally liable in
             damages for any breach of covenant committed after they shall have parted with all interest in the premises
             in respect of which such breach shall occur) Do hereby COVENANT with the Company and their successors in
             title owners or occupiers for the time being of all or any of the Company's said properties that the Owners
-            and their successors in title will not nor shall at any time hereafter."
-          </li>
+            and their successors in title will not nor shall at any time hereafter."</li>
 
 
         </ol>
@@ -102,355 +105,93 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
       <!-- Tasks section starts here -->
 
-      <div class="govuk-grid-column-one-half column">
-
-
-
-
-
-
-        <!--  DOCUMENT 1 -->
-
-        <table class="govuk-table">
-          <caption class="govuk-table__caption govuk-table__caption--m">Application documents <BR> </caption>
-
-
-
-          <thead class="govuk-table__head">
-
-
-            <tr class="govuk-table__row">
-
-
-              <th scope="col" class="govuk-table__header">Name</th>
-              <th scope="col" class="govuk-table__header ">Category</th>
-              <th scope="col" class="govuk-table__header ">Date</th>
-              <th scope="col" class="govuk-table__header"> Remove document</th>
-            </tr>
-          </thead>
-
-          <tbody class="govuk-table__body">
-
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">1. TR1
-
-                <p class="govuk-body" style="
-                margin-bottom: 0px;
-            " > <a href="../../experiments/about-doc-retention/7-edit-type.html"
-                    class="govuk-link govuk-link--no-visited-state">Change category </a></p>
-
-
-
-
-              </th>
-              <td class="govuk-table__cell ">Transfer </td>
-              <td class="govuk-table__cell ">21 April 2020</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric" style="
-              padding-top: 2px;
-          ">
-
-
-
-                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox"
-                      value="hmrc">
-                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
-
-                    </label>
-                  </div>
-                </div>
-
-
-              </td>
-            </tr>
-
-
-
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">2. TR1    <p class="govuk-body" style="
-                margin-bottom: 0px;
-            " > <a href="../../experiments/about-doc-retention/7-edit-type.html"
-                    class="govuk-link govuk-link--no-visited-state">Change category </a></p>
-</th>
-              <td class="govuk-table__cell ">Transfer</td>
-              <td class="govuk-table__cell ">21 April 2020</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric" style="
-              padding-top: 2px;
-          ">
-
-
-
-                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox"
-                      value="hmrc">
-                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
-
-                    </label>
-                  </div>
-                </div>
-
-
-              </td>
-            </tr>
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">3. Document A	   <p class="govuk-body" style="
-                margin-bottom: 0px;
-            " > <a href="../../experiments/about-doc-retention/7-edit-type.html"
-                    class="govuk-link govuk-link--no-visited-state">Change category </a></p>
-</th>
-              <td class="govuk-table__cell ">Abstract</td>
-              <td class="govuk-table__cell ">
-
-                <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
-
-                  <div class="govuk-date-input" id="passport-issued">
-                    <div class="govuk-date-input__item">
-                      <div class="govuk-form-group" style="
-                        margin-bottom: 5px;
-                    ">
-                        <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
-                          Day
-                        </label>
-                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day"
-                          name="passport-issued-day" type="text" inputmode="numeric">
-                      </div>
-                    </div>
-                    <div class="govuk-date-input__item">
-                      <div class="govuk-form-group" style="
-                        margin-bottom: 5px;
-                    ">
-                        <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
-                          Month
-                        </label>
-                        <input class="govuk-input govuk-date-input__input govuk-input--width-2"
-                          id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
-                      </div>
-                    </div>
-                    <div class="govuk-date-input__item">
-                      <div class="govuk-form-group " style="
-                        margin-bottom: 5px;
-                    ">
-                        <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
-                          Year
-                        </label>
-                        <input class="govuk-input govuk-date-input__input govuk-input--width-4"
-                          id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-                    <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="date" name="date" type="checkbox" value="date"
-                        data-aria-controls="conditional-reasons">
-                      <label class="govuk-label govuk-checkboxes__label" for="date">
-                        Date is incomplete
-                      </label>
-                    </div>
-                    <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden"
-                      id="conditional-reasons">
-                      <div class="govuk-form-group">
-
-                        <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
-                          <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email"
-                              data-aria-controls="conditional-contact">
-                            <label class="govuk-label govuk-radios__label" for="contact">
-                              Date is illegible
-                            </label>
-                          </div>
-                        </div>
-
-                        <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
-                          <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email"
-                              data-aria-controls="conditional-contact">
-                            <label class="govuk-label govuk-radios__label" for="contact">
-                              Date is unavailable
-                            </label>
-                          </div>
-                        </div>
-
-
-                      </div>
-
-                </fieldset>
-
-              </td>
-              <td class="govuk-table__cell govuk-table__cell--numeric" style="
-              padding-top: 2px;
-          ">
-
-
-
-                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox"
-                      value="hmrc">
-                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
-
-                    </label>
-                  </div>
-                </div>
-
-
-              </td>
-            </tr>
-
-
-
-
-
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">4. Document B    <p class="govuk-body" style="
-                margin-bottom: 0px;
-            " > <a href="../../experiments/about-doc-retention/7-edit-type.html"
-                    class="govuk-link govuk-link--no-visited-state">Change category </a></p>
-	</th>
-              <td class="govuk-table__cell ">Evidence</td>
-              <td class="govuk-table__cell ">
-
-                <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
-
-                  <div class="govuk-date-input" id="passport-issued">
-                    <div class="govuk-date-input__item">
-                      <div class="govuk-form-group" style="
-                        margin-bottom: 5px;
-                    ">
-                        <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
-                          Day
-                        </label>
-                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day"
-                          name="passport-issued-day" type="text" inputmode="numeric">
-                      </div>
-                    </div>
-                    <div class="govuk-date-input__item">
-                      <div class="govuk-form-group" style="
-                        margin-bottom: 5px;
-                    ">
-                        <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
-                          Month
-                        </label>
-                        <input class="govuk-input govuk-date-input__input govuk-input--width-2"
-                          id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
-                      </div>
-                    </div>
-                    <div class="govuk-date-input__item">
-                      <div class="govuk-form-group " style="
-                        margin-bottom: 5px;
-                    ">
-                        <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
-                          Year
-                        </label>
-                        <input class="govuk-input govuk-date-input__input govuk-input--width-4"
-                          id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-                    <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="date-2" name="date-2" type="checkbox" value="date-2"
-                        data-aria-controls="conditional-reasons-2">
-                      <label class="govuk-label govuk-checkboxes__label" for="date-2">
-                        Date is incomplete
-                      </label>
-                    </div>
-                    <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden"
-                      id="conditional-reasons-2">
-                      <div class="govuk-form-group">
-
-                        <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
-                          <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email"
-                              data-aria-controls="conditional-contact-2">
-                            <label class="govuk-label govuk-radios__label" for="contact">
-                              Date is illegible
-                            </label>
-                          </div>
-                        </div>
-
-                        <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
-                          <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email"
-                              data-aria-controls="conditional-contact">
-                            <label class="govuk-label govuk-radios__label" for="contact">
-                              Date is unavailable
-                            </label>
-                          </div>
-                        </div>
-
-
-                      </div>
-
-                </fieldset>
-
-              </td>
-              <td class="govuk-table__cell govuk-table__cell--numeric" style="
-              padding-top: 2px;
-          ">
-
-
-
-                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox"
-                      value="hmrc">
-                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
-
-                    </label>
-                  </div>
-                </div>
-
-
-              </td>
-            </tr>
-
-
-
-
-
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">5. EX1A    <p class="govuk-body" style="
-                margin-bottom: 0px;
-            " > <a href="../../experiments/about-doc-retention/7-edit-type.html"
-                    class="govuk-link govuk-link--no-visited-state">Change category </a></p>
-</th>
-              <td class="govuk-table__cell ">EX1</td>
-              <td class="govuk-table__cell ">Date not required</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric" style="
-              padding-top: 2px;
-          ">
-
-
-
-                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox"
-                      value="hmrc">
-                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
-
-                    </label>
-                  </div>
-                </div>
-
-
-              </td>
-            </tr>
-
-
-
-
-
-
-
-
-
-
-          </tbody>
-        </table>
+      <div class="govuk-grid-column-one-half column"
+      >
+
+
+
+
+
+
+        <h1 class="govuk-heading-m ap-font">Tell us which documents you want to keep</h1>
+
+
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+            <dt class="govuk-summary-list__key">
+             1. AP1
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Application Form
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> date of birth</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Date
+            </dt>
+            <dd class="govuk-summary-list__value">
+             23 April 2020
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                <span class="govuk-visually-hidden"> address</span>
+              </a>
+            </dd>
+          </div>
+
+        </dl>
+
+
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+            <dt class="govuk-summary-list__key">
+             1. AP1
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Application Form
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> date of birth</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Date
+            </dt>
+            <dd class="govuk-summary-list__value">
+             23 April 2020
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                <span class="govuk-visually-hidden"> address</span>
+              </a>
+            </dd>
+          </div>
+
+        </dl>
 
 
 
@@ -463,7 +204,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
 
         <button class="govuk-button" data-module="govuk-button">
-          Submit
+         Submit
         </button>
 
 
@@ -474,5 +215,3 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 </div>
 
 {% endblock %}
-
-
