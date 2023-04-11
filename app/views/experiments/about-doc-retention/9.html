@@ -107,198 +107,96 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
 
 
-
-
-        <!--  DOCUMENT 1 -->
-
-
         <table class="govuk-table">
-          <caption class="govuk-table__caption govuk-table__caption--m">Documents</caption>
+          <caption class="govuk-table__caption govuk-table__caption--m">Tell us which documents you want to keep
+          </caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header">Document</th>
-              <th scope="col" class="govuk-table__header ">Document date</th>
-              <th scope="col" class="govuk-table__header ">Document type</th>
-              <th scope="col" class="govuk-table__header ">Change</th>
-              <th scope="col" class="govuk-table__header "> Remove </th>
-
+              <th scope="col" class="govuk-table__header ">Document</th>
+              <th scope="col" class="govuk-table__header   ">Document type</th>
+              <th scope="col" class="govuk-table__header  ">Document date</th>
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric ">Actions</th>
             </tr>
           </thead>
           <tbody class="govuk-table__body">
-
             <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">1. TR1</th>
-              <td class="govuk-table__cell ">21 April 2020</td>
-              <td class="govuk-table__cell ">Transfer</td>
-              <td class="govuk-table__cell "> <a class="govuk-link" href="#" style="
-                margin-right: 10px; ">
-                  Change
-                </a>
-              </td>
-              <td class="govuk-table__cell govuk-table__cell--numeric" style="
-              padding-top: 2px;  ">
-
-                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox"
-                      value="hmrc">
-                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
-
-                    </label>
-                  </div>
-                </div>
+              <th scope="row" class="govuk-table__header">1. AP1 form </th>
+              <td class="govuk-table__cell">Application Form </td>
+              <td class="govuk-table__cell">12 April 2020</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"> <a href="../../experiments/whole-package/9-change-type.html" class="govuk-link">Act on this doc</a>  </td>
 
 
-              </td>
+
             </tr>
 
-
             <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">2. TR1</th>
-              <td class="govuk-table__cell ">21 April 2020</td>
-              <td class="govuk-table__cell ">Transfer</td>
-              <td class="govuk-table__cell "> <a class="govuk-link" href="#" style="
-                margin-right: 10px; ">
-                  Change
-                </a>
-              </td>
-              <td class="govuk-table__cell govuk-table__cell--numeric" style="
-              padding-top: 2px;  ">
+              <th scope="row" class="govuk-table__header">2. TR1 form </th>
+              <td class="govuk-table__cell">Transfer</td>
+              <td class="govuk-table__cell">
 
-                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox"
-                      value="hmrc">
-                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
-
-                    </label>
-                  </div>
-                </div>
+                <div class="govuk-form-group" style="
+              margin-bottom: 10px;">
+                  <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
 
 
-              </td>
-            </tr>
-
-
-
-
-
-
-
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">3. Customer Correspondence</th>
-              <td class="govuk-table__cell ">
-
-                <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
-
-                  <div class="govuk-date-input" id="passport-issued">
-                    <div class="govuk-date-input__item">
-                      <div class="govuk-form-group" style="
-                        margin-bottom: 5px;
-                    ">
-                        <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
-                          Day
-                        </label>
-                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day"
-                          name="passport-issued-day" type="text" inputmode="numeric">
-                      </div>
-                    </div>
-                    <div class="govuk-date-input__item">
-                      <div class="govuk-form-group" style="
-                        margin-bottom: 5px;
-                    ">
-                        <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
-                          Month
-                        </label>
-                        <input class="govuk-input govuk-date-input__input govuk-input--width-2"
-                          id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
-                      </div>
-                    </div>
-                    <div class="govuk-date-input__item">
-                      <div class="govuk-form-group " style="
-                        margin-bottom: 5px;
-                    ">
-                        <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
-                          Year
-                        </label>
-                        <input class="govuk-input govuk-date-input__input govuk-input--width-4"
-                          id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-                    <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="date" name="date" type="checkbox" value="date"
-                        data-aria-controls="conditional-reasons">
-                      <label class="govuk-label govuk-checkboxes__label" for="date">
-                        Date is incomplete
-                      </label>
-                    </div>
-                    <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden"
-                      id="conditional-reasons">
-                      <div class="govuk-form-group">
-
-                        <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
-                          <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email"
-                              data-aria-controls="conditional-contact">
-                            <label class="govuk-label govuk-radios__label" for="contact">
-                              Date is illegible
-                            </label>
-                          </div>
+                    <div class="govuk-date-input" id="passport-issued">
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group ">
+                          <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                            Day
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2"
+                            id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
                         </div>
-
-                        <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
-                          <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email"
-                              data-aria-controls="conditional-contact">
-                            <label class="govuk-label govuk-radios__label" for="contact">
-                              Date is unavailable
-                            </label>
-                          </div>
-                        </div>
-
-
                       </div>
-
-                </fieldset>
-
-              </td>
-              <td class="govuk-table__cell ">Abstract</td>
-              <td class="govuk-table__cell "> <a class="govuk-link" href="#" style="
-                margin-right: 10px; ">
-                  Change
-                </a>
-              </td>
-              <td class="govuk-table__cell govuk-table__cell--numeric" style="
-              padding-top: 2px;  ">
-
-                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox"
-                      value="hmrc">
-                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
-
-                    </label>
-                  </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                            Month
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2"
+                            id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                            Year
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-4"
+                            id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
                 </div>
 
 
               </td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"> <a href="#" class="govuk-link">Act on this doc</a>  </td>
+
+
+
             </tr>
+
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">3. Evidence</th>
+              <td class="govuk-table__cell">Miscellaneous</td>
+              <td class="govuk-table__cell">12 April 2020</td>
+
+              <td class="govuk-table__cell govuk-table__cell--numeric"> <a href="../../experiments/whole-package/9-change-type-remove.html" class="govuk-link">Act on this doc</a>  </td>
+
+            </tr>
+
+
+
+
+
+              </td>
+
 
           </tbody>
         </table>
-
-
-
-
-
-
-
-
-
 
 
 
@@ -319,17 +217,4 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
   </main>
 </div>
 
-
-
 {% endblock %}
-
-<script>
-  $(document).ready(function () {
-    $(".govuk-button").click(function () {
-      $("#culo").hide();
-    });
-    $(".btn2").click(function () {
-      $("p").show();
-    });
-  });
-</script>

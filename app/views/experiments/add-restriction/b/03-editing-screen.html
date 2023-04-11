@@ -1,0 +1,267 @@
+{% extends "layouts/ap-main.html" %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<style>
+	/* ********************************** */
+	/* arial as default font on all elements */
+	/* ********************************** */
+	* {
+		font-family: Arial, Helvetica, sans-serif !important;
+	}
+
+	/* * end block * */
+
+	/* ********************************** */
+	/* set max page contents width */
+	/* more work to do for left and right whitespace either side of content for responsivness */
+	/* ********************************** */
+	.govuk-width-container {
+		max-width: 1440px;
+	}
+
+	/* * end block * */
+
+	/* ********************************** */
+	/* page background colour - off-white */
+	/* ********************************** */
+	.govuk-template__body {
+
+		/* see
+		https://css-tricks.com/snippets/sass/tint-shade-functions/ for how to use sass mix to get a tint
+		and
+		https://www.sassmeister.com/ for running sass to give us the css value */
+
+		/* 99% white mixed in with header border green = #fefefc */
+		/* 98% white mixed in with header border green = #fcfdfa */
+		/*		background-color: #fcfdfa; */
+
+
+		/* grey - home office recommendation https://design.homeoffice.gov.uk/styles/colour */
+		background-color: #f1f1f1;
+	}
+
+	/* page background colour - header bottom border (behind the green) off-white */
+	.govuk-header--hmlr {
+
+		/* 98% white mixed in with header border green */
+		/*		border-bottom-color: #fcfdfa;*/
+
+		/* grey - home office recommendation https://design.homeoffice.gov.uk/styles/colour */
+		border-bottom-color: #f1f1f1;
+	}
+
+	/* * end block * */
+
+
+	/* ********************************** */
+	/* body content to be close to the header.  allow application information bar to be flush to header */
+	/* ********************************** */
+
+	.govuk-main-wrapper {
+		padding-top: 0;
+	}
+
+	/* * end block * */
+
+
+	/* ********************************** */
+	/* application information bar */
+	/* ********************************** */
+	#application-info-container {
+		padding-top: 20px;
+		padding-bottom: 45px;
+		border-bottom: 1px solid #b1b4b6;
+		margin-bottom: 30px;
+	}
+
+	#documents-launcher {
+		text-align: right;
+	}
+
+	.title-number,
+	.abr {
+		font-weight: 800;
+	}
+
+	.abr {
+		margin-right: 30px;
+	}
+
+	h1.application-type {
+		display: inline;
+		margin-right: 50px;
+	}
+
+	.ap-no-column-l-r-padding {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+
+	.ap-no-column-r-padding {
+		padding-right: 0px;
+	}
+
+	.ap-no-row-l-r-margin {
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+
+	.govuk-back-link {
+		margin-bottom: 30px;
+	}
+
+	.govuk-heading-s {
+		margin-bottom: 10px;
+	}
+
+
+
+	/* * end block * */
+
+
+	/* ********************************** */
+	/* register */
+	/* ********************************** */
+	#register-container {
+		padding-right: 25px;
+		/*	background-color:#f6f6f6;*/
+		border: none;
+		border-bottom: 3px double #a0a0a0;
+	}
+
+	/* * end block * */
+
+
+	/* ********************************** */
+	/* register scrolling */
+	/* ********************************** */
+
+	.register-column {
+		height: 820px;
+	}
+
+	.scroll {
+		overflow: auto;
+	}
+</style>
+
+<!-- application information  -->
+
+<div class="govuk-grid-row ap-no-row-l-r-margin">
+	<div id="application-info-container">
+		<div class="govuk-grid-column-three-quarters ap-no-column-l-r-padding">
+			<h1 class="govuk-heading-m application-type">Enter a restriction (RX1)</h1>
+
+			<span class="govuk-body">ABR: </span><span class="abr govuk-body">123456</span>
+			<span class="govuk-body">Title: </span><span class="title-number govuk-body">EX365565</span>
+
+		</div>
+
+		<div class="govuk-grid-column-one-quarter ap-no-column-r-padding">
+			<p id="documents-launcher">
+				<a href="_document-viewer" class="govuk-link document-link js-documents-window"
+					target="_blank">Application documents</a>
+			</p>
+		</div>
+	</div>
+</div>
+
+<!-- end - application information  -->
+
+<div class="govuk-grid-row govuk-!-margin-top-4">
+	<div class="govuk-grid-column-one-half register-column scroll ">
+		<div id="register-container">
+
+			{% include "./includes/register.html" %}
+
+		</div>
+	</div>
+
+
+	<!-- Tasks section starts here -->
+
+	<div class="govuk-grid-column-one-half column">
+
+
+		<h2 class="govuk-heading-m">Restriction details</h2>
+
+
+
+		<h3 class="govuk-heading-s">BXN01</h3>
+		<p class="govuk-body">RESTRICTION: No [Infill 1] of the registered estate [Infill 2] by the proprietor of the
+			registered estate [Infill 3] is to be registered without a written consent signed by [Infill 4] of [Infill
+			5] [Infill 6].</p>
+
+
+		<p class="govuk-body govuk-!-font-weight-bold">Complete the infills for BXN01 </p>
+
+		<div class="govuk-form-group">
+			<label class="govuk-label" for="disposition">
+				Infill 1: type of disposition
+			</label>
+			<input class="govuk-input" id="disposition" name="disposition" type="text">
+		</div>
+
+		<div class="govuk-form-group">
+			<label class="govuk-label" for="beneficiary">
+				Infill 2: name of the beneficiary
+			</label>
+			<input class="govuk-input" id="beneficiary" name="beneficiary" type="text">
+		</div>
+
+
+		<div class="govuk-form-group">
+			<label class="govuk-label" for="address">
+				Infill 3: address of the beneficiary </label>
+			<input class="govuk-input" id="address" name="address" type="text">
+		</div>
+
+
+		<div class="govuk-form-group">
+			<label class="govuk-label" for="disposition">
+				Infill 4: type of disposition
+			</label>
+			<input class="govuk-input" id="disposition" name="disposition" type="text">
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<!-- Button -->
+
+
+		<div class="govuk-button-group">
+			{{ govukButton({
+			text: "Save and continue",
+			href: '../../add-restriction/b/03-restriction-added.html'
+		}) }}
+
+			<a class="govuk-link" href="../../add-restriction/b/03-add-restriction.html">Cancel</a>
+		</div>
+
+
+	</div>
+
+</div>
+
+{% endblock %}

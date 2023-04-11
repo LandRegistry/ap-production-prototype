@@ -1,0 +1,263 @@
+{% extends "layouts/ap-main.html" %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+	/* ********************************** */
+	/* arial as default font on all elements */
+	/* ********************************** */
+  * {
+  font-family: Arial, Helvetica, sans-serif !important;
+	}
+	/* * end block * */
+
+	/* ********************************** */
+	/* set max page contents width */
+	/* more work to do for left and right whitespace either side of content for responsivness */
+	/* ********************************** */
+	.govuk-width-container {
+    max-width: 1440px;
+  }
+  /* * end block * */
+
+  /* ********************************** */
+	/* page background colour - off-white */
+	/* ********************************** */
+	.govuk-template__body {
+
+		/* see
+		https://css-tricks.com/snippets/sass/tint-shade-functions/ for how to use sass mix to get a tint
+		and
+		https://www.sassmeister.com/ for running sass to give us the css value */
+
+		/* 99% white mixed in with header border green = #fefefc */
+		/* 98% white mixed in with header border green = #fcfdfa */
+/*		background-color: #fcfdfa; */
+
+
+		/* grey - home office recommendation https://design.homeoffice.gov.uk/styles/colour */
+		background-color: #f1f1f1;
+	}
+
+	/* page background colour - header bottom border (behind the green) off-white */
+	.govuk-header--hmlr {
+
+		/* 98% white mixed in with header border green */
+/*		border-bottom-color: #fcfdfa;*/
+
+		/* grey - home office recommendation https://design.homeoffice.gov.uk/styles/colour */
+		border-bottom-color: #f1f1f1;
+	}
+
+	/* * end block * */
+
+
+  /* ********************************** */
+	/* body content to be close to the header.  allow application information bar to be flush to header */
+	/* ********************************** */
+
+	.govuk-main-wrapper {
+		padding-top: 0;
+	}
+	/* * end block * */
+
+
+  /* ********************************** */
+	/* application information bar */
+	/* ********************************** */
+	#application-info-container {
+		padding-top: 20px;
+		padding-bottom: 45px;
+    border-bottom: 1px solid #b1b4b6;
+    margin-bottom: 30px;
+	}
+
+	#documents-launcher {
+		text-align: right;
+	}
+
+	.title-number, .abr {
+		font-weight: 800;
+	}
+
+	.abr {
+		margin-right: 30px;
+	}
+
+	h1.application-type {
+		display: inline;
+		margin-right:50px;
+	}
+
+	.ap-no-column-l-r-padding {
+		padding-left:0px;
+		padding-right:0px;
+	}
+
+	.ap-no-column-r-padding {
+		padding-right:0px;
+	}
+
+	.ap-no-row-l-r-margin {
+		margin-left:0px;
+		margin-right:0px;
+	}
+
+	.govuk-back-link {
+		margin-bottom: 30px;
+	}
+
+	.govuk-button--secondary-ap {
+		background-color: #505a5f;
+
+
+	}
+
+
+	.govuk-button--secondary-ap:hover {
+        background-color: #3c4144	;
+      }
+
+	/* * end block * */
+
+
+  /* ********************************** */
+	/* register */
+	/* ********************************** */
+	#register-container {
+		padding-right: 25px;
+	/*	background-color:#f6f6f6;*/
+		border: none;
+		border-bottom: 3px double #a0a0a0;
+	}
+
+	/* * end block * */
+
+
+	/* ********************************** */
+  /* register scrolling */
+  /* ********************************** */
+
+  .register-column {
+    height: 820px;
+  }
+
+  .scroll {
+    overflow: auto;
+  }
+</style>
+
+	<!-- application information  -->
+
+	<div class="govuk-grid-row ap-no-row-l-r-margin">
+		<div id="application-info-container">
+			<div class="govuk-grid-column-three-quarters ap-no-column-l-r-padding">
+	  		<h1 class="govuk-heading-m application-type">Enter a restriction (RX1)</h1>
+
+	  				<span class="govuk-body">ABR: </span><span class="abr govuk-body">123456</span>
+	  				<span class="govuk-body">Title: </span><span class="title-number govuk-body">EX365565</span>
+
+		  </div>
+
+		  <div class="govuk-grid-column-one-quarter ap-no-column-r-padding">
+		  	<p id="documents-launcher">
+		      <a href="_document-viewer" class="govuk-link document-link js-documents-window" target="_blank">Application documents</a>
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- end - application information  -->
+
+<div class="govuk-grid-row govuk-!-margin-top-4">
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+
+
+
+	<a href="../../add-restriction/a/02-general-tasks.html" class="govuk-back-link">Back</a>
+
+
+
+{{ govukErrorSummary({
+  titleText: "There is a problem",
+  errorList: [
+    {
+      text: "Enter a restriction that exists",
+      href: "#"
+    }
+
+  ]
+}) }}
+
+
+
+    <h2 class="govuk-heading-m">Restriction details</h2>
+
+
+
+
+	  <div class="govuk-form-group govuk-form-group--error">
+		<h1 class="govuk-label-wrapper">
+			<label class="govuk-label govuk-label--s" for="restriction-name">
+				What is the restriction you want to add?
+			  </label>
+		</h1>
+		<p id="event-name-error" class="govuk-error-message">
+		  <span class="govuk-visually-hidden">Error:</span> Enter a restriction that exists
+		</p>
+		<input class="govuk-input govuk-input--width-5 govuk-input--error" id="restriction-name" name="restriction-name" type="text" aria-describedby="restriction-name-hint restriction-name-error">
+	  </div>
+
+	  {{ govukButton({
+		text: "Add restriction",
+		classes: "govuk-button--secondary-ap",
+		href: '../../add-restriction/b/03-editing-screen.html'
+
+
+	  }) }}
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Button -->
+
+
+	<div class="govuk-button-group">
+		{{ govukButton({
+		  text: "Next",
+		  href: '../../add-restriction/b/-add-restriction-error.html'
+		}) }}
+
+		<a class="govuk-link" href="#">Return to Workflow</a>
+	  </div>
+
+
+  </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,254 @@
+{% extends "layouts/ap-main.html" %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+	/* ********************************** */
+	/* arial as default font on all elements */
+	/* ********************************** */
+  * {
+  font-family: Arial, Helvetica, sans-serif !important;
+	}
+	/* * end block * */
+
+	/* ********************************** */
+	/* set max page contents width */
+	/* more work to do for left and right whitespace either side of content for responsivness */
+	/* ********************************** */
+	.govuk-width-container {
+    max-width: 1440px;
+  }
+  /* * end block * */
+
+  /* ********************************** */
+	/* page background colour - off-white */
+	/* ********************************** */
+	.govuk-template__body {
+
+		/* see
+		https://css-tricks.com/snippets/sass/tint-shade-functions/ for how to use sass mix to get a tint
+		and
+		https://www.sassmeister.com/ for running sass to give us the css value */
+
+		/* 99% white mixed in with header border green = #fefefc */
+		/* 98% white mixed in with header border green = #fcfdfa */
+/*		background-color: #fcfdfa; */
+
+
+		/* grey - home office recommendation https://design.homeoffice.gov.uk/styles/colour */
+		background-color: #f1f1f1;
+	}
+
+	/* page background colour - header bottom border (behind the green) off-white */
+	.govuk-header--hmlr {
+
+		/* 98% white mixed in with header border green */
+/*		border-bottom-color: #fcfdfa;*/
+
+		/* grey - home office recommendation https://design.homeoffice.gov.uk/styles/colour */
+		border-bottom-color: #f1f1f1;
+	}
+
+	/* * end block * */
+
+
+  /* ********************************** */
+	/* body content to be close to the header.  allow application information bar to be flush to header */
+	/* ********************************** */
+
+	.govuk-main-wrapper {
+		padding-top: 0;
+	}
+	/* * end block * */
+
+
+  /* ********************************** */
+	/* application information bar */
+	/* ********************************** */
+	#application-info-container {
+		padding-top: 20px;
+		padding-bottom: 45px;
+    border-bottom: 1px solid #b1b4b6;
+    margin-bottom: 30px;
+	}
+
+	#documents-launcher {
+		text-align: right;
+	}
+
+	.title-number, .abr {
+		font-weight: 800;
+	}
+
+	.abr {
+		margin-right: 30px;
+	}
+
+	h1.application-type {
+		display: inline;
+		margin-right:50px;
+	}
+
+	.ap-no-column-l-r-padding {
+		padding-left:0px;
+		padding-right:0px;
+	}
+
+	.ap-no-column-r-padding {
+		padding-right:0px;
+	}
+
+	.ap-no-row-l-r-margin {
+		margin-left:0px;
+		margin-right:0px;
+	}
+
+	/* * end block * */
+
+
+  /* ********************************** */
+	/* register */
+	/* ********************************** */
+	#register-container {
+		padding-right: 25px;
+	/*	background-color:#f6f6f6;*/
+		border: none;
+		border-bottom: 3px double #a0a0a0;
+	}
+
+	/* * end block * */
+
+
+	/* ********************************** */
+  /* register scrolling */
+  /* ********************************** */
+
+  .register-column {
+    height: 820px;
+  }
+
+  .scroll {
+    overflow: auto;
+  }
+</style>
+
+	<!-- application information  -->
+
+	<div class="govuk-grid-row ap-no-row-l-r-margin">
+		<div id="application-info-container">
+			<div class="govuk-grid-column-three-quarters ap-no-column-l-r-padding">
+	  		<h1 class="govuk-heading-m application-type">Enter a restriction (RX1)</h1>
+
+	  				<span class="govuk-body">ABR: </span><span class="abr govuk-body">123456</span>
+	  				<span class="govuk-body">Title: </span><span class="title-number govuk-body">EX365565</span>
+
+		  </div>
+
+		  <div class="govuk-grid-column-one-quarter ap-no-column-r-padding">
+		  	<p id="documents-launcher">
+		      <a href="_document-viewer" class="govuk-link document-link js-documents-window" target="_blank">Application documents</a>
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- end - application information  -->
+
+<div class="govuk-grid-row govuk-!-margin-top-4">
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+
+	{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+
+    <h2 class="govuk-heading-m">Questions</h2>
+
+
+	{{ govukRadios({
+	  classes: "govuk-radios--inline govuk-radios--small",
+	  name: "documents-match",
+	  fieldset: {
+		legend: {
+		  text: "Are the documents for the right property and title number?",
+		  isPageHeading: true,
+		  classes: "govuk-fieldset__legend--s"
+		}
+	  },
+
+	  items: [
+		{
+		  value: "yes",
+		  text: "Yes"
+		},
+		{
+		  value: "no",
+		  text: "No"
+		}
+	  ]
+	}) }}
+
+
+	<div class="govuk-form-group">
+		<fieldset class="govuk-fieldset" aria-describedby="documents-match">
+		  <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+			<h1 class="govuk-fieldset__heading">
+				Do the following customer details match the documents?
+			</h1>
+		  </legend>
+		  <ul class="govuk-list govuk-list--bullet">
+			<li>Key number: 7437831</li>
+			<li>Customer name(s): Young & Perry Solicitors</li>
+		  </ul>
+
+		  <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+			<div class="govuk-radios__item">
+			  <input class="govuk-radios__input" id="documents-match" name="documents-match" type="radio" value="yes">
+			  <label class="govuk-label govuk-radios__label" for="documents-match">
+				Yes
+			  </label>
+			</div>
+			<div class="govuk-radios__item">
+			  <input class="govuk-radios__input" id="documents-match-2" name="documents-match" type="radio" value="no">
+			  <label class="govuk-label govuk-radios__label" for="documents-match-2">
+				No
+			  </label>
+			</div>
+		  </div>
+		</fieldset>
+	  </div>
+
+
+
+
+    <!-- Button -->
+
+	<div class="govuk-button-group">
+		{{ govukButton({
+		  text: "Next",
+		  href: '../../add-restriction/b/02-general-tasks.html'
+		}) }}
+
+		<a class="govuk-link" href="#">Return to Workflow</a>
+	  </div>
+
+
+
+
+</div>
+
+{% endblock %}
