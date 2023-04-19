@@ -1,0 +1,53 @@
+{#
+For guidance on how to use layouts see:
+https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
+
+{% block pageTitle %}
+  Application Processing Prototype Kit
+{% endblock %}
+
+{% block header %}
+	{% from "hmlr/components/header/macro.njk" import hmlrHeader %}
+	{{ hmlrHeader({
+	  serviceName: "Workflow",
+	  serviceUrl: "/"
+	}) }}
+{% endblock %}
+
+
+{% block footer %}
+	{% from "hmlr/components/footer/macro.njk" import hmlrFooter %}
+	{{ hmlrFooter({
+   meta: {
+     items: [
+       {
+         href: "feedback",
+         text: "feedback (opens in new tab)"
+       },
+       {
+         href: "accessibility-statement",
+         text: "Accessibility statement (opens in new tab)"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+
+{% endblock %}
+
+{% block stylesheets %}
+  {{ super() }}
+  <link href="/public/css/old-ap-prototype.css" rel="stylesheet" type="text/css" />
+  <link href="/public/css/font.css" rel="stylesheet" type="text/css" />
+  <link href="/public/css/new-style-wide.css" rel="stylesheet" type="text/css" />
+  <link href="/public/css/workflow-hacks.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  {% include "includes/scripts.html" %}
+{% endblock %}
+
