@@ -1,21 +1,11 @@
-{% extends "layouts/ap-main.html" %}
+{% extends "layouts/ap-documentation.html" %}
 
 {% block pageTitle %}
-Home – {{serviceName}} – GOV.UK Prototype Kit
+Application Processing UI technical rewrite prototype
 {% endblock %}
 
 {% block content %}
 
-<style>
-  /* ********************************** */
-  /* arial as default font on all elements */
-  /* ********************************** */
-  * {
-    font-family: Arial, Helvetica, sans-serif !important;
-  }
-
-  /* * end block * */
-</style>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -26,22 +16,20 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
     <p>Design experiments and documentation for UI technology re-write to python/flask</p>
 
-    <h2 class="govuk-heading-l">Scope of UI re-write</h2>
 
-    <p>Technical UI re-write, into python/Flask, from react.</p>
-    <p>Limit the number of UI changes. This is about keeping as much as-is from the current UI, and the tech re-write
-      brings the UI up to current HMLR code and design standards. It removes existing constraints that have limited user
-      features, so new work post re-write can be done without working round the constraints.</p>
-    <p>UI changes are limited to those required by: </p>
+    <h2 class="govuk-heading-l">Making pages in this kit</h2>
+
+    <p>this kit is based on the Gov prototype kit.</p>
+
+    <h3 class="govuk-heading-m">3 page layouts</h3>
     <ul class="govuk-list govuk-list--bullet">
-      <li>migrating to python/flask - some ui features may be difficult to migrate as-is from react. Where this is the
-        case we'll redesign the ui feature to make it easy to implement</li>
-      <li>following common HMLR code and design standards - progressive enhancement, using gov components out of the box
-      </li>
-      <li>fixing accessibilty failures in the current UI</li>
-      <li>minimising rework. Make some design changes - thats are considered to be foundational - for example responsive
-        page layout - to avoid complex rework once all the UI features have been migrated</li>
+      <li>documentation page - use <code>&#123;&#37; extends "layouts/ap-documentation.html" &#37;&#125;</code> at the top of your page</li>
+			<li>wide page, the two column, register and task page - use <code>&#123;&#37; extends "layouts/ap-flow-wide.html" &#37;&#125;</code> at the top of your page</li>
+		  <li>regular width page, like confirmation - use <code>&#123;&#37; extends "layouts/ap-flow-regular.html" &#37;&#125;</code> at the top of your page</li>
     </ul>
+
+    <h3 class="govuk-heading-m">css</h3>
+    <p>There are 4 css files, refactoring is needed as there is duplication.  Using the 3 layouts will load the correct css.  If you need to add something, consider adding it to the 2 css files - regular and wide - for the two page width layouts we have</p>
 
 
     <h2 class="govuk-heading-l">UI documentation</h2>
@@ -64,6 +52,23 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
       <li><a href="experiments/page-templates/confirmation-page-blank">confirmation page - blank</a></li>
       <li><a href="experiments/">Lorenzo and Puneets noodling</a></li>
       <li><a href="experiments/andy/">Andy noodling</a></li>
+    </ul>
+
+    <h2 class="govuk-heading-l">Scope of UI re-write</h2>
+
+    <p>Technical UI re-write, into python/Flask, from react.</p>
+    <p>Limit the number of UI changes. This is about keeping as much as-is from the current UI, and the tech re-write
+      brings the UI up to current HMLR code and design standards. It removes existing constraints that have limited user
+      features, so new work post re-write can be done without working round the constraints.</p>
+    <p>UI changes are limited to those required by: </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>migrating to python/flask - some ui features may be difficult to migrate as-is from react. Where this is the
+        case we'll redesign the ui feature to make it easy to implement</li>
+      <li>following common HMLR code and design standards - progressive enhancement, using gov components out of the box
+      </li>
+      <li>fixing accessibilty failures in the current UI</li>
+      <li>minimising rework. Make some design changes - thats are considered to be foundational - for example responsive
+        page layout - to avoid complex rework once all the UI features have been migrated</li>
     </ul>
 
   </div>
