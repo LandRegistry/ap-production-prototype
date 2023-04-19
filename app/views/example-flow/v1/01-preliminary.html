@@ -118,6 +118,31 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 	        ]
 	      }) }}
 
+			  {{ govukRadios({
+			    idPrefix: 'id-check',
+			    name: 'id-check',
+			    classes: 'js-no-return-to-workflow / govuk-radios--small govuk-radios--inline',
+			    fieldset: {
+			      legend: {
+			        html: 'Are the identity panels filled out correctly?',
+			        classes: 'govuk-fieldset__legend--s'
+			      }
+			    },
+			    items: [
+			      {
+			        html: 'Yes',
+			        value: 'Yes',
+			        checked: checked('id-check','Yes')
+			      },
+			      {
+			        html: 'No',
+			        value: 'No',
+			        checked: checked('id-check','No')
+			      }
+			    ]
+			  }) }}
+
+
 	      {{ govukRadios({
 	        idPrefix: 'customer-match',
 	        name: 'customer-match',
@@ -130,8 +155,8 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 	        },
 	        hint: {
 	          html: '<ul class="govuk-list govuk-list--bullet">
-	                  <li>Key number: 6596212</li>
-	                  <li>Customer name(s): Perry, Barton & Shaw LLP & Affiliates</li>
+	                  <li>Key number: 7437831</li>
+	                  <li>Customer name(s): Young & Perry Solicitors</li>
 	                </ul>'
 	        },
 	        items: [
@@ -144,6 +169,32 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 	            html: 'No',
 	            value: 'No',
 	            checked: checked('customer-match','No')
+	          }
+	        ]
+	      }) }}
+
+
+	      {{ govukRadios({
+	        idPrefix: 'conveyancer-match',
+	        name: 'conveyancer-match',
+	        classes: 'js-no-return-to-workflow / govuk-radios--small govuk-radios--inline',
+	        fieldset: {
+	          legend: {
+	            html: 'Is the application lodged by a conveyancer?',
+	            classes: 'govuk-fieldset__legend--s'
+	          }
+	        },
+
+	        items: [
+	          {
+	            html: 'Yes',
+	            value: 'Yes',
+	            checked: checked('conveyancer-match','Yes')
+	          },
+	          {
+	            html: 'No',
+	            value: 'No',
+	            checked: checked('conveyancer-match','No')
 	          }
 	        ]
 	      }) }}
