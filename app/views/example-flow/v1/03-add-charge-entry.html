@@ -1,0 +1,241 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+ {{ appnType | d('Transfer Not For Value and RX1') }}, ABR: {{ abrNumber | d('A123XYZ') }}, Title Number: {{ titleNumber | d('DN1000') }}. 
+
+ Select charge entry
+{% endblock %}
+
+{% block content %}
+
+	<!-- application information  -->
+
+	<div class="govuk-grid-row ap-no-row-l-r-margin">
+		<div id="application-info-container">
+			<div class="govuk-grid-column-three-quarters ap-no-column-l-r-padding">
+	  		<h1 class="govuk-heading-m application-type">{{ appnType | d('Transfer Not For Value and RX1') }}</h1>
+
+	  				<span class="govuk-body">ABR: </span><span class="abr govuk-body">{{ abrNumber | d('A123XYZ') }}</span>
+	  				<span class="govuk-body">Title: </span><span class="title-number govuk-body">{{ titleNumber | d('DN1000') }}</span>
+
+		  </div>
+
+		  <div class="govuk-grid-column-one-quarter ap-no-column-r-padding">
+		  	<p id="documents-launcher">
+		      <a href="_document-viewer" class="govuk-link document-link js-documents-window" target="_blank">Application documents</a>
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- end - application information  -->
+
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+
+    <div class="casework-tasks-container">
+
+    	<form method="post">
+
+	      <h2 class="govuk-heading-l">Tasks</h2>
+
+	    	<!-- tasks go here  -->
+
+	    	<h3 class="govuk-heading-s" style="margin-bottom:0px">Charge details</h3>
+
+				<table class="govuk-table form-table" style="margin-bottom:4px;">
+
+				  <thead class="govuk-table__head">
+				    <tr class="govuk-table__row">
+				      <th scope="col" class="govuk-table__header govuk-!-width-one-third"></th>
+				      <th scope="col" class="govuk-table__header govuk-!-width-two-thirds"></th>
+				    </tr>
+				  </thead>
+
+				  <tbody class="govuk-table__body">
+				    <tr class="govuk-table__row">
+				      <th scope="row" class="govuk-table__header">MD Reference</th>
+				      <td class="govuk-table__cell">
+				        <div id="regular-md"> MD895712 <a href="#" id="change-button" style="float:right;" class="govuk-link">
+				            Change </a>
+				        </div>
+
+
+				        <div id="editing-md" style="display: none">
+
+				          {{
+				          govukInput({
+
+				          name: 'md-ref',
+				          id: 'md-ref-field',
+				          classes: 'govuk-input--width-5',
+				          formGroup: {
+				          classes: 'govuk-!-margin-bottom-1'
+				          },
+				          prefix: {
+				          text: "MD"
+				          },
+				          value: '895712',
+				          spellcheck: false
+
+				          }) }}
+
+				          <div style="display:flex">
+				            <a href="03-add-charge-entry-2.html" id="save-md-ref-button" role="button" draggable="false"
+				              class="govuk-button govuk-button--secondary" style="
+				            margin-bottom: 8px; margin-top: 4px;"> Save changes </a>
+
+				            <a id="save-md-ref-button" role="button" draggable="false" class="govuk-link"
+				              style="margin-top: 11px; margin-left:15px;"> Cancel changes </a>
+				          </div>
+				        </div>
+
+				      </td>
+
+				    </tr>
+
+				    <tr id="chargee-name" class="govuk-table__row">
+				      <th scope="row" class="govuk-table__header">Lender name</th>
+				      <td class="govuk-table__cell">Halifax</td>
+				    </tr>
+
+
+				  </tbody>
+				</table>
+
+
+
+
+
+<div id="checkbox-md">
+
+  {{ govukCheckboxes({
+  name: 'undisclosed',
+  classes: 'govuk-checkboxes--small',
+  items: [
+  {
+  id: 'checkbox-md',
+  html: 'Charge does not have an MD reference',
+  value: 'No',
+  checked: checked('undisclosed','No')
+  }
+  ]
+  }) }}
+
+</div>
+
+<div id="special-instructions"
+
+    <!-- NOTES AND WARNINGS QUESTION -->
+
+
+          {{ govukRadios({
+          idPrefix: 'note-proceed',
+          name: 'note-proceed',
+          classes: ' govuk-radios--small govuk-radios--inline',
+          fieldset: {
+          legend: {
+          html: 'There is a note associated with the mortgage document. Can the charge be added?',
+          classes: 'govuk-fieldset__legend--s'
+          }
+          },
+          hint: {
+          html: 'To check the note go to CAVE'
+          },
+          items: [
+          {
+          html: 'Yes',
+          value: 'Yes'
+          },
+          {
+          html: 'No',
+          value: 'No',
+          checked: checked('note-proceed','No')
+          }
+          ]
+          }) }}
+
+</div>
+
+	      
+	    	<!-- end of tasks  -->
+
+
+	    	<!-- Buttons and links -->
+
+				<div class="task-lists-submit">
+			    <button class="govuk-button" data-module="govuk-button">
+			      Next
+			    </button>
+			    <a href="workflow-no-drafting" class="govuk-link reject-button">Return to workflow</a>
+	 			</div>
+
+		  </form>
+
+
+
+	  </div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+{% endblock %}
+
+  {% block pageScripts %}
+<script>
+
+
+
+  $('#change-button').click(function () {
+    $('#regular-md').hide();
+    $('#change-button').hide();
+    $('#chargee-name').hide();
+    $('#register-entries').hide();
+    $('#checkbox-md').hide();
+    $('#chargee-name').hide();
+    $('#special-instructions').hide();
+    $('#editing-md').show();
+   // $('#md-ref-field').focus();
+    var val = $('#md-ref-field').val(); //store the value of the element
+$('#md-ref-field').val(''); //clear the value of the element
+$('#md-ref-field').val(val); //set that value back.
+
+  });
+
+
+  $('#checkbox-md').click(function () {
+
+    $("#warning-message").toggle(this.checked)
+  });
+
+
+  $("#checkbox-md").click(function () {
+    if ($(this).is(":checked")) {
+      $("#submit-button").show();
+      $("#next-button").hide();
+    } else {
+      $("#submit-button").hide();
+      $("#next-button").show();
+    }
+  });
+
+
+
+</script>
+
+{% endblock %}
