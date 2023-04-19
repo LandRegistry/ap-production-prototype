@@ -187,48 +187,23 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
 	<div class="govuk-grid-column-one-half column">
 
+		<a href="" class="govuk-back-link">Back</a>
 
 		<h2 class="govuk-heading-m">Restriction details</h2>
 
 
 
 		<h3 class="govuk-heading-s">BXN01</h3>
-		<p class="govuk-body">RESTRICTION: No [Infill 1] of the registered estate [Infill 2] by the proprietor of the
-			registered estate [Infill 3] is to be registered without a written consent signed by [Infill 4] of [Infill
-			5] [Infill 6].</p>
+		<p class="govuk-body" style="margin-bottom: 10px;">RESTRICTION: No <b> something </b>  of the registered estate <b> something </b> by the proprietor of the
+			registered estate <b> something </b> is to be registered without a written consent signed by <b> something </b> of <b> something </b>.</p>
 
 
-		<p class="govuk-body govuk-!-font-weight-bold">Complete the infills for BXN01 </p>
 
-		<div class="govuk-form-group">
-			<label class="govuk-label" for="disposition">
-				Infill 1: type of disposition
-			</label>
-			<input class="govuk-input" id="disposition" name="disposition" type="text">
-		</div>
+			<div class="govuk-button-group" >
+				<a class="govuk-link" href="../../add-things/f/03-editing-screen.html">Edit </a>
 
-		<div class="govuk-form-group">
-			<label class="govuk-label" for="beneficiary">
-				Infill 2: name of the beneficiary
-			</label>
-			<input class="govuk-input" id="beneficiary" name="beneficiary" type="text">
-		</div>
-
-
-		<div class="govuk-form-group">
-			<label class="govuk-label" for="address">
-				Infill 3: address of the beneficiary </label>
-			<input class="govuk-input" id="address" name="address" type="text">
-		</div>
-
-
-		<div class="govuk-form-group">
-			<label class="govuk-label" for="disposition">
-				Infill 4: type of disposition
-			</label>
-			<input class="govuk-input" id="disposition" name="disposition" type="text">
-		</div>
-
+				<a class="govuk-link" href="../../add-things/f/03-add-restriction.html">Remove</a>
+			  </div>
 
 
 
@@ -250,13 +225,13 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 		<!-- Button -->
 
 
-		<div class="govuk-button-group">
+		<div class="govuk-button-group" style="margin-top: 30px;">
 			{{ govukButton({
-			text: "Action to confirm and go to the page that shows what just entered ",
-			href: '../../add-restriction/b/03-restriction-added.html'
-		}) }}
+			text: "Next",
+			href: '../../add-things/f/06-docs.html'
+			}) }}
 
-			<a class="govuk-link" href="../../add-restriction/b/03-add-restriction.html">Action to cancel and go to the add restriction page </a>
+			<a class="govuk-link" href="#">Return to Workflow</a>
 		</div>
 
 
