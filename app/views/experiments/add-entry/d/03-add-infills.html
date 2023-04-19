@@ -115,10 +115,21 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 		margin-bottom: 30px;
 	}
 
-	.govuk-heading-s {
+
+	.table-margin {
 		margin-bottom: 10px;
 	}
 
+	.govuk-button--secondary-ap {
+		background-color: #505a5f;
+
+
+	}
+
+
+	.govuk-button--secondary-ap:hover {
+        background-color: #3c4144	;
+      }
 
 
 	/* * end block * */
@@ -155,7 +166,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 <div class="govuk-grid-row ap-no-row-l-r-margin">
 	<div id="application-info-container">
 		<div class="govuk-grid-column-three-quarters ap-no-column-l-r-padding">
-			<h1 class="govuk-heading-m application-type">Enter a restriction (RX1)</h1>
+			<h1 class="govuk-heading-m application-type">Charge</h1>
 
 			<span class="govuk-body">ABR: </span><span class="abr govuk-body">123456</span>
 			<span class="govuk-body">Title: </span><span class="title-number govuk-body">EX365565</span>
@@ -188,11 +199,35 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 	<div class="govuk-grid-column-one-half column">
 
 
-		<h2 class="govuk-heading-m">Restriction details</h2>
 
 
 
-		<h3 class="govuk-heading-s">BXN01</h3>
+
+
+
+
+		<div class="govuk-grid-column-two-thirds column" style=" padding-left: 0px;">
+
+
+
+
+
+		</div>
+
+			<div class="govuk-grid-column-full" style=" padding-left: 0px;">
+
+
+
+				<h1 class="govuk-heading-m">Register entries</h1>
+
+
+				<h3 class="govuk-heading-s" style=" margin-bottom: 5px;"> CD100</h3>
+				<p class="govuk-body"> REGISTERED CHARGE dated 12/04/2021</p>
+				<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+
+
+				<h3 class="govuk-heading-s" style=" margin-bottom: 5px;">BXN01</h3>
 		<p class="govuk-body">RESTRICTION: No [Infill 1] of the registered estate [Infill 2] by the proprietor of the
 			registered estate [Infill 3] is to be registered without a written consent signed by [Infill 4] of [Infill
 			5] [Infill 6].</p>
@@ -230,38 +265,31 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 		</div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		<!-- Button -->
-
-
 		<div class="govuk-button-group">
 			{{ govukButton({
-			text: "Action to confirm and go to the page that shows what just entered ",
-			href: '../../add-restriction/b/03-restriction-added.html'
-		}) }}
+			text: "Save and continue",
+			href: '../../add-entry/d/04-newentry'
+			}) }}
 
-			<a class="govuk-link" href="../../add-restriction/b/03-add-restriction.html">Action to cancel and go to the add restriction page </a>
+			<a class="govuk-link" href="../../add-entry/d/02-entries.html">Cancel</a>
 		</div>
 
 
-	</div>
 
-</div>
+				  <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
-{% endblock %}
+
+
+				<!-- Button -->
+
+
+				<div class="govuk-grid-column-full" style=" padding-left: 0px;">
+
+
+
+				</div>
+			</div>
+
+		</div>
+
+		{% endblock %}

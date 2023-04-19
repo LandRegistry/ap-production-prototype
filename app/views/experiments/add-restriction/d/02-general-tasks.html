@@ -177,28 +177,113 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
   <div class="govuk-grid-column-one-half column">
 
-	<a href="../../add-restriction/a/02-general-tasks.html" class="govuk-back-link">Back</a>
+	<a href="../../add-restriction/d/01-general-tasks.html" class="govuk-back-link">Back</a>
 
-    <h2 class="govuk-heading-m">Restriction details</h2>
-
+    <h2 class="govuk-heading-m">Questions</h2>
 
 
 
 	<div class="govuk-form-group">
-		<h1 class="govuk-label-wrapper">
-		  <label class="govuk-label govuk-label--s" for="restriction-name">
-			What is the restriction you want to add?
-		  </label>
-		</h1>
-		<input class="govuk-input govuk-input--width-5" id="restriction-name" name="restriction-name" type="text">
+		<fieldset class="govuk-fieldset" aria-describedby="fee-paid">
+		  <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+			<h1 class="govuk-fieldset__heading">
+				Has the correct fee been paid?
+			</h1>
+		  </legend>
+		  <ul class="govuk-list govuk-list--bullet">
+			<li>Fee paid: £95</li>
+			<li>Channel: Business Gateway</li>
+		  </ul>
+
+		  <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+			<div class="govuk-radios__item">
+			  <input class="govuk-radios__input" id="fee-paid" name="fee-paid" type="radio" value="yes">
+			  <label class="govuk-label govuk-radios__label" for="fee-paid">
+				Yes
+			  </label>
+			</div>
+			<div class="govuk-radios__item">
+			  <input class="govuk-radios__input" id="fee-paid-2" name="fee-paid-2" type="radio" value="no">
+			  <label class="govuk-label govuk-radios__label" for="fee-paid-2">
+				No
+			  </label>
+			</div>
+		  </div>
+		</fieldset>
 	  </div>
 
 
 
 
 
+	{{ govukRadios({
+	  classes: "govuk-radios--inline govuk-radios--small",
+	  name: "conveyancer?",
+	  fieldset: {
+		legend: {
+		  text: "Has the application been lodged by a conveyancer?",
+		  isPageHeading: true,
+		  classes: "govuk-fieldset__legend--s"
+		}
+	  },
 
+	  items: [
+		{
+		  value: "yes",
+		  text: "Yes"
+		},
+		{
+		  value: "no",
+		  text: "No"
+		}
+	  ]
+	}) }}
 
+	{{ govukRadios({
+		classes: "govuk-radios--inline govuk-radios--small",
+		name: "documents",
+		fieldset: {
+		  legend: {
+			text: "Do included documents meet all requirements?",
+			isPageHeading: true,
+			classes: "govuk-fieldset__legend--s"
+		  }
+		},
+
+		items: [
+		  {
+			value: "yes",
+			text: "Yes"
+		  },
+		  {
+			value: "no",
+			text: "No"
+		  }
+		]
+	  }) }}
+
+	  {{ govukRadios({
+		classes: "govuk-radios--inline govuk-radios--small",
+		name: "transactions",
+		fieldset: {
+		  legend: {
+			text: "Are there any additional transactions?",
+			isPageHeading: true,
+			classes: "govuk-fieldset__legend--s"
+		  }
+		},
+
+		items: [
+		  {
+			value: "yes",
+			text: "Yes"
+		  },
+		  {
+			value: "no",
+			text: "No"
+		  }
+		]
+	  }) }}
 
 
 
@@ -214,8 +299,8 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
 	<div class="govuk-button-group">
 		{{ govukButton({
-		  text: "Add restriction",
-		  href: '../../add-restriction/a/04-add-restriction.html'
+		  text: "Next",
+		  href: '../../add-restriction/d/03-add-restriction.html'
 		}) }}
 
 		<a class="govuk-link" href="#">Return to Workflow</a>

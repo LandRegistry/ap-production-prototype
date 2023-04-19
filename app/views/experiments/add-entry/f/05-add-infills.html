@@ -155,7 +155,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 <div class="govuk-grid-row ap-no-row-l-r-margin">
 	<div id="application-info-container">
 		<div class="govuk-grid-column-three-quarters ap-no-column-l-r-padding">
-			<h1 class="govuk-heading-m application-type">Enter a restriction (RX1)</h1>
+			<h1 class="govuk-heading-m application-type">Charge</h1>
 
 			<span class="govuk-body">ABR: </span><span class="abr govuk-body">123456</span>
 			<span class="govuk-body">Title: </span><span class="title-number govuk-body">EX365565</span>
@@ -187,22 +187,23 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
 	<div class="govuk-grid-column-one-half column">
 
+		<a href="../../add-entry/c/04-entries.html" class="govuk-back-link">Back</a>
 
-		<h2 class="govuk-heading-m">Restriction details</h2>
+		<h2 class="govuk-heading-m">Register entries</h2>
 
 
 
-		<h3 class="govuk-heading-s">BXN01</h3>
-		<p class="govuk-body">RESTRICTION: No [Infill 1] of the registered estate [Infill 2] by the proprietor of the
+		<h3 class="govuk-heading-s">AB123</h3>
+		<p class="govuk-body">OBLIGATION: No [Infill 1] of the registered estate [Infill 2] by the proprietor of the
 			registered estate [Infill 3] is to be registered without a written consent signed by [Infill 4] of [Infill
 			5] [Infill 6].</p>
 
 
-		<p class="govuk-body govuk-!-font-weight-bold">Complete the infills for BXN01 </p>
+		<p class="govuk-body govuk-!-font-weight-bold">Complete the infills for AB123 </p>
 
 		<div class="govuk-form-group">
 			<label class="govuk-label" for="disposition">
-				Infill 1: type of disposition
+				Infill 1: type
 			</label>
 			<input class="govuk-input" id="disposition" name="disposition" type="text">
 		</div>
@@ -215,19 +216,6 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 		</div>
 
 
-		<div class="govuk-form-group">
-			<label class="govuk-label" for="address">
-				Infill 3: address of the beneficiary </label>
-			<input class="govuk-input" id="address" name="address" type="text">
-		</div>
-
-
-		<div class="govuk-form-group">
-			<label class="govuk-label" for="disposition">
-				Infill 4: type of disposition
-			</label>
-			<input class="govuk-input" id="disposition" name="disposition" type="text">
-		</div>
 
 
 
@@ -252,11 +240,10 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
 		<div class="govuk-button-group">
 			{{ govukButton({
-			text: "Action to confirm and go to the page that shows what just entered ",
-			href: '../../add-restriction/b/03-restriction-added.html'
+			text: "Save and continue",
+			href: '../../add-entry/c/06-entries'
 		}) }}
 
-			<a class="govuk-link" href="../../add-restriction/b/03-add-restriction.html">Action to cancel and go to the add restriction page </a>
 		</div>
 
 

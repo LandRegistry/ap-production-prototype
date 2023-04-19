@@ -54,6 +54,8 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 		border-bottom-color: #f1f1f1;
 	}
 
+
+
 	/* * end block * */
 
 
@@ -112,6 +114,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 		margin-bottom: 30px;
 	}
 
+
 	/* * end block * */
 
 
@@ -126,6 +129,17 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 	}
 
 	/* * end block * */
+
+	.govuk-button--secondary-ap {
+		background-color: #505a5f;
+
+
+	}
+
+
+	.govuk-button--secondary-ap:hover {
+        background-color: #3c4144	;
+      }
 
 
 	/* ********************************** */
@@ -146,7 +160,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 	<div class="govuk-grid-row ap-no-row-l-r-margin">
 		<div id="application-info-container">
 			<div class="govuk-grid-column-three-quarters ap-no-column-l-r-padding">
-	  		<h1 class="govuk-heading-m application-type">Enter a restriction (RX1)</h1>
+	  		<h1 class="govuk-heading-m application-type">Charge</h1>
 
 	  				<span class="govuk-body">ABR: </span><span class="abr govuk-body">123456</span>
 	  				<span class="govuk-body">Title: </span><span class="title-number govuk-body">EX365565</span>
@@ -177,17 +191,27 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
   <div class="govuk-grid-column-one-half column">
 
-	<a href="../../add-restriction/a/02-general-tasks.html" class="govuk-back-link">Back</a>
+	{{ govukBackLink({
+		text: "Back",
+		href: "../../add-entry/c/01-mdref"
+	  }) }}
 
-    <h2 class="govuk-heading-m">Restriction details</h2>
+
+	<h1 class="govuk-heading-m">Register entries</h1>
+
+
+	  <h3 class="govuk-heading-s" style=" margin-bottom: 5px;"> CD100</h3>
+	  <p class="govuk-body">  REGISTERED CHARGE dated 12/04/2021</p>
+	  <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
 
 
 
-	<div class="govuk-form-group">
+
+	  <div class="govuk-form-group" style="margin-bottom: 10px;">
 		<h1 class="govuk-label-wrapper">
 		  <label class="govuk-label govuk-label--s" for="restriction-name">
-			What is the restriction you want to add?
+			Add another entry
 		  </label>
 		</h1>
 		<input class="govuk-input govuk-input--width-5" id="restriction-name" name="restriction-name" type="text">
@@ -195,17 +219,17 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
 
 
+	  {{ govukButton({
+		text: "Add entry",
+		classes: "govuk-button--secondary-ap",
+		href: '../../add-entry/c/03-add-infills.html'
 
 
+	  }) }}
 
-
-
-
-
-
-
-
-
+	  <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" style="
+	  margin-top: 0px;
+  ">
 
 
 
@@ -214,11 +238,11 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
 	<div class="govuk-button-group">
 		{{ govukButton({
-		  text: "Add restriction",
-		  href: '../../add-restriction/a/04-add-restriction.html'
+		  text: "Next",
+		  href: '../../add-entry/a/02-entries'
 		}) }}
 
-		<a class="govuk-link" href="#">Return to Workflow</a>
+		<a class="govuk-link govuk-link--no-visited-state" href="#">Return to Workflow</a>
 	  </div>
 
 

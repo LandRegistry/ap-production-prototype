@@ -112,6 +112,11 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 		margin-bottom: 30px;
 	}
 
+
+	.table-margin {
+		margin-bottom: 10px;
+	}
+
 	/* * end block * */
 
 
@@ -146,7 +151,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 	<div class="govuk-grid-row ap-no-row-l-r-margin">
 		<div id="application-info-container">
 			<div class="govuk-grid-column-three-quarters ap-no-column-l-r-padding">
-	  		<h1 class="govuk-heading-m application-type">Enter a restriction (RX1)</h1>
+	  		<h1 class="govuk-heading-m application-type">Charge</h1>
 
 	  				<span class="govuk-body">ABR: </span><span class="abr govuk-body">123456</span>
 	  				<span class="govuk-body">Title: </span><span class="title-number govuk-body">EX365565</span>
@@ -177,51 +182,90 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
   <div class="govuk-grid-column-one-half column">
 
-	<a href="../../add-restriction/a/02-general-tasks.html" class="govuk-back-link">Back</a>
+	{{ govukBackLink({
+		text: "Back",
+		href: "#"
+	  }) }}
 
-    <h2 class="govuk-heading-m">Restriction details</h2>
 
-
-
-
-	<div class="govuk-form-group">
-		<h1 class="govuk-label-wrapper">
-		  <label class="govuk-label govuk-label--s" for="restriction-name">
-			What is the restriction you want to add?
-		  </label>
-		</h1>
-		<input class="govuk-input govuk-input--width-5" id="restriction-name" name="restriction-name" type="text">
-	  </div>
+    <h2 class="govuk-heading-m">Charge details</h2>
 
 
 
 
+	<div class="govuk-grid-column-two-thirds column" style=" padding-left: 0px;">
 
 
+{{ govukSummaryList({
+ classes: 'table-margin',
+  rows: [
+    {
+      key: {
+        text: "MD reference"
+      },
+      value: {
+        text: "MD12345"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    },
 
 
+    {
+      key: {
+        text: "Lender name"
+      },
+      value: {
+        html: '<p class="govuk-body">Sarah Phillips</p>'
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "",
+            visuallyHiddenText: "contact details"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
 
+<div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+	<div class="govuk-checkboxes__item" style="margin-bottom: 30px;">
+	  <input class="govuk-checkboxes__input" id="date" name="date" type="checkbox" value="date"
+		data-aria-controls="conditional-reasons">
+	  <label class="govuk-label govuk-checkboxes__label" for="date">
+		This charge does not have an MD reference
+	  </label>
+	</div>
 
-
-
-
-
-
+	</div>
 
 
     <!-- Button -->
 
 
-	<div class="govuk-button-group">
-		{{ govukButton({
-		  text: "Add restriction",
-		  href: '../../add-restriction/a/04-add-restriction.html'
-		}) }}
-
-		<a class="govuk-link" href="#">Return to Workflow</a>
-	  </div>
+	<div class="govuk-grid-column-full" style=" padding-left: 0px;">
 
 
+		<div class="govuk-button-group">
+			{{ govukButton({
+			  text: "Next",
+			  href: '../../add-entry/d/02-entries'
+			}) }}
+
+			<a class="govuk-link" href="#">Return to Workflow</a>
+		  </div>
+
+</div>
   </div>
 
 </div>
