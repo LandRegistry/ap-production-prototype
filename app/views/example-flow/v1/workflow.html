@@ -9,11 +9,14 @@
 
   <div class="govuk-grid-row govuk-body govuk-!-margin-top-6">
     <div class="govuk-grid-column-two-thirds">
-      {{ govukPanel({
-        titleText: "Application 123456 sent to Workflow",
-        html: "Register partially drafted",
-        classes: "govuk-panel--confirmation--partial"
-      }) }}
+			<div class="govuk-panel govuk-panel--confirmation govuk-panel--confirmation--partial">
+	    	<h1 class="govuk-panel__title">
+	          Application {{ abrNumber | d('A123XYZ') }} sent to Workflow
+	      </h1>
+	      <div class="govuk-panel__body">
+	        Register partially drafted
+	      </div>
+	    </div>  
 
       <!-- <h2 class="govuk-heading-m">What's next</h2> -->
 

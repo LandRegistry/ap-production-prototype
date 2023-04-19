@@ -10,10 +10,14 @@ Sent for mark off
 
   <div class="govuk-grid-row govuk-body govuk-!-margin-top-6">
     <div class="govuk-grid-column-two-thirds">
-      {{ govukPanel({
-        titleText: "Application 123456 complete",
-        html: "Sent for mark off"
-      }) }}
+    	<div class="govuk-panel govuk-panel--confirmation">
+	    	<h1 class="govuk-panel__title">
+	          Application {{ abrNumber | d('A123XYZ') }} complete
+	      </h1>
+	      <div class="govuk-panel__body">
+	        Sent for mark off
+	      </div>
+	    </div>  
 
       <!-- <h2 class="govuk-heading-m">What's next</h2> -->
 
