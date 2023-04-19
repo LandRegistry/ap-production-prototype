@@ -1,23 +1,23 @@
-const express = require('express')
-const router = new express.Router()
+const govukPrototypeKit = require('govuk-prototype-kit')
+const router = govukPrototypeKit.requests.setupRouter()
 
 // Set variables
 router.get('*', function(req, res, next){
-  res.locals['titleNumber'] = 'BGL109003'
-  res.locals['appType'] = 'Transfer'
-  res.locals['docView'] = '_document-viewer'
+  res.locals['titleNumber'] = 'YL005916'
+  res.locals['abrNumber'] = 'A312YYX'
+  res.locals['appnType'] = 'Charge'
 
   next()
 })
 
-router.post('/worklist', function (req, res) {
-  res.redirect('preliminary');
+router.post('/00-worklist', function (req, res) {
+  res.redirect('01-preliminary');
 
 })
 
-router.post('/preliminary', function (req, res) {
-  if (req.session.data['property-match'] == 'Yes' || req.session.data['customer-match'] == 'No') {
-    res.redirect('complete--return-to-workflow');
+router.post('/01-preliminary', function (req, res) {
+  if (req.session.data['property-match'] == 'No' || req.session.data['customer-match'] == 'No') {
+    res.redirect('workflow-no-drafting');
   } else {
     res.redirect('questions');
   }

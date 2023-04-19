@@ -7,3 +7,10 @@ const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
 // Add your routes here
+
+
+// Add a route look up like this for each new flow
+// add the routes for your actual flow to an _routes file in your flow's folder
+router.use(/\/example-flow\/v([0-9]+)/, (req, res, next) => {
+  return require(`./views/example-flow/v${req.params[0]}/_routes`)(req, res, next);
+})

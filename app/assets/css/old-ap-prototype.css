@@ -368,16 +368,6 @@
  #error-notification:focus{
 	outline:none
 }
- .reject-button{
-	margin:10px 0 0 15px;
-	display:inline-block;
-	border:none;
-	background:none;
-	font-size:16px;
-	color:#005ea5;
-	cursor:pointer;
-	text-decoration:underline
-}
 
  .add-button{
 	margin: 10px 0 0 0px;
@@ -800,3 +790,16 @@
 	width:180px;
 	margin-top:5px
 }
+
+/* ******************************************* */
+/* ** Adapted old AP styles to Gov-ify them ** */
+/* ******************************************* */
+
+ .reject-button{
+ 	line-height: 1;
+ 	padding-top:10px;
+	margin-left:15px;
+	display:inline-block;
+	font-size:1.1875rem;
+}
+/* ** end block ** */
