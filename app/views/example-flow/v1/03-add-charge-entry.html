@@ -53,6 +53,22 @@
 
 	      <h2 class="govuk-heading-l">Tasks</h2>
 
+	      <!-- Notification, if charge does not have an MD Ref selected -->
+				<div id="warning" class="govuk-notification-banner" role="region"
+				  aria-labelledby="govuk-notification-banner-title"
+				  data-module="govuk-notification-banner">
+				  <div class="govuk-notification-banner__header">
+				    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+				      Important
+				    </h2>
+				  </div>
+				  <div class="govuk-notification-banner__content">
+				    <p class="govuk-notification-banner__heading">
+				      <a class="govuk-notification-banner__link" href="workflow-no-drafting">Send to Workflow</a> to complete this application.
+				    </p>
+				  </div>
+				</div>
+
 	    	<!-- tasks go here  -->
 
 	    	<h3 class="govuk-heading-s" style="margin-bottom:0px">Charge details</h3>
@@ -130,8 +146,8 @@
   {
   id: 'checkbox-md',
   html: 'Charge does not have an MD reference',
-  value: 'No',
-  checked: checked('undisclosed','No')
+  value: 'No-MDRef',
+  checked: checked('undisclosed','No-MDRef')
   }
   ]
   }) }}
@@ -178,7 +194,7 @@
 	    	<!-- Buttons and links -->
 
 				<div class="task-lists-submit">
-			    <button class="govuk-button" data-module="govuk-button">
+			    <button id="me" class="govuk-button" data-module="govuk-button">
 			      Next
 			    </button>
 			    <a href="workflow-no-drafting" class="govuk-link reject-button">Return to workflow</a>
@@ -196,10 +212,8 @@
 
 {% endblock %}
 
-  {% block pageScripts %}
+{% block pageScripts %}
 <script>
-
-
 
   $('#change-button').click(function () {
     $('#regular-md').hide();
@@ -212,28 +226,23 @@
     $('#editing-md').show();
    // $('#md-ref-field').focus();
     var val = $('#md-ref-field').val(); //store the value of the element
-$('#md-ref-field').val(''); //clear the value of the element
-$('#md-ref-field').val(val); //set that value back.
+		$('#md-ref-field').val(''); //clear the value of the element
+		$('#md-ref-field').val(val); //set that value back.
 
   });
 
 
-  $('#checkbox-md').click(function () {
 
-    $("#warning-message").toggle(this.checked)
+	$('#checkbox-md input:checkbox').change(function () {
+	  if ($(this).prop("checked") == true) {
+    	$("#warning").show();
+      $('.govuk-button').text('Send to Workflow');
+	  } else {
+    	$("#warning").hide();
+      $('.govuk-button').text('Next');
+  	}
+
   });
-
-
-  $("#checkbox-md").click(function () {
-    if ($(this).is(":checked")) {
-      $("#submit-button").show();
-      $("#next-button").hide();
-    } else {
-      $("#submit-button").hide();
-      $("#next-button").show();
-    }
-  });
-
 
 
 </script>

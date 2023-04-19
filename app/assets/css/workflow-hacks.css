@@ -1,0 +1,18 @@
+/* ********************************** */
+/* css to make the worklist look right */
+/* ********************************** */
+
+.inline-list__worklist {
+  display:inline-block;
+  padding: 1px 6px;
+}
+
+.black-border__worklist {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color:#0b0c0c
+}
+
+.row-paddding__worklist {
+  padding-top: 20px;
+}

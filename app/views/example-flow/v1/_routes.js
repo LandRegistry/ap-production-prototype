@@ -37,7 +37,12 @@ router.post('/02-charge-amount', function (req, res) {
 })
 
 router.post('/03-add-charge-entry', function (req, res) {
-	res.redirect('04-discharge');
+	// no MD Ref checkbox is selected
+  if (req.session.data['undisclosed'] == 'No-MDRef') { 	
+    res.redirect('workflow-no-drafting');
+  } else {
+		res.redirect('04-discharge');
+	}
 })
 
 router.post('/03-add-charge-entry-2', function (req, res) {

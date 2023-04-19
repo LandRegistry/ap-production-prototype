@@ -137,6 +137,10 @@
 	}
 	/* * end block * */
 
+	#warning {
+		display:none;
+	}
+
 
 	/* ********************************** */
 	/* mutually exclusive only - visually hidden - */
