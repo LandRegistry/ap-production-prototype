@@ -49,3 +49,8 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 
 {% endblock %}
 
+{% block stylesheets %}
+  {{ super() }}
+  <link href="/public/css/font.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+

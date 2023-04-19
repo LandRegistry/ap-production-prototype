@@ -18,34 +18,30 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 {% endblock %}
 
 
-{% if (GOVUKPrototypeKit.isDevelopment) %}
-{% set footerItems = [
-  {
-    href: "/manage-prototype",
-    text: "Manage your prototype"
-  }, {
-    href: "/manage-prototype/clear-data",
-    text: "Clear data"
-  }
-] %}
-{% else %}
-  {% set footerItems = [
-    {
-      href: "/manage-prototype/clear-data",
-      text: "Clear data"
-    }
-  ] %}
-{% endif %}
-
-
 {% block footer %}
 	{% from "hmlr/components/footer/macro.njk" import hmlrFooter %}
 	{{ hmlrFooter({
-    meta: {
-      items: footerItems,
-      visuallyHiddenTitle: "Footer links"
-    }
+   meta: {
+     items: [
+       {
+         href: "/",
+         text: "feedback (opens in new tab)"
+       },
+       {
+         href: "/",
+         text: "Accessibility statement (opens in new tab)"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
  }) }}
 
+{% endblock %}
+
+{% block stylesheets %}
+  {{ super() }}
+  <link href="/public/css/old-ap-prototype.css" rel="stylesheet" type="text/css" />
+  <link href="/public/css/font.css" rel="stylesheet" type="text/css" />
+  <link href="/public/css/new-style-regular.css" rel="stylesheet" type="text/css" />
 {% endblock %}
 

@@ -1,4 +1,4 @@
-{% extends "layouts/ap-main.html" %}
+{% extends "layouts/ap-documentation.html" %}
 
 {% block pageTitle %}
 Home – {{serviceName}} – GOV.UK Prototype Kit
@@ -9,39 +9,34 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h2 class="govuk-heading-l">Andy experiments</h2>
+    <h1 class="govuk-heading-xl">Example Charge flow</h1>
 
+    <p class="govuk-body">This is work in progress</p>
 
-    <h3 class="govuk-heading-m">main page layout</h3>
-    <p>Application info bar noodling</p>
-    <p>50/50 columns 1440px</p>
-    <ul class="govuk-list">
-      <li>
-        <a class="govuk-link" href="1.html">Register : Tasks</a>
-      </li>
-      <li>
-      	<a class="govuk-link" href="2.html">Tasks : Register</a>
-      </li>
-      <li>
-      	<a class="govuk-link" href="scrollbar.html">visual scrollbar noodling</a>
-      </li>
-      <li>
-      	<a class="govuk-link" href="lighter-background.html">lighter background</a>
-      </li>
+    <p class="govuk-body"><a class="govuk-link" href="01-preliminary-page-eligibility">Charge</a></p>
+
+    <p class="govuk-body">contains:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li> - for temporary css we need for new designs - replace when css brouhgt over form production</li>
+			<li>old-ap-protoype.css - for old styles needed - replace when css brought over form production</li>
+      <li></li>
     </ul>
 
-    <p>i dont like how i've done the register scrolling - i cant see how if the task  list is bigger than the height of the visible page, that you can make the register always be in view - no matter what scrolling is applied.</p>
-    <p>perhaps the task list should always be smaller than the height of the standard monitor height (i.e. the call to action button is always visible - at the standard height).  So limit the number of tasks per page.</p>
-    <p>how do we decide what height the register column should be?</p>
-
-    <h3 class="govuk-heading-m">system error and information messages</h3>
-    <p>when the system cant do something</p>
-    <p><a class="govuk-link" href="system-messages/">system messages</a></p>
-
-    <h3 class="govuk-heading-m">component changes</h3>
-    <p>components we're needing to redo to make them more Gov like.</p>
-    <p><a class="govuk-link" href="mutually-exclusive/">mutually exclusive</a> - e.g. charge date, amount</p>
-
+    <p class="govuk-body">Todo:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>application documents page</li>
+      <li>worklist - at the start</li>
+      <li>worklist - at the end, after sent to workflow</li>
+      <li><s>move all css out of the pages to a css files loaded in template</s></li>
+      <li>refactor the 2 css files, new-style-wide and new-style-regular.css - so we dont have to put styling in both</li>
+      <li>get HTML, css and js from prodcution - update all the pages and templates</li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
 
   </div>
 </div>

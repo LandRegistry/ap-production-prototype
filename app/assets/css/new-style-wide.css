@@ -1,0 +1,138 @@
+	/* ********************************** */
+	/* set max page contents width */
+	/* more work to do for left and right whitespace either side of content for responsivness */
+	/* ********************************** */
+	.govuk-width-container {
+    max-width: 1440px;
+  }
+  /* * end block * */
+
+
+  /* ********************************** */
+	/* page background colour - off-white */
+	/* ********************************** */
+	.govuk-template__body {
+
+		/* see
+		https://css-tricks.com/snippets/sass/tint-shade-functions/ for how to use sass mix to get a tint
+		and
+		https://www.sassmeister.com/ for running sass to give us the css value */
+
+		/* 99% white mixed in with header border green = #fefefc */
+		/* 98% white mixed in with header border green = #fcfdfa */
+/*		background-color: #fcfdfa; */
+
+		
+		/* grey - home office recommendation https://design.homeoffice.gov.uk/styles/colour */
+		background-color: #f1f1f1;  
+	}
+
+	/* page background colour - header bottom border (behind the green) off-white */
+	.govuk-header--hmlr {
+
+		/* 98% white mixed in with header border green */
+/*		border-bottom-color: #fcfdfa;*/
+
+		/* grey - home office recommendation https://design.homeoffice.gov.uk/styles/colour */
+		border-bottom-color: #f1f1f1;
+	}
+	/* * end block * */
+
+
+  /* ********************************** */
+	/* body content to be close to the header.  allow application information bar to be flush to header */
+	/* ********************************** */
+
+	.govuk-main-wrapper {
+		padding-top: 0;
+	}
+	/* * end block * */
+
+
+  /* ********************************** */
+	/* application information bar */
+	/* ********************************** */
+	#application-info-container {
+		padding-top: 20px;
+		padding-bottom: 45px;
+    border-bottom: 1px solid #b1b4b6;
+    margin-bottom: 30px;
+	}
+
+	#documents-launcher {
+		text-align: right;
+	}
+
+	.title-number, .abr {
+		font-weight: 800;
+	}
+
+	.abr {
+		margin-right: 30px;
+	}
+
+	h1.application-type {
+		display: inline;
+		margin-right:50px;
+	}
+
+	.ap-no-column-l-r-padding {
+		padding-left:0px;
+		padding-right:0px;
+	}
+
+	.ap-no-column-r-padding {
+		padding-right:0px;
+	}
+
+	.ap-no-row-l-r-margin {
+		margin-left:0px;
+		margin-right:0px;
+	}
+	/* * end block * */
+
+
+  /* ********************************** */
+	/* register */
+	/* ********************************** */
+	#register-container {
+		padding-right: 25px;
+	/*	background-color:#f6f6f6;*/
+		border: none;
+		border-bottom: 3px double #a0a0a0;
+	}
+	/* * end block * */
+
+  
+	/* ********************************** */
+  /* register scrolling */
+  /* ********************************** */
+
+  .register-column {
+    height: 820px;
+  }
+
+  .scroll {
+    overflow: auto;
+  }
+  /* * end block * */
+
+
+	/* ********************************** */
+  /* notification banner for in-page system errors */
+  /* ********************************** */
+  .govuk-notification-banner--error {
+		border-color: #d4351c;
+		background-color: #d4351c;
+  }
+  /* * end block * */
+
+
+  /* ********************************** */
+	/* confirmation page banner - blue - */
+	/* ********************************** */
+
+	.govuk-panel--confirmation--partial {
+		background-color: #1d70b8;
+	}
+	/* * end block * */

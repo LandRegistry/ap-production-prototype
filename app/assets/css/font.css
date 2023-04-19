@@ -1,0 +1,15 @@
+/* ********************************** */
+/* arial as default font on all elements */
+/* ********************************** */
+* {
+	font-family: Arial, Helvetica, sans-serif !important;
+}
+/* * end block * */
+
+/* ********************************** */
+/* for documentation pages only */
+/* ********************************** */
+code {
+	font-family: Courier new !important;
+  font-weight: 600;
+}
