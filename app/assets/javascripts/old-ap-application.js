@@ -12,7 +12,7 @@ $('.js-no-return-to-workflow input:radio').change(function () {
   if ($(this).val() == 'No') {
     $('.govuk-fieldset').not($(this).parents('.govuk-fieldset')).prop('disabled', true)
     $('#warning').show().focus()
-    $('.govuk-button').text('Submit')
+    $('.govuk-button').text('Send to Workflow')
   } else {
     $('.govuk-fieldset').prop('disabled', false)
     $('#warning').hide()
@@ -24,7 +24,7 @@ $('.js-yes-return-to-workflow input:radio').change(function () {
   if ($(this).val() == 'Yes') {
     $('.govuk-fieldset').not($(this).parents('.govuk-fieldset')).prop('disabled', true)
     $('#warning').show().focus()
-    $('.govuk-button').text('Submit')
+    $('.govuk-button').text('Send to Workflow')
   } else {
     $('.govuk-fieldset').prop('disabled', false)
     $('#warning').hide()
@@ -36,7 +36,7 @@ $('.js-no-return-to-workflow input:checkbox').change(function () {
   if ($(this).val() == 'No') {
     $('.govuk-fieldset').not($(this).parents('.govuk-fieldset')).prop('disabled', true)
     $('#warning').show().focus()
-    $('.govuk-button').text('Submit')
+    $('.govuk-button').text('Send to Workflow')
   } else if ($(this).val() == '') {
     $('.govuk-fieldset').prop('disabled', false)
     $('#warning').hide()
