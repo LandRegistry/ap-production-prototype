@@ -1,0 +1,57 @@
+{% extends "layouts/ap-documentation.html" %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Example Charge flow</h1>
+
+    <p class="govuk-body">This is work in progress - its all wired up, but needs the right page content</p>
+
+    <p class="govuk-body"><a class="govuk-link" href="00-worklist">Charge</a></p>
+
+    <p>being built form the <a href="https://hmlr-application-processing.herokuapp.com/charges/v8/b/01-preliminary">old protoype - latest charge protoype - v8</a>.  It will need to be updated with whats actually in prodcution, and what gets decided in the new UI</p>
+
+    <p class="govuk-body">contains:</p>
+    <ul class="govuk-list govuk-list--bullet">
+    	<li>a working example of v8 charge flow</li>
+    	<li>all links open pages - feedback, acc statement, application docs, conformation pages</li>
+      <li>new-style-regular.css and new-style-wide.css and fonts.css - for temporary css we need for new designs - replace when css brought over from production</li>
+			<li>old-ap-protoype.css - for old styles needed - replace when css brought over form production (many styles that were not needed have been deleted) (some old styles have been amended to gov-ify them - see bottom of file)</li>
+			<li>a template page for any new pages 0x-template-page</li>
+			<li>works just like our other protypes - with in-folder routing, and checks done there, and you can set automation and applciation variables there.
+    </ul>
+
+    <p class="govuk-body">Todo:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><s>application documents page</s></li>
+      <li><s>worklist - at the start</s> - is the content right for a charge?</li>
+      <li>worklist - at the end, after sent to workflow - placeholder page there but needs the right content</li>
+      <li><s>mutually exclusive pattern for charge date and charge amount</s></li>
+      <li><s>confirmation pages added, and link to worklist added</s></li>
+      <li><s>the right confiormation page shows at flow end, and return to workflow</s></li>
+      <li><s>accessibilty statement placeholder</s> - needs copy though</li>
+      <li><s>feedback page template</s> - needs copy though</li>
+      <li><s>move all css out of the pages to a css files loaded in template</s></li>
+      <li>get HTML, css and js from production - update all the pages and templates</li>
+      <li><s>set up routing in folder, and make all pages route correctly</s></li>
+      <li><s>add notification panel on page 01 - when No selected - needs js adding to make work. html is in place but commented out</s></li>
+      <li><s>page 3 - add notification panel  - when charge does not have an MD reference is selected</s></li>
+      <li>page 3 part 2 has an error in the HTML so the next button does not fire the form action.  I dont know why - but this page will be reworked for new UI</li>
+      <li><s>set up variables to pass around - title, abr, appn type. and load them in pages</s></li>
+      <li><s>parameterise page titles - suggested page title format - including the abr, tn, type variables</s></li>
+      <li><s>send to workflow loads 'confirmation page with looked up ABR</s></li>
+      <li><s>make template page for others to copy</s></li>
+      <li>clear data at end (before starting a new one) of each flow? useful for UR, so caseworker can do multupl eapplications unaided</li>
+      <li>refactor the 2 css files, new-style-wide and new-style-regular.css - so we dont have to put styling in both</li>
+    </ul>
+
+  </div>
+</div>
+
+{% endblock %}
