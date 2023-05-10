@@ -17,6 +17,21 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
     <p><a href="/manage-prototype/clear-data">clear all session data</a></p>
 
 
+		<h2 class="govuk-heading-l">Session data</h2>
+
+			<h3 class="govuk-heading-m">ordered by name</h3>
+	      	<ul class="govuk-list govuk-list--bulletx">
+		      {% for item in data | dictsort %}
+					    <li>{{ item[0] }} : {{ item[1] }}</li>
+					{% endfor %}
+					</ul>
+	      		
+			<h3 class="govuk-heading-m">JSON, as stored</h3>	      	
+					<pre>
+	      		{{ data | dump(2) }}
+					</pre>
+
+
   </div>
 </div>
 
