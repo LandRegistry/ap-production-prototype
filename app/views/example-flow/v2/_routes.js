@@ -87,6 +87,17 @@ router.post('/03-add-charge-entry', function (req, res) {
   if (req.session.data['undisclosed'] == 'No-MDRef') { 	
     res.redirect('workflow-no-drafting');
   } else {
+  	// store PAS notes into server variable PASNotes
+  	if (req.session.data['note-proceed'] == 'No')
+		{  		
+			PASNotes.ChargeEntries = "A note or warning needs action before this charge can be added to the register"
+		}
+		else {
+			delete PASNotes.ChargeEntries; 
+		}
+		// set session data item PASNotes to whats in the server variable PASNotes - so that session data PAS notes is available to be used in the pages
+  	req.session.data['PASNotes'] = PASNotes;
+  	
 		res.redirect('04-discharge');
 	}
 })
@@ -98,7 +109,42 @@ router.post('/03-add-charge-entry-2', function (req, res) {
 	res.redirect('04-discharge');
 })
 
-router.post('/04-discharge', function (req, res) {
+router.post('/04-discharge', function (req, res) {	
+	// store PAS notes into server variable PASNotes
+	if (req.session.data['early-completion'] == 'Yes')
+	{  		
+		PASNotes.DischargeEvidenceLodgedCharge = "Evidence of discharge for the registered charge(s) requires action"
+	}
+	if (req.session.data['early-completion'] == 'No')
+	{  		
+		PASNotes.DischargeEvidenceLodgedCharge = "Early completion charge dated %s remains in the register (%s is the charge date)"
+	}
+	if (req.session.data['early-completion'] == 'Not required') {
+		delete PASNotes.DischargeEvidenceLodgedCharge;
+	}
+
+	if (req.session.data['joint-proprietor'] == 'No')
+	{  		
+		PASNotes.ProcessWithJpRestriction = "The joint proprietor restriction in the register needs considering."
+	}
+	else
+	{
+		delete PASNotes.ProcessWithJpRestriction;
+	}
+
+	if (req.session.data['register-restrictions'] == 'No')
+	{  		
+		PASNotes.ProcessWithRestrictions = "The restriction(s) in the register need considering"
+	}
+	else
+	{
+		delete PASNotes.ProcessWithRestrictions;
+	}
+
+
+	// set session data item PASNotes to whats in the server variable PASNotes - so that session data PAS notes is available to be used in the pages
+  req.session.data['PASNotes'] = PASNotes;
+
 	res.redirect('05-any-other-entries');
 })
 
@@ -121,6 +167,8 @@ router.post('/07-document-storage', function (req, res) {
 		|| req.session.data['name-discrepancy'] == 'No'
 		|| req.session.data['transferor-discrepancies'] == 'No'
 		|| req.session.data['note-proceed'] == 'No'
+		|| req.session.data['early-completion'] == 'Yes'
+		|| req.session.data['early-completion'] == 'No' 
 		|| req.session.data['joint-proprietor'] == 'No'
 		|| req.session.data['register-restrictions'] == 'No'
 		|| req.session.data['existing-entries'] == 'Yes'
