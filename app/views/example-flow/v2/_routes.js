@@ -17,13 +17,18 @@ router.post('/00-worklist', function (req, res) {
 router.post('/01-preliminary', function (req, res) {
   if 	(req.session.data['property-match'] == 'No' 
   	|| req.session.data['customer-match'] == 'No'
-  	|| req.session.data['id-check'] == 'No'
   	|| req.session.data['conveyancer-match'] == 'No'
   	) { 	
     res.redirect('workflow-no-drafting');
   } else {
+  	// record PAS note for id-check = No
+  	if ( req.session.data['id-check'] == 'No')
+  	{
+  		// record PAS note:
+  		// The identity panels have not been filled out correctly
+  	}
   	// set up date from 'automation' for page 2
-  	// note - these could be set up inthe session-data-defaults.js file.  But then they will be in every single flow - whiche we dont want.  doesnt matter about the document storage data in that file, we want that everywhere
+  	// note - these could be set up in the session-data-defaults.js file.  But then they will be in every single flow - whiche we dont want.  doesnt matter about the document storage data in that file, we want that everywhere
   	req.session.data['charge-date-day'] = '04';
   	req.session.data['charge-date-month'] = '11';
   	req.session.data['charge-date-year'] = '2019';
@@ -69,6 +74,7 @@ router.post('/07-document-storage', function (req, res) {
 
 	// check all the questions that mean it should get sent to workflow
   if 	(req.session.data['correct-fee'] == 'No'
+  	|| req.session.data['id-check'] == 'No'
 		|| req.session.data['name-discrepancy'] == 'No'
 		|| req.session.data['transferor-discrepancies'] == 'No'
 		|| req.session.data['note-proceed'] == 'No'
