@@ -54,7 +54,31 @@ router.post('/01-preliminary', function (req, res) {
 })
 
 router.post('/02-charge-amount', function (req, res) {
-	console.log(PASNotes);
+	// store PAS notes into server variable PASNotes
+	if (req.session.data['correct-fee'] == 'No')
+	{  		
+		PASNotes.ConfirmFeePaid = "Fee paid is incorrect."
+	}
+	else {
+		delete PASNotes.ConfirmFeePaid; 
+	}
+	if (req.session.data['name-discrepancy'] == 'No')
+		{  		
+		PASNotes.ConfirmBorrower = "The borrower names do not match the registered proprietor. Check for related evidence and complete any action needed"
+	}
+	else {
+		delete PASNotes.ConfirmBorrower; 
+	}
+	if (req.session.data['transferor-discrepancies'] == 'No')
+		{  		
+		PASNotes.DoDocsMeetRequirements = "The documents do not meet all requirements"
+	}
+	else {
+		delete PASNotes.DoDocsMeetRequirements; 
+	}
+	// set session data item PASNotes to whats in the server variable PASNotes - so that session data PAS notes is available to be used in the pages
+  req.session.data['PASNotes'] = PASNotes;
+
 	res.redirect('03-add-charge-entry');
 })
 
@@ -93,6 +117,7 @@ router.post('/07-document-storage', function (req, res) {
   if 	(req.session.data['correct-fee'] == 'No'
   	|| req.session.data['id-check'] == 'No'
   	|| req.session.data['conveyancer-match'] == 'No'
+  	|| req.session.data['correct-fee'] == 'No'
 		|| req.session.data['name-discrepancy'] == 'No'
 		|| req.session.data['transferor-discrepancies'] == 'No'
 		|| req.session.data['note-proceed'] == 'No'
