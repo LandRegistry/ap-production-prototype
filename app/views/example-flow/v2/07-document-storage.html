@@ -1,0 +1,313 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+ {{ appnType | d('Transfer Not For Value and RX1') }}, ABR: {{ abrNumber | d('A123XYZ') }}, Title Number: {{ titleNumber | d('DN1000') }}. 
+
+ Store application documents
+{% endblock %}
+
+{% block content %}
+
+	<!-- application information  -->
+
+	<div class="govuk-grid-row ap-no-row-l-r-margin">
+		<div id="application-info-container">
+			<div class="govuk-grid-column-three-quarters ap-no-column-l-r-padding">
+	  		<h1 class="govuk-heading-m application-type">{{ appnType | d('Transfer Not For Value and RX1') }}</h1>
+
+	  				<span class="govuk-body">ABR: </span><span class="abr govuk-body">{{ abrNumber | d('A123XYZ') }}</span>
+	  				<span class="govuk-body">Title: </span><span class="title-number govuk-body">{{ titleNumber | d('DN1000') }}</span>
+
+		  </div>
+
+		  <div class="govuk-grid-column-one-quarter ap-no-column-r-padding">
+		  	<p id="documents-launcher">
+		      <a href="_document-viewer" class="govuk-link document-link js-documents-window" target="_blank">Application documents</a>
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- end - application information  -->
+
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+
+    <div class="casework-tasks-container">
+
+    	<form method="post">
+
+	      <h2 class="govuk-heading-l">Tasks</h2>
+
+
+	    	<!-- tasks go here  -->
+
+	    	 <h3 class="govuk-heading-s">Confirm documents</h3>
+        <table class="govuk-table form-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" style="width: 40%">Document</th>
+              <th scope="col" class="govuk-table__header" style="width: 55%">Document date</th>
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="width: 5%">Remove</th>
+            </tr>
+          </thead>
+
+          {% set docTypes = [] %}
+
+          {% for i in data['doc-types'] %}
+            {% set docTypes = (docTypes.push({value: i, text: i}), docTypes) %}
+          {% endfor %}
+
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                {{ govukSelect({
+                  id: 'doc1-name',
+                  name: 'doc1-name',
+                  label: {
+                    html: '<a href="_document-viewer#doc1" target="_blank">AP1</a>'
+                  },
+                  items: docTypes
+                }) }}
+              </th>
+              <td class="js-date-input / govuk-table__cell" style="display: none">
+                {{ govukDateInput({
+                  id: 'doc1-date',
+                  name: 'doc1-date',
+                  classes: 'js-incomplete-toggle',
+                  attributes: {
+                    style: 'margin-bottom: 7px'
+                  }
+                }) }}
+
+                {{ govukRadios({
+                  idPrefix: 'doc1-incomplete-reason',
+                  name: 'doc1-incomplete-reason',
+                  fieldset: {
+                    legend: {
+                      text: 'Incomplete reason',
+                      classes: 'govuk-!-font-size-16 govuk-!-margin-bottom-0'
+                    }
+                  },
+                  classes: 'govuk-radios--inline govuk-radios--small',
+                  formGroup: {
+                    classes: 'js-hidden js-incomplete-toggle'
+                  },
+                  items: [
+                    {
+                      value: 'Illegible',
+                      text: 'Illegible'
+                    },
+                    {
+                      value: 'Unavailable',
+                      text: 'Unavailable'
+                    }
+                  ]
+                }) }}
+
+                {{ govukCheckboxes({
+                  idPrefix: 'doc1-incomplete',
+                  name: 'doc1-incomplete',
+                  classes: 'js-incomplete / govuk-checkboxes--small govuk-!-margin-top-1',
+                  items: [
+                    {
+                      value: 'Incomplete date',
+                      text: 'Incomplete date'
+                    }
+                  ]
+                }) }}
+              </td>
+              <td class="js-date-text / govuk-table__cell">
+                <span style="display: block; margin-top: 32px">11 April 2019</span>
+              </td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <div class="govuk-form-group" style="margin-top: 22px">
+                  <div class="govuk-checkboxes govuk-checkboxes--small">
+                    <div class="govuk-checkboxes__item">
+                      <input class="js-remove / govuk-checkboxes__input" name="remove-1" type="checkbox">
+                      <label class="govuk-checkboxes__label">
+                        <span class="govuk-visually-hidden">Remove document #</span></label>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                {{ govukSelect({
+                  id: 'doc3-name',
+                  name: 'doc3-name',
+                  label: {
+                    html: '<a href="_document-viewer#doc2" target="_blank">CHG</a>'
+                  },
+                  items: docTypes
+                }) }}
+              </th>
+              <td class="js-date-input / govuk-table__cell" style="display: none">
+                {{ govukDateInput({
+                  id: 'doc3-date',
+                  name: 'doc3-date',
+                  classes: 'js-incomplete-toggle',
+                  attributes: {
+                    style: 'margin-bottom: 7px'
+                  }
+                }) }}
+
+                {{ govukRadios({
+                  idPrefix: 'doc3-incomplete-reason',
+                  name: 'doc3-incomplete-reason',
+                  fieldset: {
+                    legend: {
+                      text: 'Incomplete reason',
+                      classes: 'govuk-!-font-size-16 govuk-!-margin-bottom-0'
+                    }
+                  },
+                  classes: 'govuk-radios--inline govuk-radios--small',
+                  formGroup: {
+                    classes: 'js-hidden js-incomplete-toggle'
+                  },
+                  items: [
+                    {
+                      value: 'Illegible',
+                      text: 'Illegible'
+                    },
+                    {
+                      value: 'Unavailable',
+                      text: 'Unavailable'
+                    }
+                  ]
+                }) }}
+
+                {{ govukCheckboxes({
+                  idPrefix: 'doc3-incomplete',
+                  name: 'doc3-incomplete',
+                  classes: 'js-incomplete / govuk-checkboxes--small govuk-!-margin-top-1',
+                  items: [
+                    {
+                      value: 'Incomplete date',
+                      text: 'Incomplete date'
+                    }
+                  ]
+                }) }}
+              </td>
+              <td class="js-date-text / govuk-table__cell">
+                <span style="display: block; margin-top: 32px">11 April 2019</span>
+              </td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <div class="govuk-form-group" style="margin-top: 22px">
+                  <div class="govuk-checkboxes govuk-checkboxes--small">
+                    <div class="govuk-checkboxes__item">
+                      <input class="js-remove / govuk-checkboxes__input" name="remove-2" type="checkbox">
+                      <label class="govuk-checkboxes__label">
+                        <span class="govuk-visually-hidden">Remove document #</span></label>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+
+      </div>
+
+      {{ govukRadios({
+        idPrefix: 'third-party-notification',
+        name: 'third-party-notification',
+        classes: "govuk-radios--small",
+        fieldset: {
+          legend: {
+            text: 'Confirm third party notification',
+            isPageHeading: false,
+            classes: 'govuk-fieldset__legend--m govuk-!-font-size-19'
+          }
+        },
+        items: [
+          {
+            value: 'I have served a notice',
+            text: 'I have served a notice'
+          },
+          {
+            value: 'I do not need to serve a notice',
+            text: 'I do not need to serve a notice'
+          }
+        ]
+      }) }}
+
+	      
+	    	<!-- end of tasks  -->
+
+
+	    	<!-- Buttons and links -->
+
+				<div class="task-lists-submit">
+			    <button class="govuk-button" data-module="govuk-button">
+			      Submit
+			    </button>
+			    <a href="workflow-no-drafting" class="govuk-link reject-button">Return to workflow</a>
+	 			</div>
+
+		  </form>
+
+
+
+	  </div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+  $('.js-hidden').hide();
+  $('#doc1-name').val('Application Form')
+  $('#doc2-name').val('Transfer')
+  $('#doc3-name').val('Charge')
+  $('#doc4-name').val('Evidence')
+  $('#doc5-name').val('Stamp Duty Land Tax')
+
+  $('.govuk-select').change(function () {
+    if (($(this).val() == 'Application Form') || ($(this).val() == 'Transfer') || ($(this).val() == 'Document List') || ($(this).val() == 'Land Transaction Tax') || ($(this).val() == 'Stamp Duty Land Tax') || ($(this).val() == 'Identity') || ($(this).val() == 'RQ') || ($(this).val() == 'Indemnity') || ($(this).val() == 'Complaint Record') || ($(this).val() == 'E383') || ($(this).val() == 'Fee Adjustment') || ($(this).val() == 'Mast Title Record') || ($(this).val() == 'Miscellaneous') || ($(this).val() == 'Investigation of Crime')) {
+      $(this).parents('tr').find('.js-date-input').hide()
+      $(this).parents('tr').find('.js-date-text').show()
+    } else {
+      $(this).parents('tr').find('.js-date-input').show()
+      $(this).parents('tr').find('.js-date-text').hide()
+    }
+  });
+
+  $('.js-incomplete').find('.govuk-checkboxes__input').change(function () {
+    $(this).parents('tr').find('.js-incomplete-toggle').toggle()
+  });
+
+  $('.js-remove').change(function () {
+    if ($(this).is(':checked')) {
+      $(this).parents('tr').find('input').prop('disabled', true)
+      $(this).parents('tr').find('select').prop('disabled', true)
+      $(this).prop('disabled', false)
+    } else {
+      $(this).parents('tr').find('input').prop('disabled', false)
+      $(this).parents('tr').find('select').prop('disabled', false)
+      $(this).prop('disabled', false)
+    }
+  });
+</script>
+{% endblock %}

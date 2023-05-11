@@ -1,0 +1,161 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+ {{ appnType | d('Transfer Not For Value and RX1') }}, ABR: {{ abrNumber | d('A123XYZ') }}, Title Number: {{ titleNumber | d('DN1000') }}. 
+
+ Discharge and restrictions
+{% endblock %}
+
+{% block content %}
+
+	<!-- application information  -->
+
+	<div class="govuk-grid-row ap-no-row-l-r-margin">
+		<div id="application-info-container">
+			<div class="govuk-grid-column-three-quarters ap-no-column-l-r-padding">
+	  		<h1 class="govuk-heading-m application-type">{{ appnType | d('Transfer Not For Value and RX1') }}</h1>
+
+	  				<span class="govuk-body">ABR: </span><span class="abr govuk-body">{{ abrNumber | d('A123XYZ') }}</span>
+	  				<span class="govuk-body">Title: </span><span class="title-number govuk-body">{{ titleNumber | d('DN1000') }}</span>
+
+		  </div>
+
+		  <div class="govuk-grid-column-one-quarter ap-no-column-r-padding">
+		  	<p id="documents-launcher">
+		      <a href="_document-viewer" class="govuk-link document-link js-documents-window" target="_blank">Application documents</a>
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- end - application information  -->
+
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+
+    <div class="casework-tasks-container">
+
+    	<form method="post">
+
+	      <h2 class="govuk-heading-l">Tasks</h2>
+
+	    	<!-- tasks go here  -->
+
+				<!-- early completion -->
+	    	{{ govukRadios({
+	        idPrefix: 'early-completion',
+	        name: 'early-completion',
+	        classes: 'govuk-radios--small',
+	        fieldset: {
+	          legend: {
+	            text: 'Has evidence of the discharge been lodged?',
+	            classes: 'govuk-fieldset__legend--s'
+	          }
+	        },
+	        items: [
+	          {
+	            html: 'Yes',
+	            value: 'Yes',
+	            checked: checked('early-completion','Yes')
+	          },
+	          {
+	            html: 'No, early completion will apply',
+	            value: 'No',
+	            checked: checked('early-completion','No')
+	          },
+		     {
+	            html: 'Not required',
+	            value: 'Not required',
+	            checked: checked('early-completion','Not required')
+	          }
+	        ]
+	      }) }}
+
+				<!-- JP restriction -->
+	      {{ govukRadios({
+	        idPrefix: 'joint-proprietor',
+	        name: 'joint-proprietor',
+	        classes: 'govuk-radios--small govuk-radios--inline',
+	        fieldset: {
+	          legend: {
+	            text: 'There is a joint proprietor restriction on the register. Can the application still be processed?',
+	            classes: 'govuk-fieldset__legend--s'
+	          }
+	        },
+	        items: [
+	          {
+	            html: 'Yes',
+	            value: 'Yes',
+	            checked: checked('joint-proprietor','Yes')
+	          },
+	          {
+	            html: 'No',
+	            value: 'No',
+	            checked: checked('joint-proprietor','No')
+	          }
+	        ]
+	      }) }}
+
+
+	      <!-- register restrictions -->
+	      {{ govukRadios({
+	        idPrefix: 'register-restrictions',
+	        name: 'register-restrictions',
+	        classes: 'govuk-radios--small govuk-radios--inline',
+	        fieldset: {
+	          legend: {
+	            text: 'There are restrictions in the register. Can the application still be processed?',
+	            classes: 'govuk-fieldset__legend--s'
+	          }
+	        },
+	        items: [
+	          {
+	            html: 'Yes',
+	            value: 'Yes',
+	            checked: checked('register-restrictions','Yes')
+	          },
+	          {
+	            html: 'No',
+	            value: 'No',
+	            checked: checked('register-restrictions','No')
+	          }
+	        ]
+	      }) }}
+	      
+	    	<!-- end of tasks  -->
+
+
+	    	<!-- Buttons and links -->
+
+				<div class="task-lists-submit">
+			    <button class="govuk-button" data-module="govuk-button">
+			      Next
+			    </button>
+			    <a href="workflow-no-drafting" class="govuk-link reject-button">Return to workflow</a>
+	 			</div>
+
+		  </form>
+
+
+
+	  </div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+{% endblock %}
