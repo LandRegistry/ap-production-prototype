@@ -9,25 +9,33 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">Example Charge flow</h1>
+    <h1 class="govuk-heading-xl">Example Charge flow - version 2</h1>
 
-    <p class="govuk-body">This is work in progress - its all wired up, but needs the right page content</p>
+    <p class="govuk-body">Try the <a class="govuk-link" href="00-worklist">Charge</a> flow</p>
 
-    <p class="govuk-body"><a class="govuk-link" href="00-worklist">Charge</a></p>
+    <p class="govuk-body">This is a working example - its all wired up.</p>
+    <p>It may need</p>
+    <ul class="govuk-list govuk-list--bullet">
+    	<li>some corrections to page content to match production</li>
+    	<li>questions adding to cover all business rules - to showe every possible UI task</li>
+    	<li>be aligned with the ui rewrite work once thats complete</li>
+    </ul>
+    
 
-    <p>being built form the <a href="https://hmlr-application-processing.herokuapp.com/charges/v8/b/01-preliminary">old protoype - latest charge protoype - v8</a>.  It will need to be updated with whats actually in prodcution, and what gets decided in the new UI</p>
 
     <p class="govuk-body">contains:</p>
     <ul class="govuk-list govuk-list--bullet">
-    	<li>a working example of v8 charge flow</li>
+    	<li>prototype tools page - link in the footer.  this page allows session data to be cleared and shows session data.</li>
+    	<li>records the PAS notes created by user actions - see them on the prototype tools page</li>
+    	<li>a <a href="https://hmlr-application-processing.herokuapp.com/charges/v8/b/01-preliminary">working example of v8 charge flow</a> form the other prototype</li>
     	<li>all links open pages - feedback, acc statement, application docs, conformation pages</li>
       <li>new-style-regular.css and new-style-wide.css and fonts.css - for temporary css we need for new designs - replace when css brought over from production</li>
 			<li>old-ap-protoype.css - for old styles needed - replace when css brought over form production (many styles that were not needed have been deleted) (some old styles have been amended to gov-ify them - see bottom of file)</li>
 			<li>a template page for any new pages 0x-template-page</li>
-			<li>works just like our other protypes - with in-folder routing, and checks done there, and you can set automation and applciation variables there.
+			<li>works just like our other protypes - with in-folder routing, and checks done there, and you can set automation and application variables there.
     </ul>
 
-    <p class="govuk-body">Todo:</p>
+    <p class="govuk-body">To improve:</p>
     <ul class="govuk-list govuk-list--bullet">
       <li><s>application documents page</s></li>
       <li><s>worklist - at the start</s> - is the content right for a charge?</li>
