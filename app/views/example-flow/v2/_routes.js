@@ -217,6 +217,7 @@ router.post('/07-document-storage', function (req, res) {
   	|| req.session.data['correct-fee'] == 'No'
 		|| req.session.data['name-discrepancy'] == 'No'
 		|| req.session.data['transferor-discrepancies'] == 'No'
+		|| req.session.data['undisclosed'] == 'No-MDRef'
 		|| req.session.data['note-proceed'] == 'No'
 		|| req.session.data['early-completion'] == 'Yes'
 		|| req.session.data['early-completion'] == 'No' 
