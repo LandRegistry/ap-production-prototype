@@ -1,6 +1,8 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
+var PASNotes = {}
+
 // Set variables
 router.get('*', function(req, res, next){
   res.locals['titleNumber'] = 'YL005916'
@@ -20,17 +22,27 @@ router.post('/01-preliminary', function (req, res) {
   	) { 	
     res.redirect('workflow-no-drafting');
   } else {
-  	// record PAS note for id-check = No
+  	// store PAS notes into server variable PASNotes
   	if (req.session.data['id-check'] == 'No')
-  	{
-  		// record PAS note:
-  		// The identity panels have not been filled out correctly
+  	{  		
+  		PASNotes.ConfirmIdPanels = "The identity panels have not been filled out correctly"
   	}
+  	else {
+  		delete PASNotes.ConfirmIdPanels; 
+  	}
+
   	if (req.session.data['conveyancer-match'] == 'No')
-  	{
-  		// record PAS note:
-  		// The application is not lodged by a conveyancer. Consider serving a notice.
+  	{ 		
+  		PASNotes.ValidateConveyancer = "The application is not lodged by a conveyancer. Consider serving a notice."
   	}
+  	else {
+  		delete PASNotes.ValidateConveyancer; 
+  	}
+
+  	// set session data item PASNotes to whats in the server variable PASNotes - so that session data PAS notes is available to be used in the pages
+  	req.session.data['PASNotes'] = PASNotes;
+
+
   	// set up date from 'automation' for page 2
   	// note - these could be set up in the session-data-defaults.js file.  But then they will be in every single flow - whiche we dont want.  doesnt matter about the document storage data in that file, we want that everywhere
   	req.session.data['charge-date-day'] = '04';
@@ -42,6 +54,7 @@ router.post('/01-preliminary', function (req, res) {
 })
 
 router.post('/02-charge-amount', function (req, res) {
+	console.log(PASNotes);
 	res.redirect('03-add-charge-entry');
 })
 
@@ -108,7 +121,6 @@ router.post('/07-document-storage', function (req, res) {
   // c) as part of user researching changes show them in some way and see if they make sense
   // d) as part of UR - the journey om to workflow - we coul dmimic them seeing the PAS notes before they complete in legacy - ie test the full journey
 })
-
 
 
 // Add your routes above the module.exports line
