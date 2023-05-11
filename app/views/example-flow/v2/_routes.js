@@ -141,7 +141,6 @@ router.post('/04-discharge', function (req, res) {
 		delete PASNotes.ProcessWithRestrictions;
 	}
 
-
 	// set session data item PASNotes to whats in the server variable PASNotes - so that session data PAS notes is available to be used in the pages
   req.session.data['PASNotes'] = PASNotes;
 
@@ -149,10 +148,62 @@ router.post('/04-discharge', function (req, res) {
 })
 
 router.post('/05-any-other-entries', function (req, res) {
+
+	if (req.session.data['existing-entries'] == 'Yes')
+	{  		
+		PASNotes.AmendExistingEntries = "One or more register entries needs amending"
+	}
+	else
+	{
+		delete PASNotes.AmendExistingEntries;
+	}
+
+	if (req.session.data['docs-meet-requirements'] == 'No')
+	{  		
+		PASNotes.DoDocsMeetRequirements = "The documents do not meet all requirements"
+	}
+	else
+	{
+		delete PASNotes.DoDocsMeetRequirements;
+	}
+
+	if (req.session.data['additional-transactions'] == 'Yes')
+	{  		
+		PASNotes.AdditionalTransactions = "There is another transaction(s) with this application."
+	}
+	else
+	{
+		delete PASNotes.AdditionalTransactions;
+	}
+
+	// set session data item PASNotes to whats in the server variable PASNotes - so that session data PAS notes is available to be used in the pages
+  req.session.data['PASNotes'] = PASNotes;
+
 	res.redirect('06-daylist');
 })
 
 router.post('/06-daylist', function (req, res) {
+	if (req.session.data['search-protection'] == 'No')
+	{  		
+		PASNotes.ProtectingSearch = "There is an Official Search of Whole with priority on the title that may be blocking this application."
+	}
+	else
+	{
+		delete PASNotes.ProtectingSearch;
+	}
+
+	if (req.session.data['stops-action'] == 'Yes' )
+	{  		
+		PASNotes.ReviewStops = "There is a stop(s) that requires some action."
+	}
+	else
+	{
+		delete PASNotes.ReviewStops;
+	}
+
+	// set session data item PASNotes to whats in the server variable PASNotes - so that session data PAS notes is available to be used in the pages
+  req.session.data['PASNotes'] = PASNotes;
+  	
 	res.redirect('07-document-storage');
 })
 
