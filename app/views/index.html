@@ -16,6 +16,8 @@ Application Processing UI technical rewrite prototype
 
     <p>Design experiments and documentation for UI technology re-write to python/flask</p>
 
+    <p>This prototype will gradually replace the <a href="https://hmlr-application-processing.herokuapp.com/">current prototype</a></p>
+
 
     <h2 class="govuk-heading-l">Making pages in this kit</h2>
 
@@ -43,7 +45,7 @@ Application Processing UI technical rewrite prototype
     <h4 class="govuk-heading-s">css</h4>
     <p>There are 4 css files, refactoring is needed as there is duplication.  Using the 3 layouts will load the correct css.  If you need to add something, consider adding it to the 2 css files - regular and wide - for the two page width layouts we have</p>
 
-    <h4 class="govuk-heading-s">Javascript</h4>
+    <h4 class="govuk-heading-s">JavaScript</h4>
     <p>any JS needed by more than one page, you can get the template to load the scripts.  Add a line to the <code>/include/scripts.html</code> file.</p>
 
 
@@ -69,6 +71,17 @@ Application Processing UI technical rewrite prototype
       <li><a href="experiments/andy/">Andy noodling</a></li>
     </ul>
 
+    <h2 class="govuk-heading-l">Work to do in this prototype</h2>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>add all new designs from production - things Phoenix have made - make the prototype styled the same, behave the same, and contains the components</li>
+      <li>document the new components, and behaviour - so designers can make new flows easily, and we have design documentation e.g. when to use, and how well tested things are</li>
+      <li>rebuild components that rely on client side JS, to work with no JS - so they mimic production behaviour.  and we get accustomed to prototyping no JS flows then progressively enhancing</li>
+      <li>create migration notes/kit - to migrate flows over from the current prototype (so we retire that).  Migrate over any current flows? like LAI and combinations?</li>
+      <li>PAS notes - see if we want to do something with them</li>
+      <li>Analytics experiment (Jason)</li>
+      <li>Workflow - should we build that here, or just a few pages needed for AP flows?  Perhaps we could make a journey that joins 2 prototypes together</li>
+    </ul>
+
     <h2 class="govuk-heading-l">Scope of UI re-write</h2>
 
     <p>Technical UI re-write, into python/Flask, from react.</p>
@@ -81,8 +94,8 @@ Application Processing UI technical rewrite prototype
         case we'll redesign the ui feature to make it easy to implement</li>
       <li>following common HMLR code and design standards - progressive enhancement, using gov components out of the box
       </li>
-      <li>fixing accessibilty failures in the current UI</li>
-      <li>minimising rework. Make some design changes - thats are considered to be foundational - for example responsive
+      <li>fixing accessibility failures in the current UI</li>
+      <li>minimising rework. Make some design changes - that are considered to be foundational - for example responsive
         page layout - to avoid complex rework once all the UI features have been migrated</li>
     </ul>
 
