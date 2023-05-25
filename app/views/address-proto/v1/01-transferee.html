@@ -1,0 +1,171 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+ {{ appnType | d('Transfer Not For Value and RX1') }}, ABR: {{ abrNumber | d('A123XYZ') }}, Title Number: {{ titleNumber | d('DN1000') }}.
+
+ Validity checks
+{% endblock %}
+
+{% block content %}
+
+	<!-- application information  -->
+
+	<div class="govuk-grid-row ap-no-row-l-r-margin">
+		<div id="application-info-container">
+			<div class="govuk-grid-column-three-quarters ap-no-column-l-r-padding">
+	  		<h1 class="govuk-heading-m application-type">{{ appnType | d('Transfer Not For Value and RX1') }}</h1>
+
+	  				<span class="govuk-body">ABR: </span><span class="abr govuk-body">{{ abrNumber | d('A123XYZ') }}</span>
+	  				<span class="govuk-body">Title: </span><span class="title-number govuk-body">{{ titleNumber | d('DN1000') }}</span>
+
+		  </div>
+
+		  <div class="govuk-grid-column-one-quarter ap-no-column-r-padding">
+		  	<p id="documents-launcher">
+		      <a href="_document-viewer" class="govuk-link document-link js-documents-window" target="_blank">Application documents</a>
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- end - application information  -->
+
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+
+    <div class="casework-tasks-container">
+
+    	<form method="post">
+
+
+
+	      <h2 class="govuk-heading-m">Transferees</h2>
+
+<!-- Notification, if no selected -->
+				<div id="warning" class="govuk-notification-banner" role="region"
+				  aria-labelledby="govuk-notification-banner-title"
+				  data-module="govuk-notification-banner">
+				  <div class="govuk-notification-banner__header">
+				    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+				      Important
+				    </h2>
+				  </div>
+				  <div class="govuk-notification-banner__content">
+				    <p class="govuk-notification-banner__heading">
+				      <a class="govuk-notification-banner__link" href="workflow-no-drafting">Send to Workflow</a> to complete this application.
+				    </p>
+				  </div>
+				</div>
+
+
+
+
+
+		  	    <!-- Transferee 1 -->
+
+
+		  <div class="govuk-form-group">
+			<fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+			  <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+				<h1 class="govuk-fieldset__heading">
+				Transferee 1
+				</h1>
+			  </legend>
+
+
+			  <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+				<div class="govuk-radios__item">
+				  <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-contact">
+				  <label class="govuk-label govuk-radios__label" for="contact">
+					Private individual
+				  </label>
+				</div>
+
+				<div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+
+				  <div class="govuk-form-group">
+					<label class="govuk-label" for="contact-by-email">
+					  First name
+					</label>
+					<input class="govuk-input govuk-!-width-one-third" id="contact-by-email" name="contact-by-email" type="email" spellcheck="false" autocomplete="email">
+				  </div>
+
+				  <div class="govuk-form-group">
+					<label class="govuk-label" for="contact-by-email">
+					 Last name
+					</label>
+					<input class="govuk-input govuk-!-width-one-third" id="contact-by-email" name="contact-by-email" type="email" spellcheck="false" autocomplete="email">
+				  </div>
+
+				</div>
+
+
+
+				<div class="govuk-radios__item">
+				  <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-2">
+				  <label class="govuk-label govuk-radios__label" for="contact-2">
+					UK based company
+				  </label>
+				</div>
+
+				<div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+
+				  <div class="govuk-form-group">
+					<label class="govuk-label" for="contact-by-phone">
+					 Company name
+					</label>
+					<input class="govuk-input govuk-!-width-one-third" id="contact-by-phone" name="contact-by-phone" type="tel" autocomplete="tel">
+				  </div>
+				  <div class="govuk-form-group">
+					<label class="govuk-label" for="contact-by-phone">
+					  Company number
+					</label>
+					<input class="govuk-input govuk-!-width-one-third" id="contact-by-phone" name="contact-by-phone" type="tel" autocomplete="tel">
+				  </div>
+
+				</div>
+
+
+			  </div>
+			</fieldset>
+		  </div>
+
+
+
+
+
+
+	    <!-- Buttons and links -->
+
+				<div class="task-lists-submit">
+			    <button class="govuk-button" data-module="govuk-button">
+			      Next
+			    </button>
+			    <a href="workflow-no-drafting" class="govuk-link reject-button">Return to workflow</a>
+	 			</div>
+
+		  </form>
+
+
+
+	  </div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+{% endblock %}

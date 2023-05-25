@@ -1,0 +1,407 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+{{ appnType | d('Transfer Not For Value and RX1') }}, ABR: {{ abrNumber | d('A123XYZ') }}, Title Number: {{ titleNumber
+| d('DN1000') }}.
+
+Validity checks
+{% endblock %}
+
+{% block content %}
+
+<style>
+	.ap-secondary-button {
+		background-color: #505a5f;
+	}
+
+	.ap-secondary-button:hover {
+		background-color: #3c4144;
+	}
+
+	.ap-link {
+		font-size: 19px;
+
+	}
+</style>
+
+<!-- application information  -->
+
+<div class="govuk-grid-row ap-no-row-l-r-margin">
+	<div id="application-info-container">
+		<div class="govuk-grid-column-three-quarters ap-no-column-l-r-padding">
+			<h1 class="govuk-heading-m application-type">{{ appnType | d('Transfer Not For Value and RX1') }}</h1>
+
+			<span class="govuk-body">ABR: </span><span class="abr govuk-body">{{ abrNumber | d('A123XYZ') }}</span>
+			<span class="govuk-body">Title: </span><span class="title-number govuk-body">{{ titleNumber | d('DN1000')
+				}}</span>
+
+		</div>
+
+		<div class="govuk-grid-column-one-quarter ap-no-column-r-padding">
+			<p id="documents-launcher">
+				<a href="_document-viewer" class="govuk-link document-link js-documents-window"
+					target="_blank">Application documents</a>
+			</p>
+		</div>
+	</div>
+</div>
+
+<!-- end - application information  -->
+
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-one-half register-column scroll ">
+		<div id="register-container">
+
+			{% include "./includes/register.html" %}
+
+		</div>
+	</div>
+
+
+	<!-- Tasks section starts here -->
+
+	<div class="govuk-grid-column-one-half column">
+
+		<div class="casework-tasks-container">
+
+			<form method="post">
+
+
+				{{ govukBackLink({
+				text: "Back",
+				href: "#"
+				}) }}
+
+				<h2 class="govuk-heading-m">Address for service</h2>
+
+
+
+				<!-- Notification, if no selected -->
+				<div id="warning" class="govuk-notification-banner" role="region"
+					aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+					<div class="govuk-notification-banner__header">
+						<h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+							Important
+						</h2>
+					</div>
+					<div class="govuk-notification-banner__content">
+						<p class="govuk-notification-banner__heading">
+							<a class="govuk-notification-banner__link" href="workflow-no-drafting">Send to Workflow</a>
+							to complete this application.
+						</p>
+					</div>
+				</div>
+
+
+ <!-- Table here-->
+
+ <table class="govuk-table">
+	<thead class="govuk-table__head">
+	  <tr class="govuk-table__row">
+		<th scope="col" class="govuk-table__header">Address</th>
+		<th scope="col" class="govuk-table__header ">Transferee</th>
+		<th scope="col" class="govuk-table__header govuk-table__header--numeric">Actions</th>
+	  </tr>
+	</thead>
+	<tbody class="govuk-table__body">
+
+	  <tr class="govuk-table__row">
+		<td class="govuk-table__cell"> 72 Guild Street<br>London<br>SE23 6FH</th>
+		<td class="govuk-table__cell">Name Surname <br> Name Surname</td>
+		<td class="govuk-table__cell govuk-table__cell--numeric">
+			<ul class="govuk-summary-card__actions">
+				<li class="govuk-summary-card__action"> <a class="govuk-link govuk-link--no-visited-state" href="#">
+					Edit
+				  </a>
+				</li>
+				<li class="govuk-summary-card__action"> <a class="govuk-link govuk-link--no-visited-state" href="#">
+					Remove
+				  </a>
+				</li>
+			</ul>
+		</td>
+	  </tr>
+
+
+	  <tr class="govuk-table__row">
+		<td class="govuk-table__cell"> namesurname@mail.com</th>
+		<td class="govuk-table__cell">Name Surname</td>
+		<td class="govuk-table__cell govuk-table__cell--numeric">
+			<ul class="govuk-summary-card__actions">
+				<li class="govuk-summary-card__action"> <a class="govuk-link govuk-link--no-visited-state" href="#">
+					Edit
+				  </a>
+				</li>
+				<li class="govuk-summary-card__action"> <a class="govuk-link govuk-link--no-visited-state" href="#">
+					Remove
+				  </a>
+				</li>
+			</ul>
+		</td>
+	  </tr>
+
+	  <tr class="govuk-table__row">
+		<td class="govuk-table__cell"> namesurname@mail.com</th>
+		<td class="govuk-table__cell">Name Surname</td>
+		<td class="govuk-table__cell govuk-table__cell--numeric">
+			<ul class="govuk-summary-card__actions">
+				<li class="govuk-summary-card__action"> <a class="govuk-link govuk-link--no-visited-state" href="#">
+					Edit
+				  </a>
+				</li>
+				<li class="govuk-summary-card__action"> <a class="govuk-link govuk-link--no-visited-state" href="#">
+					Remove
+				  </a>
+				</li>
+			</ul>
+		</td>
+	  </tr>
+
+
+
+
+
+	</tbody>
+  </table>
+
+
+
+
+
+
+				<!-- Address 1 component  -->
+
+
+
+				<a id='add-another-1' role="button" draggable="false"
+								class="govuk-button govuk-button--secondary"> 	Add another address for service  </a>
+
+						<!-- Address 2 component  -->
+				<div id="address-2" style="display: none">
+
+					<!-- Address 2 - select type  -->
+
+					<div id="select-type-2">
+
+
+
+						<h3 class="govuk-heading-s" style="margin-bottom: 10px;">Address 3
+
+
+						<div class="govuk-form-group" style="margin-bottom: 10px;">
+							<fieldset class="govuk-fieldset">
+								<legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+									<h1 class="govuk-fieldset__heading">
+										Which type of address do you want to add?
+									</h1>
+								</legend>
+								<div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+									<div class="govuk-radios__item">
+										<input class="govuk-radios__input" id="uk-postal-address"
+											name="address-1" type="radio" value="uk-postal-address">
+										<label class="govuk-label govuk-radios__label" for="address">
+											UK postal addresss
+										</label>
+									</div>
+									<div class="govuk-radios__item">
+										<input class="govuk-radios__input" id="email-address" name="address-1"
+											type="radio" value="email">
+										<label class="govuk-label govuk-radios__label" for="address-1">
+											Email address
+										</label>
+									</div>
+								</div>
+							</fieldset>
+						</div>
+
+
+
+
+						<a id='add-address-button-2' role="button" draggable="false"
+							class="govuk-button ap-secondary-button" style="margin-bottom: 0px;"> Add address </a>
+
+
+
+
+
+
+
+
+						<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+					</div>
+
+
+					<!-- Address 2 - enter email  -->
+					<div id="enter-email-2"  style="display: none">
+
+						<h3 class="govuk-heading-s" style="margin-bottom: 10px;">Address 3
+
+								<div class="govuk-form-group" style="margin-top: 20px; margin-bottom: 20px;">
+									<label class="govuk-label" for="email-address">
+									Email address
+									</label>
+									<input class="govuk-input" id="email-address" name="email-address" type="text">
+								  </div>
+
+
+
+					</div>
+
+
+					<!-- Address 2 - other stuff -->
+
+					<div id="other-stuff-2" style="display: none">
+
+
+
+						<h3 class="govuk-heading-s" style="margin-bottom: 10px; margin-top: 10px;">Select transferees
+							for this address
+						</h3>
+
+						<div class="govuk-form-group" style="margin-bottom: 0px">
+							<div class='govuk-checkboxes govuk-checkboxes--small' data-module='govuk-checkboxes'>
+								<div class="govuk-checkboxes__item">
+									<input class="govuk-checkboxes__input" id="name-3" name="name-3"
+										type="checkbox" value="name-3">
+									<label class="govuk-label govuk-checkboxes__label" for="name-3">
+										Name Surname
+									</label>
+								</div>
+							</div>
+						</div>
+
+						<div class="govuk-form-group" style="margin-bottom: 0px">
+							<div class='govuk-checkboxes govuk-checkboxes--small' data-module='govuk-checkboxes'>
+								<div class="govuk-checkboxes__item">
+									<input class="govuk-checkboxes__input" id="name-4" name="name-4"
+										type="checkbox" value="name-4">
+									<label class="govuk-label govuk-checkboxes__label" for="name-4">
+										Name surname
+									</label>
+								</div>
+							</div>
+
+
+						</div>
+
+
+						<div class="task-lists-submit">
+
+
+
+									<a href="" class="govuk-link reject-button">Cancel</a>
+								</div>
+
+
+						<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+
+					</div>
+
+					<a id='add-another-2' role="button" draggable="false"
+					class="govuk-button govuk-button--secondary"> 	Add another address for service  </a>
+
+				</div>
+
+
+
+
+
+
+
+
+
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+		<!-- Buttons and links -->
+
+		<div class="task-lists-submit">
+			<a href="index.html" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+				Next
+				</a>
+			<a href="workflow-no-drafting" class="govuk-link reject-button">Return to workflow</a>
+		</div>
+
+
+
+
+
+	</div>
+
+</div> <!-- end Tasks column -->
+
+</div>
+
+{% endblock %}
+
+
+{% block pageScripts %}
+<script>
+
+    // ADDRESS 1
+	// button to add the address is pressed
+	$('#add-address-button-1').click(function (e) {
+		// select address type section gets hidden
+		$('#select-type-1').hide();
+		// enter postcode section is shown
+		$('#select-postcode-1').show();
+		// other stuff section is shown
+		$('#other-stuff-1').show()
+	});
+
+
+	// button to search the address linked to the postcode entered is pressed
+	$('#find-address-button-1').click(function (e) {
+		// enter postcode section gets hidden
+		$('#select-postcode-1').hide();
+		// select address from the list section is shown
+		$('#select-address-1').show();
+		// other stuff section is shown
+		$('#other-stuff-1').show()
+	});
+
+	//ADD ANOTHER 1
+
+	// button to add another is pressed
+	$('#add-another-1').click(function (e) {
+		//component for adding address 2 is shown
+		$('#address-2').show()
+		//button to add address 1 is hidden
+		$('#add-another-1').hide()
+
+	});
+
+
+// ADDRESS 2
+
+	// button to add the address is pressed
+	$('#add-address-button-2').click(function (e) {
+		// select address type section gets hidden
+		$('#select-type-2').hide();
+		// enter email is shown
+		$('#enter-email-2').show();
+		// other stuff section is shown
+		$('#other-stuff-2').show()
+	});
+
+
+
+
+
+
+</script>
+{% endblock %}
