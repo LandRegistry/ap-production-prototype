@@ -18,3 +18,8 @@ router.use(/\/example-flow\/v([0-9]+)/, (req, res, next) => {
 })
 // ***********************************************
 
+// route for the address for service prototype
+
+router.use(/\/address-proto\/v([0-9]+)/, (req, res, next) => {
+  return require(`./views/address-proto/v${req.params[0]}/_routes`)(req, res, next);
+})
