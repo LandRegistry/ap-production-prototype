@@ -159,8 +159,9 @@ Validity checks
 
 
 
-				<a id='add-another-1' role="button" draggable="false"
-								class="govuk-button govuk-button--secondary"> 	Add another address for service  </a>
+				<a id='add-another-1' href="#"
+				class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state">+ Add another address for
+				service</a>
 
 						<!-- Address 2 component  -->
 				<div id="address-2" style="display: none">
@@ -295,29 +296,34 @@ Validity checks
 
 
 
-				{{ govukRadios({
-					idPrefix: 'additional-address',
-					name: 'additional-address',
-					classes: 'govuk-radios--small govuk-radios--inline',
-					fieldset: {
-					  legend: {
-						html: 'Other than UK postal address and email address, are there any more addresses for service that need to be added?',
-						classes: 'govuk-fieldset__legend--s'
-					  }
-					},
-					items: [
-					  {
-						html: 'Yes',
-						value: 'Yes',
-						checked: checked('transferor-discrepancies','Yes')
-					  },
-					  {
-						html: 'No',
-						value: 'No',
-						checked: checked('transferor-discrepancies','No')
-					  }
-					]
-				  }) }}
+				<div class="govuk-form-group" style="margin-top: 20px;">
+					<fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+						<legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+							<h1 class="govuk-fieldset__heading">
+								Other than UK postal address and email address, are there any more addresses for service
+								that need to be added?
+							</h1>
+						</legend>
+
+						<div class="govuk-radios--small govuk-radios--inline" data-module="govuk-radios">
+							<div class="govuk-radios__item">
+								<input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio"
+									value="yes">
+								<label class="govuk-label govuk-radios__label" for="changed-name">
+									Yes
+								</label>
+							</div>
+							<div class="govuk-radios__item">
+								<input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio"
+									value="no">
+								<label class="govuk-label govuk-radios__label" for="changed-name-2">
+									No
+								</label>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+
 
 
 
