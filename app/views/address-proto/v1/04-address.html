@@ -39,8 +39,8 @@ Validity checks
 
 		<div class="govuk-grid-column-one-quarter ap-no-column-r-padding">
 			<p id="documents-launcher">
-				<a href="_document-viewer" class="govuk-link document-link js-documents-window"
-					target="_blank">Application documents</a>
+				<a href="_document-viewer-b.html" class="govuk-link" rel="noreferrer noopener" target="_blank">Application documents</a>
+
 			</p>
 		</div>
 	</div>
@@ -72,7 +72,7 @@ Validity checks
 
 				{{ govukBackLink({
 				text: "Back",
-				href: "#"
+				href: "01-transferee-b"
 				}) }}
 
 				<h2 class="govuk-heading-m">Address for service</h2>
@@ -109,15 +109,15 @@ Validity checks
 	<tbody class="govuk-table__body">
 
 	  <tr class="govuk-table__row">
-		<td class="govuk-table__cell"> 72 Guild Street<br>London<br>SE23 6FH</th>
-			<td class="govuk-table__cell">Name Surname <br> Name Surname</td>
+		<td class="govuk-table__cell"> 15 Pevensey Rd<br>Eastbourne<br>BN21 3HR</th>
+			<td class="govuk-table__cell">Olivia West<br> Oscar Williams</td>
 		<td class="govuk-table__cell govuk-table__cell--numeric">
 			<ul class="govuk-summary-card__actions">
-				<li class="govuk-summary-card__action"> <a class="govuk-link govuk-link--no-visited-state" href="#">
+				<li class="govuk-summary-card__action"> <a class="govuk-link govuk-link--no-visited-state" href="03-address.html">
 					Edit
 				  </a>
 				</li>
-				<li class="govuk-summary-card__action"> <a class="govuk-link govuk-link--no-visited-state" href="#">
+				<li class="govuk-summary-card__action"> <a class="govuk-link govuk-link--no-visited-state" href="03-address">
 					Remove
 				  </a>
 				</li>
@@ -167,7 +167,7 @@ Validity checks
 										<input class="govuk-radios__input" id="uk-postal-address"
 											name="address-1" type="radio" value="uk-postal-address">
 										<label class="govuk-label govuk-radios__label" for="address">
-											UK postal addresss
+											UK postal address
 										</label>
 									</div>
 									<div class="govuk-radios__item">
@@ -232,7 +232,7 @@ Validity checks
 									<input class="govuk-checkboxes__input" id="name-3" name="name-3"
 										type="checkbox" value="name-3">
 									<label class="govuk-label govuk-checkboxes__label" for="name-3">
-										Name Surname
+										Olivia West
 									</label>
 								</div>
 							</div>
@@ -244,7 +244,7 @@ Validity checks
 									<input class="govuk-checkboxes__input" id="name-4" name="name-4"
 										type="checkbox" value="name-4">
 									<label class="govuk-label govuk-checkboxes__label" for="name-4">
-										Name surname
+										Oscar Williams
 									</label>
 								</div>
 							</div>
@@ -274,6 +274,29 @@ Validity checks
 
 
 
+				{{ govukRadios({
+					idPrefix: 'additional-address',
+					name: 'additional-address',
+					classes: 'govuk-radios--small govuk-radios--inline',
+					fieldset: {
+					  legend: {
+						html: 'Other than UK postal address and email address, are there any more addresses for service that need to be added?',
+						classes: 'govuk-fieldset__legend--s'
+					  }
+					},
+					items: [
+					  {
+						html: 'Yes',
+						value: 'Yes',
+						checked: checked('transferor-discrepancies','Yes')
+					  },
+					  {
+						html: 'No',
+						value: 'No',
+						checked: checked('transferor-discrepancies','No')
+					  }
+					]
+				  }) }}
 
 
 
@@ -297,7 +320,7 @@ Validity checks
 			<button class="govuk-button" data-module="govuk-button">
 				Next
 			</button>
-			<a href="workflow-no-drafting" class="govuk-link reject-button">Return to workflow</a>
+			<a href="index.html" class="govuk-link reject-button">Return to workflow</a>
 		</div>
 
 
