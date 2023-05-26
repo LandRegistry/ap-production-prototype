@@ -81,7 +81,8 @@
                   label: {
                     html: '<a href="_document-viewer#doc1" target="_blank">AP1</a>'
                   },
-                  items: docTypes
+                  items: docTypes,
+                  value: 'Application Form'
                 }) }}
               </th>
               <td class="js-date-input / govuk-table__cell" style="display: none">
@@ -278,7 +279,7 @@
 {% block pageScripts %}
 <script>
   $('.js-hidden').hide();
-  $('#doc1-name').val('Application Form')
+  // $('#doc1-name').val('Application Form')
   $('#doc2-name').val('Transfer')
   $('#doc3-name').val('Charge')
   $('#doc4-name').val('Evidence')
