@@ -72,7 +72,7 @@ Validity checks
 
 				{{ govukBackLink({
 				text: "Back",
-				href: "#"
+				href: "01-transferee"
 				}) }}
 
 				<h2 class="govuk-heading-m">Address for service</h2>
@@ -120,7 +120,7 @@ Validity checks
 										<input class="govuk-radios__input" id="uk-postal-address" name="address"
 											type="radio" value="uk-postal-address">
 										<label class="govuk-label govuk-radios__label" for="address">
-											UK postal addresss
+											UK postal address
 										</label>
 									</div>
 									<div class="govuk-radios__item">
@@ -180,14 +180,14 @@ Validity checks
 									Address
 								</label>
 								<select class="govuk-select" id="sort" name="sort">
-									<option value="published" selected>257 Aspen Rowens, Bognor Regis, SE123</option>
-									<option value="updated">259 Aspen Rowens, Bognor Regis, SE123</option>
-									<option value="views">261-263 Aspen Rowens, Bognor Regis, SE123</option>
-									<option value="comments">267 Aspen Rowens, Bognor Regis, SE123</option>
+									<option value="published" selected>33 Devonshire Rd, Bognor Regis PO21 2SY</option>
+									<option value="updated">35 Devonshire Rd, Bognor Regis PO21 2SY</option>
+									<option value="views">37-39 Devonshire Rd, Bognor Regis PO21 2SY</option>
+									<option value="comments">43 Devonshire Rd, Bognor Regis PO21 2SY</option>
 								</select>
 							</div>
 
-							<a href="#" class="govuk-link" style="margin-bottom: 10px"> Clear search</a>
+							<a href="#" id="clear-search" class="govuk-link" style="margin-bottom: 10px"> Clear search</a>
 
 
 					</div>
@@ -231,7 +231,7 @@ Validity checks
 									<input class="govuk-checkboxes__input" id="name-1" name="name-1"
 										type="checkbox" value="name-1">
 									<label class="govuk-label govuk-checkboxes__label" for="name-1">
-										Name Surname
+										Victoria Clark
 									</label>
 								</div>
 							</div>
@@ -243,7 +243,7 @@ Validity checks
 									<input class="govuk-checkboxes__input" id="name-2" name="name-2"
 										type="checkbox" value="name-2">
 									<label class="govuk-label govuk-checkboxes__label" for="name-2">
-										Name surname
+										Callum Scott
 									</label>
 								</div>
 							</div>
@@ -294,7 +294,7 @@ Validity checks
 											<input class="govuk-radios__input" id="uk-postal-address" name="address-1"
 												type="radio" value="uk-postal-address">
 											<label class="govuk-label govuk-radios__label" for="address">
-												UK postal addresss
+												UK postal address
 											</label>
 										</div>
 										<div class="govuk-radios__item">
@@ -323,7 +323,7 @@ Validity checks
 					<!-- Address 2 - enter email  -->
 					<div id="enter-email-2" style="display: none">
 
-						<h3 class="govuk-heading-s" style="margin-bottom: 10px;">Address 2 <a href="#"
+						<h3 class="govuk-heading-s"  style="margin-bottom: 10px;">Address 2 <a href="#"
 								class="govuk-link"> - Remove</a>
 
 							<div class="govuk-form-group" style="margin-top: 20px; margin-bottom: 20px;">
@@ -354,7 +354,7 @@ Validity checks
 									<input class="govuk-checkboxes__input" id="name-3" name="name-3"
 										type="checkbox" value="name-3">
 									<label class="govuk-label govuk-checkboxes__label" for="name-3">
-										Name Surname
+										Victoria Clark
 									</label>
 								</div>
 							</div>
@@ -366,7 +366,7 @@ Validity checks
 									<input class="govuk-checkboxes__input" id="name-4" name="name-4"
 										type="checkbox" value="name-4">
 									<label class="govuk-label govuk-checkboxes__label" for="name-4">
-										Name surname
+										Callum Scott
 									</label>
 								</div>
 							</div>
@@ -412,7 +412,7 @@ Validity checks
 											<input class="govuk-radios__input" id="uk-postal-address" name="address-1"
 												type="radio" value="uk-postal-address">
 											<label class="govuk-label govuk-radios__label" for="address">
-												UK postal addresss
+												UK postal address
 											</label>
 										</div>
 										<div class="govuk-radios__item">
@@ -472,7 +472,7 @@ Validity checks
 									<input class="govuk-checkboxes__input" id="name-5" name="name-5"
 										type="checkbox" value="name-5">
 									<label class="govuk-label govuk-checkboxes__label" for="name-5">
-										Name Surname
+										Victoria Clark
 									</label>
 								</div>
 							</div>
@@ -484,7 +484,7 @@ Validity checks
 									<input class="govuk-checkboxes__input" id="name-6" name="name-6"
 										type="checkbox" value="name-6">
 									<label class="govuk-label govuk-checkboxes__label" for="name-6">
-										Name surname
+										Callum Scott
 									</label>
 								</div>
 							</div>
@@ -517,8 +517,29 @@ Validity checks
 
 
 
-
-
+		{{ govukRadios({
+			idPrefix: 'additional-address',
+			name: 'additional-address',
+			classes: 'govuk-radios--small govuk-radios--inline',
+			fieldset: {
+			  legend: {
+				html: 'Other than UK postal address and email address, are there any more addresses for service that need to be added?',
+				classes: 'govuk-fieldset__legend--s'
+			  }
+			},
+			items: [
+			  {
+				html: 'Yes',
+				value: 'Yes',
+				checked: checked('transferor-discrepancies','Yes')
+			  },
+			  {
+				html: 'No',
+				value: 'No',
+				checked: checked('transferor-discrepancies','No')
+			  }
+			]
+		  }) }}
 
 
 
@@ -528,11 +549,11 @@ Validity checks
 		<div class="task-lists-submit">
 
 
-			<a href="index.html" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+			<a href="09-next-page.html" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
 				Next
 				</a>
 
-			<a href="workflow-no-drafting" class="govuk-link reject-button">Return to workflow</a>
+			<a href="index.html" class="govuk-link reject-button">Return to workflow</a>
 		</div>
 
 
@@ -573,6 +594,16 @@ Validity checks
 		$('#other-stuff-1').show()
 	});
 
+	// button to clear search is pressed
+	$('#clear-search').click(function (e) {
+		// enter postcode section gets shown
+		$('#select-postcode-1').show();
+		// select address from the list section is hidden
+		$('#select-address-1').hide();
+		// other stuff section is shown
+		$('#other-stuff-1').show()
+	});
+
 	//ADD ANOTHER 1
 
 	// button to add another is pressed
@@ -596,6 +627,7 @@ Validity checks
 		// other stuff section is shown
 		$('#other-stuff-2').show()
 	});
+
 
 
 

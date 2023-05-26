@@ -39,8 +39,8 @@ Validity checks
 
 		<div class="govuk-grid-column-one-quarter ap-no-column-r-padding">
 			<p id="documents-launcher">
-				<a href="_document-viewer" class="govuk-link document-link js-documents-window"
-					target="_blank">Application documents</a>
+				<a href="_document-viewer-b.html" class="govuk-link" rel="noreferrer noopener" target="_blank">Application documents</a>
+
 			</p>
 		</div>
 	</div>
@@ -72,7 +72,7 @@ Validity checks
 
 				{{ govukBackLink({
 				text: "Back",
-				href: "#"
+				href: "01-transferee-b"
 				}) }}
 
 				<h2 class="govuk-heading-m">Address for service</h2>
@@ -123,10 +123,10 @@ Validity checks
 								</legend>
 								<div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
 									<div class="govuk-radios__item">
-										<input class="govuk-radios__input" id="uk-postal-address"
-											name="address" type="radio" value="uk-postal-address">
+										<input class="govuk-radios__input" id="uk-postal-address" name="address"
+											type="radio" value="uk-postal-address">
 										<label class="govuk-label govuk-radios__label" for="address">
-											UK postal addresss
+											UK postal address
 										</label>
 									</div>
 									<div class="govuk-radios__item">
@@ -185,10 +185,10 @@ Validity checks
 									Address
 								</label>
 								<select class="govuk-select" id="sort" name="sort">
-									<option value="published" selected>257 Aspen Rowens, Bognor Regis, SE123</option>
-									<option value="updated">259 Aspen Rowens, Bognor Regis, SE123</option>
-									<option value="views">261-263 Aspen Rowens, Bognor Regis, SE123</option>
-									<option value="comments">267 Aspen Rowens, Bognor Regis, SE123</option>
+									<option value="published" selected>15 Pevensey Rd, Eastbourne BN21 3HR</option>
+									<option value="updated">17 Pevensey Rd, Eastbourne BN21 3HR</option>
+									<option value="views">19 Pevensey Rd, Eastbourne BN21 3HR</option>
+									<option value="comments">21 Pevensey Rd, Eastbourne BN21 3HR</option>
 								</select>
 							</div>
 
@@ -233,10 +233,10 @@ Validity checks
 						<div class="govuk-form-group" style="margin-bottom: 0px">
 							<div class='govuk-checkboxes govuk-checkboxes--small' data-module='govuk-checkboxes'>
 								<div class="govuk-checkboxes__item">
-									<input class="govuk-checkboxes__input" id="name-1" name="name-1"
-										type="checkbox" value="name-1">
+									<input class="govuk-checkboxes__input" id="name-1" name="name-1" type="checkbox"
+										value="name-1">
 									<label class="govuk-label govuk-checkboxes__label" for="name-1">
-										Name Surname
+										Olivia West
 									</label>
 								</div>
 							</div>
@@ -245,10 +245,10 @@ Validity checks
 						<div class="govuk-form-group" style="margin-bottom: 0px">
 							<div class='govuk-checkboxes govuk-checkboxes--small' data-module='govuk-checkboxes'>
 								<div class="govuk-checkboxes__item">
-									<input class="govuk-checkboxes__input" id="name-2" name="name-2"
-										type="checkbox" value="name-2">
+									<input class="govuk-checkboxes__input" id="name-2" name="name-2" type="checkbox"
+										value="name-2">
 									<label class="govuk-label govuk-checkboxes__label" for="name-2">
-										Name surname
+										Oscar Williams
 									</label>
 								</div>
 							</div>
@@ -259,8 +259,8 @@ Validity checks
 
 						<div class="task-lists-submit">
 
-					<a href="../../address-proto/v1/04-address.html" id='save-address-1' role="button" draggable="false"
-					class="govuk-button ap-secondary-button"> 	Save address  </a>
+							<a href="../../address-proto/v1/04-address.html" id='save-address-1' role="button"
+								draggable="false" class="govuk-button ap-secondary-button"> Save address </a>
 
 							<a href="" class="govuk-link reject-button">Cancel</a>
 						</div>
@@ -279,15 +279,10 @@ Validity checks
 
 
 
-
 				</div>
 
 
 
-
-
-
-				</div>
 
 
 
@@ -315,7 +310,7 @@ Validity checks
 			<button class="govuk-button" data-module="govuk-button">
 				Next
 			</button>
-			<a href="workflow-no-drafting" class="govuk-link reject-button">Return to workflow</a>
+			<a href="index.html" class="govuk-link reject-button">Return to workflow</a>
 		</div>
 
 
@@ -334,7 +329,7 @@ Validity checks
 {% block pageScripts %}
 <script>
 
-    // ADDRESS 1
+	// ADDRESS 1
 	// button to add the address is pressed
 	$('#add-address-button-1').click(function (e) {
 		// select address type section gets hidden

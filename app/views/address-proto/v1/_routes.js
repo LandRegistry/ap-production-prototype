@@ -7,7 +7,7 @@ var PASNotes = {}
 router.get('*', function(req, res, next){
   res.locals['titleNumber'] = 'YL005916'
   res.locals['abrNumber'] = 'A312YYX'
-  res.locals['appnType'] = 'Charge'
+  res.locals['appnType'] = 'Transfer'
 
   next()
 })
@@ -17,26 +17,26 @@ router.post('/00-worklist', function (req, res) {
 })
 
 router.post('/01-preliminary', function (req, res) {
-  if 	(req.session.data['property-match'] == 'No' 
+  if 	(req.session.data['property-match'] == 'No'
   	|| req.session.data['customer-match'] == 'No'
-  	) { 	
+  	) {
     res.redirect('workflow-no-drafting');
   } else {
   	// store PAS notes into server variable PASNotes
   	if (req.session.data['id-check'] == 'No')
-  	{  		
+  	{
   		PASNotes.ConfirmIdPanels = "The identity panels have not been filled out correctly"
   	}
   	else {
-  		delete PASNotes.ConfirmIdPanels; 
+  		delete PASNotes.ConfirmIdPanels;
   	}
 
   	if (req.session.data['conveyancer-match'] == 'No')
-  	{ 		
+  	{
   		PASNotes.ValidateConveyancer = "The application is not lodged by a conveyancer. Consider serving a notice."
   	}
   	else {
-  		delete PASNotes.ValidateConveyancer; 
+  		delete PASNotes.ValidateConveyancer;
   	}
 
   	// set session data item PASNotes to whats in the server variable PASNotes - so that session data PAS notes is available to be used in the pages
@@ -56,25 +56,25 @@ router.post('/01-preliminary', function (req, res) {
 router.post('/02-charge-amount', function (req, res) {
 	// store PAS notes into server variable PASNotes
 	if (req.session.data['correct-fee'] == 'No')
-	{  		
+	{
 		PASNotes.ConfirmFeePaid = "Fee paid is incorrect."
 	}
 	else {
-		delete PASNotes.ConfirmFeePaid; 
+		delete PASNotes.ConfirmFeePaid;
 	}
 	if (req.session.data['name-discrepancy'] == 'No')
-		{  		
+		{
 		PASNotes.ConfirmBorrower = "The borrower names do not match the registered proprietor. Check for related evidence and complete any action needed"
 	}
 	else {
-		delete PASNotes.ConfirmBorrower; 
+		delete PASNotes.ConfirmBorrower;
 	}
 	if (req.session.data['transferor-discrepancies'] == 'No')
-		{  		
+		{
 		PASNotes.DoDocsMeetRequirements = "The documents do not meet all requirements"
 	}
 	else {
-		delete PASNotes.DoDocsMeetRequirements; 
+		delete PASNotes.DoDocsMeetRequirements;
 	}
 	// set session data item PASNotes to whats in the server variable PASNotes - so that session data PAS notes is available to be used in the pages
   req.session.data['PASNotes'] = PASNotes;
@@ -84,20 +84,20 @@ router.post('/02-charge-amount', function (req, res) {
 
 router.post('/03-add-charge-entry', function (req, res) {
 	// no MD Ref checkbox is selected
-  if (req.session.data['undisclosed'] == 'No-MDRef') { 	
+  if (req.session.data['undisclosed'] == 'No-MDRef') {
     res.redirect('workflow-no-drafting');
   } else {
   	// store PAS notes into server variable PASNotes
   	if (req.session.data['note-proceed'] == 'No')
-		{  		
+		{
 			PASNotes.ChargeEntries = "A note or warning needs action before this charge can be added to the register"
 		}
 		else {
-			delete PASNotes.ChargeEntries; 
+			delete PASNotes.ChargeEntries;
 		}
 		// set session data item PASNotes to whats in the server variable PASNotes - so that session data PAS notes is available to be used in the pages
   	req.session.data['PASNotes'] = PASNotes;
-  	
+
 		res.redirect('04-discharge');
 	}
 })
@@ -109,14 +109,14 @@ router.post('/03-add-charge-entry-2', function (req, res) {
 	res.redirect('04-discharge');
 })
 
-router.post('/04-discharge', function (req, res) {	
+router.post('/04-discharge', function (req, res) {
 	// store PAS notes into server variable PASNotes
 	if (req.session.data['early-completion'] == 'Yes')
-	{  		
+	{
 		PASNotes.DischargeEvidenceLodgedCharge = "Evidence of discharge for the registered charge(s) requires action"
 	}
 	if (req.session.data['early-completion'] == 'No')
-	{  		
+	{
 		PASNotes.DischargeEvidenceLodgedCharge = "Early completion charge dated %s remains in the register (%s is the charge date)"
 	}
 	if (req.session.data['early-completion'] == 'Not required') {
@@ -124,7 +124,7 @@ router.post('/04-discharge', function (req, res) {
 	}
 
 	if (req.session.data['joint-proprietor'] == 'No')
-	{  		
+	{
 		PASNotes.ProcessWithJpRestriction = "The joint proprietor restriction in the register needs considering."
 	}
 	else
@@ -133,7 +133,7 @@ router.post('/04-discharge', function (req, res) {
 	}
 
 	if (req.session.data['register-restrictions'] == 'No')
-	{  		
+	{
 		PASNotes.ProcessWithRestrictions = "The restriction(s) in the register need considering"
 	}
 	else
@@ -150,7 +150,7 @@ router.post('/04-discharge', function (req, res) {
 router.post('/05-any-other-entries', function (req, res) {
 
 	if (req.session.data['existing-entries'] == 'Yes')
-	{  		
+	{
 		PASNotes.AmendExistingEntries = "One or more register entries needs amending"
 	}
 	else
@@ -159,7 +159,7 @@ router.post('/05-any-other-entries', function (req, res) {
 	}
 
 	if (req.session.data['docs-meet-requirements'] == 'No')
-	{  		
+	{
 		PASNotes.DoDocsMeetRequirements = "The documents do not meet all requirements"
 	}
 	else
@@ -168,7 +168,7 @@ router.post('/05-any-other-entries', function (req, res) {
 	}
 
 	if (req.session.data['additional-transactions'] == 'Yes')
-	{  		
+	{
 		PASNotes.AdditionalTransactions = "There is another transaction(s) with this application."
 	}
 	else
@@ -184,7 +184,7 @@ router.post('/05-any-other-entries', function (req, res) {
 
 router.post('/06-daylist', function (req, res) {
 	if (req.session.data['search-protection'] == 'No')
-	{  		
+	{
 		PASNotes.ProtectingSearch = "There is an Official Search of Whole with priority on the title that may be blocking this application."
 	}
 	else
@@ -193,7 +193,7 @@ router.post('/06-daylist', function (req, res) {
 	}
 
 	if (req.session.data['stops-action'] == 'Yes' )
-	{  		
+	{
 		PASNotes.ReviewStops = "There is a stop(s) that requires some action."
 	}
 	else
@@ -203,7 +203,7 @@ router.post('/06-daylist', function (req, res) {
 
 	// set session data item PASNotes to whats in the server variable PASNotes - so that session data PAS notes is available to be used in the pages
   req.session.data['PASNotes'] = PASNotes;
-  	
+
 	res.redirect('07-document-storage');
 })
 
@@ -220,7 +220,7 @@ router.post('/07-document-storage', function (req, res) {
 		|| req.session.data['undisclosed'] == 'No-MDRef'
 		|| req.session.data['note-proceed'] == 'No'
 		|| req.session.data['early-completion'] == 'Yes'
-		|| req.session.data['early-completion'] == 'No' 
+		|| req.session.data['early-completion'] == 'No'
 		|| req.session.data['joint-proprietor'] == 'No'
 		|| req.session.data['register-restrictions'] == 'No'
 		|| req.session.data['existing-entries'] == 'Yes'
