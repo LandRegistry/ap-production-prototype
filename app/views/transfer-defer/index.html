@@ -1,0 +1,62 @@
+{% extends "layouts/ap-documentation.html" %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Transfer - deferral for discharges - IC6 PROM-122</h1>
+
+    <p class="govuk-body">When an application does not include evidence of discharge, and we need to request it because there are restricitions in the register, a caseworker:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+    	<li>will know evidence is required</li>
+      <li>will write a requisition letter (C90), if this is the only reason to requisition</li>
+      <li>use legacy system, PC Corres to write the letter</li>
+    </ul>
+
+    <p class="govuk-body">the system will:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+    	<li>add a PAS note, allowing the aplication to be stored until the evidence is received</li>
+    	<li>put the application in a new 'pot' (category of work) to be picked up for evidence to be checked</li>
+    	<li>run all the business rules again, to see if anything else has changed</li>
+    </ul>
+
+    <p class="govuk-body">A different caseworker (probably):</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+    	<li>will pick up the application</li>
+      <li>check the evidence (electronic discharge via the daylist)</li>
+      <li>do any additinal tasks required - if circumstances have changed (Business rules will establish this)</li>
+      <li>complete the applciation - markoff, or send it to legacy processing</li>
+    </ul>
+
+		<h2 class="govuk-heading-l">Round 1 prototypes for user research</h2>
+
+    <p class="govuk-body">Add notes about what we want to learn and links to figma fiules and research plan</p>
+
+    <p>view protoypes:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+    	<li>
+        <a class="govuk-link" href="v0/00-worklist">a</a> 
+      </li>
+      <li>
+        <a class="govuk-link" href="">b</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="">c</a>
+      </li>
+
+    </ul>
+
+
+  </div>
+</div>
+
+{% endblock %}
