@@ -40,6 +40,32 @@
 	    	<!-- fee -->
 
 	    	{{ govukRadios({
+	        idPrefix: 'conveyancer-match',
+	        name: 'conveyancer-match',
+	        classes: 'govuk-radios--small govuk-radios--inline',
+	        fieldset: {
+	          legend: {
+	            html: 'Is the application lodged by a conveyancer?',
+	            classes: 'govuk-fieldset__legend--s'
+	          }
+	        },
+
+	        items: [
+	          {
+	            html: 'Yes',
+	            value: 'Yes',
+	            checked: checked('conveyancer-match','Yes')
+	          },
+	          {
+	            html: 'No',
+	            value: 'No',
+	            checked: checked('conveyancer-match','No')
+	          }
+	        ]
+	      }) }}
+	      
+
+	    	{{ govukRadios({
 	        idPrefix: 'correct-fee',
 	        name: 'correct-fee',
 	        classes: ' govuk-radios--small govuk-radios--inline',

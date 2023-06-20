@@ -17,8 +17,10 @@ router.post('/00-worklist', function (req, res) {
 })
 
 router.post('/01-preliminary', function (req, res) {
+
   if 	(req.session.data['property-match'] == 'No' 
   	|| req.session.data['customer-match'] == 'No'
+  	|| req.session.data['transferee-type'] == 'No'
   	) { 	
     res.redirect('workflow-no-drafting');
   } else {
@@ -29,14 +31,6 @@ router.post('/01-preliminary', function (req, res) {
   	}
   	else {
   		delete PASNotes.ConfirmIdPanels; 
-  	}
-
-  	if (req.session.data['conveyancer-match'] == 'No')
-  	{ 		
-  		PASNotes.ValidateConveyancer = "The application is not lodged by a conveyancer. Consider serving a notice."
-  	}
-  	else {
-  		delete PASNotes.ValidateConveyancer; 
   	}
 
   	// set session data item PASNotes to whats in the server variable PASNotes - so that session data PAS notes is available to be used in the pages
@@ -55,6 +49,15 @@ router.post('/01-preliminary', function (req, res) {
 
 router.post('/02-charge-amount', function (req, res) {
 	// store PAS notes into server variable PASNotes
+
+	if (req.session.data['conveyancer-match'] == 'No')
+  	{ 		
+  		PASNotes.ValidateConveyancer = "The application is not lodged by a conveyancer. Consider serving a notice."
+  	}
+  	else {
+  		delete PASNotes.ValidateConveyancer; 
+  	}
+
 	if (req.session.data['correct-fee'] == 'No')
 	{  		
 		PASNotes.ConfirmFeePaid = "Fee paid is incorrect."

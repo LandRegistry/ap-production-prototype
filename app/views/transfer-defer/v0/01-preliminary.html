@@ -84,7 +84,7 @@
 	        classes: 'js-no-return-to-workflow / govuk-radios--small govuk-radios--inline',
 	        fieldset: {
 	          legend: {
-	            html: 'Do the documents have the same property address and title number as the register?',
+	            html: 'Are the documents for the right property and title number?',
 	            classes: 'govuk-fieldset__legend--s'
 	          }
 	        },
@@ -101,30 +101,6 @@
 	          }
 	        ]
 	      }) }}
-
-			  {{ govukRadios({
-			    idPrefix: 'id-check',
-			    name: 'id-check',
-			    classes: 'govuk-radios--small govuk-radios--inline',
-			    fieldset: {
-			      legend: {
-			        html: 'Are the identity panels filled out correctly?',
-			        classes: 'govuk-fieldset__legend--s'
-			      }
-			    },
-			    items: [
-			      {
-			        html: 'Yes',
-			        value: 'Yes',
-			        checked: checked('id-check','Yes')
-			      },
-			      {
-			        html: 'No',
-			        value: 'No',
-			        checked: checked('id-check','No')
-			      }
-			    ]
-			  }) }}
 
 
 	      {{ govukRadios({
@@ -158,30 +134,60 @@
 	      }) }}
 
 
-	      {{ govukRadios({
-	        idPrefix: 'conveyancer-match',
-	        name: 'conveyancer-match',
-	        classes: 'govuk-radios--small govuk-radios--inline',
-	        fieldset: {
-	          legend: {
-	            html: 'Is the application lodged by a conveyancer?',
-	            classes: 'govuk-fieldset__legend--s'
-	          }
-	        },
+			  {{ govukRadios({
+			    idPrefix: 'id-check',
+			    name: 'id-check',
+			    classes: 'govuk-radios--small govuk-radios--inline',
+			    fieldset: {
+			      legend: {
+			        html: 'Are the identity panels filled out correctly?',
+			        classes: 'govuk-fieldset__legend--s'
+			      }
+			    },
+			    items: [
+			      {
+			        html: 'Yes',
+			        value: 'Yes',
+			        checked: checked('id-check','Yes')
+			      },
+			      {
+			        html: 'No',
+			        value: 'No',
+			        checked: checked('id-check','No')
+			      }
+			    ]
+			  }) }}
 
-	        items: [
-	          {
-	            html: 'Yes',
-	            value: 'Yes',
-	            checked: checked('conveyancer-match','Yes')
-	          },
-	          {
-	            html: 'No',
-	            value: 'No',
-	            checked: checked('conveyancer-match','No')
-	          }
-	        ]
-	      }) }}
+			  {{ govukRadios({
+			    idPrefix: 'transferee-type',
+			    name: 'transferee-type',
+			    classes: 'js-no-return-to-workflow govuk-radios--small govuk-radios--inline',
+			    fieldset: {
+			      legend: {
+			        html: 'Are all transferees one or both of these types?',
+			        classes: 'govuk-fieldset__legend--s'
+			      }
+			    },
+	        hint: {
+	          html: '<ul class="govuk-list govuk-list--bullet">
+	                  <li>Private individual</li>
+	                  <li>A UK based company (Ltd or PLC)</li>
+	                </ul>'
+	        },
+			    items: [
+			      {
+			        html: 'Yes',
+			        value: 'Yes',
+			        checked: checked('transferee-type','Yes')
+			      },
+			      {
+			        html: 'No',
+			        value: 'No',
+			        checked: checked('transferee-type','No')
+			      }
+			    ]
+			  }) }}
+
 
 
 	    <!-- Buttons and links -->
