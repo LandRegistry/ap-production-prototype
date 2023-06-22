@@ -3,10 +3,19 @@
 {% block pageTitle %}
  {{ appnType | d('Transfer Not For Value and RX1') }}, ABR: {{ abrNumber | d('A123XYZ') }}, Title Number: {{ titleNumber | d('DN1000') }}. 
 
- Do other entries need changing
+ Daylist checks
 {% endblock %}
 
 {% block content %}
+
+<style>
+
+.govuk-button--secondary {
+	background-color: #6F777B;
+	color:white;
+}
+
+</style>
 
 	<!-- application information  -->
 	{% include "./includes/application-info.html" %}
@@ -37,14 +46,44 @@
 
 	    	<!-- tasks go here  -->
 
-	    	<!-- existing entries need amending?  -->
-	    	{{ govukRadios({
-	        idPrefix: 'existing-entries',
-	        name: 'existing-entries',
+	    	<!-- Daylist searches table  -->
+	    	{{ govukTable({
+	        caption: 'Searches on Daylist',
+	        classes: '',
+	        head: [
+	          {
+	            text: 'Priority date'
+	          },
+	          {
+	            text: 'Applicant name'
+	          },
+	          {
+	            text: 'Type'
+	          }
+	        ],
+	        rows: [
+	          [
+	            {
+	              text: '12 June 2023'
+	            },
+	            {
+	              text: 'Bank of England'
+	            },
+	            {
+	              text: 'Purchase'
+	            }
+	          ]
+	        ]
+	      }) }}
+
+	      <!-- search protect application?  -->
+	      {{ govukRadios({
+	        idPrefix: 'search-protection',
+	        name: 'search-protection',
 	        classes: 'govuk-radios--small govuk-radios--inline',
 	        fieldset: {
 	          legend: {
-	            text: 'Do any existing entries need to be amended?',
+	            text: 'Does the search with priority protect the application?',
 	            classes: 'govuk-fieldset__legend--s'
 	          }
 	        },
@@ -52,12 +91,40 @@
 	          {
 	            html: 'Yes',
 	            value: 'Yes',
-	            checked: checked('existing-entries','Yes')
+	            checked: checked('search-protection','Yes')
 	          },
 	          {
 	            html: 'No',
 	            value: 'No',
-	            checked: checked('existing-entries','No')
+	            checked: checked('search-protection','No')
+	          }
+	        ]
+	      }) }}
+
+	      <!-- stops require action?  -->
+	      {{ govukRadios({
+	        idPrefix: 'stops-action',
+	        name: 'stops-action',
+	        classes: 'govuk-radios--small govuk-radios--inline',
+	        fieldset: {
+	          legend: {
+	            text: 'Do stops require any further action?',
+	            classes: 'govuk-fieldset__legend--s'
+	          }
+	        },
+	        hint: {
+	          text: 'To check stops go to Daylist'
+	        },
+	        items: [
+	          {
+	            html: 'Yes',
+	            value: 'Yes',
+	            checked: checked('stops-action','Yes')
+	          },
+	          {
+	            html: 'No',
+	            value: 'No',
+	            checked: checked('stops-action','No')
 	          }
 	        ]
 	      }) }}
@@ -112,6 +179,15 @@
 	        ]
 	      }) }}
 
+
+	      {% if data['discharge-removal'] == 'No' %}
+		      <h3>Requisitions</h3>
+		      <p>Evidence for the discharge in needed.  This application will be deferred.</p>
+		      <button type="button" onclick="myFunction()" class="govuk-button govuk-button--secondary js-pc-corres-window" data-module="govuk-button">
+					  Requisition for evidence
+					</button>
+				{% endif %}
+
 	      
 	    	<!-- end of tasks  -->
 
@@ -120,7 +196,11 @@
 
 				<div class="task-lists-submit">
 			    <button class="govuk-button" data-module="govuk-button">
-			      Next
+			    	{% if data['discharge-removal'] == 'No' %}
+			      Submit
+			      {% else %}
+						Next
+			      {% endif %}
 			    </button>
 			    <a href="workflow-no-drafting" class="govuk-link reject-button">Return to workflow</a>
 	 			</div>

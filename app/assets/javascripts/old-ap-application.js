@@ -6,7 +6,6 @@ $('.js-documents-window').click(function (e) {
 });
 
 
-
 // Show warning section for dropout questions
 $('.js-no-return-to-workflow input:radio').change(function () {
   if ($(this).val() == 'No') {
