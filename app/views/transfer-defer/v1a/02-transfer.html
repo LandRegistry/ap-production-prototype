@@ -1,0 +1,161 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+ {{ appnType | d('Transfer Not For Value and RX1') }}, ABR: {{ abrNumber | d('A123XYZ') }}, Title Number: {{ titleNumber | d('DN1000') }}. 
+
+ Charge amount
+{% endblock %}
+
+{% block content %}
+
+	<!-- application information  -->
+	{% include "./includes/application-info.html" %}
+	<!-- end - application information  -->
+
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+
+    <div class="casework-tasks-container">
+
+    	<form method="post">
+
+	      <h2 class="govuk-heading-l">Tasks</h2>
+
+	    	<!-- tasks go here  -->
+
+
+	    	{{ govukRadios({
+	        idPrefix: 'conveyancer-match',
+	        name: 'conveyancer-match',
+	        classes: 'govuk-radios--small govuk-radios--inline',
+	        fieldset: {
+	          legend: {
+	            html: 'Has the application been lodged by a conveyancer?',
+	            classes: 'govuk-fieldset__legend--s'
+	          }
+	        },
+
+	        items: [
+	          {
+	            html: 'Yes',
+	            value: 'Yes',
+	            checked: checked('conveyancer-match','Yes')
+	          },
+	          {
+	            html: 'No',
+	            value: 'No',
+	            checked: checked('conveyancer-match','No')
+	          }
+	        ]
+	      }) }}
+
+
+	      {{ govukInput({
+				  id: 'transfer-amount',
+				  name: 'transfer-amount',
+				  value: '136,000',
+				  classes: 'govuk-input--width-10',
+				  label: {
+				    html: 'What is the transfer amount?',
+				    classes: 'govuk-label--s'
+				  }
+				}) }}
+
+				{{ govukDateInput({
+				  id: 'transfer-date',
+				  namePrefix: 'transfer-date',
+				  fieldset: {
+				    legend: {
+				      text: 'What is the date of the transfer?',
+				      classes: 'govuk-fieldset__legend--s'
+				    }
+				  },
+				    items: [
+				    {
+				        name: 'day',
+				        classes: 'govuk-input--width-2',
+				        value: '21'
+				    },
+				    {
+				        name: 'month',
+				        classes: 'govuk-input--width-2',
+				        value: '06'
+				    },
+				    {
+				        name: 'year',
+				        classes: 'govuk-input--width-4',
+				        value: '2023'
+				    }
+				    ]
+				}) }}
+
+
+	    	{{ govukRadios({
+	        idPrefix: 'correct-fee',
+	        name: 'correct-fee',
+	        classes: ' govuk-radios--small govuk-radios--inline',
+	        fieldset: {
+	          legend: {
+	            text: 'Has the correct fee been paid?',
+	            classes: 'govuk-fieldset__legend--s'
+	          }
+	        },
+	        hint: {
+	          html: '<p><a class="govuk-link" href="#0">Open fee calculator</a></p>
+	                <ul class="govuk-list govuk-list--bullet">
+	                  <li>Fee paid: £95</li>
+	                  <li>Channel: Business Gateway</li>
+	                </ul>'
+	        },
+	        items: [
+	          {
+	            html: 'Yes',
+	            value: 'Yes',
+	            checked: checked('correct-fee','Yes')
+	          },
+	          {
+	            html: 'No',
+	            value: 'No',
+	            checked: checked('correct-fee','No')
+	          }
+	        ]
+	      }) }}
+
+	      
+	    	<!-- end of tasks  -->
+
+
+	    	<!-- Buttons and links -->
+
+				<div class="task-lists-submit">
+			    <button class="govuk-button" data-module="govuk-button">
+			      Next
+			    </button>
+			    <a href="workflow-no-drafting" class="govuk-link reject-button">Return to workflow</a>
+	 			</div>
+
+		  </form>
+
+
+
+	  </div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,212 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+ {{ appnType | d('Transfer Not For Value and RX1') }}, ABR: {{ abrNumber | d('A123XYZ') }}, Title Number: {{ titleNumber | d('DN1000') }}. 
+
+ Validity checks
+{% endblock %}
+
+{% block content %}
+
+	<!-- application information  -->
+	{% include "./includes/application-info.html" %}
+	<!-- end - application information  -->
+
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+
+    <div class="casework-tasks-container">
+
+    	<form method="post">
+
+	      <div class="checklist" data-testid="task-checklist-container">
+	        <div class="checklist-header">
+	          <h2 class="govuk-heading-m">Verified by automation</h2>
+	          <p class="govuk-body govuk-body__extra-margin">You do not need to check these details.</p>
+	        </div>
+	        <div class="checklist-container">
+	          <div class="checklist-items">
+	            <h3 class="govuk-heading-s">Daylist</h3>
+	            <ul class="govuk-list govuk-list--bullet">
+	              <li>No prior applications</li>
+	              <li>No stops</li>
+	              <li>No official searches</li>
+	            </ul>
+	          </div>
+	          <div class="checklist-items">
+	            <h3 class="govuk-heading-s">Register</h3>
+	            <ul class="govuk-list govuk-list--bullet">
+	              <li>No catching restrictions</li>
+	            </ul>
+	          </div>
+	        </div>
+	      </div>
+
+
+	      <h2 class="govuk-heading-l">Tasks</h2>
+
+<!-- Notification, if no selected -->
+				<div id="warning" class="govuk-notification-banner" role="region"
+				  aria-labelledby="govuk-notification-banner-title"
+				  data-module="govuk-notification-banner">
+				  <div class="govuk-notification-banner__header">
+				    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+				      Important
+				    </h2>
+				  </div>
+				  <div class="govuk-notification-banner__content">
+				    <p class="govuk-notification-banner__heading">
+				      <a class="govuk-notification-banner__link" href="workflow-no-drafting">Send to Workflow</a> to complete this application.
+				    </p>
+				  </div>
+				</div>
+
+
+	    <!-- First task - yes no  -->
+
+	      {{ govukRadios({
+	        idPrefix: 'property-match',
+	        name: 'property-match',
+	        classes: 'js-no-return-to-workflow / govuk-radios--small govuk-radios--inline',
+	        fieldset: {
+	          legend: {
+	            html: 'Are the documents for the right property and title number?',
+	            classes: 'govuk-fieldset__legend--s'
+	          }
+	        },
+	        items: [
+	          {
+	            html: 'Yes',
+	            value: 'Yes',
+	            checked: checked('property-match','Yes')
+	          },
+	          {
+	            html: 'No',
+	            value: 'No',
+	            checked: checked('property-match','No')
+	          }
+	        ]
+	      }) }}
+
+
+	      {{ govukRadios({
+	        idPrefix: 'customer-match',
+	        name: 'customer-match',
+	        classes: 'js-no-return-to-workflow / govuk-radios--small govuk-radios--inline',
+	        fieldset: {
+	          legend: {
+	            html: 'Do following customer details match documents?',
+	            classes: 'govuk-fieldset__legend--s'
+	          }
+	        },
+	        hint: {
+	          html: '<ul class="govuk-list govuk-list--bullet">
+	                  <li>Key number: 8822913</li>
+	                  <li>Customer name(s): Young & Perry Solicitors</li>
+	                </ul>'
+	        },
+	        items: [
+	          {
+	            html: 'Yes',
+	            value: 'Yes',
+	            checked: checked('customer-match','Yes')
+	          },
+	          {
+	            html: 'No',
+	            value: 'No',
+	            checked: checked('customer-match','No')
+	          }
+	        ]
+	      }) }}
+
+
+			  {{ govukRadios({
+			    idPrefix: 'id-check',
+			    name: 'id-check',
+			    classes: 'govuk-radios--small govuk-radios--inline',
+			    fieldset: {
+			      legend: {
+			        html: 'Are the identity panels filled out correctly?',
+			        classes: 'govuk-fieldset__legend--s'
+			      }
+			    },
+			    items: [
+			      {
+			        html: 'Yes',
+			        value: 'Yes',
+			        checked: checked('id-check','Yes')
+			      },
+			      {
+			        html: 'No',
+			        value: 'No',
+			        checked: checked('id-check','No')
+			      }
+			    ]
+			  }) }}
+
+			  {{ govukRadios({
+			    idPrefix: 'transferee-type',
+			    name: 'transferee-type',
+			    classes: 'js-no-return-to-workflow govuk-radios--small govuk-radios--inline',
+			    fieldset: {
+			      legend: {
+			        html: 'Are all transferees one or both of these types?',
+			        classes: 'govuk-fieldset__legend--s'
+			      }
+			    },
+	        hint: {
+	          html: '<ul class="govuk-list govuk-list--bullet">
+	                  <li>Private individual</li>
+	                  <li>A UK based company (Ltd or PLC)</li>
+	                </ul>'
+	        },
+			    items: [
+			      {
+			        html: 'Yes',
+			        value: 'Yes',
+			        checked: checked('transferee-type','Yes')
+			      },
+			      {
+			        html: 'No',
+			        value: 'No',
+			        checked: checked('transferee-type','No')
+			      }
+			    ]
+			  }) }}
+
+
+
+	    <!-- Buttons and links -->
+
+				<div class="task-lists-submit">
+			    <button class="govuk-button" data-module="govuk-button">
+			      Next
+			    </button>
+			    <a href="workflow-no-drafting" class="govuk-link reject-button">Return to workflow</a>
+	 			</div>
+
+		  </form>
+
+
+
+	  </div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+{% endblock %}

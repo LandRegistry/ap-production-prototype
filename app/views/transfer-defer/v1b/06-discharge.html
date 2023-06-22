@@ -1,0 +1,235 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+ {{ appnType | d('Transfer Not For Value and RX1') }}, ABR: {{ abrNumber | d('A123XYZ') }}, Title Number: {{ titleNumber | d('DN1000') }}. 
+
+ Discharge and restrictions
+{% endblock %}
+
+{% block content %}
+
+	<!-- application information  -->
+	{% include "./includes/application-info.html" %}
+	<!-- end - application information  -->
+
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+
+    <div class="casework-tasks-container">
+
+    	<form method="post">
+
+	      <h2 class="govuk-heading-l">Tasks</h2>
+
+	    	<!-- tasks go here  -->
+
+				<!-- discharge evidence -->
+	    	{{ govukRadios({
+	        idPrefix: 'discharge-removal',
+	        name: 'discharge-removal',
+	        classes: 'govuk-radios--small',
+	        fieldset: {
+	          legend: {
+	            text: 'Can the existing charge be removed?',
+	            classes: 'govuk-fieldset__legend--s'
+	          }
+	        },
+	        items: [
+	          {
+	            html: 'Yes, evidence has been lodged',
+	            value: 'Yes',
+	            checked: checked('discharge-removal','Yes')
+	          },
+	          {
+	            html: 'No, I need to raise a requisition',
+	            value: 'No',
+	            checked: checked('discharge-removal','No')
+	          },
+		     {
+	            html: 'Keep the existing charge',
+	            value: 'Keep',
+	            checked: checked('discharge-removal','Not required')
+	          }
+	        ]
+	      }) }}
+
+
+				{% set showentriesHtml %}
+
+	        {% call govukFieldset({
+	          legend: {
+	            html:'<br>Select additional entries to remove',
+	            classes: "govuk-fieldset__legend govuk-body"
+	          }
+	        }) %}
+						<div class= "entrylist-container">
+				      {{ govukCheckboxes({
+				        idPrefix: 'remove',
+				        name: 'remove',
+				        classes: 'js-register-remove / govuk-checkboxes--small entrylist-items',
+				        fieldset: {
+				          legend: {
+				          }
+				        },
+				          items: [
+				              {
+				              html: 'C5',
+				              value: 'C5',
+				              checked: checked('remove','C5'),
+				              attributes: {
+				                'data-register': '3',
+				                'data-item': '5'
+				              }
+				              }
+				            ]
+				      }) }}
+				      
+				      </div>
+				  {% endcall %}
+				{% endset -%}
+
+				{{ govukRadios({
+				  idPrefix: 'removed-entries',
+				  name: 'removed-entries',
+				  classes: 'govuk-radios--conditional govuk-radios--small govuk-radios',
+				  fieldset: {
+				    classes: 'govuk-radios govuk-radios--conditional',
+				    legend: {
+				      text: 'Are all entries to be removed indicated on the register?',
+				      classes: 'govuk-fieldset__legend--s'
+				    }
+				  },
+				  items: [
+				  {
+				      classes: 'govuk-radios--conditional govuk-radios__item govuk-radios--inline',
+				      html: 'Yes',
+				      value: 'Yes',
+				      checked: checked('removed-entries','Yes')
+				  },
+				  {
+				    classes: 'govuk-radios--conditional govuk-radios__item govuk-radios--inline',
+				      html: 'No',
+				      value: 'No',
+				      conditional: {
+				        html: showentriesHtml
+				      }
+				  }
+				]
+				}) }}
+
+
+	      <!-- register restrictions -->
+	      {{ govukRadios({
+	        idPrefix: 'register-restrictions',
+	        name: 'register-restrictions',
+	        classes: 'govuk-radios--small govuk-radios--inline',
+	        fieldset: {
+	          legend: {
+	            text: 'There are restrictions in the register. Can the application still be processed?',
+	            classes: 'govuk-fieldset__legend--s'
+	          }
+	        },
+	        items: [
+	          {
+	            html: 'Yes',
+	            value: 'Yes',
+	            checked: checked('register-restrictions','Yes')
+	          },
+	          {
+	            html: 'No',
+	            value: 'No',
+	            checked: checked('register-restrictions','No')
+	          }
+	        ]
+	      }) }}
+
+
+	      <!-- existing entries need amending?  -->
+	    	{{ govukRadios({
+	        idPrefix: 'existing-entries',
+	        name: 'existing-entries',
+	        classes: 'govuk-radios--small govuk-radios--inline',
+	        fieldset: {
+	          legend: {
+	            text: 'Do any existing entries need to be amended?',
+	            classes: 'govuk-fieldset__legend--s'
+	          }
+	        },
+	        items: [
+	          {
+	            html: 'Yes',
+	            value: 'Yes',
+	            checked: checked('existing-entries','Yes')
+	          },
+	          {
+	            html: 'No',
+	            value: 'No',
+	            checked: checked('existing-entries','No')
+	          }
+	        ]
+	      }) }}
+
+
+	      {{ govukRadios({
+	        idPrefix: 'covenants-adding',
+	        name: 'covenants-adding',
+	        classes: 'govuk-radios--small govuk-radios--inline',
+	        fieldset: {
+	          legend: {
+	            text: 'Do any personal covenants or other entries need to be added?',
+	            classes: 'govuk-fieldset__legend--s'
+	          }
+	        },
+	        items: [
+	          {
+	              html: 'Yes',
+	              value: 'Yes',
+	              conditional: {
+	                html: covenantHtml
+	              }
+	          },
+	          {
+	              html: 'No',
+	              value: 'No',
+	              checked: checked('covenants-adding','No')
+	          }
+	        ]
+	      }) }}
+	      
+	    	<!-- end of tasks  -->
+
+
+	    	<!-- Buttons and links -->
+
+				<div class="task-lists-submit">
+			    <button class="govuk-button" data-module="govuk-button">
+			      Next
+			    </button>
+			    <a href="workflow-no-drafting" class="govuk-link reject-button">Return to workflow</a>
+	 			</div>
+
+		  </form>
+
+
+
+	  </div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+{% endblock %}
