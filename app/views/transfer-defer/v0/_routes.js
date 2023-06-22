@@ -37,17 +37,12 @@ router.post('/01-preliminary', function (req, res) {
   	req.session.data['PASNotes'] = PASNotes;
 
 
-  	// set up date from 'automation' for page 2
-  	// note - these could be set up in the session-data-defaults.js file.  But then they will be in every single flow - whiche we dont want.  doesnt matter about the document storage data in that file, we want that everywhere
-  	req.session.data['charge-date-day'] = '04';
-  	req.session.data['charge-date-month'] = '11';
-  	req.session.data['charge-date-year'] = '2019';
   	// go to page 2
-    res.redirect('02-charge-amount');
+    res.redirect('02-transfer');
   }
 })
 
-router.post('/02-charge-amount', function (req, res) {
+router.post('/02-transfer', function (req, res) {
 	// store PAS notes into server variable PASNotes
 
 	if (req.session.data['conveyancer-match'] == 'No')
@@ -65,6 +60,22 @@ router.post('/02-charge-amount', function (req, res) {
 	else {
 		delete PASNotes.ConfirmFeePaid; 
 	}
+
+	// set session data item PASNotes to whats in the server variable PASNotes - so that session data PAS notes is available to be used in the pages
+  req.session.data['PASNotes'] = PASNotes;
+
+	res.redirect('03-transfer-names');
+})
+
+router.post('/03-transfer-names', function (req, res) {
+		
+	if (req.session.data['transfer-names-match'] == 'No')
+		{  		
+		// PAS note to add
+	}
+	else {
+		delete PASNotes.ConfirmBorrower; 
+	}
 	if (req.session.data['name-discrepancy'] == 'No')
 		{  		
 		PASNotes.ConfirmBorrower = "The borrower names do not match the registered proprietor. Check for related evidence and complete any action needed"
@@ -72,48 +83,37 @@ router.post('/02-charge-amount', function (req, res) {
 	else {
 		delete PASNotes.ConfirmBorrower; 
 	}
-	if (req.session.data['transferor-discrepancies'] == 'No')
+	if (req.session.data['execution-discrepancies'] == 'No')
 		{  		
 		PASNotes.DoDocsMeetRequirements = "The documents do not meet all requirements"
 	}
 	else {
 		delete PASNotes.DoDocsMeetRequirements; 
 	}
+
+
 	// set session data item PASNotes to whats in the server variable PASNotes - so that session data PAS notes is available to be used in the pages
-  req.session.data['PASNotes'] = PASNotes;
+	req.session.data['PASNotes'] = PASNotes;
+	
+	res.redirect('03a-transferees');
 
-	res.redirect('03-add-charge-entry');
 })
 
-router.post('/03-add-charge-entry', function (req, res) {
-	// no MD Ref checkbox is selected
-  if (req.session.data['undisclosed'] == 'No-MDRef') { 	
-    res.redirect('workflow-no-drafting');
-  } else {
-  	// store PAS notes into server variable PASNotes
-  	if (req.session.data['note-proceed'] == 'No')
-		{  		
-			PASNotes.ChargeEntries = "A note or warning needs action before this charge can be added to the register"
-		}
-		else {
-			delete PASNotes.ChargeEntries; 
-		}
-		// set session data item PASNotes to whats in the server variable PASNotes - so that session data PAS notes is available to be used in the pages
-  	req.session.data['PASNotes'] = PASNotes;
-  	
-		res.redirect('04-discharge');
-	}
+router.post('/03a-transferees', function (req, res) {
+
+	res.redirect('03b-address-for-service');
 })
 
-router.post('/03-add-charge-entry-2', function (req, res) {
-	// * !!!!!!!!!!!!! *
-	// this route doesnt fire as theres something broken in page 03-add-charge-entry-2
-	// * !!!!!!!!!!!!! *
+router.post('/03b-address-for-service', function (req, res) {
+
 	res.redirect('04-discharge');
 })
 
+
 router.post('/04-discharge', function (req, res) {	
 	// store PAS notes into server variable PASNotes
+
+	//discharge-removal instead of early-completion
 	if (req.session.data['early-completion'] == 'Yes')
 	{  		
 		PASNotes.DischargeEvidenceLodgedCharge = "Evidence of discharge for the registered charge(s) requires action"
