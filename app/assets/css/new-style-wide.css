@@ -92,6 +92,22 @@
 	/* * end block * */
 
 
+	/* ********************************** */
+	/* application information bar */
+	/* ********************************** */
+	#legacy-systems-container {
+		padding-top: 20px;
+		padding-bottom: 45px;
+    border-bottom: 1px solid #b1b4b6;
+    margin-bottom: 30px;
+	}
+
+	#legacy-applications-launcher {
+		float: right;
+		text-align:right;
+	}
+
+
   /* ********************************** */
 	/* register */
 	/* ********************************** */
