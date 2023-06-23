@@ -64,55 +64,9 @@
 
 				<div id="address-1">
 
-					<!-- Address 1 - select type  -->
-
-					<div id="select-type-1">
-
-
-
-						<h3 class="govuk-heading-s" style="margin-bottom: 10px;">Address 1</h3>
-
-						<div class="govuk-form-group" style="margin-bottom: 10px;">
-							<fieldset class="govuk-fieldset">
-								<legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-									<h1 class="govuk-fieldset__heading">
-										Which type of address do you want to add?
-									</h1>
-								</legend>
-								<div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
-									<div class="govuk-radios__item">
-										<input class="govuk-radios__input" id="uk-postal-address" name="address"
-											type="radio" value="uk-postal-address">
-										<label class="govuk-label govuk-radios__label" for="uk-postal-address">
-											UK postal address
-										</label>
-									</div>
-									<div class="govuk-radios__item">
-										<input class="govuk-radios__input" id="email-address" name="address"
-											type="radio" value="email">
-										<label class="govuk-label govuk-radios__label" for="email-address">
-											Email address
-										</label>
-									</div>
-								</div>
-							</fieldset>
-						</div>
-
-
-
-
-						<a id='add-address-button-1' role="button" draggable="false"
-							class="govuk-button ap-secondary-button" style="margin-bottom: 0px;"> Add address </a>
-
-
-
-						<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-					</div>
-
 					<!-- Address 1 - select postcode  -->
 
-					<div id="select-postcode-1" style="display: none">
+					<div id="select-postcode-1">
 
 						<h3 class="govuk-heading-s" style="margin-bottom: 10px;">Address 1
 
@@ -121,14 +75,12 @@
 									Postcode
 								</label>
 								<input class="govuk-input govuk-input--width-10" id="address-postcode"
-									name="address-postcode" type="text" autocomplete="postal-code">
+									name="address-postcode" type="text" autocomplete="postal-code" value="BA22 2QC">
 							</div>
 
 
 							<a id='find-address-button-1' role="button" draggable="false"
 								class="govuk-button ap-secondary-button" style="margin-bottom: 10px;"> Find address </a>
-
-
 
 					</div>
 
@@ -143,10 +95,10 @@
 									Address
 								</label>
 								<select class="govuk-select" id="sort" name="sort">
-									<option value="published" selected>15 Pevensey Rd, Eastbourne BN21 3HR</option>
-									<option value="updated">17 Pevensey Rd, Eastbourne BN21 3HR</option>
-									<option value="views">19 Pevensey Rd, Eastbourne BN21 3HR</option>
-									<option value="comments">21 Pevensey Rd, Eastbourne BN21 3HR</option>
+
+									<option value="published">245 Aspen Rowans, Swasils, Dorset BA22 2QC</option>
+									<option value="views">246 Aspen Rowans, Swasils, Dorset BA22 2QC</option>
+									<option value="comments">247 Aspen Rowans, Swasils, Dorset BA22 2QC</option>
 								</select>
 							</div>
 
@@ -158,8 +110,7 @@
 
 					<!-- Address 1 - other stuff -->
 
-					<div id="other-stuff-1" style="display: none">
-
+					<div id="other-stuff-1">
 						<div class="govuk-form-group" style="margin-bottom: 0px">
 							<div class='govuk-checkboxes govuk-checkboxes--small' data-module='govuk-checkboxes'>
 								<div class="govuk-checkboxes__item">
@@ -239,18 +190,6 @@
 
 {% block pageScripts %}
 <script>
-
-	// ADDRESS 1
-	// button to add the address is pressed
-	$('#add-address-button-1').click(function (e) {
-		// select address type section gets hidden
-		$('#select-type-1').hide();
-		// enter postcode section is shown
-		$('#select-postcode-1').show();
-		// other stuff section is shown
-		$('#other-stuff-1').show()
-	});
-
 
 	// button to search the address linked to the postcode entered is pressed
 	$('#find-address-button-1').click(function (e) {
