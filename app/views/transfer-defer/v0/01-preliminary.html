@@ -48,9 +48,10 @@
 	            </ul>
 	          </div>
 	          <div class="checklist-items">
-	            <h3 class="govuk-heading-s">Register</h3>
+	            <h3 class="govuk-heading-s">Application</h3>
 	            <ul class="govuk-list govuk-list--bullet">
-	              <li>No catching restrictions</li>
+	              <li>Property matches description</li>
+	              <li>All transferors match</li>
 	            </ul>
 	          </div>
 	        </div>
@@ -78,7 +79,7 @@
 
 	    <!-- First task - yes no  -->
 
-	      {{ govukRadios({
+<!-- 	      {{ govukRadios({
 	        idPrefix: 'property-match',
 	        name: 'property-match',
 	        classes: 'js-no-return-to-workflow / govuk-radios--small govuk-radios--inline',
@@ -100,7 +101,7 @@
 	            checked: checked('property-match','No')
 	          }
 	        ]
-	      }) }}
+	      }) }} -->
 
 
 	      {{ govukRadios({
