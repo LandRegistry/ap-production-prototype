@@ -55,9 +55,14 @@
 	        },
 	        items: [
 	          {
-	            html: 'Yes, evidence has been lodged',
-	            value: 'Yes',
-	            checked: checked('discharge-removal','Yes')
+	            html: 'Yes, electronic evidence has been lodged',
+	            value: 'Yes-e',
+	            checked: checked('discharge-removal','Yes-e')
+	          },
+	          {
+	            html: 'Yes, paper evidence has been lodged',
+	            value: 'Yes-p',
+	            checked: checked('discharge-removal','Yes-p')
 	          },
 	          {
 	            html: 'No',
@@ -67,33 +72,6 @@
 	        ]
 	      }) }}
 
-
-
-
-	      <!-- register restrictions -->
-	      {{ govukRadios({
-	        idPrefix: 'electronic-discharge',
-	        name: 'electronic-discharge',
-	        classes: 'govuk-radios--small',
-	        fieldset: {
-	          legend: {
-	            text: 'Is this an electronic discharge?',
-	            classes: 'govuk-fieldset__legend--s'
-	          }
-	        },
-	        items: [
-	          {
-	            html: 'Yes',
-	            value: 'Yes',
-	            checked: checked('electronic-discharge','Yes')
-	          },
-	          {
-	            html: 'No',
-	            value: 'No',
-	            checked: checked('electronic-discharge','No')
-	          }
-	        ]
-	      }) }}
 
 	      
 	    	<!-- end of tasks  -->

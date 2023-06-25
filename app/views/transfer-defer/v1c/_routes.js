@@ -23,23 +23,17 @@ router.post('/06-discharge', function (req, res) {
 	// store PAS notes into server variable PASNotes
 
 	
-	if (req.session.data['discharge-removal'] == 'Yes')
+	if (req.session.data['discharge-removal'] == 'Yes-e')
+	{  		
+		PASNotes.DischargeEvidenceLodgedCharge = "???"
+	}
+	if (req.session.data['discharge-removal'] == 'Yes-p')
 	{  		
 		PASNotes.DischargeEvidenceLodgedCharge = "???"
 	}
 	if (req.session.data['discharge-removal'] == 'No')
 	{  		
 		PASNotes.DischargeEvidenceLodgedCharge = "NEW PAS note - evidence lodged in reponse to requsition not ok????"
-	}
-
-
-	if (req.session.data['electronic-discharge'] == 'No')
-	{  		
-		PASNotes.AmendExistingEntries = "NEW PAS??? routing to legacy"
-	}
-	else
-	{
-		delete PASNotes.AmendExistingEntries;
 	}
 
 
@@ -58,7 +52,7 @@ router.post('/09-document-storage', function (req, res) {
 
 	// check all the questions that mean it should get sent to workflow (get PAS notes)
   if 	(req.session.data['discharge-removal'] == 'No'
-  	|| req.session.data['electronic-discharge'] == 'No'
+  	|| req.session.data['discharge-removal'] == 'Yes-p'
   	) {
     res.redirect('workflow');
   } else {
