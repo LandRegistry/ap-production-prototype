@@ -54,6 +54,7 @@ module.exports = {
     "Correspondence",
     "Court Order ",
     "Customer Correspondence",
+    "Death Certificate",
     "Deed",
     "Discharge",
     "Document List",

@@ -33,7 +33,7 @@
 
     	{{ govukBackLink({
 	      text: 'Back',
-	      href: '07-daylist'
+	      href: '06-discharge'
 	    }) }}
 
     	<form method="post">
@@ -120,7 +120,7 @@
                 }) }}
               </td>
               <td class="js-date-text / govuk-table__cell">
-                <span style="display: block; margin-top: 32px">11 April 2019</span>
+                <span style="display: block; margin-top: 32px">15 June 2023</span>
               </td>
               <td class="govuk-table__cell govuk-table__cell--numeric">
                 <div class="govuk-form-group" style="margin-top: 22px">
@@ -139,12 +139,89 @@
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">
                 {{ govukSelect({
+                  id: 'doc2-name',
+                  name: 'doc2-name',
+                  label: {
+                    html: '<a href="_document-viewer#doc2" target="_blank">TR1 form</a>'
+                  },
+                  items: docTypes,
+                  value: 'Transfer'
+                }) }}
+              </th>
+              <td class="js-date-input / govuk-table__cell" style="display: none">
+                {{ govukDateInput({
+                  id: 'doc2-date',
+                  name: 'doc2-date',
+                  classes: 'js-incomplete-toggle',
+                  attributes: {
+                    style: 'margin-bottom: 7px'
+                  }
+                }) }}
+
+                {{ govukRadios({
+                  idPrefix: 'doc2-incomplete-reason',
+                  name: 'doc2-incomplete-reason',
+                  fieldset: {
+                    legend: {
+                      text: 'Incomplete reason',
+                      classes: 'govuk-!-font-size-16 govuk-!-margin-bottom-0'
+                    }
+                  },
+                  classes: 'govuk-radios--inline govuk-radios--small',
+                  formGroup: {
+                    classes: 'js-hidden js-incomplete-toggle'
+                  },
+                  items: [
+                    {
+                      value: 'Illegible',
+                      text: 'Illegible'
+                    },
+                    {
+                      value: 'Unavailable',
+                      text: 'Unavailable'
+                    }
+                  ]
+                }) }}
+
+                {{ govukCheckboxes({
+                  idPrefix: 'doc2-incomplete',
+                  name: 'doc2-incomplete',
+                  classes: 'js-incomplete / govuk-checkboxes--small govuk-!-margin-top-1',
+                  items: [
+                    {
+                      value: 'Incomplete date',
+                      text: 'Incomplete date'
+                    }
+                  ]
+                }) }}
+              </td>
+              <td class="js-date-text / govuk-table__cell">
+                <span style="display: block; margin-top: 32px">15 June 2023</span>
+              </td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <div class="govuk-form-group" style="margin-top: 22px">
+                  <div class="govuk-checkboxes govuk-checkboxes--small">
+                    <div class="govuk-checkboxes__item">
+                      <input class="js-remove / govuk-checkboxes__input" name="remove-2" type="checkbox">
+                      <label class="govuk-checkboxes__label">
+                        <span class="govuk-visually-hidden">Remove document #</span></label>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                {{ govukSelect({
                   id: 'doc3-name',
                   name: 'doc3-name',
                   label: {
-                    html: '<a href="_document-viewer#doc2" target="_blank">CHG</a>'
+                    html: '<a href="_document-viewer#doc3" target="_blank">SDLT</a>'
                   },
-                  items: docTypes
+                  items: docTypes,
+                  value: 'Stamp Duty Land Tax'
                 }) }}
               </th>
               <td class="js-date-input / govuk-table__cell" style="display: none">
@@ -195,7 +272,82 @@
                 }) }}
               </td>
               <td class="js-date-text / govuk-table__cell">
-                <span style="display: block; margin-top: 32px">11 April 2019</span>
+                <span style="display: block; margin-top: 32px">15 June 2023</span>
+              </td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <div class="govuk-form-group" style="margin-top: 22px">
+                  <div class="govuk-checkboxes govuk-checkboxes--small">
+                    <div class="govuk-checkboxes__item">
+                      <input class="js-remove / govuk-checkboxes__input" name="remove-2" type="checkbox">
+                      <label class="govuk-checkboxes__label">
+                        <span class="govuk-visually-hidden">Remove document #</span></label>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                {{ govukSelect({
+                  id: 'doc4-name',
+                  name: 'doc4-name',
+                  label: {
+                    html: '<a href="_document-viewer#doc4" target="_blank">Death Certificate</a>'
+                  },
+                  items: docTypes,
+                  value: 'Death Certificate'
+                }) }}
+              </th>
+              <td class="js-date-input / govuk-table__cell" style="display: none">
+                {{ govukDateInput({
+                  id: 'doc4-date',
+                  name: 'doc4-date',
+                  classes: 'js-incomplete-toggle',
+                  attributes: {
+                    style: 'margin-bottom: 7px'
+                  }
+                }) }}
+
+                {{ govukRadios({
+                  idPrefix: 'doc4-incomplete-reason',
+                  name: 'doc4-incomplete-reason',
+                  fieldset: {
+                    legend: {
+                      text: 'Incomplete reason',
+                      classes: 'govuk-!-font-size-16 govuk-!-margin-bottom-0'
+                    }
+                  },
+                  classes: 'govuk-radios--inline govuk-radios--small',
+                  formGroup: {
+                    classes: 'js-hidden js-incomplete-toggle'
+                  },
+                  items: [
+                    {
+                      value: 'Illegible',
+                      text: 'Illegible'
+                    },
+                    {
+                      value: 'Unavailable',
+                      text: 'Unavailable'
+                    }
+                  ]
+                }) }}
+
+                {{ govukCheckboxes({
+                  idPrefix: 'doc4-incomplete',
+                  name: 'doc4-incomplete',
+                  classes: 'js-incomplete / govuk-checkboxes--small govuk-!-margin-top-1',
+                  items: [
+                    {
+                      value: 'Incomplete date',
+                      text: 'Incomplete date'
+                    }
+                  ]
+                }) }}
+              </td>
+              <td class="js-date-text / govuk-table__cell">
+                <span style="display: block; margin-top: 32px">15 June 2023</span>
               </td>
               <td class="govuk-table__cell govuk-table__cell--numeric">
                 <div class="govuk-form-group" style="margin-top: 22px">
@@ -214,29 +366,6 @@
         </table>
 
       </div>
-
-      {{ govukRadios({
-        idPrefix: 'third-party-notification',
-        name: 'third-party-notification',
-        classes: "govuk-radios--small",
-        fieldset: {
-          legend: {
-            text: 'Confirm third party notification',
-            isPageHeading: false,
-            classes: 'govuk-fieldset__legend--m govuk-!-font-size-19'
-          }
-        },
-        items: [
-          {
-            value: 'I have served a notice',
-            text: 'I have served a notice'
-          },
-          {
-            value: 'I do not need to serve a notice',
-            text: 'I do not need to serve a notice'
-          }
-        ]
-      }) }}
 
 	      
 	    	<!-- end of tasks  -->
@@ -267,10 +396,10 @@
 <script>
   $('.js-hidden').hide();
   // $('#doc1-name').val('Application Form')
-  $('#doc2-name').val('Transfer')
-  $('#doc3-name').val('Charge')
-  $('#doc4-name').val('Evidence')
-  $('#doc5-name').val('Stamp Duty Land Tax')
+  // $('#doc2-name').val('Transfer')
+  // $('#doc2-name').val('Charge')
+  // $('#doc4-name').val('Evidence')
+  // $('#doc5-name').val('Stamp Duty Land Tax')
 
   $('.govuk-select').change(function () {
     if (($(this).val() == 'Application Form') || ($(this).val() == 'Transfer') || ($(this).val() == 'Document List') || ($(this).val() == 'Land Transaction Tax') || ($(this).val() == 'Stamp Duty Land Tax') || ($(this).val() == 'Identity') || ($(this).val() == 'RQ') || ($(this).val() == 'Indemnity') || ($(this).val() == 'Complaint Record') || ($(this).val() == 'E383') || ($(this).val() == 'Fee Adjustment') || ($(this).val() == 'Mast Title Record') || ($(this).val() == 'Miscellaneous') || ($(this).val() == 'Investigation of Crime')) {
