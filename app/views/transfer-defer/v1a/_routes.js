@@ -224,7 +224,7 @@ router.post('/07-daylist', function (req, res) {
 			|| req.session.data['stops-action'] == 'Yes'
 			|| req.session.data['discharge-removal'] == 'No'
 	  	) {
-	    res.redirect('workflow');
+	    res.redirect('deferred');
 	  } else {
 	    res.redirect('success');
 	  }
