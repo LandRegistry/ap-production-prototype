@@ -18,10 +18,14 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
 		<h2 class="govuk-heading-l">PAS Notes</h2>
   		<ul class="govuk-list govuk-list--bulletx">
-	      {% for item in data['PASNotes'] | dictsort %}
-				    <li>{{ item[1] }} ({{ item[0] }})</li>
-				    <!-- <li>{{ item[1] }}</li> -->
-				{% endfor %}
+  			{% if req.session.data['PASNotes'] %}
+		      {% for item in data['PASNotes'] | dictsort %}
+					    <li>{{ item[1] }} ({{ item[0] }})</li>
+					    <!-- <li>{{ item[1] }}</li> -->
+					{% endfor %}
+				{% else %}
+					<li>No PAS notes</li>
+				{% endif %}
 			</ul>
 
 		<h2 class="govuk-heading-l">All Session data</h2>
