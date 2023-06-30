@@ -18,7 +18,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
 		<h2 class="govuk-heading-l">PAS Notes</h2>
   		<ul class="govuk-list govuk-list--bulletx">
-  			{% if req.session.data['PASNotes'] %}
+  			{% if data['PASNotes'] %}
 		      {% for item in data['PASNotes'] | dictsort %}
 					    <li>{{ item[1] }} ({{ item[0] }})</li>
 					    <!-- <li>{{ item[1] }}</li> -->
