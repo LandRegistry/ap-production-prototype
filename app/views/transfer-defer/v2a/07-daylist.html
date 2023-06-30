@@ -184,15 +184,6 @@
 	        ]
 	      }) }}
 
-
-	      {% if data['discharge-removal'] == 'No' %}
-		      <h3>Requisitions</h3>
-		      <p>Evidence for the discharge in needed.  This application will be deferred.</p>
-		      <button type="button" onclick="myFunction()" class="govuk-button govuk-button--secondary js-pc-corres-window" data-module="govuk-button">
-					  Requisition for evidence
-					</button>
-				{% endif %}
-
 	      
 	    	<!-- end of tasks  -->
 
@@ -201,11 +192,7 @@
 
 				<div class="task-lists-submit">
 			    <button class="govuk-button" data-module="govuk-button">
-			    	{% if data['discharge-removal'] == 'No' %}
-			      Submit
-			      {% else %}
 						Next
-			      {% endif %}
 			    </button>
 			    <a href="workflow-no-drafting" class="govuk-link reject-button">Return to workflow</a>
 	 			</div>

@@ -196,15 +196,13 @@ router.post('/07-daylist', function (req, res) {
 	// set session data item PASNotes to whats in the server variable PASNotes - so that session data PAS notes is available to be used in the pages
   req.session.data['PASNotes'] = PASNotes;
   	
-	// only go to document retention if 
-	if (req.session.data['discharge-removal'] == 'Yes'
-		|| req.session.data['discharge-removal'] == 'Keep')
-	{
-		res.redirect('09-document-storage');
-	}
-	else {
-		// this is the final page in the flow
-		// check all the questions that mean it should get sent to workflow (get PAS notes)
+
+	res.redirect('08-letters');
+
+})
+
+router.post('/08-letters', function (req, res) {
+
 	  if 	(req.session.data['correct-fee'] == 'No'
 	  	|| req.session.data['id-check'] == 'No'
 	  	|| req.session.data['conveyancer-match'] == 'No'
@@ -228,7 +226,7 @@ router.post('/07-daylist', function (req, res) {
 	  } else {
 	    res.redirect('success');
 	  }
-	}
+
 })
 
 // last page in flow - route to workflow or success confirmation page
