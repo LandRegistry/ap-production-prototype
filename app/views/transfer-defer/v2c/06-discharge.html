@@ -1,0 +1,187 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+ {{ appnType | d('Transfer Not For Value and RX1') }}, ABR: {{ abrNumber | d('A123XYZ') }}, Title Number: {{ titleNumber | d('DN1000') }}. 
+
+ Discharge and restrictions
+{% endblock %}
+
+{% block content %}
+
+	<!-- application information  -->
+	{% include "./includes/application-info.html" %}
+	<!-- end - application information  -->
+
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+
+    <div class="casework-tasks-container">
+
+<!--     	{{ govukBackLink({
+	      text: 'Back',
+	      href: '05-address-for-service'
+	    }) }} -->
+
+    	<form method="post">
+
+	      <h2 class="govuk-heading-l">
+	      <!-- Tasks -->
+	    </h2>
+
+	    	<!-- tasks go here  -->
+
+				<!-- discharge evidence -->
+	    	{{ govukRadios({
+	        idPrefix: 'discharge-removal',
+	        name: 'discharge-removal',
+	        classes: 'govuk-radios--small js-register-radio-remove',
+	        fieldset: {
+	          legend: {
+	            text: 'Is there evidence for the discharge?',
+	            classes: 'govuk-fieldset__legend--s'
+	          }
+	        },
+	        items: [
+	          {
+	            html: 'Electronic evidence lodged',
+	            value: 'Yes-e',
+	            checked: checked('discharge-removal','Yes-e'),
+	            attributes: {
+                'data-register': '2',
+                'data-item': '3',
+                'data-remove': 'y'
+              }
+	          },
+	          {
+	            html: 'Paper evidence lodged',
+	            value: 'Yes-p',
+	            checked: checked('discharge-removal','Yes-p'),
+	            attributes: {
+                'data-register': '2',
+                'data-item': '3',
+                'data-remove': 'y'
+              }
+	          },
+	          {
+	            html: 'No evidence lodged',
+	            value: 'No',
+	            checked: checked('discharge-removal','No'),
+	            attributes: {
+                'data-register': '2',
+                'data-item': '3',
+                'data-remove': 'n'
+              }
+	          }
+	        ]
+	      }) }}
+
+
+	     	<!-- stops require action?  -->
+	      {{ govukRadios({
+	        idPrefix: 'stops-action',
+	        name: 'stops-action',
+	        classes: 'govuk-radios--small govuk-radios',
+	        fieldset: {
+	          legend: {
+	            text: 'There are stops on the register.  Do they require any further action?',
+	            classes: 'govuk-fieldset__legend--s'
+	          }
+	        },
+	        hint: {
+	          text: 'To check stops go to Daylist'
+	        },
+	        items: [
+	          {
+	            html: 'Yes',
+	            value: 'Yes',
+	            checked: checked('stops-action','Yes')
+	          },
+	          {
+	            html: 'No',
+	            value: 'No',
+	            checked: checked('stops-action','No')
+	          }
+	        ]
+	      }) }}
+
+
+	      
+	    	<!-- end of tasks  -->
+
+
+	    	<!-- Buttons and links -->
+
+				<div class="task-lists-submit">
+			    <button class="govuk-button" data-module="govuk-button">
+			      Next
+			    </button>
+			    <a href="workflow-no-drafting" class="govuk-link reject-button">Return to workflow</a>
+	 			</div>
+
+		  </form>
+
+
+
+	  </div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+
+<script>
+// Toggle items in the register to be removed
+
+
+$('.js-register-radio-remove input').change(function() {
+  var register = $(this).attr('data-register');
+  var item = $(this).attr('data-item');
+  var toRemove = $(this).attr('data-remove');
+
+
+  if (toRemove == 'y' ) {
+  	if ($('#b3-container').is(":hidden") == false)  // stop adding more entries if selecting the two options for yes
+  	{
+	  	$('#b3-container').hide();
+	  	$('#temp1').hide();
+	  	$('#b-register').append('<li id="b3" class="withdraw"><div class="removing-inset-text--gov" id="inset-b3"><div id="tag-b3"><strong class="govuk-tag govuk-tag--red" id="tag" style="margin-bottom: 10px;">Removing</strong></div>(11.06.2012) RESTRICTION: No disposition of the registered estate by the proprietor of the registered estate is to be registered without a written consent signed by the proprietor for the time being of the Charge dated 24 May 2012 in favour of Landmark Mortgages Limited referred to in the Charges Register.</div></li>');
+ 		}
+  } else {
+  	$('#b3-container').show();
+  	$('#b3').remove();
+
+		var evidence = $("input:radio[name ='discharge-removal']:checked").val()
+
+  	if ((evidence == 'No')) // if coming back from next page then changing answer need to tidy up and show the right things
+  	{
+  		$('.temp1').remove();
+  		$('#temp').hide();
+  		$('#b-register').append('<li id="temp1" class="temp1">(11.06.2012) RESTRICTION: No disposition of the registered estate by the proprietor of the registered estate is to be registered without a written consent signed by the proprietor for the time being of the Charge dated 24 May 2012 in favour of Landmark Mortgages Limited referred to in the Charges Register.</li>');
+
+  	}
+
+  	// if no evidence lodged selected add the li back in - if its not visible
+  }
+
+
+});
+</script>
+
+{% endblock %}

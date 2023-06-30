@@ -1,0 +1,29 @@
+{% extends "layouts/ap-flow-regular.html" %}
+
+{% block pageTitle %}
+ Sent to Workflow, partially drafted
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row govuk-body">
+    <div class="govuk-grid-column-two-thirds">
+			<div class="govuk-panel govuk-panel--confirmation govuk-panel--confirmation--partial">
+	    	<h1 class="govuk-panel__title">
+	          Application {{ abrNumber | d('A123XYZ') }} drafting saved
+	      </h1>
+	      <div class="govuk-panel__body">
+	        Sent to Workflow
+	      </div>
+	    </div>  
+
+      <!-- <h2 class="govuk-heading-m">What's next</h2> -->
+
+      <p class="govuk-body govuk-!-margin-top-6">
+        <a href="90-worklist-after" class="govuk-link">Go to Workflow</a> to complete the application or start a new one.
+      </p>
+    </div>
+  </div>
+
+{% endblock %}
