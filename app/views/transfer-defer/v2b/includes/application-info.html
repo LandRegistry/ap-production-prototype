@@ -1,0 +1,39 @@
+	<div class="govuk-grid-row ap-no-row-l-r-margin">
+		<div id="application-info-container">
+			<div class="govuk-grid-column-three-quarters ap-no-column-l-r-padding">
+	  		<h1 class="govuk-heading-m application-type">{{ appnType | d('Transfer') }}</h1>
+
+	  				<span class="govuk-body">ABR: </span><span class="abr govuk-body">{{ abrNumber | d('A123XYZ') }}</span>
+	  				<span class="govuk-body">Title: </span><span class="title-number govuk-body">{{ titleNumber | d('DN1000') }}</span>
+
+		  </div>
+
+		  <div class="govuk-grid-column-one-quarter ap-no-column-r-padding">
+		  	<p id="documents-launcher">
+		      <a href="_document-viewer" class="govuk-link document-link js-documents-window" target="_blank">Application documents</a>
+				</p>
+			</div>
+		</div>
+	</div>
+
+<style>
+
+.govuk-button--secondary {
+	background-color: #6F777B;
+	color:white;
+}
+
+</style>
+
+	<div class="govuk-grid-row ap-no-row-l-r-margin" style="margin-top:-30px;">
+		<div id="legacy-systems-container">
+
+		  <div class="govuk-grid-column-full ap-no-column-r-padding" id="legacy-applications-launcher" style="margin-top:-8px;">
+
+		      <button type="button" onclick="myFunction()" class="govuk-button govuk-button--secondary js-pc-corres-window" data-module="govuk-button">
+					  Raise a requisition
+					</button>
+
+			</div>
+		</div>
+	</div>
