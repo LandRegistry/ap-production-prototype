@@ -59,15 +59,16 @@ router.post('/06-discharge', function (req, res) {
 // last page in flow - route to workflow or success confirmation page
 router.post('/09-document-storage', function (req, res) {
 
+	res.redirect('workflow');
 	// check all the questions that mean it should get sent to workflow (get PAS notes)
-  if 	(req.session.data['discharge-removal'] == 'No'
-  	|| req.session.data['discharge-removal'] == 'Yes-p'
-  	|| req.session.data['stops-action'] == 'Yes'
-  	) {
-    res.redirect('workflow');
-  } else {
-    res.redirect('success');
-  }
+  // if 	(req.session.data['discharge-removal'] == 'No'
+  // 	|| req.session.data['discharge-removal'] == 'Yes-p'
+  // 	|| req.session.data['stops-action'] == 'Yes'
+  // 	) {
+  //   res.redirect('workflow');
+  // } else {
+  //   res.redirect('success');
+  // }
 
   // idea for UI improvement
   // we could check each item that creates a PAS note, and total up the number of PAS notes

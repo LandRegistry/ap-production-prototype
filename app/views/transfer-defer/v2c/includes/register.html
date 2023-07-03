@@ -46,7 +46,7 @@
   			
 
     <div id="b3-container">
-	  	{% if data['discharge-removal'] != 'No' %}
+	  	{% if (data['discharge-removal'] == 'Yes-e') or (data['discharge-removal'] == 'Yes-p')%}
 		    <li id="b3" class="withdraw">
 		      <div class="removing-inset-text--gov" id="inset-b3">
 		        <div id="tag-b3">
