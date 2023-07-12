@@ -38,11 +38,11 @@ router.post('/01-preliminary', function (req, res) {
 
 
   	// go to page 2
-    res.redirect('02-transfer');
+    res.redirect('02-middle');
   }
 })
 
-router.post('/02-transfer', function (req, res) {
+router.post('/02-middle', function (req, res) {
 	// store PAS notes into server variable PASNotes
 
 	if (req.session.data['conveyancer-match'] == 'No')
@@ -64,10 +64,10 @@ router.post('/02-transfer', function (req, res) {
 	// set session data item PASNotes to whats in the server variable PASNotes - so that session data PAS notes is available to be used in the pages
   req.session.data['PASNotes'] = PASNotes;
 
-	res.redirect('03-transfer-names');
+	res.redirect('03-middle');
 })
 
-router.post('/03-transfer-names', function (req, res) {
+router.post('/03-middle', function (req, res) {
 		
 	if (req.session.data['transfer-names-match'] == 'No')
 		{  		
@@ -95,142 +95,12 @@ router.post('/03-transfer-names', function (req, res) {
 	// set session data item PASNotes to whats in the server variable PASNotes - so that session data PAS notes is available to be used in the pages
 	req.session.data['PASNotes'] = PASNotes;
 	
-	res.redirect('04-transferees');
-
-})
-
-router.post('/04-transferees', function (req, res) {
-
-	res.redirect('05-address-for-service');
-})
-
-router.post('/05-address-for-service', function (req, res) {
-
-	res.redirect('06-discharge');
-})
-
-
-router.post('/06-discharge', function (req, res) {	
-	// store PAS notes into server variable PASNotes
-
-	
-	if (req.session.data['discharge-removal'] == 'Yes')
-	{  		
-		PASNotes.DischargeEvidenceLodgedCharge = "Evidence of discharge for the registered charge(s) requires action"
-	}
-	if (req.session.data['discharge-removal'] == 'No')
-	{  		
-		PASNotes.DischargeEvidenceLodgedCharge = "NEW PAS note - reqisition"
-	}
-	if (req.session.data['discharge-removal'] == 'Keep') {
-		delete PASNotes.DischargeEvidenceLodgedCharge;
-	}
-
-	if (req.session.data['existing-entries'] == 'Yes')
-	{  		
-		PASNotes.AmendExistingEntries = "One or more register entries needs amending"
-	}
-	else
-	{
-		delete PASNotes.AmendExistingEntries;
-	}
-
-// got here
-
-	if (req.session.data['register-restrictions'] == 'No')
-	{  		
-		PASNotes.ProcessWithRestrictions = "The restriction(s) in the register need considering"
-	}
-	else
-	{
-		delete PASNotes.ProcessWithRestrictions;
-	}
-
-	//removed-entries teask needs PAS note?
-	// covenants-adding task needs PAS note?
-
-	// set session data item PASNotes to whats in the server variable PASNotes - so that session data PAS notes is available to be used in the pages
-  req.session.data['PASNotes'] = PASNotes;
-
-	res.redirect('07-daylist');
-})
-
-
-router.post('/07-daylist', function (req, res) {
-	if (req.session.data['search-protection'] == 'No')
-	{  		
-		PASNotes.ProtectingSearch = "There is an Official Search of Whole with priority on the title that may be blocking this application."
-	}
-	else
-	{
-		delete PASNotes.ProtectingSearch;
-	}
-
-	if (req.session.data['stops-action'] == 'Yes' )
-	{  		
-		PASNotes.ReviewStops = "There is a stop(s) that requires some action."
-	}
-	else
-	{
-		delete PASNotes.ReviewStops;
-	}
-
-	if (req.session.data['docs-meet-requirements'] == 'No')
-	{  		
-		PASNotes.DoDocsMeetRequirements = "The documents do not meet all requirements"
-	}
-	else
-	{
-		delete PASNotes.DoDocsMeetRequirements;
-	}
-
-	if (req.session.data['additional-transactions'] == 'Yes')
-	{  		
-		PASNotes.AdditionalTransactions = "There is another transaction(s) with this application."
-	}
-	else
-	{
-		delete PASNotes.AdditionalTransactions;
-	}
-
-	// set session data item PASNotes to whats in the server variable PASNotes - so that session data PAS notes is available to be used in the pages
-  req.session.data['PASNotes'] = PASNotes;
-  	
-
-	res.redirect('08-letters');
-
-})
-
-router.post('/08-letters', function (req, res) {
-
-	  if 	(req.session.data['correct-fee'] == 'No'
-	  	|| req.session.data['id-check'] == 'No'
-	  	|| req.session.data['conveyancer-match'] == 'No'
-	  	|| req.session.data['correct-fee'] == 'No'
-			|| req.session.data['name-discrepancy'] == 'No'
-			|| req.session.data['transferor-discrepancies'] == 'No'
-			|| req.session.data['undisclosed'] == 'No-MDRef'
-			|| req.session.data['note-proceed'] == 'No'
-			|| req.session.data['early-completion'] == 'Yes'
-			|| req.session.data['early-completion'] == 'No' 
-			|| req.session.data['joint-proprietor'] == 'No'
-			|| req.session.data['register-restrictions'] == 'No'
-			|| req.session.data['existing-entries'] == 'Yes'
-			|| req.session.data['docs-meet-requirements'] == 'No'
-			|| req.session.data['additional-transactions'] == 'Yes'
-			|| req.session.data['search-protection'] == 'No'
-			|| req.session.data['stops-action'] == 'Yes'
-			|| req.session.data['discharge-removal'] == 'No'
-	  	) {
-	    res.redirect('deferred');
-	  } else {
-	    res.redirect('success');
-	  }
+	res.redirect('20-document-storage');
 
 })
 
 // last page in flow - route to workflow or success confirmation page
-router.post('/09-document-storage', function (req, res) {
+router.post('/20-document-storage', function (req, res) {
 
 	// check all the questions that mean it should get sent to workflow (get PAS notes)
   if 	(req.session.data['correct-fee'] == 'No'
