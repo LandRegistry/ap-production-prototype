@@ -31,3 +31,9 @@ router.use(/\/address-proto\/v([0-9]+)/, (req, res, next) => {
 router.use(/\/transfer-defer\/v([0-9a-z]+)/, (req, res, next) => {
   return require(`./views/transfer-defer/v${req.params[0]}/_routes`)(req, res, next);
 })
+
+
+// routing for the starter flow
+router.use(/\/starter\/v([0-9a-z]+)/, (req, res, next) => {
+  return require(`./views/starter/v${req.params[0]}/_routes`)(req, res, next);
+})
