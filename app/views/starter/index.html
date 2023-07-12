@@ -1,0 +1,38 @@
+{% extends "layouts/ap-documentation.html" %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Starter flow</h1>
+
+    <p class="govuk-body">A basic flow you can build actual flows from, containing:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+    	<li>worklist (to open a case from)</li>
+      <li>preliminary page (initial questions and verified by automation)</li>
+      <li>two 'middle' flow page</li>
+      <li>document retention</li>
+      <li>confirmation pages (the 3 types)</li>
+      <li>worklist (after completing the case)</li>
+      <li>document viewer</li>
+      <li>accessibility and feedback pages</li>
+      <li>prototype tools page (to clear data, and see saved session data)</li>
+    </ul>
+
+    <p>The starter folder has a self contained _routes.js file, containing everything needed operate the flow.  But, when copying this starter folder to create your own flow, you will need to add a route to the main routes file (at the top level of the protoype kit, app/routes.js), to tell the maim routes file to look for your flow routes in your folder.</p>
+
+
+		<h2 class="govuk-heading-l"><a class="govuk-link" href="v1/00-worklist">See the starter flow</a></h2>
+
+   
+
+  </div>
+</div>
+
+{% endblock %}
