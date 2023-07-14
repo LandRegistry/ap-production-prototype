@@ -1,0 +1,49 @@
+{% extends "layouts/ap-documentation.html" %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Prototype tools</h1>
+
+    <p class="govuk-body">This page is for managing the protoype</p>
+
+    <h2 class="govuk-heading-l">Clear data</h2>
+    <p><a href="/manage-prototype/clear-data">clear all session data</a></p>
+
+		<h2 class="govuk-heading-l">PAS Notes</h2>
+  		<ul class="govuk-list govuk-list--bulletx">
+  			{% if data['PASNotes'] %}
+		      {% for item in data['PASNotes'] | dictsort %}
+					    <li>{{ item[1] }} ({{ item[0] }})</li>
+					    <!-- <li>{{ item[1] }}</li> -->
+					{% endfor %}
+				{% else %}
+					<li>No PAS notes</li>
+				{% endif %}
+			</ul>
+
+		<h2 class="govuk-heading-l">All Session data</h2>
+
+			<h3 class="govuk-heading-m">ordered by name</h3>
+	      	<ul class="govuk-list govuk-list--bulletx">
+		      {% for item in data | dictsort %}
+					    <li>{{ item[0] }} : {{ item[1] | dump(2) }}</li>
+					{% endfor %}
+					</ul>
+	      		
+			<h3 class="govuk-heading-m">JSON, as stored</h3>	      	
+					<pre>
+	      		{{ data | dump(2) }}
+					</pre>
+
+
+  </div>
+</div>
+
+{% endblock %}
