@@ -19,25 +19,25 @@ router.post('/00-worklist', function (req, res) {
 
 
 
-router.post('/06-discharge', function (req, res) {	
+router.post('/06-discharge', function (req, res) {
 	// store PAS notes into server variable PASNotes
 
-	
+
 	if (req.session.data['discharge-removal'] == 'Yes-e')
-	{  		
+	{
 		PASNotes.DischargeEvidenceLodgedCharge = "???"
 	}
 	if (req.session.data['discharge-removal'] == 'Yes-p')
-	{  		
+	{
 		PASNotes.DischargeEvidenceLodgedCharge = "???"
 	}
 	if (req.session.data['discharge-removal'] == 'No')
-	{  		
+	{
 		PASNotes.DischargeEvidenceLodgedCharge = "NEW PAS note - evidence lodged in reponse to requsition not ok????"
 	}
 
 	if (req.session.data['stops-action'] == 'Yes' )
-	{  		
+	{
 		PASNotes.ReviewStops = "There is a stop(s) that requires some action."
 	}
 	else
@@ -52,7 +52,14 @@ router.post('/06-discharge', function (req, res) {
 	// set session data item PASNotes to whats in the server variable PASNotes - so that session data PAS notes is available to be used in the pages
   req.session.data['PASNotes'] = PASNotes;
 
-	res.redirect('09-document-storage');
+  if 	(req.session.data['discharge-removal'] == 'No'
+  	|| req.session.data['discharge-removal'] == 'Yes-p'
+  	|| req.session.data['stops-action'] == 'Yes'
+  	) {
+    res.redirect('workflow');
+    } else {
+    res.redirect('success');
+ };
 })
 
 
