@@ -1,0 +1,205 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+ {{ appnType | d('Transfer Not For Value and RX1') }}, ABR: {{ abrNumber | d('A123XYZ') }}, Title Number: {{ titleNumber | d('DN1000') }}. 
+
+ Select charge entry
+{% endblock %}
+
+{% block content %}
+
+	<!-- application information  -->
+	{% include "./includes/application-info.html" %}
+	<!-- end - application information  -->
+
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+
+    <div class="casework-tasks-container">
+
+    	{{ govukBackLink({
+	      text: 'Back',
+	      href: '02-transfer'
+	    }) }}
+
+    	<form method="post">
+
+	      <h2 class="govuk-heading-l">Tasks</h2>
+
+
+	    	<!-- tasks go here  -->
+
+<!-- 			  {{ govukRadios({
+			    idPrefix: 'name-discrepancy',
+			    name: 'name-discrepancy',
+			    classes: 'govuk-radios--small govuk-radios--inline',
+			    fieldset: {
+			      legend: {
+			        html: 'The transferor&apos;s name in the application does not exactly match the register. Can the transfer still be processed?',
+			        classes: 'govuk-fieldset__legend--s'
+			      }
+			    },
+			    items: [
+			      {
+			        html: 'Yes',
+			        value: 'Yes',
+			        checked: checked('name-discrepancy','Yes')
+			      },
+			      {
+			        html: 'No',
+			        value: 'No',
+			        checked: checked('name-discrepancy','No')
+			      }
+			    ]
+			  }) }} -->
+
+				<!-- borrower names -->
+<!-- 			  {{ govukRadios({
+			    idPrefix: 'transfer-names-match',
+			    name: 'transfer-names-match',
+			    classes: 'govuk-radios--small govuk-radios--inline',
+			    fieldset: {
+			      legend: {
+			        text: 'Do the borrower and transferee names match?',
+			        classes: 'govuk-fieldset__legend--s'
+			      }
+			    },
+			    items: [
+			      {
+			        html: 'Yes',
+			        value: 'Yes',
+			        checked: checked('transfer-names-match','Yes')
+			      },
+			      {
+			        html: 'No',
+			        value: 'No',
+			        checked: checked('transfer-names-match','No')
+			      }
+			    ]
+			  }) }} -->
+
+				<!-- documents executed -->
+			  {{ govukRadios({
+			    idPrefix: 'execution-discrepancies',
+			    name: 'execution-discrepancies',
+			    classes: 'govuk-radios--small govuk-radios--inline',
+			    fieldset: {
+			      legend: {
+			        html: 'Are included documents executed correctly?',
+			        classes: 'govuk-fieldset__legend--s'
+			      }
+			    },
+			    items: [
+			      {
+			        html: 'Yes',
+			        value: 'Yes',
+			        checked: checked('execution-discrepancies','Yes')
+			      },
+			      {
+			        html: 'No',
+			        value: 'No',
+			        checked: checked('execution-discrepancies','No')
+			      }
+			    ]
+			  }) }}
+
+			  {{ govukRadios({
+        idPrefix: 'single-residential',
+        name: 'single-residential',
+        classes: 'govuk-radios--small',
+        fieldset: {
+          legend: {
+            text: 'Is the property single residential?',
+            classes: 'govuk-fieldset__legend--s'
+          }
+        },
+        items: [
+          {
+            html: 'Yes',
+            value: 'Yes',
+            checked: checked('single-residential','Yes')
+          },
+          {
+            html: 'No',
+            value: 'No',
+            checked: checked('single-residential','No')
+          }
+        ]
+      }) }}
+
+
+	      
+	    	<!-- end of tasks  -->
+
+
+	    	<!-- Buttons and links -->
+
+				<div class="task-lists-submit">
+			    <button id="me" class="govuk-button" data-module="govuk-button">
+			      Next
+			    </button>
+			    <a href="workflow-no-drafting" class="govuk-link reject-button">Return to workflow</a>
+	 			</div>
+
+		  </form>
+
+
+
+	  </div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+
+  $('#change-button').click(function () {
+    $('#regular-md').hide();
+    $('#change-button').hide();
+    $('#chargee-name').hide();
+    $('#register-entries').hide();
+    $('#checkbox-md').hide();
+    $('#chargee-name').hide();
+    $('#special-instructions').hide();
+    $('#editing-md').show();
+   // $('#md-ref-field').focus();
+    var val = $('#md-ref-field').val(); //store the value of the element
+		$('#md-ref-field').val(''); //clear the value of the element
+		$('#md-ref-field').val(val); //set that value back.
+
+  });
+
+
+
+	$('#checkbox-md input:checkbox').change(function () {
+	  if ($(this).prop("checked") == true) {
+    	$("#warning").show();
+      $('.govuk-button').text('Send to Workflow');
+	  } else {
+    	$("#warning").hide();
+      $('.govuk-button').text('Next');
+  	}
+
+  });
+
+
+</script>
+
+{% endblock %}
