@@ -52,21 +52,24 @@ router.post('/06-discharge', function (req, res) {
 	// set session data item PASNotes to whats in the server variable PASNotes - so that session data PAS notes is available to be used in the pages
   req.session.data['PASNotes'] = PASNotes;
 
-  if 	(req.session.data['discharge-removal'] == 'No'
-  	|| req.session.data['discharge-removal'] == 'Yes-p'
-  	|| req.session.data['stops-action'] == 'Yes'
-  	) {
-    res.redirect('workflow');
-    } else {
-    res.redirect('success');
- };
+  res.redirect('09-document-storage');
+
 })
 
 
 // last page in flow - route to workflow or success confirmation page
 router.post('/09-document-storage', function (req, res) {
 
-	res.redirect('workflow');
+    if 	(req.session.data['discharge-removal'] == 'No'
+    	|| req.session.data['discharge-removal'] == 'Yes-p'
+    	|| req.session.data['stops-action'] == 'Yes'
+    	) {
+      res.redirect('workflow');
+      } else {
+      res.redirect('success');
+   };
+
+
 	// check all the questions that mean it should get sent to workflow (get PAS notes)
   // if 	(req.session.data['discharge-removal'] == 'No'
   // 	|| req.session.data['discharge-removal'] == 'Yes-p'
