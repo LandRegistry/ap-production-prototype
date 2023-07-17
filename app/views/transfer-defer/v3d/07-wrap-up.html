@@ -106,7 +106,7 @@
 	        ]
 	      }) }}
 
-	      <!-- stops require action?
+	      <!-- stops require action?  -->
         {{ govukRadios({
 	        idPrefix: 'stops-action',
 	        name: 'stops-action',
@@ -133,7 +133,7 @@
 	          }
 	        ]
 	      }) }}
--->
+
 	      <!-- documents meet requirements?  -->
 	      {{ govukRadios({
 	        idPrefix: 'docs-meet-requirements',
@@ -166,7 +166,7 @@
 	        classes: 'govuk-radios--small govuk-radios--inline',
 	        fieldset: {
 	          legend: {
-	            text: 'Are there any additional transactions not covered by previous tasks?',
+	            text: 'Are there any additional transactions?',
 	            classes: 'govuk-fieldset__legend--s'
 	          }
 	        },
@@ -183,6 +183,32 @@
 	          }
 	        ]
 	      }) }}
+
+        <!-- requistions question?  -->
+        {{ govukRadios({
+          idPrefix: 'discharge-requistion',
+          name: 'discharge-requisition',
+          classes: 'govuk-radios--small govuk-radios--inline',
+          fieldset: {
+            legend: {
+              text: 'Is the evidence of discharge the only requisition point?',
+              classes: 'govuk-fieldset__legend--s'
+            }
+          },
+          items: [
+            {
+              html: 'Yes',
+              value: 'Yes',
+              checked: checked('discharge-requisition','Yes')
+            },
+            {
+              html: 'No',
+              value: 'No',
+              checked: checked('discharge-requisition','No')
+            }
+          ]
+        }) }}
+
 
 
 	    	<!-- end of tasks  -->
