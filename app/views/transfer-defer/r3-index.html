@@ -1,4 +1,11 @@
 {% extends "layouts/ap-documentation.html" %}
+{% block header %}
+	{% from "hmlr/components/header/macro.njk" import hmlrHeader %}
+	{{ hmlrHeader({
+	  serviceName: "Application Processing",
+	  serviceUrl: "/transfer-defer"
+	}) }}
+{% endblock %}
 
 {% block pageTitle %}
 Home – {{serviceName}} – GOV.UK Prototype Kit
@@ -17,7 +24,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
     <ul class="govuk-list govuk-list--bullet">
     	<li>
-        <a class="govuk-link" href="v3a/06-discharge">A</a>
+        <a class="govuk-link" href="v3a/00-worklist">A</a>
       </li>
     	<li>
         <a class="govuk-link" href="v3b/00-worklist">B</a>
