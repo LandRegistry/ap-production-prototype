@@ -1,0 +1,143 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+{{ appnType | d('Transfer Not For Value and RX1') }}, ABR: {{ abrNumber | d('A123XYZ') }}, Title Number: {{ titleNumber
+| d('DN1000') }}.
+
+Validity checks
+{% endblock %}
+
+{% block content %}
+
+<!-- application information  -->
+
+<div class="govuk-grid-row ap-no-row-l-r-margin">
+	<div id="application-info-container">
+		<div class="govuk-grid-column-three-quarters ap-no-column-l-r-padding">
+			<h1 class="govuk-heading-m application-type">{{ appnType | d('Transfer Not For Value and RX1') }}</h1>
+
+			<span class="govuk-body">ABR: </span><span class="abr govuk-body">{{ abrNumber | d('A123XYZ') }}</span>
+			<span class="govuk-body">Title: </span><span class="title-number govuk-body">{{ titleNumber | d('DN1000')
+				}}</span>
+
+		</div>
+
+		<div class="govuk-grid-column-one-quarter ap-no-column-r-padding">
+			<p id="documents-launcher">
+				<a href="_document-viewer-a.html" class="govuk-link" rel="noreferrer noopener" target="_blank">Application documents</a>
+			</p>
+		</div>
+	</div>
+</div>
+
+<!-- end - application information  -->
+
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-one-half register-column scroll ">
+		<div id="register-container">
+
+			{% include "./includes/register.html" %}
+
+		</div>
+	</div>
+
+
+	<!-- Tasks section starts here -->
+
+	<div class="govuk-grid-column-one-half column">
+
+		<div class="casework-tasks-container">
+
+			<form method="post">
+
+
+				{{ govukBackLink({
+					text: "Previous page",
+					href: ""
+					}) }}
+
+
+
+					<!-- MD REF TABLE-->
+				<table class="govuk-table">
+					<caption class="govuk-table__caption govuk-table__caption--m">Charge details</caption>
+					<thead class="govuk-table__head">
+					  <tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header"></th>
+						<th scope="col" class="govuk-table__header"></th>
+					  </tr>
+					</thead>
+					<tbody class="govuk-table__body">
+					  <tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">MD reference</th>
+						<td class="govuk-table__cell">No MD reference present</td>
+					  </tr>
+
+					</tbody>
+				  </table>
+
+
+	<!-- CRE CODES-->
+				  <h2 class="govuk-heading-m">Register entries</h2>
+
+
+
+
+
+
+				<!-- CRE 1-->
+				<h2 class="govuk-heading-s">CD100</h2>
+				<p class="govuk-body">govuk-body</p>
+				<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+
+	<!-- ADD CRE COMPONENT-->
+	<div class="govuk-form-group">
+		<label class="govuk-heading-s" for="width-5">
+		  Add another entry
+		</label>
+		<input class="govuk-input govuk-input--width-5" id="width-5" name="width-5" type="text">
+		<button class="govuk-button ap-secondary-button" data-module="govuk-button">
+			Add entry
+		  </button>
+
+
+
+
+		  <p class="govuk-body">
+			<a href="../v5/01-transferee.html" class="govuk-link govuk-link--no-visited-state">Create custom lender entry</a>
+		  </p>
+
+
+
+
+
+
+
+
+
+
+				<!-- Buttons and links -->
+
+				<div class="task-lists-submit">
+					<a href="02-address.html" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+						Next
+						</a>
+					<a href="index.html" class="govuk-link reject-button">Return to workflow</a>
+				</div>
+
+			</form>
+
+
+
+		</div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+
+{% endblock %}
