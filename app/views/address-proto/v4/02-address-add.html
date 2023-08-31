@@ -72,13 +72,13 @@ Validity checks
 
 
 				{{ govukBackLink({
-				text: "Previous page",
-				href: "01-transferee"
+				text: "Back",
+				href: "02-address"
 				}) }}
 
 				<h2 class="govuk-heading-m" style="
 				margin-top: 35px;
-			">Address for service</h2>
+			">Add address for service</h2>
 
 
 
@@ -120,9 +120,7 @@ Validity checks
 				<div class="govuk-form-group" style="margin-bottom: 10px;">
 					<fieldset class="govuk-fieldset">
 						<legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-							<h1 class="govuk-fieldset__heading">
-								Address 1
-							</h1>
+
 							<h1 class="govuk-fieldset__heading">
 								Which type of address do you want to add?
 							</h1>
@@ -147,28 +145,26 @@ Validity checks
 				</div>
 
 				<div class="task-lists-submit">
-				<a id='add-address-button-1' role="button" draggable="false" class="govuk-button ap-secondary-button"
-					style="margin-bottom: 0px;"> Add address </a>
+				<a id='add-address-button-1' role="button" draggable="false" class="govuk-button"
+					style="margin-bottom: 0px;"> Next </a>
 
 
-					<a href="" class="govuk-link reject-button">Cancel</a>
+					<a href="02-address.html" class="govuk-link reject-button">Cancel adding address</a>
 
 				</div>
 
-				<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" style="
-							margin-bottom: 10px;
-						">
+
 			</div>
 
 			<!-- Address 1 - select postcode  -->
 
 			<div id="select-postcode-1" style="display: none">
 
-				<h3 class="govuk-heading-s" style="margin-bottom: 10px;">Address 1
+
 
 					<div class="govuk-form-group" style="	margin-bottom: 10px; margin-top: 10px;">
 						<label class="govuk-label" for="address-postcode">
-							Postcode
+							Enter a UK postcode, for example, AA1 4BB
 						</label>
 						<input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode"
 							type="text" autocomplete="postal-code">
@@ -192,11 +188,11 @@ Validity checks
 			<!-- Address 1 - select address from list  -->
 			<div id="select-address-1" style="display: none">
 
-				<h3 class="govuk-heading-s" style="margin-bottom: 10px;">Address 1
+
 
 					<div class="govuk-form-group" style="	margin-bottom: 10px; margin-top: 10px;">
 						<label class="govuk-label" for="sort">
-							Address
+							Select address
 						</label>
 						<select class="govuk-select" id="sort" name="sort">
 							<option value="published" selected>15 Pevensey Rd, Eastbourne BN21 3HR</option>
@@ -267,17 +263,16 @@ Validity checks
 				</div>
 
 
-				<div class="task-lists-submit">
+				<div class="task-lists-submit" style="padding-top: 10px;">
 
-					<a href="../../address-proto/v3/03-address.html" id='save-address-1' role="button"
-						draggable="false" class="govuk-button ap-secondary-button"> Save address </a>
+					<a href="../../address-proto/v4/03-address.html" id='save-address-1' role="button"
+						draggable="false" class="govuk-button "> Save address </a>
 
-					<a href="" class="govuk-link reject-button">Cancel</a>
+					<a href="02-address.html" class="govuk-link reject-button">Cancel adding address</a>
 				</div>
 
 
 
-				<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
 
 

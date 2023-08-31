@@ -9,6 +9,22 @@ Validity checks
 
 {% block content %}
 
+
+<style>
+	.ap-secondary-button {
+		background-color: #505a5f;
+	}
+
+	.ap-secondary-button:hover {
+		background-color: #3c4144;
+	}
+
+	.ap-link {
+		font-size: 19px;
+
+	}
+</style>
+
 <!-- application information  -->
 
 <div class="govuk-grid-row ap-no-row-l-r-margin">
@@ -62,8 +78,8 @@ Validity checks
 
 
 					<!-- MD REF TABLE-->
-				<table class="govuk-table">
-					<caption class="govuk-table__caption govuk-table__caption--m">Charge details</caption>
+				<table class="govuk-table" style="margin-top: 30px;">
+					<caption class="govuk-table__caption govuk-table__caption--m" style="margin-bottom: 0px;">Charge details</caption>
 					<thead class="govuk-table__head">
 					  <tr class="govuk-table__row">
 						<th scope="col" class="govuk-table__header"></th>
@@ -81,35 +97,62 @@ Validity checks
 
 
 	<!-- CRE CODES-->
-				  <h2 class="govuk-heading-m">Register entries</h2>
+
+	<table class="govuk-table" style="margin-top: 30px;">
+		<caption class="govuk-table__caption govuk-table__caption--m" style="margin-bottom: 0px;">Register entries</caption>
+		<thead class="govuk-table__head">
+
+		  <tr class="govuk-table__row">
+			<th scope="col" class="govuk-table__header"></th>
+		  </tr>
+		</thead>
 
 
+		<tbody class="govuk-table__body">
 
 
+		  <tr class="govuk-table__row">
+			<th scope="row" class="govuk-table__header">
+				<h2 class="govuk-heading-s" style="margin-bottom: 10px;" >CD100</h2>
+				<p class="govuk-body" style="margin-bottom: 0px;">REGISTERED CHARGE dated 28/08/2021</p>
+				</th>
+		  </tr>
 
 
-				<!-- CRE 1-->
-				<h2 class="govuk-heading-s">CD100</h2>
-				<p class="govuk-body">govuk-body</p>
-				<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+		  <tr class="govuk-table__row">
+			<th scope="row" class="govuk-table__header">
+				<h2 class="govuk-heading-s" style="margin-bottom: 10px;" >Add another entry</h2>
+				<div class="govuk-body" style="margin-bottom: px;">
 
+					<input class="govuk-input govuk-input--width-5" style="margin-bottom: 10px;" id="width-5" name="width-5" type="text"> <br>
 
-	<!-- ADD CRE COMPONENT-->
-	<div class="govuk-form-group">
-		<label class="govuk-heading-s" for="width-5">
-		  Add another entry
-		</label>
-		<input class="govuk-input govuk-input--width-5" id="width-5" name="width-5" type="text">
-		<button class="govuk-button ap-secondary-button" data-module="govuk-button">
+<button class="govuk-button ap-secondary-button" data-module="govuk-button" style="margin-bottom: 10px;">
 			Add entry
 		  </button>
+		  <br>
+
+
+		  <a href="../v5/01-transferee.html" class="govuk-link govuk-link--no-visited-state">Create custom lender entry</a>
+
+
+
+				</div>
+				</th>
+		  </tr>
 
 
 
 
-		  <p class="govuk-body">
-			<a href="../v5/01-transferee.html" class="govuk-link govuk-link--no-visited-state">Create custom lender entry</a>
-		  </p>
+
+
+
+
+		</tbody>
+	  </table>
+
+
+
+
 
 
 
@@ -122,8 +165,8 @@ Validity checks
 
 				<!-- Buttons and links -->
 
-				<div class="task-lists-submit">
-					<a href="02-address.html" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+				<div class="task-lists-submit" style="padding-top: 0;">
+					<a href="" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
 						Next
 						</a>
 					<a href="index.html" class="govuk-link reject-button">Return to workflow</a>
