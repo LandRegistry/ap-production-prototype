@@ -9,6 +9,21 @@ Validity checks
 
 {% block content %}
 
+<style>
+	.ap-secondary-button {
+		background-color: #505a5f;
+	}
+
+	.ap-secondary-button:hover {
+		background-color: #3c4144;
+	}
+
+	.ap-link {
+		font-size: 19px;
+
+	}
+</style>
+
 <!-- application information  -->
 
 <div class="govuk-grid-row ap-no-row-l-r-margin">
@@ -56,12 +71,12 @@ Validity checks
 
 				{{ govukBackLink({
 					text: "Previous page",
-					href: ""
+					href: "00-cre-codes"
 					}) }}
 
 
 
-					<h2 class="govuk-heading-m" style="margin-top: 30px;">Transferees</h2>
+				<h2 class="govuk-heading-m"  style="margin-top: 30px;">Create new lender entry</h2>
 
 				<!-- Notification, if no selected -->
 				<div id="warning" class="govuk-notification-banner" role="region"
@@ -250,15 +265,19 @@ Validity checks
 				  </fieldset>
 
 
+				  <p class="govuk-body">
+					<a href="../v5/01-transferee.html" class="govuk-link govuk-link--no-visited-state">Add another lender</a>
+				  </p>
+
 
 
 				<!-- Buttons and links -->
 
 				<div class="task-lists-submit">
-					<a href="02-address.html" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+					<a href="02-address.html" role="button" draggable="false" class="govuk-button ap-secondary-button" data-module="govuk-button">
 						Next
 						</a>
-					<a href="index.html" class="govuk-link reject-button">Return to workflow</a>
+					<a href="index.html" class="govuk-link reject-button">Cancel creating custom lender entry</a>
 				</div>
 
 			</form>

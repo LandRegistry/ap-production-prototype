@@ -9,29 +9,57 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">Address for service - sub flow vs not sub flow</h1>
+    <h1 class="govuk-heading-xl">Custom lender entry </h1>
 
+    <h2 class="govuk-heading-m">Which design is represented?</h2>
+    <p class="govuk-body">Design for creating a custom lender entry as part of the Charge flow. User is asked to enter the name of the lender(s) and their addresses. The design shows a near future scenario in which UK postal addresses and email address are accepted.
 
-    <ul class="govuk-list govuk-list--bullet">
+    <h2 class="govuk-heading-m">What are the steps that the user is asked to follow in the prototype?</h2>
+
+    <ol class="govuk-list govuk-list--number">
     	<li>
-        <a class="govuk-link" href="../01-transferee-a.html">Sub-flow </a>
+       Users starts from the MD ref / register entries page.
       </li>
-
       <li>
-        <a class="govuk-link" href="06-transferee-b.html">Scenario B</a>
-      </li>
+       In order to start the sub-flow for creating a custom lender entry, they have to press the 'Create custom lender entry' button within the register entries section.
+       </li>
+       <li>
+       By doing so, users enter a sub-flow.
+       </li>
+       <li>
+The first step of the sub-flow asks them to enter the names of all the lenders. In this prototypes there are two names to be added.
+       </li>
+       <li>
+       Once all names have been added to the page, users presses 'next'. Doing so brings them to a page showing the empty addresses table. The page is still withing the subflow.
+       </li>
+       <li>
+        Users need to enter the details of the addresses before they can press 'create custom lender entry'. They do so by pressing on 'add address'.
+        <li>
+         They'll then select the type of address they want to add and press next. In the prototype they have to select UK postal address.
+        </li>
+       <li>
+     User completes the required details about the address and press 'save address'.
+       </li>
+       <li>
+        The address gets so added to the table. Now users can press 'create custom lender entry', having also answered 'Other than UK postal addresses is there anything else you want to add?
+'
+          </li>
+          <li>
+           The newly created custom lender entry gets so added to the 'register entries' section for them to double check and eventually amend/remove.
+              </li>
+              <li>
+               End of the flow. They can press 'next' or 'return to workflow' to go back to the index.
+                   </li>
+    </ol>
 
 
 
 
-    </ul>
-
-
-
-
-
-
-
+    <a href="00-cre-codes.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+      Start now
+      <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+      </svg></a>
 
 
 

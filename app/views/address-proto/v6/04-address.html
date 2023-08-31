@@ -81,9 +81,6 @@ Validity checks
 				">Address for service</h2>
 
 
-
-
-
 				<!-- Notification, if no selected -->
 				<div id="warning" class="govuk-notification-banner" role="region"
 					aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
@@ -102,7 +99,6 @@ Validity checks
 
 
 				<!-- Table here-->
-
 				<table class="govuk-table" style="margin-bottom: 10px;">
 					<thead class="govuk-table__head">
 						<tr class="govuk-table__row">
@@ -122,8 +118,20 @@ Validity checks
 							</td>
 						</tr>
 
+
+
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell">Olivia West</td>
+							<td class="govuk-table__cell">127-129 Manchester Rd, <br>Rossendale, Lancashire, BB4 5SL</th>
+							<td class="govuk-table__cell">
+								<a href="03-address.html" class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state">Change</a>
+								<a href="03-address.html" class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state">Remove</a>
+							</td>
+						</tr>
+
 					</tbody>
 				</table>
+
 
 
 
@@ -134,169 +142,41 @@ Validity checks
 
 
 
-				<a href="../v4/03-address-add.html"
-					class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state">Add address</a>
-
-				<!-- Address 2 component  -->
-				<div id="address-2" style="display: none">
-
-					<!-- Address 2 - select type  -->
-
-					<div id="select-type-2">
+				<a id='add-another-1' href="#" class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state" >Add
+					address</a>
 
 
 
 
 
 
-						<div class="govuk-form-group" style="margin-bottom: 10px;">
-							<fieldset class="govuk-fieldset">
-								<legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-									<h1 class="govuk-fieldset__heading">
-										Address 2
-									</h1>
-									<h1 class="govuk-fieldset__heading">
-										Which type of address do you want to add?
-									</h1>
-								</legend>
-								<div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
-									<div class="govuk-radios__item">
-										<input class="govuk-radios__input" id="uk-postal-address" name="address-1"
-											type="radio" value="uk-postal-address">
-										<label class="govuk-label govuk-radios__label" for="address">
-											UK postal address
-										</label>
-									</div>
-									<div class="govuk-radios__item">
-										<input class="govuk-radios__input" id="email-address" name="address-1"
-											type="radio" value="email">
-										<label class="govuk-label govuk-radios__label" for="address-1">
-											Email address
-										</label>
-									</div>
+					<div class="govuk-form-group" style="margin-top: 20px;">
+						<fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+							<legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+								<h1 class="govuk-fieldset__heading">
+									Other than UK postal addresses is there anything else you want to add?
+								</h1>
+							</legend>
+
+							<div class="govuk-radios--small govuk-radios--inline" data-module="govuk-radios">
+								<div class="govuk-radios__item">
+									<input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio"
+										value="yes">
+									<label class="govuk-label govuk-radios__label" for="changed-name">
+										Yes
+									</label>
 								</div>
-							</fieldset>
-						</div>
-
-
-
-
-						<a id='add-address-button-2' role="button" draggable="false"
-							class="govuk-button ap-secondary-button" style="margin-bottom: 0px;"> Add address </a>
-
-
-
-
-
-
-
-
-						<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-					</div>
-
-
-					<!-- Address 2 - enter email  -->
-					<div id="enter-email-2" style="display: none">
-
-						<h3 class="govuk-heading-s" style="margin-bottom: 10px;">Address 2
-
-							<div class="govuk-form-group" style="margin-top: 20px; margin-bottom: 20px;">
-								<label class="govuk-label" for="email-address">
-									Email address
-								</label>
-								<input class="govuk-input" id="email-address" name="email-address" type="text">
-							</div>
-
-
-
-					</div>
-
-
-					<!-- Address 2 - other stuff -->
-
-					<div id="other-stuff-2" style="display: none">
-
-
-
-						<h3 class="govuk-heading-s" style="margin-bottom: 10px; margin-top: 10px;">Select transferees
-							for this address
-						</h3>
-
-						<div class="govuk-form-group" style="margin-bottom: 0px">
-							<div class='govuk-checkboxes govuk-checkboxes--small' data-module='govuk-checkboxes'>
-								<div class="govuk-checkboxes__item">
-									<input class="govuk-checkboxes__input" id="name-3" name="name-3" type="checkbox"
-										value="name-3">
-									<label class="govuk-label govuk-checkboxes__label" for="name-3">
-										Olivia West
+								<div class="govuk-radios__item">
+									<input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio"
+										value="no">
+									<label class="govuk-label govuk-radios__label" for="changed-name-2">
+										No
 									</label>
 								</div>
 							</div>
-						</div>
-
-						<div class="govuk-form-group" style="margin-bottom: 0px">
-							<div class='govuk-checkboxes govuk-checkboxes--small' data-module='govuk-checkboxes'>
-								<div class="govuk-checkboxes__item">
-									<input class="govuk-checkboxes__input" id="name-4" name="name-4" type="checkbox"
-										value="name-4">
-									<label class="govuk-label govuk-checkboxes__label" for="name-4">
-										Oscar Williams
-									</label>
-								</div>
-							</div>
-
-
-						</div>
-
-
-						<div class="task-lists-submit">
-							<a href="../../address-proto/v3/04-address.html" id='save-address-2' role="button"
-								draggable="false" class="govuk-button ap-secondary-button"> Save address </a>
-
-							<a href="" class="govuk-link reject-button">Cancel</a>
-						</div>
-
-
-						<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-
+						</fieldset>
 					</div>
 
-
-
-				</div>
-
-
-
-
-				<div class="govuk-form-group" style="margin-top: 20px;">
-					<fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
-						<legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-							<h1 class="govuk-fieldset__heading">
-								Other than UK postal address and email address are there any more addresses for service
-								that need to be added?
-							</h1>
-						</legend>
-
-						<div class="govuk-radios--small govuk-radios--inline" data-module="govuk-radios">
-							<div class="govuk-radios__item">
-								<input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio"
-									value="yes">
-								<label class="govuk-label govuk-radios__label" for="changed-name">
-									Yes
-								</label>
-							</div>
-							<div class="govuk-radios__item">
-								<input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio"
-									value="no">
-								<label class="govuk-label govuk-radios__label" for="changed-name-2">
-									No
-								</label>
-							</div>
-						</div>
-					</fieldset>
-				</div>
 
 
 
@@ -316,10 +196,11 @@ Validity checks
 
 		<!-- Buttons and links -->
 
-		<div class="task-lists-submit">
-			<button class="govuk-button" data-module="govuk-button">
+		<div class="task-lists-submit"  style="margin-top: 20px;">
+			<a href="05-next-page-a.html" role="button" draggable="false" class="govuk-button"
+				data-module="govuk-button">
 				Next
-			</button>
+			</a>
 			<a href="index.html" class="govuk-link reject-button">Return to workflow</a>
 		</div>
 
@@ -369,6 +250,8 @@ Validity checks
 		$('#address-2').show()
 		//button to add address 1 is hidden
 		$('#add-another-1').hide()
+		//button to add address 2 is hidden
+		$('#add-another-2').hide()
 
 	});
 

@@ -72,13 +72,12 @@ Validity checks
 
 
 				{{ govukBackLink({
-				text: "Previous page",
-				href: "01-transferee"
+				text: "Back",
+				href: "02-address-no-tab"
 				}) }}
 
-				<h2 class="govuk-heading-m" style="
-				margin-top: 35px;
-			">Create new lender entry</h2>
+				<span class="govuk-caption-m" style="margin-top: 30px;">Create custom lender entry</span>
+<h1 class="govuk-heading-m"  >Enter all addresses</h1>
 
 
 
@@ -115,17 +114,9 @@ Validity checks
 							<td class="govuk-table__cell"> Arthur Boyle <br>
 								Marianne Malkovic</th>
 							<td class="govuk-table__cell">254 Aspen Rowens Bognor Regis SE123</td>
-							<td class="govuk-table__cell govuk-table__cell--numeric">
-								<ul class="govuk-summary-card__actions">
-									<li class="govuk-summary-card__action"> <a class="govuk-link govuk-link--no-visited-state" href="#">
-										Change
-									  </a>
-									</li>
-									<li class="govuk-summary-card__action"> <a class="govuk-link govuk-link--no-visited-state" href="#">
-										Remove
-									  </a>
-									</li>
-								</ul>
+							<td class="govuk-table__cell">
+								<a href="03-address.html" class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state">Change</a>
+								<a href="03-address.html" class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state">Remove</a>
 							</td>
 						</tr>
 
@@ -138,8 +129,8 @@ Validity checks
 
 
 
-				<a id='add-another-1' href="../v5/02-address-no-tab.html" class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state">+
-					Add address for service</a>
+				<a id='add-another-1' href="../v5/02-address-no-tab.html" class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state">
+					Add address</a>
 
 		</div>
 
@@ -313,8 +304,7 @@ Validity checks
 			<fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
 				<legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
 					<h1 class="govuk-fieldset__heading">
-						Other than UK postal addreses are there any more addresses for service
-						that need to be added?
+						Other than UK postal addresses is there anything else you want to add?
 					</h1>
 				</legend>
 
@@ -341,7 +331,7 @@ Validity checks
 			<a href="10-cre-codes.html" role="button" draggable="false" class="govuk-button ap-secondary-button" data-module="govuk-button">
 				Create custom lender entry
 				</a>
-			<a href="index.html" class="govuk-link reject-button">Cancel creating custom lender entry</a>
+			<a href="00-cre-codes.html" class="govuk-link reject-button">Cancel creating custom lender entry</a>
 		</div>
 
 
