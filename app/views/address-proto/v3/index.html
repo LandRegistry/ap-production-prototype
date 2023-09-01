@@ -9,29 +9,70 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">Address for service - sub flow vs not sub flow</h1>
+    <h1 class="govuk-heading-xl">Address for service not as sub flow </h1>
+
+    <h2 class="govuk-heading-m">Which design is represented?</h2>
+    <p class="govuk-body">Designs in which the accepted addresses are <b> UK postal address and email addresses </b>.The design shows entering addresses not as taking place in a sub-flow, but insted within the addresses table. <br> Content design not reflecting the latest decisions. </p>
 
 
-    <ul class="govuk-list govuk-list--bullet">
+    <h2 class="govuk-heading-m">What are the transferee names in the prototype?</h2>
+    <p class="govuk-body">Olivia West and Oscar Williams </p>
+
+
+
+    <h2 class="govuk-heading-m">Addresses to be added in the prototype</h2>
+    <ol class="govuk-list govuk-list--number">
     	<li>
-        <a class="govuk-link" href="../01-transferee-a.html">Sub-flow </a>
-      </li>
+    <p class="govuk-body">UK postal address: 15 Pevensey Rd, Eastbourne, BN21 3HR. Address for both transferees.  </p>
+  </li>
+  <li>
+    <p class="govuk-body">Email address: oliviawest11@mail.com. Address only for Olivia West. </p>
+  </li>
+</ol>
 
+
+
+    <h2 class="govuk-heading-m">What are the steps that the user is asked to follow in the prototype?</h2>
+
+    <ol class="govuk-list govuk-list--number">
+    	<li>
+       Users starts from the transferees page. The transferee names are pre-populated by the system.
+      </li>
       <li>
-        <a class="govuk-link" href="06-transferee-b.html">Scenario B</a>
-      </li>
+        They then get into a page showing an empty address table. They are so required to start populating the table by pressing on 'add address'.
+       </li>
+       <li>
+        When adding address number 1, they have to select 'UK postal address', and then fill the details accordingly before pressing 'save address'.
+       </li>
+       <li>
+        Address number 1 will so get added to the table.
+       </li>
+       <li>
+        Users now have to enter address number 2. They do so by pressing on 'add address'.
+       </li>
+       <li>
+        Users will then have to select 'email address' when asked about the type of address they want to add for address number 2, and fill the details in.
+       </li>
+        <li>
+        Saving address number 2 will then add the email address to the table.
+       </li>
+       <li>
+       At this point the number of addresses that can be added in the prototype is reached , and the user can press next to move to the next page of the Transfer flow, having answered the 'Other than UK postal address and email address are there any more addresses for service that need to be added?' question.
+       </li>
+    </ol>
 
 
 
 
-    </ul>
 
 
 
 
-
-
-
+    <a href="01-transferee.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+      Start now
+      <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+      </svg></a>
 
 
 

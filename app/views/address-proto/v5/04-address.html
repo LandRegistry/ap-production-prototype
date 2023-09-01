@@ -72,13 +72,13 @@ Validity checks
 
 
 				{{ govukBackLink({
-				text: "Previous page",
-				href: "01-transferee"
+				text: "Back",
+				href: "03-address-no-tab"
 				}) }}
 
-				<h2 class="govuk-heading-m" style="
-					margin-top: 35px;
-				">Address for service</h2>
+				<span class="govuk-caption-m" style="margin-top: 30px;">Create custom lender entry</span>
+<h1 class="govuk-heading-m"  >Enter all addresses</h1>
+
 
 
 				<!-- Notification, if no selected -->
@@ -99,35 +99,39 @@ Validity checks
 
 
 				<!-- Table here-->
-				<table class="govuk-table" style="margin-bottom: 10px;">
+
+				<table class="govuk-table" style="margin-bottom: 20px;">
 					<thead class="govuk-table__head">
 						<tr class="govuk-table__row">
-							<th scope="col" class="govuk-table__header">Transferee</th>
+							<th scope="col" class="govuk-table__header">Lender</th>
 							<th scope="col" class="govuk-table__header ">Address</th>
-							<th scope="col" class="govuk-table__header govuk-!-width-one-quarter ">Edit address</th>
+							<th scope="col" class="govuk-table__header ">Edit address</th>
 						</tr>
 					</thead>
 					<tbody class="govuk-table__body">
 
 						<tr class="govuk-table__row">
-							<td class="govuk-table__cell">Olivia West<br> Oscar Williams</td>
-							<td class="govuk-table__cell"> 15 Pevensey Rd<br>Eastbourne<br>BN21 3HR</th>
+							<td class="govuk-table__cell"> Arthur Boyle <br>
+								Marianne Malkovic</th>
+							<td class="govuk-table__cell">15 Pevensey Rd, Eastbourne BN21 3HR</td>
 							<td class="govuk-table__cell">
-								<a href="03-address.html" class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state">Change</a>
-								<a href="03-address.html" class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state">Remove</a>
+								<a href="02-address-no-tab.html" class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state">Change</a>
+								<a href="" class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state">Remove</a>
 							</td>
 						</tr>
-
-
 
 						<tr class="govuk-table__row">
-							<td class="govuk-table__cell">Olivia West</td>
-							<td class="govuk-table__cell"> oliviawest11@mail.com</th>
+							<td class="govuk-table__cell"> Arthur Boyle</th>
+							<td class="govuk-table__cell">arthurboy91@mail.com</td>
 							<td class="govuk-table__cell">
-								<a href="03-address.html" class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state">Change</a>
-								<a href="03-address.html" class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state">Remove</a>
+								<a href="03-address-no-tab.html" class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state">Change</a>
+								<a href="" class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state">Remove</a>
 							</td>
 						</tr>
+
+
+
+
 
 					</tbody>
 				</table>
@@ -135,74 +139,46 @@ Validity checks
 
 
 
-
-
-
-				<!-- Address 1 component  -->
-
-
-
-				<a  href="#" class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state" >Add
-					address</a>
-
-
-
-
-
-
-					<div class="govuk-form-group" style="margin-top: 20px;">
-						<fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
-							<legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-								<h1 class="govuk-fieldset__heading">
-									Other than UK postal address and email address are there any more addresses for service
-									that need to be added?
-								</h1>
-							</legend>
-
-							<div class="govuk-radios--small govuk-radios--inline" data-module="govuk-radios">
-								<div class="govuk-radios__item">
-									<input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio"
-										value="yes">
-									<label class="govuk-label govuk-radios__label" for="changed-name">
-										Yes
-									</label>
-								</div>
-								<div class="govuk-radios__item">
-									<input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio"
-										value="no">
-									<label class="govuk-label govuk-radios__label" for="changed-name-2">
-										No
-									</label>
-								</div>
-							</div>
-						</fieldset>
-					</div>
-
-
-
-
-
+				<a id='add-another-1' href="" class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state">
+					Add address</a>
 
 		</div>
 
 
 
 
+		<div class="govuk-form-group" style="margin-top: 20px;">
+			<fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+				<legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+					<h1 class="govuk-fieldset__heading">
+						Other than UK postal addresses and email addresses is there anything else you want to add?
+					</h1>
+				</legend>
 
+				<div class="govuk-radios--small govuk-radios--inline" data-module="govuk-radios">
+					<div class="govuk-radios__item">
+						<input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio"
+							value="yes">
+						<label class="govuk-label govuk-radios__label" for="changed-name">
+							Yes
+						</label>
+					</div>
+					<div class="govuk-radios__item">
+						<input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio"
+							value="no">
+						<label class="govuk-label govuk-radios__label" for="changed-name-2">
+							No
+						</label>
+					</div>
+				</div>
+			</fieldset>
+		</div>
 
-
-
-
-
-
-		<!-- Buttons and links -->
-
-		<div class="task-lists-submit"  style="margin-top: 20px;">
-			<a href="05-next-page-a.html" role="button" draggable="false" class="govuk-button"
-				data-module="govuk-button">
-				Next
-			</a>
-			<a href="index.html" class="govuk-link reject-button">Return to workflow</a>
+		<div class="task-lists-submit">
+			<a href="10-cre-codes.html" role="button" draggable="false" class="govuk-button ap-secondary-button" data-module="govuk-button">
+				Create custom lender entry
+				</a>
+			<a href="00-cre-codes.html" class="govuk-link reject-button">Cancel creating custom lender entry</a>
 		</div>
 
 
@@ -211,7 +187,15 @@ Validity checks
 
 	</div>
 
-</div> <!-- end Tasks column -->
+
+</div>
+
+
+</div>
+
+</div>
+
+<!-- end Tasks column -->
 
 </div>
 
@@ -220,6 +204,17 @@ Validity checks
 
 {% block pageScripts %}
 <script>
+
+	//ADD ANOTHER 1
+
+	// button to add another is pressed
+	//$('#add-another-1').click(function (e) {
+		//component for adding address 1 is shown - UK address
+		//$('#address-1').show()
+		//button to add address 1 is hidden
+		//$('#add-another-1').hide()
+	});
+
 
 	// ADDRESS 1
 	// button to add the address is pressed
@@ -243,18 +238,7 @@ Validity checks
 		$('#other-stuff-1').show()
 	});
 
-	//ADD ANOTHER 1
 
-	// button to add another is pressed
-	$('#add-another-1').click(function (e) {
-		//component for adding address 2 is shown
-		$('#address-2').show()
-		//button to add address 1 is hidden
-		$('#add-another-1').hide()
-		//button to add address 2 is hidden
-		$('#add-another-2').hide()
-
-	});
 
 
 	// ADDRESS 2
