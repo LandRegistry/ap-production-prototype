@@ -73,8 +73,9 @@ Validity checks
 
 				{{ govukBackLink({
 				text: "Back",
-				href: "02-address-no-tab"
+				href: "01-transferee"
 				}) }}
+
 
 				<span class="govuk-caption-m" style="margin-top: 30px;">Create custom lender entry</span>
 <h1 class="govuk-heading-m"  >Enter all addresses</h1>
@@ -100,7 +101,7 @@ Validity checks
 
 				<!-- Table here-->
 
-				<table class="govuk-table" style="margin-bottom: 20px;">
+				<table class="govuk-table" style="margin-bottom: 10px;">
 					<thead class="govuk-table__head">
 						<tr class="govuk-table__row">
 							<th scope="col" class="govuk-table__header">Lender</th>
@@ -111,12 +112,21 @@ Validity checks
 					<tbody class="govuk-table__body">
 
 						<tr class="govuk-table__row">
-							<td class="govuk-table__cell"> Arthur Boyle <br>
-								Marianne Malkovic</th>
-							<td class="govuk-table__cell">254 Aspen Rowens Bognor Regis SE123</td>
+							<td class="govuk-table__cell">No address added</th>
+							<td class="govuk-table__cell"></td>
 							<td class="govuk-table__cell">
-								<a href="03-address.html" class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state">Change</a>
-								<a href="02-address.html" class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state">Remove</a>
+								<ul class="govuk-summary-card__actions">
+									<li class="govuk-summary-card__action"> <a
+											class="govuk-link govuk-link--no-visited-state" href="03-address.html">
+
+										</a>
+									</li>
+									<li class="govuk-summary-card__action"> <a
+											class="govuk-link govuk-link--no-visited-state" href="03-address">
+
+										</a>
+									</li>
+								</ul>
 							</td>
 						</tr>
 
@@ -129,7 +139,7 @@ Validity checks
 
 
 
-				<a id='add-another-1' href="../v5/02-address-no-tab.html" class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state">
+				<a id='add-another-1' href="../v7/02-address-no-tab.html" class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state">
 					Add address</a>
 
 		</div>
@@ -290,7 +300,6 @@ Validity checks
 
 
 
-				<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
 
 
@@ -304,7 +313,7 @@ Validity checks
 			<fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
 				<legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
 					<h1 class="govuk-fieldset__heading">
-						Other than UK postal addresses and email addresses is there anything else you want to add?
+						Other than UK postal addresses is there anything else you want to add?
 					</h1>
 				</legend>
 
@@ -328,7 +337,7 @@ Validity checks
 		</div>
 
 		<div class="task-lists-submit">
-			<a href="10-cre-codes.html" role="button" draggable="false" class="govuk-button ap-secondary-button" data-module="govuk-button">
+			<a href="02-address.html" role="button" draggable="false" class="govuk-button ap-secondary-button" data-module="govuk-button">
 				Create custom lender entry
 				</a>
 			<a href="00-cre-codes.html" class="govuk-link reject-button">Cancel creating custom lender entry</a>
