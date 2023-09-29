@@ -1,0 +1,186 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+{{ appnType | d('Transfer Not For Value and RX1') }}, ABR: {{ abrNumber | d('A123XYZ') }}, Title Number: {{ titleNumber
+| d('DN1000') }}.
+
+Validity checks
+{% endblock %}
+
+{% block content %}
+
+
+<style>
+	.ap-secondary-button {
+		background-color: #505a5f;
+	}
+
+	.ap-secondary-button:hover {
+		background-color: #3c4144;
+	}
+
+	.ap-link {
+		font-size: 19px;
+
+	}
+</style>
+
+<!-- application information  -->
+
+<div class="govuk-grid-row ap-no-row-l-r-margin">
+	<div id="application-info-container">
+		<div class="govuk-grid-column-three-quarters ap-no-column-l-r-padding">
+			<h1 class="govuk-heading-m application-type">{{ appnType | d('Transfer Not For Value and RX1') }}</h1>
+
+			<span class="govuk-body">ABR: </span><span class="abr govuk-body">{{ abrNumber | d('A123XYZ') }}</span>
+			<span class="govuk-body">Title: </span><span class="title-number govuk-body">{{ titleNumber | d('DN1000')
+				}}</span>
+
+		</div>
+
+		<div class="govuk-grid-column-one-quarter ap-no-column-r-padding">
+			<p id="documents-launcher">
+				<a href="_document-viewer-a.html" class="govuk-link" rel="noreferrer noopener" target="_blank">Application documents</a>
+			</p>
+		</div>
+	</div>
+</div>
+
+<!-- end - application information  -->
+
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-one-half register-column scroll ">
+		<div id="register-container">
+
+			{% include "./includes/register.html" %}
+
+		</div>
+	</div>
+
+
+	<!-- Tasks section starts here -->
+
+	<div class="govuk-grid-column-one-half column">
+
+		<div class="casework-tasks-container">
+
+			<form method="post">
+
+
+				{{ govukBackLink({
+					text: "Previous page",
+					href: ""
+					}) }}
+
+
+
+					<!-- MD REF TABLE-->
+				<table class="govuk-table" style="margin-top: 30px;">
+					<caption class="govuk-table__caption govuk-table__caption--m" style="margin-bottom: 0px;">Charge details</caption>
+					<thead class="govuk-table__head">
+					  <tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header"></th>
+						<th scope="col" class="govuk-table__header"></th>
+					  </tr>
+					</thead>
+					<tbody class="govuk-table__body">
+					  <tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">MD reference</th>
+						<td class="govuk-table__cell">No MD reference present</td>
+					  </tr>
+
+					</tbody>
+				  </table>
+
+
+	<!-- CRE CODES-->
+
+	<table class="govuk-table" style="margin-top: 30px;">
+		<caption class="govuk-table__caption govuk-table__caption--m" style="margin-bottom: 0px;">Register entries</caption>
+		<thead class="govuk-table__head">
+
+		  <tr class="govuk-table__row">
+			<th scope="col" class="govuk-table__header"></th>
+		  </tr>
+		</thead>
+
+
+		<tbody class="govuk-table__body">
+
+
+		  <tr class="govuk-table__row">
+			<th scope="row" class="govuk-table__header">
+				<h2 class="govuk-heading-s" style="margin-bottom: 10px;" >CD100</h2>
+				<p class="govuk-body" style="margin-bottom: 0px;">REGISTERED CHARGE dated 28/08/2021</p>
+				</th>
+		  </tr>
+
+
+		  <tr class="govuk-table__row">
+			<th scope="row" class="govuk-table__header">
+				<h2 class="govuk-heading-s" style="margin-bottom: 10px;" >Add another entry</h2>
+				<div class="govuk-body" style="margin-bottom: px;">
+
+					<input class="govuk-input govuk-input--width-5" style="margin-bottom: 10px;" id="width-5" name="width-5" type="text"> <br>
+
+<button class="govuk-button ap-secondary-button" data-module="govuk-button" style="margin-bottom: 10px;">
+			Add entry
+		  </button>
+		  <br>
+
+
+		  <a href="../v8/01-transferee.html" class="govuk-link govuk-link--no-visited-state">Create custom lender entry</a>
+
+
+
+				</div>
+				</th>
+		  </tr>
+
+
+
+
+
+
+
+
+		</tbody>
+	  </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				<!-- Buttons and links -->
+
+				<div class="task-lists-submit" style="padding-top: 0;">
+					<a href="" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+						Next
+						</a>
+					<a href="index.html" class="govuk-link reject-button">Return to workflow</a>
+				</div>
+
+			</form>
+
+
+
+		</div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+
+{% endblock %}

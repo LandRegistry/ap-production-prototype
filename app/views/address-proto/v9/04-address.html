@@ -1,0 +1,230 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+{{ appnType | d('Transfer Not For Value and RX1') }}, ABR: {{ abrNumber | d('A123XYZ') }}, Title Number: {{ titleNumber
+| d('DN1000') }}.
+
+Validity checks
+{% endblock %}
+
+{% block content %}
+
+<style>
+	.ap-secondary-button {
+		background-color: #505a5f;
+	}
+
+	.ap-secondary-button:hover {
+		background-color: #3c4144;
+	}
+
+	.ap-link {
+		font-size: 19px;
+
+	}
+</style>
+
+<!-- application information  -->
+
+<div class="govuk-grid-row ap-no-row-l-r-margin">
+	<div id="application-info-container">
+		<div class="govuk-grid-column-three-quarters ap-no-column-l-r-padding">
+			<h1 class="govuk-heading-m application-type">{{ appnType | d('Transfer Not For Value and RX1') }}</h1>
+
+			<span class="govuk-body">ABR: </span><span class="abr govuk-body">{{ abrNumber | d('A123XYZ') }}</span>
+			<span class="govuk-body">Title: </span><span class="title-number govuk-body">{{ titleNumber | d('DN1000')
+				}}</span>
+
+		</div>
+
+		<div class="govuk-grid-column-one-quarter ap-no-column-r-padding">
+			<p id="documents-launcher">
+				<a href="_document-viewer-a.html" class="govuk-link" rel="noreferrer noopener"
+					target="_blank">Application documents</a>
+
+			</p>
+		</div>
+	</div>
+</div>
+
+<!-- end - application information  -->
+
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-one-half register-column scroll ">
+		<div id="register-container">
+
+			{% include "./includes/register.html" %}
+
+		</div>
+	</div>
+
+
+	<!-- Tasks section starts here -->
+
+	<div class="govuk-grid-column-one-half column">
+
+		<div class="casework-tasks-container">
+
+			<form method="post">
+
+
+				{{ govukBackLink({
+				text: "Back",
+				href: "03-address-no-tab"
+				}) }}
+
+				<span class="govuk-caption-m" style="margin-top: 30px;">Create custom lender entry</span>
+<h1 class="govuk-heading-m"  >Enter all addresses</h1>
+
+
+
+				<!-- Notification, if no selected -->
+				<div id="warning" class="govuk-notification-banner" role="region"
+					aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+					<div class="govuk-notification-banner__header">
+						<h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+							Important
+						</h2>
+					</div>
+					<div class="govuk-notification-banner__content">
+						<p class="govuk-notification-banner__heading">
+							<a class="govuk-notification-banner__link" href="workflow-no-drafting">Send to Workflow</a>
+							to complete this application.
+						</p>
+					</div>
+				</div>
+
+
+				<!-- Table here-->
+
+				<table class="govuk-table" style="margin-bottom: 20px;">
+					<thead class="govuk-table__head">
+						<tr class="govuk-table__row">
+							<th scope="col" class="govuk-table__header">Lender</th>
+							<th scope="col" class="govuk-table__header ">Address</th>
+							<th scope="col" class="govuk-table__header ">Edit address</th>
+						</tr>
+					</thead>
+					<tbody class="govuk-table__body">
+
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell"> Arthur Boyle <br>
+								Marianne Malkovic</th>
+							<td class="govuk-table__cell">15 Pevensey Rd, Eastbourne, BN21 3HR</td>
+							<td class="govuk-table__cell">
+								<a href="03-address.html" class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state">Change</a>
+								<a href="02-address.html" class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state">Remove</a>
+							</td>
+						</tr>
+
+
+
+
+					</tbody>
+				</table>
+
+
+
+
+				<a id='add-another-1' href="" class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state">
+					Add address</a>
+
+		</div>
+
+
+		<!-- Address 1 component  -->
+
+
+		<div class="govuk-form-group" style="margin-top: 20px;">
+
+		</div>
+
+		<div class="task-lists-submit">
+			<a href="10-cre-codes.html" role="button" draggable="false" class="govuk-button ap-secondary-button" data-module="govuk-button">
+				Create custom lender entry
+				</a>
+			<a href="00-cre-codes.html" class="govuk-link reject-button">Cancel creating custom lender entry</a>
+		</div>
+
+
+
+
+
+	</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+<!-- end Tasks column -->
+
+</div>
+
+{% endblock %}
+
+
+{% block pageScripts %}
+<script>
+
+	//ADD ANOTHER 1
+
+	// button to add another is pressed
+	//$('#add-another-1').click(function (e) {
+		//component for adding address 1 is shown - UK address
+		//$('#address-1').show()
+		//button to add address 1 is hidden
+		//$('#add-another-1').hide()
+	});
+
+
+	// ADDRESS 1
+	// button to add the address is pressed
+	$('#add-address-button-1').click(function (e) {
+		// select address type section gets hidden
+		$('#select-type-1').hide();
+		// enter postcode section is shown
+		$('#select-postcode-1').show();
+		// other stuff section is shown
+		$('#other-stuff-1').show()
+	});
+
+
+	// button to search the address linked to the postcode entered is pressed
+	$('#find-address-button-1').click(function (e) {
+		// enter postcode section gets hidden
+		$('#select-postcode-1').hide();
+		// select address from the list section is shown
+		$('#select-address-1').show();
+		// other stuff section is shown
+		$('#other-stuff-1').show()
+	});
+
+
+
+
+	// ADDRESS 2
+
+	// button to add the address is pressed
+	$('#add-address-button-2').click(function (e) {
+		// select address type section gets hidden
+		$('#select-type-2').hide();
+		// enter email is shown
+		$('#enter-email-2').show();
+		// other stuff section is shown
+		$('#other-stuff-2').show()
+	});
+
+
+
+
+
+
+</script>
+{% endblock %}

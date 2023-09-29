@@ -1,0 +1,178 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+{{ appnType | d('Transfer Not For Value and RX1') }}, ABR: {{ abrNumber | d('A123XYZ') }}, Title Number: {{ titleNumber
+| d('DN1000') }}.
+
+Validity checks
+{% endblock %}
+
+{% block content %}
+
+<style>
+	.ap-secondary-button {
+		background-color: #505a5f;
+	}
+
+	.ap-secondary-button:hover {
+		background-color: #3c4144;
+	}
+
+	.ap-link {
+		font-size: 19px;
+
+	}
+</style>
+
+<!-- application information  -->
+
+<div class="govuk-grid-row ap-no-row-l-r-margin">
+	<div id="application-info-container">
+		<div class="govuk-grid-column-three-quarters ap-no-column-l-r-padding">
+			<h1 class="govuk-heading-m application-type">{{ appnType | d('Transfer Not For Value and RX1') }}</h1>
+
+			<span class="govuk-body">ABR: </span><span class="abr govuk-body">{{ abrNumber | d('A123XYZ') }}</span>
+			<span class="govuk-body">Title: </span><span class="title-number govuk-body">{{ titleNumber | d('DN1000')
+				}}</span>
+
+		</div>
+
+		<div class="govuk-grid-column-one-quarter ap-no-column-r-padding">
+			<p id="documents-launcher">
+				<a href="_document-viewer-a.html" class="govuk-link" rel="noreferrer noopener"
+					target="_blank">Application documents</a>
+			</p>
+		</div>
+	</div>
+</div>
+
+<!-- end - application information  -->
+
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-one-half register-column scroll ">
+		<div id="register-container">
+
+			{% include "./includes/register.html" %}
+
+		</div>
+	</div>
+
+
+	<!-- Tasks section starts here -->
+
+	<div class="govuk-grid-column-one-half column">
+
+		<div class="casework-tasks-container">
+
+			<form method="post">
+
+
+				{{ govukBackLink({
+				text: "Back",
+				href: "01-transferee"
+				}) }}
+
+
+
+
+				<span class="govuk-caption-m" style="margin-top: 30px;">Create custom lender entry</span>
+<h1 class="govuk-heading-m"  >Enter all lenders</h1>
+
+
+				<!-- Notification, if no selected -->
+				<div id="warning" class="govuk-notification-banner" role="region"
+					aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+					<div class="govuk-notification-banner__header">
+						<h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+							Important
+						</h2>
+					</div>
+					<div class="govuk-notification-banner__content">
+						<p class="govuk-notification-banner__heading">
+							<a class="govuk-notification-banner__link" href="workflow-no-drafting">Send to Workflow</a>
+							to complete this application.
+						</p>
+					</div>
+				</div>
+
+
+				<!-- Lender 1 -->
+
+
+
+				 <!-- First task - yes no  -->
+
+				 {{ govukRadios({
+					idPrefix: 'property-match',
+					name: 'property-match',
+					classes: 'js-no-return-to-workflow / govuk-radios--small govuk-radios',
+					fieldset: {
+					  legend: {
+						html: 'Which addressess do you need to add?',
+						classes: 'govuk-fieldset__legend--s'
+					  }
+					},
+					items: [
+					  {
+						html: 'Only UK postal address',
+						value: 'Private individual',
+						checked: checked('property-match','Yes')
+					  },
+					  {
+						html: 'Also something else',
+						value: 'No',
+						checked: checked('property-match','No')
+					  }
+					]
+				  }) }}
+
+
+
+				<!-- Buttons and links -->
+
+				<div class="task-lists-submit" style="padding-top: 10px;">
+					<a href="03-address.html" role="button" draggable="false" class="govuk-button ap-secondary-button"
+						data-module="govuk-button">
+						Next
+					</a>
+					<a href="00-cre-codes.html" class="govuk-link reject-button">Cancel creating custom lender entry</a>
+				</div>
+
+			</form>
+
+
+
+		</div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+
+{% endblock %}
+
+
+{% block pageScripts %}
+<script>
+
+	//ADD ANOTHER 1
+
+	// button to add another is pressed
+	$('#add-another-1').click(function (e) {
+		//component for adding address 1 is shown - UK address
+		$('#transferee-2').show()
+		//button to add address 1 is hidden
+		$('#add-another-1').hide()
+	});
+
+
+
+
+
+
+
+</script>
+{% endblock %}
