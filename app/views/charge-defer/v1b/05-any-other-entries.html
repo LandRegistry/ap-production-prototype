@@ -1,0 +1,144 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+ {{ appnType | d('Transfer Not For Value and RX1') }}, ABR: {{ abrNumber | d('A123XYZ') }}, Title Number: {{ titleNumber | d('DN1000') }}.
+
+ Do other entries need changing
+{% endblock %}
+
+{% block content %}
+
+	<!-- application information  -->
+
+	<div class="govuk-grid-row ap-no-row-l-r-margin">
+		<div id="application-info-container">
+			<div class="govuk-grid-column-three-quarters ap-no-column-l-r-padding">
+	  		<h1 class="govuk-heading-m application-type">{{ appnType | d('Charge') }}</h1>
+
+	  				<span class="govuk-body">ABR: </span><span class="abr govuk-body">{{ abrNumber | d('A123XYZ') }}</span>
+	  				<span class="govuk-body">Title: </span><span class="title-number govuk-body">{{ titleNumber | d('DN1000') }}</span>
+
+		  </div>
+
+		  <div class="govuk-grid-column-one-quarter ap-no-column-r-padding">
+		  	<p id="documents-launcher">
+		      <a href="_document-viewer" class="govuk-link document-link js-documents-window" target="_blank">Application documents</a>
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- end - application information  -->
+
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+
+    <div class="casework-tasks-container">
+      {{ govukBackLink({
+        text: 'Back',
+        href: '04-discharge'
+      }) }}
+
+
+    	<form method="post">
+
+	      <h2 class="govuk-heading-l">Tasks</h2>
+
+	    	<!-- tasks go here  -->
+
+	      <!-- documents meet requirements?  -->
+	      {{ govukRadios({
+	        idPrefix: 'docs-meet-requirements',
+	        name: 'docs-meet-requirements',
+	        classes: 'govuk-radios--small govuk-radios--inline',
+	        fieldset: {
+	          legend: {
+	            text: 'Do included documents meet all requirements?',
+	            classes: 'govuk-fieldset__legend--s'
+	          }
+	        },
+	        items: [
+	          {
+	            html: 'Yes',
+	            value: 'Yes',
+	            checked: checked('docs-meet-requirements','Yes')
+	          },
+	          {
+	            html: 'No',
+	            value: 'No',
+	            checked: checked('docs-meet-requirements','No')
+	          }
+	        ]
+	      }) }}
+
+	      <!-- additional transactions?  -->
+	      {{ govukRadios({
+	        idPrefix: 'additional-transactions',
+	        name: 'additional-transactions',
+	        classes: 'govuk-radios--small govuk-radios--inline',
+	        fieldset: {
+	          legend: {
+	            text: 'Are there any additional transactions not covered by previous tasks?',
+	            classes: 'govuk-fieldset__legend--s'
+	          }
+	        },
+	        items: [
+	          {
+	            html: 'Yes',
+	            value: 'Yes',
+	            checked: checked('additional-transactions','Yes')
+	          },
+	          {
+	            html: 'No',
+	            value: 'No',
+	            checked: checked('additional-transactions','No')
+	          }
+	        ]
+	      }) }}
+
+        <h3 class="govuk-heading-l" style="border-top:1px solid #a6a6a6; padding-top:20px">
+          Correspondence
+        </h3>
+
+        <p>Send a requisition, stock letter or notice if needed.</p>
+
+        <div style="border-bottom:1px solid #a6a6a6; padding-bottom:30px">
+      <a href="">Send correspondence (opens in a new window)</a>
+        </div>
+	    	<!-- end of tasks  -->
+
+
+	    	<!-- Buttons and links -->
+
+				<div class="task-lists-submit">
+			    <button class="govuk-button" data-module="govuk-button">
+			      Next
+			    </button>
+			    <a href="workflow-no-drafting" class="govuk-link reject-button">Return to workflow</a>
+	 			</div>
+
+		  </form>
+
+
+
+	  </div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+{% endblock %}
