@@ -1,0 +1,90 @@
+{% extends "layouts/ap-document-viewer.html" %}
+
+{% block pageTitle %}
+  Available documents
+{% endblock %}
+
+{% block content %}
+
+  <style>
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      display: block;
+      /* remove extra space below image */
+    }
+    .box {
+      width: 1000/px;
+      border: 1px solid black;
+    }
+    .box.large {
+      height: 300px;
+    }
+    .box.small {
+      height: 100px;
+    }
+  </style>
+
+  <div class="govuk-width-container">
+    <main class="govuk-main-wrapper">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-three-thirds">
+          <h1 class="govuk-heading-l govuk-!-margin-top-0 govuk-!-margin-bottom-6">Available documents</h1>
+          <div class="govuk-tabs" data-module="govuk-tabs">
+            <h2 class="govuk-tabs__title">
+              Documents
+            </h2>
+            <ul class="govuk-tabs__list">
+              <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+                <a class="govuk-tabs__tab" href="#doc1">
+                  AP1 form
+                </a>
+              </li>
+              <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="#doc2">
+                  TR1 form
+                </a>
+              </li>
+              <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="#doc3">
+                  SDLT
+                </a>
+              </li>
+              {# <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="#doc4">
+                  Marriage certificate
+                </a>
+              </li> #}
+
+            </ul>
+            <div class="govuk-tabs__panel box" id="doc1">
+              <img src="/public/images/flow-a/AP1-p1.png">
+              <img src="/public/images/flow-a/AP1-p2.png">
+              <img src="/public/images/flow-a/AP1-p3.png">
+              <img src="/public/images/flow-a/AP1-p4.png">
+              <img src="/public/images/flow-a/AP1-p5.png">
+              <img src="/public/images/flow-a/AP1-p6.png">
+            </div>
+
+            <div class="govuk-tabs__panel govuk-tabs__panel--hidden box" id="doc2">
+              <img src="/public/images/flow-a/TR1-p1.png">
+              <img src="/public/images/flow-a/TR1-p2.png">
+              <img src="/public/images/flow-a/TR1-p3.png">
+            </div>
+
+            <div class="govuk-tabs__panel govuk-tabs__panel--hidden box" id="doc3">
+              <img src="/public/images/flow-a/SDLT.png">
+            </div>
+
+            {# <div class="govuk-tabs__panel govuk-tabs__panel--hidden box" id="doc4">
+              <img src="/public/images/forms_and_docs/transfer/v.4/marriage_certificate_1.png">
+            </div> #}
+
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+{% endblock %}

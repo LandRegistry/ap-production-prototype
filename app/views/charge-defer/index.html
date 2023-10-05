@@ -1,0 +1,63 @@
+{% extends "layouts/ap-documentation.html" %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Charge - deferral for consent to restriction</h1>
+
+    <p class="govuk-body">When an application contains a restriction which requires the consent of a specified party. If the consent is missing a requisition needs to be sent and the application deferred (put into a specific pot whilst we wait for a response to the requistion).</p>
+    <p>A caseworker:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+    	<li>will know if consent is required</li>
+      <li>will write a requisition letter (C90), if this is the only reason to requisition</li>
+      <li>use legacy system PC Corres to write the letter</li>
+    </ul>
+
+    <p class="govuk-body">The system will:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+    	<li>add a PAS note, allowing the application to be stored until the consent is received</li>
+    	<li>put the application in a new 'pot' (category of work) to be picked up for evidence to be checked</li>
+    	<li>run all the business rules again, to see if anything else has changed</li>
+    </ul>
+
+    <h2 class="govuk-heading-l">Round 1 prototypes for user research</h2>
+
+    <p class="govuk-body">Add notes about what we want to learn and links to figma files and research plan and output</p>
+
+    <p>view prototypes:</p>
+
+    <p><a href="/charge-defer/r1-index">link for user research</a></p>
+
+    <ul class="govuk-list govuk-list--bullet">
+    	<li>
+        <a class="govuk-link" href="v1a/00-worklist">A - Both UI tasks</a><br>
+        Scenario A: The register contains a charge with a restriction and another type of restriction. The other type of restriction does not require consent. The charge evidence is missing. The application should defer with the charge evidence, however our assumption is that it won't due to both tasks being present and caseworkers answering with workarounds.
+      </li>
+    	<li>
+        <a class="govuk-link" href="v1b/00-worklist">B - Two restrictions</a><br>
+        Scenario B: One restriction requires consent, one does not. Consent has not been provided for the restriction that requires it and the case should therefore defer.
+      </li>
+      <li>
+        <a class="govuk-link" href="v1c/07-wrap-up">C - Multiple restrictions</a><br>
+        Scenario C: Multiple restrictions, some needing consent and others not. Consent has been provided for all that require it and therefore the case should markoff.
+      </li>
+    	<li>
+        <a class="govuk-link" href="v1d/07-wrap-up">D - Referral</a><br>
+        Scenario D: One restriction that is above EO settlement (Form B). This will require the users to refer the case to a caseworker of a higher grade. The referral option then adds a PAS note and returns to Workflow.
+      </li>
+
+    </ul>
+
+
+  </div>
+</div>
+
+{% endblock %}
