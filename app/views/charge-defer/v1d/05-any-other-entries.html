@@ -1,34 +1,14 @@
 {% extends "layouts/ap-flow-wide.html" %}
 
 {% block pageTitle %}
- {{ appnType | d('Transfer Not For Value and RX1') }}, ABR: {{ abrNumber | d('A123XYZ') }}, Title Number: {{ titleNumber | d('DN1000') }}.
-
- Do other entries need changing
+Charge
 {% endblock %}
 
 {% block content %}
 
-	<!-- application information  -->
-
-	<div class="govuk-grid-row ap-no-row-l-r-margin">
-		<div id="application-info-container">
-			<div class="govuk-grid-column-three-quarters ap-no-column-l-r-padding">
-	  		<h1 class="govuk-heading-m application-type">{{ appnType | d('Charge') }}</h1>
-
-	  				<span class="govuk-body">ABR: </span><span class="abr govuk-body">{{ abrNumber | d('A123XYZ') }}</span>
-	  				<span class="govuk-body">Title: </span><span class="title-number govuk-body">{{ titleNumber | d('DN1000') }}</span>
-
-		  </div>
-
-		  <div class="govuk-grid-column-one-quarter ap-no-column-r-padding">
-		  	<p id="documents-launcher">
-		      <a href="_document-viewer" class="govuk-link document-link js-documents-window" target="_blank">Application documents</a>
-				</p>
-			</div>
-		</div>
-	</div>
-
-	<!-- end - application information  -->
+<!-- application information  -->
+{% include "./includes/application-info.html" %}
+<!-- end - application information  -->
 
 
 
