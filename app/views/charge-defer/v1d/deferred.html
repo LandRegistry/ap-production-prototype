@@ -1,30 +1,28 @@
 {% extends "layouts/ap-flow-regular.html" %}
 
 {% block pageTitle %}
-Sent for mark off
+ Sent to Workflow, deferred
 {% endblock %}
 
 {% block content %}
 
 
-
   <div class="govuk-grid-row govuk-body">
     <div class="govuk-grid-column-two-thirds">
-    	<div class="govuk-panel govuk-panel--confirmation">
+			<div class="govuk-panel govuk-panel--confirmation govuk-panel--confirmation--partial">
 	    	<h1 class="govuk-panel__title">
-	          Application {{ abrNumber | d('A123XYZ') }} complete
+	          Application {{ abrNumber | d('A123XYZ') }} deferred
 	      </h1>
 	      <div class="govuk-panel__body">
-	        Sent for mark off
+	        Sent to Workflow
 	      </div>
 	    </div>
 
       <!-- <h2 class="govuk-heading-m">What's next</h2> -->
 
       <p class="govuk-body govuk-!-margin-top-6">
-        <a href="/charge-defer/r1-index" class="govuk-link">Start processing a new application</a>
+        <a href="/charge-defer/r1-index" class="govuk-link">Go to Workflow</a> to start a new application.
       </p>
-
     </div>
   </div>
 
