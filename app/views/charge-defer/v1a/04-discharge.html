@@ -39,32 +39,32 @@ Charge
 
 	    	<!-- tasks go here  -->
 
-				<!-- early completion -->
+        <!-- discharge evidence -->
 	    	{{ govukRadios({
-	        idPrefix: 'early-completion',
-	        name: 'early-completion',
+	        idPrefix: 'discharge-removal',
+	        name: 'discharge-removal',
 	        classes: 'govuk-radios--small',
 	        fieldset: {
 	          legend: {
-	            text: 'Has evidence of the discharge been lodged?',
+	            text: 'Can the existing charge be removed?',
 	            classes: 'govuk-fieldset__legend--s'
 	          }
 	        },
 	        items: [
 	          {
-	            html: 'Yes',
+	            html: 'Yes, evidence has been lodged',
 	            value: 'Yes',
-	            checked: checked('early-completion','Yes')
+	            checked: checked('discharge-removal','Yes')
 	          },
 	          {
-	            html: 'No, early completion will apply',
+	            html: 'No, there is no evidence',
 	            value: 'No',
-	            checked: checked('early-completion','No')
+	            checked: checked('discharge-removal','No')
 	          },
 		     {
-	            html: 'Not required',
-	            value: 'Not required',
-	            checked: checked('early-completion','Not required')
+	            html: 'Keep the existing charge',
+	            value: 'Keep',
+	            checked: checked('discharge-removal','Not required')
 	          }
 	        ]
 	      }) }}

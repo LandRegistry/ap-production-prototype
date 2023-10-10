@@ -37,3 +37,9 @@ router.use(/\/transfer-defer\/v([0-9a-z]+)/, (req, res, next) => {
 router.use(/\/starter\/v([0-9a-z]+)/, (req, res, next) => {
   return require(`./views/starter/v${req.params[0]}/_routes`)(req, res, next);
 })
+
+// routing for the deferral for consent to restriction - charge-defer
+
+router.use(/\/charge-defer\/v([0-9a-z]+)/, (req, res, next) => {
+  return require(`./views/charge-defer/v${req.params[0]}/_routes`)(req, res, next);
+})
