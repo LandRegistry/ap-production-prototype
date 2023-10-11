@@ -33,7 +33,7 @@ Charge
         href: '03-add-charge-entry'
       }) }}
 
-    	<form method="post">
+    	<form action="04-discharge" method="post">
 
 	      <h2 class="govuk-heading-l">Tasks</h2>
 
@@ -46,7 +46,7 @@ Charge
 	        classes: 'govuk-radios--small',
 	        fieldset: {
 	          legend: {
-	            text: 'Can the existing charge be removed?',
+	            text: 'Can the existing charges be removed?',
 	            classes: 'govuk-fieldset__legend--s'
 	          }
 	        },
@@ -104,16 +104,14 @@ Charge
 
 
 	    	<!-- Buttons and links -->
+        <div class="task-lists-submit">
+					<button class="govuk-button" data-module="govuk-button">
+						Next
+					</button>
+					<a href="workflow-no-drafting" class="govuk-link reject-button">Return to workflow</a>
+				</div>
 
-        <div class="task-lists-submit js-missing-input">
-          {{ govukButton({
-            html: 'Next',
-            href: '05-any-other-entries'
-          }) }}
-
-          <a href="04-summary-page-skip" class="reject-button">Return to workflow</a>
-        </div>
-		  </form>
+			</form>
 
 
 
