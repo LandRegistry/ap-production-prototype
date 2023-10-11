@@ -33,7 +33,7 @@ Charge
         href: '02-charge-amount'
       }) }}
 
-    	<form method="post">
+    	<form action="03-add-charge-entry" method="post">
 
 	      <h2 class="govuk-heading-l">Tasks</h2>
 
@@ -145,16 +145,14 @@ Charge
 
 	    	<!-- Buttons and links -->
 
-        <div class="task-lists-submit js-missing-input">
-          {{ govukButton({
-            html: 'Next',
-            href: '04-discharge'
-          }) }}
+        <div class="task-lists-submit">
+					<button class="govuk-button" data-module="govuk-button">
+						Next
+					</button>
+					<a href="workflow-no-drafting" class="govuk-link reject-button">Return to workflow</a>
+				</div>
 
-          <a href="04-summary-page-skip" class="reject-button">Return to workflow</a>
-        </div>
-
-		  </form>
+			</form>
 
 
 
