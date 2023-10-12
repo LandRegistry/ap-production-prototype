@@ -1,9 +1,47 @@
-@import '../../views/address-proto/as-live/includes/as-live-css.scss';
-
-@import '../../views/address-proto/as-live/includes/main.scss';
-
-@import '../../views/address-proto/as-live/includes/components.scss';
-
-main {
-    border: 2px dashed blue;
+.ap-secondary-button {
+    /*background-color: #505a5f;*/
+    background-color: govuk-colour("dark-grey");
 }
+.ap-secondary-button:hover {
+    /*background-color: #3c4144;*/
+    background-color: govuk-colour("black");
+}
+.ap-link {
+    font-size: 19px;
+}
+
+// *** new starts... ***
+
+@include govuk-media-query($from: desktop){
+    .hmlr-fieldset-right-link {
+
+        legend {
+            float: left; 
+        }
+
+        .hmlr-fieldset-right-link_target {
+            display: inline-block;
+            position: relative;
+            right: -40%;
+        }
+
+    }
+}
+
+@include govuk-media-query($from: desktop){
+    //body {
+        //border: 5px solid lime; 
+    //}
+}
+
+/*.hmlr-table {
+    
+    &.hmlr-table--last-align-right {
+        thead, tfoot {
+            th:last-child {
+                text-align: right !important; 
+                color: lime !important;
+            }
+        }
+    }
+}*/

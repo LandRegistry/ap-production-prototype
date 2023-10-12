@@ -1,0 +1,38 @@
+/*
+@function calculaterem($s, $l){
+    $remsize: $s / 16px;
+    @return #{$remsize}rem;
+}
+
+@function calculateheight($s, $l){
+    $lineheight: $l;
+    @return #{$lineheight};
+}
+
+@mixin hmlr-font-size($s, $l){
+    font-size: $s !important; 
+    font-size: calculaterem($s) !important; 
+    line-height: calculateheight($l) !important;
+}
+
+.test {
+    @include hmlr-font-size($s: 16px, $l: 1.3);
+    border-bottom: 1px solid blue;
+}
+
+.hmlr-margin-top-less-2 {
+    margin-top: - govuk-spacing(2);
+}
+
+@import '../../views/address-proto/v8/includes/main.scss';
+
+*/
+
+
+/* remove... 
+.reject-button just use correct HTML for btn align links
+.task-lists-submit ???
+.column???
+
+
+*/
