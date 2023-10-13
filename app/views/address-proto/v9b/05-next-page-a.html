@@ -7,10 +7,6 @@
  Charge amount
 {% endblock %}
 
-{% block stylesheets %}
-	{% include "../v8/includes/inc_block-stylesheets.html" %}
-{% endblock %}
-
 {% block content %}
 
 	<!-- application information  -->
@@ -116,14 +112,11 @@
 
 	    	<!-- Buttons and links -->
 
-			<div class="govuk-button-group govuk-!-margin-top-7">
+				<div class="task-lists-submit">
 					<a href="index.html" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
 						Next
-					</a>
-
-					<span class="govuk-visually-hidden"> | </span><!-- only include this span if above "btn" is a hyperlink -->
-
-			    	<a href="index.html" class="govuk-link govuk-link--no-visited-state">Return to workflow</a>
+						</a>
+			    <a href="index.html" class="govuk-link reject-button">Return to workflow</a>
 	 			</div>
 
 		  </form>

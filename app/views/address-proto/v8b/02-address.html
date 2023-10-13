@@ -81,11 +81,11 @@ Validity checks
 				<span class="govuk-caption-m" style="margin-top: 30px;">Create custom lender entry</span>
 				<h1 class="govuk-heading-m">Enter all addresses</h1>
 
-				{% include "../v8b/includes/inc-only-uk-address-msg.html" %}
+				
 
 
 				<!-- Notification, if no selected -->
-				<!--div id="warning" class="govuk-notification-banner" role="region"
+				<div id="warning" class="govuk-notification-banner" role="region"
 					aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
 					<div class="govuk-notification-banner__header">
 						<h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
@@ -98,7 +98,7 @@ Validity checks
 							to complete this application.
 						</p>
 					</div>
-				</div-->
+				</div>
 
 
 				<!-- Table here-->
@@ -317,7 +317,7 @@ Validity checks
 
 		<!-- First task - yes no  -->
 
-		<!--div style="margin-top: 20px;">
+		<div style="margin-top: 20px;">
 
 			{{ govukRadios({
 			idPrefix: 'property-match',
@@ -343,23 +343,16 @@ Validity checks
 			]
 			}) }}
 
-		</div-->
-
-
-		<div class="govuk-button-group govuk-!-margin-top-7">
-			<a href="02-address.html" role="button" class="govuk-button ap-secondary-button"
-			data-module="govuk-button">Create custom lender entry</a>
-
-			<a href="00-cre-codes.html" class="govuk-link govuk-link--no-visited-state">Cancel creating custom lender entry</a>
 		</div>
 
-		<!--div class="task-lists-submit govuk-!-margin-top-7">
+
+		<div class="task-lists-submit govuk-!-margin-top-7">
 			<a href="02-address.html" role="button" draggable="false" class="govuk-button ap-secondary-button"
 				data-module="govuk-button">
 				Create custom lender entry
 			</a>
 			<a href="00-cre-codes.html" class="govuk-link govuk-link--no-visited-state reject-button">Cancel creating custom lender entry</a>
-		</div-->
+		</div>
 
 		
 	</div>

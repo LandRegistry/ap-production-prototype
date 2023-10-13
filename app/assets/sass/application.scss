@@ -6,5 +6,10 @@
 // Add extra styles here
 
 
+//using a grey pg bg means the faux form elements require a solid bg colour. DH
+.govuk-radios__label:before, 
+.govuk-checkboxes__label:before {
+    background-color: govuk-colour("white");
+} 
 
 @import "address-proto";

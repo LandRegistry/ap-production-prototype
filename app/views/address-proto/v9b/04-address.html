@@ -73,14 +73,11 @@ Validity checks
 
 				{{ govukBackLink({
 				text: "Back",
-				href: "02-address-no-tab"
+				href: "03-address-no-tab"
 				}) }}
 
 				<span class="govuk-caption-m" style="margin-top: 30px;">Create custom lender entry</span>
 <h1 class="govuk-heading-m"  >Enter all addresses</h1>
-
-
-				
 
 
 
@@ -94,7 +91,8 @@ Validity checks
 					</div>
 					<div class="govuk-notification-banner__content">
 						<p class="govuk-notification-banner__heading">
-							Send to Workflow to complete this application.
+							<a class="govuk-notification-banner__link" href="workflow-no-drafting">Send to Workflow</a>
+							to complete this application.
 						</p>
 					</div>
 				</div>
@@ -140,38 +138,9 @@ Validity checks
 		<!-- Address 1 component  -->
 
 
-	<!-- First task - yes no  -->
+		<div class="govuk-form-group" style="margin-top: 20px;">
 
-	<div style="margin-top: 20px;">
-
-		{{ govukRadios({
-		idPrefix: 'property-match',
-		name: 'property-match',
-		classes: 'js-yes-return-to-workflow / govuk-radios--small govuk-radios--inline',
-		fieldset: {
-		legend: {
-		html: 'Other than UK postal addresses is there anything else you want to add?',
-		classes: 'govuk-fieldset__legend--s'
-		}
-		},
-		items: [
-		{
-		html: 'Yes',
-		value: 'Yes',
-		checked: checked('property-match','Yes')
-		},
-		{
-		html: 'No',
-		value: 'No',
-		checked: checked('property-match','No')
-		}
-		]
-		}) }}
-
-	</div>
-
-
-
+		</div>
 
 		<div class="task-lists-submit">
 			<a href="10-cre-codes.html" role="button" draggable="false" class="govuk-button ap-secondary-button" data-module="govuk-button">
@@ -212,7 +181,7 @@ Validity checks
 		//$('#address-1').show()
 		//button to add address 1 is hidden
 		//$('#add-another-1').hide()
-	//});
+	});
 
 
 	// ADDRESS 1

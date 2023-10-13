@@ -51,7 +51,7 @@ Validity checks
 
 	<!-- Tasks section starts here -->
 
-	<div class="govuk-grid-column-one-half xxxxxcolumn">
+	<div class="govuk-grid-column-one-half">
 
 		{{ govukBackLink({
 			text: "Back",
@@ -91,29 +91,40 @@ Validity checks
 					</thead>
 					<tbody class="govuk-table__body">
 						<tr class="govuk-table__row">
-							<td class="govuk-table__cell"> Arthur Boyle <br>
-								Marianne Malkovic</th>
+							<td class="govuk-table__cell"> 
+								<span class="govuk-!-display-block">Arthur Boyle.</span>
+								
+								<span class="govuk-!-display-block">Marianne Malkovic.</span>
+							</th>
 							<td class="govuk-table__cell">15 Pevensey Rd, Eastbourne, BN21 3HR</td>
 							<td class="govuk-table__cell">
-								<a href="03-address.html" class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state">
-									Change
-								</a>
-								<a href="02-address.html" class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state">
-									Remove
-								</a>
-
-								REVISE THESE LINKS (design). 
+								<ul class="govuk-list govuk-list--spaced">
+									<li class="">
+										<a href="02-address-no-tab.html" class="govuk-link govuk-!-font-size-16 govuk-link--no-visited-state">
+											Change <span class="govuk-visually-hidden">address for lender(s) 1</span>
+										</a>
+									</li>
+									<li>
+										<a href="02-address.html" class="govuk-link govuk-!-font-size-16 govuk-link--no-visited-state">
+											Remove <span class="govuk-visually-hidden">address for lender(s) 1</span>
+										</a>
+									</li>
+								</ul>
 							</td>
 						</tr>
 					</tbody>
+					<!-- 
+						*** for additional lender 'rows' add a complete new TBODY  
+						section (which is valid), not just a new TR *** 
+					-->					
 				</table>	
 
-				<a id='add-another-1' href="../v8/02-address-no-tab.html" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 ">
+				<a id='add-another-1' href="../v8/02-address-no-tab.html" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16">
 					Add address
 				</a>
 
 		
-				<div style="margin-top: 20px;">
+				<div class="govuk-!-margin-top-7">
 
 					{{ govukRadios({
 					idPrefix: 'property-match',
@@ -147,7 +158,7 @@ Validity checks
 						Create custom lender entry
 					</a>
 
-					<span class="govuk-visually-hidden"> | </span><!-- only includ this span if above "btn" is a hyperlink -->
+					<span class="govuk-visually-hidden"> | </span><!-- only include this span if above "btn" is a hyperlink -->
 
 					<a href="00-cre-codes.html" class="govuk-link govuk-link--no-visited-state">Cancel creating custom lender entry</a>
 				</div> 

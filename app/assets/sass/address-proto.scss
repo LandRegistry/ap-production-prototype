@@ -28,10 +28,20 @@
     }
 }
 
-@include govuk-media-query($from: desktop){
-    //body {
-        //border: 5px solid lime; 
-    //}
+/* accommodate legacy prototype 'design' tbls using table 'TH' elements soley for decorative borders */
+.hmlr-table--tr-bottom-borders {
+    tbody tr {
+        border-bottom: 1px solid $govuk-border-colour; 
+
+        &:first-child {
+            border-top: 1px solid $govuk-border-colour; 
+        }
+
+        td {
+            padding-top: govuk-spacing(2);
+            padding-bottom: govuk-spacing(2);
+        }
+    }
 }
 
 /*.hmlr-table {
