@@ -7,23 +7,11 @@
 Validity checks
 {% endblock %}
 
+{% block stylesheets %}
+	{% include "../v9/includes/inc_block-stylesheets.html" %}
+{% endblock %}
+
 {% block content %}
-
-
-<style>
-	.ap-secondary-button {
-		background-color: #505a5f;
-	}
-
-	.ap-secondary-button:hover {
-		background-color: #3c4144;
-	}
-
-	.ap-link {
-		font-size: 19px;
-
-	}
-</style>
 
 <!-- application information  -->
 
@@ -67,109 +55,63 @@ Validity checks
 
 		<div class="casework-tasks-container">
 
-			<form method="post">
+			{{ govukBackLink({
+				text: "Previous page",
+				href: ""
+				}) }}
 
+			<form action="next-catch-all.html" method="post" novalidate>
 
-				{{ govukBackLink({
-					text: "Previous page",
-					href: ""
-					}) }}
+				<!-- MD REF TABLE-->
+				<table class="govuk-table govuk-!-margin-top-4 hmlr-table--tr-bottom-borders">
+					
+					<caption class="govuk-table__caption govuk-table__caption--m govuk-!-margin-bottom-2">Charge details</caption>
 
-
-
-					<!-- MD REF TABLE-->
-				<table class="govuk-table" style="margin-top: 30px;">
-					<caption class="govuk-table__caption govuk-table__caption--m" style="margin-bottom: 0px;">Charge details</caption>
-					<thead class="govuk-table__head">
-					  <tr class="govuk-table__row">
-						<th scope="col" class="govuk-table__header"></th>
-						<th scope="col" class="govuk-table__header"></th>
-					  </tr>
-					</thead>
 					<tbody class="govuk-table__body">
 					  <tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header">MD reference</th>
-						<td class="govuk-table__cell">No MD reference present</td>
+						<th scope="row" class="govuk-table__header"><abbr>MD</abbr> reference</th>
+						<td class="govuk-table__cell">No <abbr>MD</abbr> reference present</td>
 					  </tr>
+					</tbody>
+				</table>
+
+
+				<!-- CRE CODES-->
+
+				<table class="govuk-table govuk-table govuk-!-margin-top-8 hmlr-table--tr-bottom-borders">
+					
+					<caption class="govuk-table__caption govuk-table__caption--m govuk-!-margin-bottom-2">Register entries</caption>
+
+					<tbody class="govuk-table__body">
+
+						<tr class="govuk-table__row">
+							<td>
+								<h2 class="govuk-heading-s govuk-!-margin-bottom-2">CD100</h2>
+								<p class="govuk-body govuk-!-margin-bottom-0">REGISTERED CHARGE dated 28 August 2021</p>
+							</td>
+						</tr>
+
+						<tr class="govuk-table__row">
+							<td>
+								{% include "./includes/inc_create-custom-lender-entry.html" %} 
+
+								<a href="../v9/01-transferee.html" class="govuk-link govuk-link--no-visited-state govuk-!-display-inline-block govuk-!-margin-bottom-4">Create custom lender entry</a>
+							</td>
+						</tr>
 
 					</tbody>
-				  </table>
-
-
-	<!-- CRE CODES-->
-
-	<table class="govuk-table" style="margin-top: 30px;">
-		<caption class="govuk-table__caption govuk-table__caption--m" style="margin-bottom: 0px;">Register entries</caption>
-		<thead class="govuk-table__head">
-
-		  <tr class="govuk-table__row">
-			<th scope="col" class="govuk-table__header"></th>
-		  </tr>
-		</thead>
-
-
-		<tbody class="govuk-table__body">
-
-
-		  <tr class="govuk-table__row">
-			<th scope="row" class="govuk-table__header">
-				<h2 class="govuk-heading-s" style="margin-bottom: 10px;" >CD100</h2>
-				<p class="govuk-body" style="margin-bottom: 0px;">REGISTERED CHARGE dated 28/08/2021</p>
-				</th>
-		  </tr>
-
-
-		  <tr class="govuk-table__row">
-			<th scope="row" class="govuk-table__header">
-				<h2 class="govuk-heading-s" style="margin-bottom: 10px;" >Add another entry</h2>
-				<div class="govuk-body" style="margin-bottom: px;">
-
-					<input class="govuk-input govuk-input--width-5" style="margin-bottom: 10px;" id="width-5" name="width-5" type="text"> <br>
-
-<button class="govuk-button ap-secondary-button" data-module="govuk-button" style="margin-bottom: 10px;">
-			Add entry
-		  </button>
-		  <br>
-
-
-		  <a href="../v9/01-transferee.html" class="govuk-link govuk-link--no-visited-state">Create custom lender entry</a>
-
-
-
-				</div>
-				</th>
-		  </tr>
-
-
-
-
-
-
-
-
-		</tbody>
-	  </table>
-
-
-
-
-
-
-
-
-
-
-
-
+				</table>
 
 
 				<!-- Buttons and links -->
-
-				<div class="task-lists-submit" style="padding-top: 0;">
-					<a href="" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+				<div class="govuk-button-group">
+					<a href="#" role="button" class="govuk-button" data-module="govuk-button">
 						Next
-						</a>
-					<a href="index.html" class="govuk-link reject-button">Return to workflow</a>
+					</a>
+					
+					<span class="govuk-visually-hidden"> | </span><!-- only include this span if above "btn" is a hyperlink -->
+
+					<a href="index.html" class="govuk-link govuk-link--no-visited-state">Return to Workflow</a>
 				</div>
 
 			</form>

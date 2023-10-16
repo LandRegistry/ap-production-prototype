@@ -7,22 +7,11 @@
 Validity checks
 {% endblock %}
 
+{% block stylesheets %}
+	{% include "../v9/includes/inc_block-stylesheets.html" %}
+{% endblock %}
+
 {% block content %}
-
-<style>
-	.ap-secondary-button {
-		background-color: #505a5f;
-	}
-
-	.ap-secondary-button:hover {
-		background-color: #3c4144;
-	}
-
-	.ap-link {
-		font-size: 19px;
-
-	}
-</style>
 
 <!-- application information  -->
 
@@ -64,186 +53,140 @@ Validity checks
 
 	<!-- Tasks section starts here -->
 
-	<div class="govuk-grid-column-one-half column">
+	<div class="govuk-grid-column-one-half xxxxxcolumn">
 
-		<div class="casework-tasks-container">
-
-			<form method="post">
-
-
-				{{ govukBackLink({
+			{{ govukBackLink({
 				text: "Back",
 				href: "03-address"
 				}) }}
 
-				<span class="govuk-caption-m" style="margin-top: 30px;">Create custom lender entry</span>
-				<h1 class="govuk-heading-m"  >Add address</h1>
+
+				<form method="post" novalidate>
+
+					<span class="govuk-caption-m govuk-!-margin-top-3">Create custom lender entry</span>
+					<h1 class="govuk-heading-m"  >Add the address</h1>
+
+
+					<!-- Notification, if no selected -->
+					{% include "../v9/includes/inc_warning-banner.html" %}
+
+
+					<!-- Address 1 component  -->
+					<div id="address-1">
 
 
 
+						<!-- Address 1 - select postcode  -->
 
-				<!-- Notification, if no selected -->
-				<div id="warning" class="govuk-notification-banner" role="region"
-					aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-					<div class="govuk-notification-banner__header">
-						<h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-							Important
-						</h2>
+						<div id="select-postcode-1">
+							<div class="govuk-form-group govuk-!-margin-bottom-2">
+								<label class="govuk-label" for="address-postcode">
+									Enter a postcode
+								</label>
+								<input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode"
+									type="text" autocomplete="postal-code">
+							</div>
+
+							<a href="#" id='find-address-button-1' role="button" draggable="false" class="govuk-button ap-secondary-button">
+								Find address
+							</a>
+						</div>
+
+						<!-- Address 1 - select address from list  -->
+						<div id="select-address-1" class="govuk-!-margin-top-2 govuk-!-margin-bottom-8" style="display: none">
+							<div class="govuk-form-group govuk-!-margin-bottom-2">
+								<label class="govuk-label" for="sort">
+									Select an address
+								</label>
+								<select class="govuk-select" id="sort" name="sort">
+									<option value="published" selected>15 Pevensey Rd, Eastbourne BN21 3HR</option>
+									<option value="updated">17 Pevensey Rd, Eastbourne BN21 3HR</option>
+									<option value="views">19 Pevensey Rd, Eastbourne BN21 3HR</option>
+									<option value="comments">21 Pevensey Rd, Eastbourne BN21 3HR</option>
+								</select>
+							</div>
+
+							<a href="#" id="clear-the-search" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16">
+								Clear search
+							</a>
+						</div>
+
+						<!-- Address 1 - other stuff -->
+						<div id="other-stuff-1">
+
+							<div class="govuk-form-group js-no-return-to-workflow govuk-!-margin-bottom-0">
+								<div class='govuk-checkboxes govuk-checkboxes--small' value="no"  data-module='govuk-checkboxes'>
+									<div class="govuk-checkboxes__item">
+										<input class="govuk-checkboxes__input" id="cannot-find" name="undisclosed" type="checkbox">
+										<label class="govuk-label govuk-checkboxes__label" for="cannot-find">
+											I cannot find the address on the list
+										</label>
+									</div>
+								</div>
+							</div>
+
+							<div class="govuk-form-group govuk-!-margin-bottom-0">
+								<div class='govuk-checkboxes govuk-checkboxes--small' data-module='govuk-checkboxes'>
+									<div class="govuk-checkboxes__item">
+										<input class="govuk-checkboxes__input" id="care-of" name="undisclosed" type="checkbox">
+										<label class="govuk-label govuk-checkboxes__label" for="care-of">
+											This is a care of address (<abbr>c/o</abbr>)
+										</label>
+									</div>
+								</div>
+							</div>
+
+							<h3 class="govuk-heading-s govuk-!-margin-top-5 govuk-!-margin-bottom-2">
+								Select lenders for this address
+							</h3><!-- **** this should be a fieldset and legend? (then remove the zero margins) **** -->
+
+							<div class="govuk-form-group govuk-!-margin-bottom-0">
+								<div class='govuk-checkboxes govuk-checkboxes--small' data-module='govuk-checkboxes'>
+									<div class="govuk-checkboxes__item">
+										<input class="govuk-checkboxes__input" id="name-1" name="name-1" type="checkbox"
+											value="name-1">
+										<label class="govuk-label govuk-checkboxes__label" for="name-1">
+											Arthur Boyle
+										</label>
+									</div>
+								</div>
+							</div>
+
+							<div class="govuk-form-group govuk-!-margin-bottom-0">
+								<div class='govuk-checkboxes govuk-checkboxes--small' data-module='govuk-checkboxes'>
+									<div class="govuk-checkboxes__item">
+										<input class="govuk-checkboxes__input" id="name-2" name="name-2" type="checkbox"
+											value="name-2">
+										<label class="govuk-label govuk-checkboxes__label" for="name-2">
+											Marianne Malkovic
+										</label>
+									</div>
+								</div>
+
+
+							</div>
+
+
+							<div class="govuk-button-group govuk-!-margin-top-7">
+								<a href="../../address-proto/v9/04-address.html" id='save-address-1' role="button"
+								draggable="false" class="govuk-button ap-secondary-button"> Save address </a>
+		
+								<span class="govuk-visually-hidden"> | </span><!-- only include this span if above "btn" is a hyperlink -->
+			
+								<a href="03-address.html" class="govuk-link govuk-link--no-visited-state">Cancel adding address</a>
+							</div>
+
+
+						</div>
+
 					</div>
-					<div class="govuk-notification-banner__content">
-						<p class="govuk-notification-banner__heading">
-							<a class="govuk-notification-banner__link" href="workflow-no-drafting">Send to Workflow</a>
-							to complete this application.
-						</p>
-					</div>
-				</div>
 
-
-				<!-- Table here-->
+				</form>
 
 
 
-
-
-
+			</div>
 		</div>
-
-
-		<!-- Address 1 component  -->
-
-		<div id="address-1">
-
-
-
-			<!-- Address 1 - select postcode  -->
-
-			<div id="select-postcode-1">
-
-
-
-					<div class="govuk-form-group" style="	margin-bottom: 10px; margin-top: 10px;">
-						<label class="govuk-label" for="address-postcode">
-							Postcode
-						</label>
-						<input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode"
-							type="text" autocomplete="postal-code">
-					</div>
-
-
-
-
-
-
-
-
-							<a id='find-address-button-1' role="button" draggable="false"
-							class="govuk-button ap-secondary-button" style="margin-bottom: 10px;"> Find address </a>
-
-
-
-
-			</div>
-
-			<!-- Address 1 - select address from list  -->
-			<div id="select-address-1" style="display: none">
-
-
-
-					<div class="govuk-form-group" style="	margin-bottom: 10px; margin-top: 10px;">
-						<label class="govuk-label" for="sort">
-							Address
-						</label>
-						<select class="govuk-select" id="sort" name="sort">
-							<option value="published" selected>15 Pevensey Rd, Eastbourne BN21 3HR</option>
-							<option value="updated">17 Pevensey Rd, Eastbourne BN21 3HR</option>
-							<option value="views">19 Pevensey Rd, Eastbourne BN21 3HR</option>
-							<option value="comments">21 Pevensey Rd, Eastbourne BN21 3HR</option>
-						</select>
-					</div>
-
-					<a href="#" class="govuk-link" style="margin-bottom: 10px"> Clear search</a>
-
-
-			</div>
-
-			<!-- Address 1 - other stuff -->
-			<div id="other-stuff-1">
-
-				<div class="govuk-form-group js-no-return-to-workflow " style="margin-bottom: 0px">
-					<div class='govuk-checkboxes govuk-checkboxes--small' value="no"  data-module='govuk-checkboxes'>
-						<div class="govuk-checkboxes__item">
-							<input class="govuk-checkboxes__input" id="cannot-find" name="undisclosed" type="checkbox">
-							<label class="govuk-label govuk-checkboxes__label" for="cannot-find">
-								I cannot find the address on the list
-							</label>
-						</div>
-					</div>
-				</div>
-
-				<div class="govuk-form-group" style="margin-bottom: 0px">
-					<div class='govuk-checkboxes govuk-checkboxes--small' data-module='govuk-checkboxes'>
-						<div class="govuk-checkboxes__item">
-							<input class="govuk-checkboxes__input" id="care-of" name="undisclosed" type="checkbox">
-							<label class="govuk-label govuk-checkboxes__label" for="care-of">
-								This is a care of address
-							</label>
-						</div>
-					</div>
-				</div>
-
-				<h3 class="govuk-heading-s" style="margin-bottom: 10px; margin-top: 10px;">Select lenders
-					for this address
-				</h3>
-
-				<div class="govuk-form-group" style="margin-bottom: 0px">
-					<div class='govuk-checkboxes govuk-checkboxes--small' data-module='govuk-checkboxes'>
-						<div class="govuk-checkboxes__item">
-							<input class="govuk-checkboxes__input" id="name-1" name="name-1" type="checkbox"
-								value="name-1">
-							<label class="govuk-label govuk-checkboxes__label" for="name-1">
-								Arthur Boyle
-							</label>
-						</div>
-					</div>
-				</div>
-
-				<div class="govuk-form-group" style="margin-bottom: 0px">
-					<div class='govuk-checkboxes govuk-checkboxes--small' data-module='govuk-checkboxes'>
-						<div class="govuk-checkboxes__item">
-							<input class="govuk-checkboxes__input" id="name-2" name="name-2" type="checkbox"
-								value="name-2">
-							<label class="govuk-label govuk-checkboxes__label" for="name-2">
-								Marianne Malkovic
-							</label>
-						</div>
-					</div>
-
-
-				</div>
-
-
-				<div class="task-lists-submit" style="padding-top: 10px;">
-
-					<a href="../../address-proto/v9/04-address.html" id='save-address-1' role="button"
-						draggable="false" class="govuk-button ap-secondary-button"> Save address </a>
-
-					<a href="03-address.html" class="govuk-link reject-button">Cancel adding address</a>
-				</div>
-
-
-
-
-
-
-
-			</div>
-
-		</div>
-
-
-
-
-
 
 
 	</div>
@@ -265,59 +208,15 @@ Validity checks
 
 {% block pageScripts %}
 <script>
-
-	//ADD ANOTHER 1
-
-	// button to add another is pressed
-	$('#add-another-1').click(function (e) {
-		//component for adding address 1 is shown - UK address
-		$('#address-1').show()
-		//button to add address 1 is hidden
-		$('#add-another-1').hide()
-	});
-
-
-	// ADDRESS 1
-	// button to add the address is pressed
-	$('#add-address-button-1').click(function (e) {
-		// select address type section gets hidden
-		$('#select-type-1').hide();
-		// enter postcode section is shown
-		$('#select-postcode-1').show();
-		// other stuff section is shown
-		$('#other-stuff-1').show()
-	});
-
-
 	// button to search the address linked to the postcode entered is pressed
-	$('#find-address-button-1').click(function (e) {
-		// enter postcode section gets hidden
+	$('#find-address-button-1').click(function(e){
 		$('#select-postcode-1').hide();
-		// select address from the list section is shown
 		$('#select-address-1').show();
-		// other stuff section is shown
-		$('#other-stuff-1').show()
 	});
 
-
-
-
-	// ADDRESS 2
-
-	// button to add the address is pressed
-	$('#add-address-button-2').click(function (e) {
-		// select address type section gets hidden
-		$('#select-type-2').hide();
-		// enter email is shown
-		$('#enter-email-2').show();
-		// other stuff section is shown
-		$('#other-stuff-2').show()
+	$('#clear-the-search').on('click', function(){
+		$('#select-postcode-1').show();
+		$('#select-address-1').hide();
 	});
-
-
-
-
-
-
 </script>
 {% endblock %}

@@ -59,25 +59,12 @@ Validity checks
 			}) }}
 
 			<form method="post" novalidate>
-				<span class="govuk-caption-m" style="margin-top: 30px;">Create custom lender entry</span>
+				<span class="govuk-caption-m govuk-!-margin-top-3">Create custom lender entry</span>
 				
 				{% include "../v8/includes/inc_add-address-h1.html" %}
 
 				<!-- Notification, if no selected -->
-				<div id="warning" class="govuk-notification-banner" role="region"
-					aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-					<div class="govuk-notification-banner__header">
-						<h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-							Important
-						</h2>
-					</div>
-					<div class="govuk-notification-banner__content">
-						<p class="govuk-notification-banner__heading">
-							<a class="govuk-notification-banner__link" href="workflow-no-drafting">Send to Workflow</a>
-							to complete this application
-						</p>
-					</div>
-				</div>
+				{% include "../v8/includes/inc_warning-banner.html" %}
 
 
 				<!-- Table here-->

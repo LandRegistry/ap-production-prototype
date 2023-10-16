@@ -7,22 +7,11 @@
 Validity checks
 {% endblock %}
 
+{% block stylesheets %}
+	{% include "../v9/includes/inc_block-stylesheets.html" %}
+{% endblock %}
+
 {% block content %}
-
-<style>
-	.ap-secondary-button {
-		background-color: #505a5f;
-	}
-
-	.ap-secondary-button:hover {
-		background-color: #3c4144;
-	}
-
-	.ap-link {
-		font-size: 19px;
-
-	}
-</style>
 
 <!-- application information  -->
 
@@ -52,7 +41,7 @@ Validity checks
 
 <div class="govuk-grid-row">
 
-	<div class="govuk-grid-column-one-half register-column scroll ">
+	<div class="govuk-grid-column-one-half xxxxxregister-column scroll">
 		<div id="register-container">
 
 			{% include "./includes/register.html" %}
@@ -63,89 +52,63 @@ Validity checks
 
 	<!-- Tasks section starts here -->
 
-	<div class="govuk-grid-column-one-half column">
+	<div class="govuk-grid-column-one-half xxxxxcolumn">
 
-		<div class="casework-tasks-container">
-
-			<form method="post">
-
-
-				{{ govukBackLink({
+			{{ govukBackLink({
 				text: "Back",
 				href: "01-transferee"
 				}) }}
 
+								
 
+			<form method="post" novalidate>
 
+				
+				<fieldset class="govuk-fieldset">
+					
+					<legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+						<span class="govuk-caption-m">Create custom lender entry</span>
+						<h1 class="govuk-fieldset__heading">
+							Are all the lender addresses <abbr>UK</abbr> postal addresses?<!--Which addresses are you adding?-->
+						</h1>
+					</legend>
 
-				<span class="govuk-caption-m" style="margin-top: 30px;">Create custom lender entry</span>
-<h1 class="govuk-heading-m"  >Enter all lenders</h1>
+					<!--
+						include "../v9/includes/inc_warning-banner.html" 
+					-->
+					
+					<div class="govuk-radios govuk-radios--small govuk-radios" data-module="govuk-radios">
+						<div class="govuk-radios__item">
+							<input class="govuk-radios__input" id="property-match" name="property-match" type="radio" value="Private individual">
+							<label class="govuk-label govuk-radios__label" for="property-match">
+								Yes
+							</label>
+						</div>
 
-
-				<!-- Notification, if no selected -->
-				<div id="warning" class="govuk-notification-banner" role="region"
-					aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-					<div class="govuk-notification-banner__header">
-						<h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-							Important
-						</h2>
+						<div class="govuk-radios__item">
+							<input class="govuk-radios__input" id="property-match-2" name="property-match" type="radio" value="No">
+							<label class="govuk-label govuk-radios__label" for="property-match-2">
+								No &ndash; Send to Workflow to complete this application
+							</label>
+						</div>
 					</div>
-					<div class="govuk-notification-banner__content">
-						<p class="govuk-notification-banner__heading">
-							<a class="govuk-notification-banner__link" href="workflow-no-drafting">Send to Workflow</a>
-							to complete this application.
-						</p>
-					</div>
-				</div>
-
-
-				<!-- Lender 1 -->
-
-
-
-				 <!-- First task - yes no  -->
-
-				 {{ govukRadios({
-					idPrefix: 'property-match',
-					name: 'property-match',
-					classes: 'js-no-return-to-workflow / govuk-radios--small govuk-radios',
-					fieldset: {
-					  legend: {
-						html: 'Which addressess do you need to add?',
-						classes: 'govuk-fieldset__legend--s'
-					  }
-					},
-					items: [
-					  {
-						html: 'Only UK postal address',
-						value: 'Private individual',
-						checked: checked('property-match','Yes')
-					  },
-					  {
-						html: 'Also something else',
-						value: 'No',
-						checked: checked('property-match','No')
-					  }
-					]
-				  }) }}
+				</fieldset>
 
 
 
 				<!-- Buttons and links -->
-
-				<div class="task-lists-submit" style="padding-top: 10px;">
-					<a href="03-address.html" role="button" draggable="false" class="govuk-button ap-secondary-button"
+				<div class="govuk-button-group govuk-!-margin-top-7">
+					<a id="mainBtn" href="03-address.html" role="button" draggable="false" class="govuk-button ap-secondary-button"
 						data-module="govuk-button">
 						Next
 					</a>
-					<a href="00-cre-codes.html" class="govuk-link reject-button">Cancel creating custom lender entry</a>
+					
+					<span class="govuk-visually-hidden"> | </span><!-- only include this span if above "btn" is a hyperlink -->
+
+					<a href="00-cre-codes.html" class="govuk-link govuk-link--no-visited-state">Cancel creating custom lender entry</a>
 				</div>
 
 			</form>
-
-
-
-		</div>
 
 	</div> <!-- end Tasks column -->
 
@@ -157,22 +120,23 @@ Validity checks
 
 {% block pageScripts %}
 <script>
+	$('#main-content').find('input[name=property-match]').change(function() {
+		if (this.value == 'No') {
+			$('#warning').show().focus();
+			$('#mainBtn').text('Send to Workflow');
+		}else{
+			$('#warning').blur().hide();
+			$('#mainBtn').text('Next');
+		}
+	});
 
 	//ADD ANOTHER 1
-
 	// button to add another is pressed
-	$('#add-another-1').click(function (e) {
+	/*$('#add-another-1').click(function (e) {
 		//component for adding address 1 is shown - UK address
 		$('#transferee-2').show()
 		//button to add address 1 is hidden
 		$('#add-another-1').hide()
-	});
-
-
-
-
-
-
-
+	});*/
 </script>
 {% endblock %}

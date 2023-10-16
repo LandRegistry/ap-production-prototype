@@ -7,22 +7,11 @@
 Validity checks
 {% endblock %}
 
+{% block stylesheets %}
+	{% include "../v9/includes/inc_block-stylesheets.html" %}
+{% endblock %}
+
 {% block content %}
-
-<style>
-	.ap-secondary-button {
-		background-color: #505a5f;
-	}
-
-	.ap-secondary-button:hover {
-		background-color: #3c4144;
-	}
-
-	.ap-link {
-		font-size: 19px;
-
-	}
-</style>
 
 <!-- application information  -->
 
@@ -62,61 +51,40 @@ Validity checks
 
 
 	<!-- Tasks section starts here -->
+	<div class="govuk-grid-column-one-half">
 
-	<div class="govuk-grid-column-one-half column">
+		<div class="govuk-form-group">
 
-		<div class="casework-tasks-container">
+			{{ govukBackLink({
+				text: "Back",
+				href: "00-cre-codes"
+			}) }}
 
 			<form method="post">
 
-
-				{{ govukBackLink({
-				text: "Back",
-				href: "00-cre-codes"
-				}) }}
-
-
-
-
-				<span class="govuk-caption-m" style="margin-top: 30px;">Create custom lender entry</span>
-				<h1 class="govuk-heading-m">Enter all lenders</h1>
-
+				<span class="govuk-caption-m">Create custom lender entry</span>
+				<h1 class="govuk-heading-m">
+					Who are the lenders?
+				</h1> <!-- Enter all lenders -->
 
 				<!-- Notification, if no selected -->
-				<div id="warning" class="govuk-notification-banner" role="region"
-					aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-					<div class="govuk-notification-banner__header">
-						<h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-							Important
+				<!--
+				include "../v9/includes/inc_warning-banner.html" 
+				-->
+
+				<!-- Lender 1 starts -->
+				<fieldset id="lender-1" class="govuk-fieldset govuk-!-margin-top-2" aria-describedby="lender-1">
+
+					<legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+						<h2 class="govuk-fieldset__heading">
+						  Lender 1
 						</h2>
-					</div>
-					<div class="govuk-notification-banner__content">
-						<p class="govuk-notification-banner__heading">
-							<a class="govuk-notification-banner__link" href="workflow-no-drafting">Send to Workflow</a>
-							to complete this application.
-						</p>
-					</div>
-				</div>
+					</legend>
 
-
-				<!-- Lender 1 -->
-
-
-				<fieldset class="govuk-fieldset" aria-describedby="lender-1" id="lender-1">
-
-					<h2 class="govuk-fieldset__legend--s ">
-						Lender 1
-					</h2>
-
-					<div class="govuk-radios js-no-return-to-workflow  govuk-radios--small" data-module="govuk-radios">
-						<label class="govuk-label" for="sort">
-							Lender type
-						</label>
-
-
-							<!-- Private individual 1 -->
-
-							<div class="govuk-radios__item">
+					<div class="govuk-radios js-no-return-to-workflow1  govuk-radios--small" data-module="govuk-radios">
+						
+						<!-- Private individual 1 -->
+						<div class="govuk-radios__item">
 							<input class="govuk-radios__input" id="individual-1" name="radios-1" type="radio"
 								value="text" data-aria-controls="conditional-individual-1">
 							<label class="govuk-label govuk-radios__label" for="individual-1">
@@ -127,20 +95,19 @@ Validity checks
 							id="conditional-individual-1">
 							<div class="govuk-form-group">
 
-								<label class="govuk-label" for="type-individual-1">
+								<label class="govuk-label" for="type-individual-01">
 									First name
 								</label>
-								<input class="govuk-input govuk-!-width-one-third" id="type-individual-1"
+								<input class="govuk-input govuk-!-width-one-third" id="type-individual-01"
 									name="type-individual-1" type="text" value=''>
 
-								<label class="govuk-label govuk-!-padding-top-4" for="type-individual-1">
+								<label class="govuk-label govuk-!-padding-top-4" for="type-individual-02">
 									Last name
 								</label>
-								<input class="govuk-input govuk-!-width-one-third" id="type-individual-1"
+								<input class="govuk-input govuk-!-width-one-third" id="type-individual-02"
 									name="type-individual-1" type="text" value=''>
 							</div>
 						</div>
-
 
 						<!-- Company number 1 -->
 						<div class="govuk-radios__item">
@@ -183,150 +150,141 @@ Validity checks
 
 						</div>
 
-						<!-- Something else 1 -->
+						<div class="govuk-radios__divider">or</div>
 
+						<!-- Something else 1 -->
 						<div class="govuk-radios__item">
 
 							<input class="govuk-radios__input" id="something-else-1" name="radios-1" type="radio" value="No"
 								data-aria-controls="something-else-1">
 							<label class="govuk-label govuk-radios__label" for="something-else-1">
-								Something else
+								Send to Workflow to complete this application <!--Something else-->
 							</label>
 						</div>
 					</div>
 
 				</fieldset>
+				<!-- Lender 1 ends -->
 
-
-
-
-
-				<p class="govuk-body" style="margin-top: 10px">
-					<a href="#" id="add-another-1" class="govuk-link govuk-link--no-visited-state">Add another
-						lender</a>
-				</p>
-
-
-
-
-
-				<!-- LENDER 2 -->
-
-				<div id="lender-2" style="display: none">
-
-					<fieldset class="govuk-fieldset" aria-describedby="lender-2" id="lender-2">
-
-						<h2 class="govuk-fieldset__legend--s ">
+				<!-- Lender 2 -->
+				<fieldset id="lender-2" class="govuk-fieldset govuk-!-margin-top-6 hmlr-fieldset-right-link" aria-describedby="lender-2" style="display: none">
+					
+					<legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+						<h2 class="govuk-fieldset__heading">
 							Lender 2
 						</h2>
+					</legend>
 
-						<div class="govuk-radios js-no-return-to-workflow  govuk-radios--small" data-module="govuk-radios">
-							<label class="govuk-label" for="sort">
-								Lender type
+					<p id="add-another-lender-link" class="govuk-body govuk-!-font-size-16 hmlr-fieldset-right-link_target">
+						<a href="#" id="remove-another-1" class="govuk-link govuk-link--no-visited-state">Remove<span class="govuk-visually-hidden"> lender 2</span></a> 
+					</p>
+
+					<div class="govuk-radios js-no-return-to-workflow1 govuk-radios--small" data-module="govuk-radios">
+						<!-- Private individual 2 -->
+						<div class="govuk-radios__item">
+							<input class="govuk-radios__input" id="individual-2" name="radios-2" type="radio"
+								value="text" data-aria-controls="conditional-individual-2">
+							<label class="govuk-label govuk-radios__label" for="individual-2">
+								Private individual
 							</label>
+						</div>
+						<div class="govuk-radios__conditional govuk-radios__conditional--hidden govuk-!-padding-top-2"
+							id="conditional-individual-2">
+							<div class="govuk-form-group">
 
-
-								<!-- Private individual 2 -->
-
-								<div class="govuk-radios__item">
-								<input class="govuk-radios__input" id="individual-2" name="radios-2" type="radio"
-									value="text" data-aria-controls="conditional-individual-2">
-								<label class="govuk-label govuk-radios__label" for="individual-2">
-									Private individual
+								<label class="govuk-label" for="type-individual-03">
+									First name
 								</label>
-							</div>
-							<div class="govuk-radios__conditional govuk-radios__conditional--hidden govuk-!-padding-top-2"
-								id="conditional-individual-2">
-								<div class="govuk-form-group">
+								<input class="govuk-input govuk-!-width-one-third" id="type-individual-03"
+									name="type-individual-2" type="text" value=''>
 
-									<label class="govuk-label" for="type-individual-2">
-										First name
-									</label>
-									<input class="govuk-input govuk-!-width-one-third" id="type-individual-2"
-										name="type-individual-2" type="text" value=''>
-
-									<label class="govuk-label govuk-!-padding-top-4" for="type-individual-2">
-										Last name
-									</label>
-									<input class="govuk-input govuk-!-width-one-third" id="type-individual-2"
-										name="type-individual-2" type="text" value=''>
-								</div>
-							</div>
-
-
-							<!-- Company number 2 -->
-							<div class="govuk-radios__item">
-
-								<input class="govuk-radios__input" id="company-2" name="radios-2" type="radio" value="text"
-									data-aria-controls="conditional-company-2">
-								<label class="govuk-label govuk-radios__label" for="company-2">
-									UK based company
+								<label class="govuk-label govuk-!-padding-top-4" for="type-individual-04">
+									Last name
 								</label>
-							</div>
-							<div class="govuk-radios__conditional govuk-radios__conditional--hidden govuk-!-padding-top-2"
-								id="conditional-company-2">
-								<div class="govuk-form-group">
-									<label class="govuk-label" for="type-company-name-2">
-										Company name
-									</label>
-									<input class="govuk-input govuk-!-width-one-third" value='' id="type-company-name-2"
-										name="type-company-name-2" type="text">
-
-									<label class="govuk-label govuk-!-padding-top-4" for="type-company-number-2">
-										Company number
-									</label>
-									<div id="more-detail-hint" class="govuk-hint">
-										Include any prefix, for example, NI or SC
-									</div>
-									<input class="govuk-input govuk-!-width-one-third" value='' id="type-company-number-2"
-										name="type-company-number-2" type="text">
-
-									<div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-										<div class="govuk-checkboxes__item">
-											<input class="govuk-checkboxes__input" id="not-found-2" name="not-found-2"
-												type="checkbox" value="not-found-2">
-											<label class="govuk-label govuk-checkboxes__label" for="not-found-2">
-												I cannot find the company number
-											</label>
-										</div>
-									</div>
-
-								</div>
-
-							</div>
-
-							<!-- Something else 1 -->
-
-							<div class="govuk-radios__item">
-
-								<input class="govuk-radios__input" id="something-else-2" name="radios-2" type="radio" value="No"
-									data-aria-controls="something-else-2">
-								<label class="govuk-label govuk-radios__label" for="something-else-2">
-									Something else
-								</label>
+								<input class="govuk-input govuk-!-width-one-third" id="type-individual-04"
+									name="type-individual-2" type="text" value=''>
 							</div>
 						</div>
 
-					</fieldset>
+
+						<!-- Company number 2 -->
+						<div class="govuk-radios__item">
+
+							<input class="govuk-radios__input" id="company-2" name="radios-2" type="radio" value="text"
+								data-aria-controls="conditional-company-2">
+							<label class="govuk-label govuk-radios__label" for="company-2">
+								UK based company
+							</label>
+						</div>
+						<div class="govuk-radios__conditional govuk-radios__conditional--hidden govuk-!-padding-top-2"
+							id="conditional-company-2">
+							<div class="govuk-form-group">
+								<label class="govuk-label" for="type-company-name-2">
+									Company name
+								</label>
+								<input class="govuk-input govuk-!-width-one-third" value='' id="type-company-name-2"
+									name="type-company-name-2" type="text">
+
+								<label class="govuk-label govuk-!-padding-top-4" for="type-company-number-2">
+									Company number
+								</label>
+								<div id="more-detail-hint" class="govuk-hint">
+									Include any prefix, for example, NI or SC
+								</div>
+								<input class="govuk-input govuk-!-width-one-third" value='' id="type-company-number-2"
+									name="type-company-number-2" type="text">
+
+								<div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+									<div class="govuk-checkboxes__item">
+										<input class="govuk-checkboxes__input" id="not-found-2" name="not-found-2"
+											type="checkbox" value="not-found-2">
+										<label class="govuk-label govuk-checkboxes__label" for="not-found-2">
+											I cannot find the company number
+										</label>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="govuk-radios__divider">or</div>
+
+						<!-- Something else 1 -->
+						<div class="govuk-radios__item">
+
+							<input class="govuk-radios__input" id="something-else-2" name="radios-2" type="radio" value="No"
+								data-aria-controls="something-else-2">
+							<label class="govuk-label govuk-radios__label" for="something-else-2">
+								Send to Workflow to complete this application <!--Something else-->
+							</label>
+						</div>
+					</div>
+
+				</fieldset>
+				<!-- Lender 2 ends -->
 
 
-
-					<p class="govuk-body" style="margin-top: 10px">
-						<a href="#" class="govuk-link govuk-link--no-visited-state">Add another lender</a>
-					</p>
+				<!-- if user accidently selects 'add another lender' and wants to remove it they can't and then how do we error message the second lender form because values will be missing - user may not know they can remove this later? 
+					User should really be adding address per page paginating through until they've finished and then they move on to the next page. DH -->
 
 
-				</div>
-
+				<p id="add-another-lender-link" class="govuk-body govuk-!-margin-top-2 govuk-!-font-size-16">
+					<a href="#" id="add-another-1" class="govuk-link govuk-link--no-visited-state">Add another lender</a> 
+				</p>	
+				
+								
 
 				<!-- Buttons and links -->
-
-				<div class="task-lists-submit" style="padding-top: 10px;">
-					<a href="02-filter.html" role="button" draggable="false" class="govuk-button ap-secondary-button"
+				<div class="govuk-button-group govuk-!-margin-top-7">
+					<a id="mainBtn" href="02-filter.html" role="button" draggable="false" class="govuk-button ap-secondary-button"
 						data-module="govuk-button">
 						Next
 					</a>
-					<a href="00-cre-codes.html" class="govuk-link reject-button">Cancel creating custom lender entry</a>
+					
+					<span class="govuk-visually-hidden"> | </span><!-- only include this span if above "btn" is a hyperlink -->
+
+					<a href="00-cre-codes.html" class="govuk-link govuk-link--no-visited-state">Cancel creating custom lender entry</a>
 				</div>
 
 			</form>
@@ -338,29 +296,49 @@ Validity checks
 	</div> <!-- end Tasks column -->
 
 </div>
-
-
 {% endblock %}
 
 
 {% block pageScripts %}
 <script>
+	function setLender(n,v){
+		$('#lender-'+''+n+'').find('.govuk-radios__input').prop('disabled', v);//.prop("checked", false);
 
-	//ADD ANOTHER 1
+		if(v == true){
+			$('#add-another-1').hide();
+			$('#warning').show().focus();
+			$('#mainBtn').text('Send to Workflow');
+			$('#lender-1').add('#lender-2').find('input:checked').parent().next('.govuk-radios__conditional').addClass('govuk-radios__conditional--hidden');
+		}else{
+			$('#add-another-1').show();
+			$('#warning').hide().blur();
+			$('#mainBtn').text('Next');
+			$('#lender-1').add('#lender-2').find('input:checked').parent().next('.govuk-radios__conditional').removeClass('govuk-radios__conditional--hidden');
+		}
+	}
 
-	// button to add another is pressed
-	$('#add-another-1').click(function (e) {
-		//component for adding address 1 is shown - UK address
-		$('#lender-2').show()
-		//button to add address 1 is hidden
-		$('#add-another-1').hide()
+	$('#lender-1').find('input[name=radios-1]').change(function() {
+		if (this.value == 'No') {
+			setLender('2',true);
+		}else{
+			setLender('2',false);
+		}
 	});
 
+	$('#lender-2').find('input[name=radios-2]').change(function() {
+		if (this.value == 'No') {
+			setLender('1',true);
+		}else{
+			setLender('1',false);
+		}
+	});
 
+	$('#add-another-1').click(function (e) {
+		$('#lender-2').show();
+	});
 
-
-
-
-
+	$('#remove-another-1').click(function (e) {
+		$('#lender-2').hide().find('input').val('').prop('checked', false);
+	});
 </script>
 {% endblock %}

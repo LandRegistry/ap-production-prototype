@@ -7,22 +7,11 @@
 Validity checks
 {% endblock %}
 
+{% block stylesheets %}
+	{% include "../v9/includes/inc_block-stylesheets.html" %}
+{% endblock %}
+
 {% block content %}
-
-<style>
-	.ap-secondary-button {
-		background-color: #505a5f;
-	}
-
-	.ap-secondary-button:hover {
-		background-color: #3c4144;
-	}
-
-	.ap-link {
-		font-size: 19px;
-
-	}
-</style>
 
 <!-- application information  -->
 
@@ -68,39 +57,20 @@ Validity checks
 
 		<div class="casework-tasks-container">
 
-			<form method="post">
+			{{ govukBackLink({
+			text: "Back",
+			href: "03-address-no-tab"
+			}) }}
 
-
-				{{ govukBackLink({
-				text: "Back",
-				href: "03-address-no-tab"
-				}) }}
-
-				<span class="govuk-caption-m" style="margin-top: 30px;">Create custom lender entry</span>
-<h1 class="govuk-heading-m"  >Enter all addresses</h1>
-
-
-
-				<!-- Notification, if no selected -->
-				<div id="warning" class="govuk-notification-banner" role="region"
-					aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-					<div class="govuk-notification-banner__header">
-						<h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-							Important
-						</h2>
-					</div>
-					<div class="govuk-notification-banner__content">
-						<p class="govuk-notification-banner__heading">
-							<a class="govuk-notification-banner__link" href="workflow-no-drafting">Send to Workflow</a>
-							to complete this application.
-						</p>
-					</div>
-				</div>
+			<form method="post" novalidate>
+				<span class="govuk-caption-m govuk-!-margin-top-3">Create custom lender entry</span>
+				
+				{% include "../v9/includes/inc_add-address-h1.html" %}
 
 
 				<!-- Table here-->
 
-				<table class="govuk-table" style="margin-bottom: 20px;">
+				<table class="govuk-table govuk-!-margin-bottom-2">
 					<thead class="govuk-table__head">
 						<tr class="govuk-table__row">
 							<th scope="col" class="govuk-table__header">Lender</th>
@@ -109,52 +79,53 @@ Validity checks
 						</tr>
 					</thead>
 					<tbody class="govuk-table__body">
-
 						<tr class="govuk-table__row">
-							<td class="govuk-table__cell"> Arthur Boyle <br>
-								Marianne Malkovic</th>
+							<td class="govuk-table__cell"> 
+								<span class="govuk-!-display-block">Arthur Boyle.</span>
+								
+								<span class="govuk-!-display-block">Marianne Malkovic.</span>
+							</th>
 							<td class="govuk-table__cell">15 Pevensey Rd, Eastbourne, BN21 3HR</td>
 							<td class="govuk-table__cell">
-								<a href="03-address.html" class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state">Change</a>
-								<a href="02-address.html" class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state">Remove</a>
+								<ul class="govuk-list govuk-list--spaced">
+									<li class="">
+										<a href="03-address-no-tab.html" class="govuk-link govuk-!-font-size-16 govuk-link--no-visited-state">
+											Change <span class="govuk-visually-hidden">address for lender(s) 1</span>
+										</a>
+									</li>
+									<li>
+										<a href="03-address.html" class="govuk-link govuk-!-font-size-16 govuk-link--no-visited-state">
+											Remove <span class="govuk-visually-hidden">address for lender(s) 1</span>
+										</a>
+									</li>
+								</ul>
 							</td>
 						</tr>
-
-
-
-
-					</tbody>
+					</tbody>					
 				</table>
 
-
-
-
-				<a id='add-another-1' href="" class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state">
-					Add address</a>
-
-		</div>
-
-
-		<!-- Address 1 component  -->
-
-
-		<div class="govuk-form-group" style="margin-top: 20px;">
-
-		</div>
-
-		<div class="task-lists-submit">
-			<a href="10-cre-codes.html" role="button" draggable="false" class="govuk-button ap-secondary-button" data-module="govuk-button">
-				Create custom lender entry
+				<a id='add-another-1' href="../v9/03-address-no-tab.html" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16">
+					Add address
 				</a>
-			<a href="00-cre-codes.html" class="govuk-link reject-button">Cancel creating custom lender entry</a>
-		</div>
 
+			</div>
 
+			<div class="govuk-button-group govuk-!-margin-top-7">
+				<a id="mainBtn" href="10-cre-codes.html" role="button" draggable="false" class="govuk-button ap-secondary-button"
+					data-module="govuk-button">
+					Create custom lender entry
+				</a>
+
+				<span class="govuk-visually-hidden"> | </span><!-- only include this span if above "btn" is a hyperlink -->
+
+				<a href="00-cre-codes.html" class="govuk-link govuk-link--no-visited-state">Cancel creating custom lender entry</a>
+			</div> 
+
+		</form>
 
 
 
 	</div>
-
 
 </div>
 
