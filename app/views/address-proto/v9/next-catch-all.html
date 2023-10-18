@@ -13,24 +13,23 @@ Validity checks
 
 {% block content %}
 
-
+<style>
+	header .govuk-header__link {
+		display: inline-block; 
+		text-indent: -3000px;
+	}
+</style>
 <!-- application information  -->
 
 <div class="govuk-grid-row ap-no-row-l-r-margin">
 	<div id="application-info-container">
 		<div class="govuk-grid-column-three-quarters ap-no-column-l-r-padding">
-			<h1 class="govuk-heading-m application-type">{{ appnType | d('Transfer Not For Value and RX1') }}</h1>
 
-			<span class="govuk-body">ABR: </span><span class="abr govuk-body">{{ abrNumber | d('A123XYZ') }}</span>
-			<span class="govuk-body">Title: </span><span class="title-number govuk-body">{{ titleNumber | d('DN1000')
-				}}</span>
 
 		</div>
 
 		<div class="govuk-grid-column-one-quarter ap-no-column-r-padding">
-			<p id="documents-launcher">
-				<a href="#" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">Application documents</a>
-			</p>
+
 		</div>
 	</div>
 </div>
@@ -40,12 +39,20 @@ Validity checks
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-full hmlr-min-height-375">
 
+		<noscript>This page requires JavaScript support.</noscript>
+
 		<p class="govuk-body">
 			This journey is not part of the user testing scenario: <br>
 
-			<a href="#" class="govuk-link govuk-link--no-visited-state govuk-!-display-inline-block govuk-!-margin-top-3" onclick="history.back()" rel="noreferrer noopener">
-				&lt; Return to previous page
+			<a href="#" class="govuk-link govuk-link--no-visited-state govuk-!-display-inline-block govuk-!-margin-top-5" onclick="history.back()" rel="noreferrer noopener">
+				&lt; Go back to the previous page
 			</a>			
+			<br>
+			<span class="govuk-!-display-inline-block govuk-!-margin-top-3">or</span>
+			<br>
+			<a href="index" class="govuk-link govuk-link--no-visited-state govuk-!-display-inline-block govuk-!-margin-top-3" rel="noreferrer noopener">
+				&lt; Go to the start page
+			</a>
 		</p>
 
 	</div>

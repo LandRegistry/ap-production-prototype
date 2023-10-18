@@ -161,7 +161,7 @@ Validity checks
 
 
 								<div class="govuk-button-group govuk-!-margin-top-7">
-									<a href="../../address-proto/v8/03-address.html" id='save-address-1' role="button" draggable="false" class="govuk-button ap-secondary-button">Save address</a>
+									<a href="03-address.html" id='save-address-1' role="button" draggable="false" class="govuk-button ap-secondary-button">Save address</a>
 
 									<span class="govuk-visually-hidden"> | </span><!-- only include this span if above "btn" is a hyperlink -->
 
@@ -186,6 +186,7 @@ Validity checks
 {% block pageScripts %}
 <script>
 	$(document).ready(function() {
+		var originalURL = $('#save-address-1').attr('href');
 
 		// button to search the address linked to the postcode entered is pressed
 		$('#find-address-button-1').click(function(e){
@@ -194,6 +195,7 @@ Validity checks
 		});
 
 		function clearTheSearch(){
+			$('#address-postcode').val('');
 			$('#select-postcode-1').show();
 			$('#select-address-1').hide();
 		}
@@ -206,10 +208,10 @@ Validity checks
 			if ($(this).is(':checked')) {
 				$('#warning').show();
 				clearTheSearch();
-				$('mainBtn').text('Send to Workflow');
+				$('#save-address-1').attr('href','next-catch-all').text('Send to Workflow').removeClass('ap-secondary-button');
 			}else{
 				$('#warning').hide();
-				$('mainBtn').text('Save address');
+				$('#save-address-1').attr('href',originalURL).text('Save address').addClass('ap-secondary-button');
 			}
 		});
 	});

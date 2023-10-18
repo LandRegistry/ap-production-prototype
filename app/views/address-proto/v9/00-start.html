@@ -197,7 +197,7 @@ Validity checks
 				
 				<span class="govuk-visually-hidden"> | </span><!-- only include this span if above "btn" is a hyperlink -->
 
-				<a href="index" class="govuk-link govuk-link--no-visited-state">Return to Workflow</a>
+				<a href="next-catch-all" class="govuk-link govuk-link--no-visited-state">Return to Workflow</a>
 			</div>
 				
 
@@ -209,16 +209,21 @@ Validity checks
 </div>
 
 <script>
-window.onload = (event) => {
-	$('#checkbox-md').change(function(){
-		if ($(this).is(':checked')) {
-			$('#warning-message').show();
-			$('#mainBtn').text('Send to Workflow');
-		}else{
-			$('#warning-message').hide();
-			$('#mainBtn').text('Next');
-		}
-	});
-};
+	window.onload = (event) => {
+		
+		mainBtn = $('#mainBtn');
+		var originalURL = mainBtn.attr('href');
+		warningMsg = $('#warning-message');
+	
+		$('#checkbox-md').change(function(){
+			if ($(this).is(':checked')) {
+				warningMsg.show();
+				mainBtn.text('Send to Workflow').attr('href','next-catch-all');
+			}else{
+				warningMsg.hide();
+				mainBtn.text('Next').attr('href', originalURL);
+			}
+		});
+	};
 </script>
 {% endblock %}

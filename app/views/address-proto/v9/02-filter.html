@@ -73,9 +73,7 @@ Validity checks
 						</h1>
 					</legend>
 
-					<!--
-						include "../v9/includes/inc_warning-banner.html" 
-					-->
+					{% include "../v9/includes/inc_warning-banner.html" %}
 					
 					<div class="govuk-radios govuk-radios--small govuk-radios" data-module="govuk-radios">
 						<div class="govuk-radios__item">
@@ -120,13 +118,16 @@ Validity checks
 
 {% block pageScripts %}
 <script>
+$(document).ready(function() {
+	var originalURL = $('#mainBtn').attr('href');
+
 	$('#main-content').find('input[name=property-match]').change(function() {
 		if (this.value == 'No') {
 			$('#warning').show().focus();
-			$('#mainBtn').text('Send to Workflow');
+			$('#mainBtn').text('Send to Workflow').attr('href', 'next-catch-all').removeClass('ap-secondary-button');
 		}else{
 			$('#warning').blur().hide();
-			$('#mainBtn').text('Next');
+			$('#mainBtn').text('Next').attr('href',originalURL).addClass('ap-secondary-button');
 		}
 	});
 
@@ -138,5 +139,6 @@ Validity checks
 		//button to add address 1 is hidden
 		$('#add-another-1').hide()
 	});*/
+});
 </script>
 {% endblock %}

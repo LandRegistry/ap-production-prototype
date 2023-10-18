@@ -68,9 +68,7 @@ Validity checks
 				</h1> <!-- Enter all lenders -->
 
 				<!-- Notification, if no selected -->
-				<!--
-				include "../v9/includes/inc_warning-banner.html" 
-				-->
+				{% include "../v9/includes/inc_warning-banner.html" %}				
 
 				<!-- Lender 1 starts -->
 				<fieldset id="lender-1" class="govuk-fieldset govuk-!-margin-top-2" aria-describedby="lender-1">
@@ -130,8 +128,8 @@ Validity checks
 								<label class="govuk-label govuk-!-padding-top-4" for="type-company-number-1">
 									Company number
 								</label>
-								<div id="more-detail-hint" class="govuk-hint">
-									Include any prefix, for example, NI or SC
+								<div id="more-detail-hint" class="govuk-hint govuk-!-font-size-16">
+									Include any prefixes such as <abbr>NI</abbr> or <abbr>SC</abbr> 
 								</div>
 								<input class="govuk-input govuk-!-width-one-third" value='' id="type-company-number-1"
 									name="type-company-number-1" type="text">
@@ -301,18 +299,21 @@ Validity checks
 
 {% block pageScripts %}
 <script>
+$(document).ready(function() {
+	var originalURL = $('#mainBtn').attr('href');
+
 	function setLender(n,v){
 		$('#lender-'+''+n+'').find('.govuk-radios__input').prop('disabled', v);//.prop("checked", false);
 
 		if(v == true){
 			$('#add-another-1').hide();
 			$('#warning').show().focus();
-			$('#mainBtn').text('Send to Workflow');
+			$('#mainBtn').text('Send to Workflow').attr('href','next-catch-all').removeClass('ap-secondary-button');
 			$('#lender-1').add('#lender-2').find('input:checked').parent().next('.govuk-radios__conditional').addClass('govuk-radios__conditional--hidden');
 		}else{
 			$('#add-another-1').show();
 			$('#warning').hide().blur();
-			$('#mainBtn').text('Next');
+			$('#mainBtn').text('Next').attr('href',originalURL).addClass('ap-secondary-button');
 			$('#lender-1').add('#lender-2').find('input:checked').parent().next('.govuk-radios__conditional').removeClass('govuk-radios__conditional--hidden');
 		}
 	}
@@ -340,5 +341,7 @@ Validity checks
 	$('#remove-another-1').click(function (e) {
 		$('#lender-2').hide().find('input').val('').prop('checked', false);
 	});
+
+});	
 </script>
 {% endblock %}

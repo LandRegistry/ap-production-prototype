@@ -243,7 +243,7 @@ Validity checks
 				<!-- First task - yes no  -->
 				<!-- Other than UK postal addresses is there anything else you want to add? -->
 
-				<div class="govuk-!-margin-top-7">
+				<div class="govuk-!-margin-top-7"><!-- old text 'Do you need to add anything else?' Replacement text as supplied! [sic] -->
 
 					{{ govukRadios({
 					idPrefix: 'property-match',
@@ -251,7 +251,7 @@ Validity checks
 					classes: 'govuk-radios--small govuk-radios--inline',
 					fieldset: {
 					legend: {
-					html: 'Do you need to add anything else?',
+					html: 'Other than <abbr>UK</abbr> postal address, are there any more addresses for service that need to be added',
 					classes: 'govuk-fieldset__legend--s'
 					}
 					},
@@ -307,13 +307,16 @@ Validity checks
 
 {% block pageScripts %}
 <script>
+$(document).ready(function() {
+	var originalURL = $('#mainBtn').attr('href');
+
 	$('#main-content').find('input[name=property-match]').change(function() {
 		if (this.value == 'Yes') {
 			$('#warning').show(); 
-			$('#mainBtn').text('Send to Workflow');
+			$('#mainBtn').text('Send to Workflow').attr('href','next-catch-all').removeClass('ap-secondary-button');;
 		}else{
 			$('#warning').hide();
-			$('#mainBtn').text('Create custom lender entry');
+			$('#mainBtn').text('Create custom lender entry').attr('href',originalURL).addClass('ap-secondary-button');;
 		}
 	});
 
@@ -358,5 +361,6 @@ Validity checks
 		$('#other-stuff-2').show()
 	});
 */	
+});
 </script>
 {% endblock %}

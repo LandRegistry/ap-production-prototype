@@ -19,11 +19,24 @@
             float: left; 
         }
 
+        /*position: relative; right: -40%;*/
         .hmlr-fieldset-right-link_target {
             display: inline-block;
-            position: relative;
-            right: -40%;
+
+            margin-left: govuk-spacing(4); 
         }
+
+        .govuk-fieldset__legend--s + .govuk-\!-font-size-16.hmlr-fieldset-right-link_target a {
+            line-height: 1.6;
+        }
+
+        .govuk-fieldset__legend--m + .govuk-\!-font-size-16.hmlr-fieldset-right-link_target a {
+            line-height: 2.1;
+        } 
+        
+        .govuk-fieldset__legend--l + .govuk-\!-font-size-16.hmlr-fieldset-right-link_target a {
+            line-height: 3.1;
+        }        
 
     }
 }
