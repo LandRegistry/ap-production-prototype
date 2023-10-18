@@ -208,15 +208,33 @@ Validity checks
 
 {% block pageScripts %}
 <script>
-	// button to search the address linked to the postcode entered is pressed
-	$('#find-address-button-1').click(function(e){
-		$('#select-postcode-1').hide();
-		$('#select-address-1').show();
-	});
+	$(document).ready(function() {
 
-	$('#clear-the-search').on('click', function(){
-		$('#select-postcode-1').show();
-		$('#select-address-1').hide();
+		// button to search the address linked to the postcode entered is pressed
+		$('#find-address-button-1').click(function(e){
+			$('#select-postcode-1').hide();
+			$('#select-address-1').show();
+		});
+
+		function clearTheSearch(){
+			$('#select-postcode-1').show();
+			$('#select-address-1').hide();
+		}
+
+		$('#clear-the-search').on('click', function(){
+			clearTheSearch();
+		});
+
+		$('#cannot-find').change(function(){
+			if ($(this).is(':checked')) {
+				$('#warning').show();
+				clearTheSearch();
+				$('mainBtn').text('Send to Workflow');
+			}else{
+				$('#warning').hide();
+				$('mainBtn').text('Save address');
+			}
+		});
 	});
 </script>
 {% endblock %}

@@ -1,0 +1,224 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+{{ appnType | d('Transfer Not For Value and RX1') }}, ABR: {{ abrNumber | d('A123XYZ') }}, Title Number: {{ titleNumber
+| d('DN1000') }}.
+
+Validity checks
+{% endblock %}
+
+{% block stylesheets %}
+	{% include "../v9/includes/inc_block-stylesheets.html" %}
+{% endblock %}
+
+{% block content %}
+
+
+<!-- application information  -->
+
+<div class="govuk-grid-row ap-no-row-l-r-margin">
+	<div id="application-info-container">
+		<div class="govuk-grid-column-three-quarters ap-no-column-l-r-padding">
+			<h1 class="govuk-heading-m application-type">{{ appnType | d('Transfer Not For Value and RX1') }}</h1>
+
+			<span class="govuk-body">ABR: </span><span class="abr govuk-body">{{ abrNumber | d('A123XYZ') }}</span>
+			<span class="govuk-body">Title: </span><span class="title-number govuk-body">{{ titleNumber | d('DN1000')
+				}}</span>
+
+		</div>
+
+		<div class="govuk-grid-column-one-quarter ap-no-column-r-padding">
+			<p id="documents-launcher">
+				<a href="_document-viewer-a.html" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">Application documents</a>
+			</p>
+		</div>
+	</div>
+</div>
+
+<!-- end - application information  -->
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-one-half register-column scroll ">
+		<div id="register-container">
+
+			{% include "./includes/register.html" %}
+
+		</div>
+	</div>
+
+	<!-- Tasks section starts here -->
+	<div class="govuk-grid-column-one-half xxxxxhmlr-tasks-column"> 
+		<!-- html content lifted directly from https://hmlr-application-processing.herokuapp.com/charges/v8/b/03-your-tasks-1  - fixed a lot of the broken html so the DOM will be different -->
+
+		{{ govukBackLink({
+			text: "Back",
+			href: "index"
+			}) }}
+
+		<form method="post" novalidate>
+				
+			<h2 class="govuk-heading-m casework-tasks-heading">
+				Your tasks
+			</h2>
+		
+			<div id="warning-message" role="alert" tabindex="-1" class="notification-container govuk-!-margin-bottom-6" style="display: none;">
+				<div class="notification notification-warning">
+					<div class="notification-icon-container notification-warning">
+						<span class="notification-icon"></span>
+					</div>
+					<div class="notification-text">
+						<h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application cannot be completed</h2>
+						<p class="govuk-!-margin-bottom-0">Return to Workflow to process this application</p>
+					</div>
+				</div>
+			</div>
+		
+			<!-- MD REFERENCE - EDIT -->
+		
+			<h3 class="govuk-heading-s" style="margin-bottom:0px">
+				Charge details
+			</h3>
+		
+			<table class="govuk-table govuk-!-margin-bottom-2">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header"></th>
+						<th scope="col" class="govuk-table__header"></th>
+						<th scope="col" class="govuk-table__header"></th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">
+							MD Reference
+						</th>
+						<td class="govuk-table__cell">
+							MD895712
+
+							<!--div id="editing-md" style="display: none">
+					
+								<div class="govuk-form-group govuk-!-margin-bottom-1">
+									<div class="govuk-input__wrapper">
+										
+										<div class="govuk-input__prefix" aria-hidden="true">
+											MD
+										</div>
+
+										<input class="govuk-input govuk-input--width-5" id="md-ref-field" name="md-ref" type="text" spellcheck="false" value="895712">
+									</div>
+								</div>
+								<div style="display:flex">
+									<a href="../b/03-your-tasks-2.html" id="save-md-ref-button" role="button" draggable="false" class="govuk-button govuk-button--secondary" style="
+									margin-bottom: 8px; margin-top: 4px;"> Save changes </a>
+						
+									<a id="save-md-ref-button" role="button" draggable="false" class="govuk-link" style="margin-top: 11px; margin-left:15px;"> Cancel changes </a>
+								</div>
+
+							</div-->
+						</td>
+						<td class="govuk-table__cell">
+							<a href="next-catch-all.html" class="govuk-link govuk-!-font-size-16 govuk-link--no-visited-state">
+								Change <span class="govuk-visually-hidden">the <abbr>MD</abbr> reference</span>
+							</a>
+						</td>
+					</tr>
+				</tbody>
+				<tbody class="govuk-table__body">
+					<tr id="chargee-name" class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Lender name</th>
+						<td class="govuk-table__cell">Halifax</td>
+						<td class="govuk-table__cell"></td>
+					</tr>							
+				</tbody>
+			</table>
+	
+
+			
+			<div class="govuk-form-group">
+			
+				<div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+						
+						<div class="govuk-checkboxes__item">
+							<input class="govuk-checkboxes__input" id="checkbox-md" name="undisclosed" type="checkbox" value="No">
+							<label class="govuk-label govuk-checkboxes__label" for="checkbox-md">
+								Charge does not have an MD reference
+							</label>
+						</div>
+					
+				</div>
+			
+			</div>
+
+
+			
+			<!--div id="special-instructions"> 
+				
+				<div class="govuk-form-group">
+					<fieldset class="govuk-fieldset" aria-describedby="note-proceed-hint">
+					
+						<legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+							There is a note associated with the mortgage document. Can the charge be added?
+						</legend>
+					
+					
+						<div id="note-proceed-hint" class="govuk-hint">
+						To check the note go to CAVE
+						</div>
+					
+					
+						<div class="govuk-radios  govuk-radios--small govuk-radios--inline">
+								
+							<div class="govuk-radios__item">
+								<input class="govuk-radios__input" id="note-proceed" name="note-proceed" type="radio" value="Yes">
+								<label class="govuk-label govuk-radios__label" for="note-proceed">
+									Yes
+								</label>
+							</div>
+								
+							<div class="govuk-radios__item">
+								<input class="govuk-radios__input" id="note-proceed-2" name="note-proceed" type="radio" value="No">
+								<label class="govuk-label govuk-radios__label" for="note-proceed-2">
+									No
+								</label>
+							</div>
+							
+						</div>
+				
+					</fieldset>
+				</div>
+			
+			</div-->
+					
+			<div class="govuk-button-group govuk-!-margin-top-7">
+				<a id="mainBtn" href="00-cre-codes" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+					Next
+				</a>
+				
+				<span class="govuk-visually-hidden"> | </span><!-- only include this span if above "btn" is a hyperlink -->
+
+				<a href="index" class="govuk-link govuk-link--no-visited-state">Return to Workflow</a>
+			</div>
+				
+
+
+		</form>
+		  
+	</div>
+
+</div>
+
+<script>
+window.onload = (event) => {
+	$('#checkbox-md').change(function(){
+		if ($(this).is(':checked')) {
+			$('#warning-message').show();
+			$('#mainBtn').text('Send to Workflow');
+		}else{
+			$('#warning-message').hide();
+			$('#mainBtn').text('Next');
+		}
+	});
+};
+</script>
+{% endblock %}

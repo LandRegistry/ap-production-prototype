@@ -111,7 +111,7 @@ Validity checks
 				</a>
 
 		
-				<div class="govuk-!-margin-top-7">
+				<div class="govuk-!-margin-top-7"><!-- old txt: Do you need to add anything else? -->
 
 					{{ govukRadios({
 					idPrefix: 'property-match',
@@ -119,7 +119,7 @@ Validity checks
 					classes: 'govuk-radios--small govuk-radios--inline',
 					fieldset: {
 					legend: {
-					html: 'Do you need to add anything else?',
+					html: 'Other than <abbr>UK</abbr> postal address, are there any more addresses for service that need to be added',
 					classes: 'govuk-fieldset__legend--s'
 					}
 					},
@@ -161,6 +161,7 @@ Validity checks
 
 {% block pageScripts %}
 <script>
+//$(document).ready(function() {
 	$('#main-content').find('input[name=property-match]').change(function() {
 		if (this.value == 'Yes') {
 			$('#warning').show(); 
@@ -170,5 +171,6 @@ Validity checks
 			$('#mainBtn').text('Create custom lender entry');
 		}
 	});
+//}); 
 </script>
 {% endblock %}

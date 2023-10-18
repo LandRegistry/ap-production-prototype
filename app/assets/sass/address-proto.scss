@@ -39,8 +39,14 @@
 
         td {
             padding-top: govuk-spacing(3);
-            padding-bottom: govuk-spacing(1);
+            padding-bottom: govuk-spacing(2);
         }
+    }
+}
+
+@include govuk-media-query($from: desktop){
+    .hmlr-min-height-375 {
+        min-height: 375px;
     }
 }
 
