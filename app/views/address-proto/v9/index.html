@@ -11,9 +11,18 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
     <h1 class="govuk-heading-xl">Custom lender entry </h1>
 
-    <h2 class="govuk-heading-m">Which design is represented?</h2>
 
-    <div class="govuk-!-padding-top-3 govuk-!-padding-right-5 govuk-!-padding-bottom-2 govuk-!-padding-left-6 govuk-!-margin-top-6 govuk-!-margin-bottom-6" style="border: 1px solid #b1b4b6">
+    
+    <a href="00-start.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+      Start now
+      <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+      </svg>
+    </a>
+
+
+
+    <div class="govuk-!-padding-top-3 govuk-!-padding-right-2 govuk-!-padding-bottom-2 govuk-!-padding-left-3 govuk-!-margin-bottom-0" style="margin-top: 150px; border: 1px solid #b1b4b6">
 
       <!--h3 class="govuk-heading-m">Scenario 1: A - B different options</h3>
 
@@ -24,11 +33,11 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
       <details class="govuk-details govuk-!-font-size-16 govuk-!-margin-top-0 govuk-!-margin-bottom-0" data-module="govuk-details">
         <summary class="govuk-details__summary">
           <span class="govuk-details__summary-text">
-            Updates
+            Which design is represented?
           </span>
         </summary>
         <div class="govuk-details__text">
-          <p class="govuk-body-s">This V9 version is the updated version. (V9b is the original V9 version). </p>
+          <!--p class="govuk-body-s">This V9 version is the updated version. (V9b is the original V9 version). </p>
           
           <ul class="govuk-list govuk-list--bullet govuk-!-font-size-16">
             <li>Changes made to two H1 headers and a label question</li>
@@ -36,89 +45,90 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
             <li>Whole 'Add another entry' removed from page '10-cre-codes'</li>
             <li>Update/correction made to Next/Send to Workflow btn text</li>
             <li>GDS language styling: e.g, dates and 2.2 WCAG small design updates</li>
-          </ul>
+          </ul-->
+
+
+
+          <p class="govuk-body">Design for creating a custom lender entry as part of the Charge flow. User is asked to enter the name of the lender(s) and their addresses. The design shows the scenario in which <b>only UK postal addresses </b> are accepted.
+
+            <h2 class="govuk-heading-m">Which design for when the address type is not accepted in AP is shown?</h2>
+            <p class="govuk-body"> Design in which the user goes through a 'filter page' after entering the lender details. Communicating on the 'filter page' to the system that the addresses the user wants to add are NOT ONLY UK POSTAL ADDRESSES will cause the rejection of the application.
+              '
+    
+    
+    
+            <h2 class="govuk-heading-m">What are the lenders names in the prototype?</h2>
+            <p class="govuk-body">Arthur Boyle and Marianne Malkovic </p>
+    
+    
+    
+            <h2 class="govuk-heading-m">Addresses to be added in the prototype</h2>
+            <ol class="govuk-list govuk-list--number">
+              <li>
+            <p class="govuk-body">UK postal address: 15 Pevensey Rd, Eastbourne, BN21 3HR. Address for both transferees.  </p>
+          </li>
+        </ol>
+    
+    
+    
+    
+    
+    
+    
+    
+        <h2 class="govuk-heading-m">What are the steps that the user is asked to follow in the prototype?</h2>
+    
+        <ol class="govuk-list govuk-list--number">
+          <li>
+           Users starts from the MD ref / register entries page.
+          </li>
+          <li>
+           In order to start the sub-flow for creating a custom lender entry, they have to press the 'Create custom lender entry' button within the register entries section.
+           </li>
+           <li>
+           By doing so, users enter a sub-flow.
+           </li>
+           <li>
+    The first step of the sub-flow asks them to enter the names of all the lenders. In this prototypes there are two names to be added.
+           </li>
+           <li>
+           Once all names have been added to the page, users presses 'next'.
+           </li>
+           <li>
+    User then gets to a 'filter page'. If they only have to enter UK postal addresses, the system will let them move on. Otherwise the application gets rejected.        </li>
+           <li>
+            Users need to enter the details of the addresses before they can press 'create custom lender entry'. They do so by pressing on 'add address'.
+            <li>
+             They are then shown the address lookup design (as the only type of address accepted in this phase are UK postal addresses).
+            </li>
+           <li>
+         User completes the required details about the address and press 'save address'.
+           </li>
+           <li>
+            The address gets so added to the table. Now users can press 'create custom lender entry'.
+    '
+              </li>
+              <li>
+               The newly created custom lender entry gets so added to the 'register entries' section for them to double check and eventually amend/remove.
+                  </li>
+                  <li>
+                   End of the flow. They can press 'next' or 'return to workflow' to go back to the index.
+                       </li>
+            </ol>
+
+
+
+
+
+
+
+
 
 
         </div>
       </details>
 
     </div>
-
-      <p class="govuk-body">Design for creating a custom lender entry as part of the Charge flow. User is asked to enter the name of the lender(s) and their addresses. The design shows the scenario in which <b>only UK postal addresses </b> are accepted.
-
-        <h2 class="govuk-heading-m">Which design for when the address type is not accepted in AP is shown?</h2>
-        <p class="govuk-body"> Design in which the user goes through a 'filter page' after entering the lender details. Communicating on the 'filter page' to the system that the addresses the user wants to add are NOT ONLY UK POSTAL ADDRESSES will cause the rejection of the application.
-          '
-
-
-
-        <h2 class="govuk-heading-m">What are the lenders names in the prototype?</h2>
-        <p class="govuk-body">Arthur Boyle and Marianne Malkovic </p>
-
-
-
-        <h2 class="govuk-heading-m">Addresses to be added in the prototype</h2>
-        <ol class="govuk-list govuk-list--number">
-          <li>
-        <p class="govuk-body">UK postal address: 15 Pevensey Rd, Eastbourne, BN21 3HR. Address for both transferees.  </p>
-      </li>
-    </ol>
-
-
-
-
-
-
-
-
-    <h2 class="govuk-heading-m">What are the steps that the user is asked to follow in the prototype?</h2>
-
-    <ol class="govuk-list govuk-list--number">
-    	<li>
-       Users starts from the MD ref / register entries page.
-      </li>
-      <li>
-       In order to start the sub-flow for creating a custom lender entry, they have to press the 'Create custom lender entry' button within the register entries section.
-       </li>
-       <li>
-       By doing so, users enter a sub-flow.
-       </li>
-       <li>
-The first step of the sub-flow asks them to enter the names of all the lenders. In this prototypes there are two names to be added.
-       </li>
-       <li>
-       Once all names have been added to the page, users presses 'next'.
-       </li>
-       <li>
-User then gets to a 'filter page'. If they only have to enter UK postal addresses, the system will let them move on. Otherwise the application gets rejected.        </li>
-       <li>
-        Users need to enter the details of the addresses before they can press 'create custom lender entry'. They do so by pressing on 'add address'.
-        <li>
-         They are then shown the address lookup design (as the only type of address accepted in this phase are UK postal addresses).
-        </li>
-       <li>
-     User completes the required details about the address and press 'save address'.
-       </li>
-       <li>
-        The address gets so added to the table. Now users can press 'create custom lender entry'.
-'
-          </li>
-          <li>
-           The newly created custom lender entry gets so added to the 'register entries' section for them to double check and eventually amend/remove.
-              </li>
-              <li>
-               End of the flow. They can press 'next' or 'return to workflow' to go back to the index.
-                   </li>
-    </ol>
-
-
-
-
-    <a href="00-start.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
-      Start now
-      <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-      </svg></a>
 
 
 
