@@ -301,20 +301,31 @@ Last name
 <!-- ******************* new design feature - starts: ********************** -->
 
 
-<!-- appears to be a HMLR js function avoiding the standard use of GDS scrollbar -->
-<div class="govuk-form-group">
-    <label class="govuk-label" for="misc-info">
+<details class="govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
         Miscellaneous information
-    </label>
-    <textarea class="govuk-textarea" id="misc-info" name="misc-info" rows="4"></textarea>
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      
+        <label class="govuk-label govuk-visually-hidden" for="misc-info">
+            Miscellaneous information
+        </label>
+        <textarea class="govuk-textarea" id="misc-info" name="misc-info" rows="4"></textarea>
+
+    </div>
+</details>
+
+
+<div class="govuk-form-group">
+    
 </div>
 
 
 <!-- ******************* new design feature - ends ********************** -->
 
-
 <input class="govuk-button govuk-button--dark" id="CONFIRM-TRANSFEREE-APPLICANTS_add_transferee" name="CONFIRM-TRANSFEREE-APPLICANTS_add_transferee" type="submit" value="Add transferee">
-
 
     <noscript>
         <input id="no_js_field" name="no_js_field" type="hidden" value="True">

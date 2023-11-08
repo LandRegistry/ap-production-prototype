@@ -31,15 +31,14 @@ body.govuk-template__body {
         float: left;
         width: 50%; 
         padding: 10px;
-        margin-left: -10px;
         margin-right: -10px;
         background-color: #ffffff; 
     }
 
     .container-tasks {
         float: left;
-        width: auto;
-        max-width: 48%; 
+        width: 100%;
+        max-width: 44%; 
         margin-left: 20px; 
     }
 
@@ -58,4 +57,61 @@ body.govuk-template__body {
         white-space: normal;
     }
 }
+
+
+/* *** filthy hacky CSS just to get an old style legacy sub header "emulating" current live version *** */
+main.govuk-main-wrapper, 
+div.container-content {
+    float: left; 
+}
+#info-panel-hmlr-body {
+    padding: 5px 0 5px 10px;
+    border-top: 1px solid #0b0c0c;
+    border-bottom: 1px solid #0b0c0c; 
+    /*background-color: #ececec; */
+}
+#info-panel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-around;
+}
+#info-panel .items {
+    width: 19%;
+    height: 50px;
+    /*box-sizing: border-box;*/
+    font-family: Arial,Helvetica,sans-serif;   
+    padding: 0;
+    margin: 0;
+
+}
+#info-panel h1.items {
+    width: 40%; 
+    line-height: 2;
+}
+#info-panel span.items {
+    font-size: 16px; 
+    line-height: 3; 
+    text-align: right;
+}
+#info-panel .document-link {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Cpath d='M28.681 7.159c-.694-.947-1.662-2.053-2.724-3.116s-2.169-2.03-3.116-2.724C21.229.137 20.448 0 20 0H4.5A2.503 2.503 0 002 2.5v27C2 30.878 3.122 32 4.5 32h23c1.378 0 2.5-1.122 2.5-2.5V10c0-.448-.137-1.23-1.319-2.841zm-4.138-1.702A27.334 27.334 0 0126.811 8H22V3.189a27.334 27.334 0 012.543 2.268zM28 29.5c0 .271-.229.5-.5.5h-23a.507.507 0 01-.5-.5v-27c0-.271.229-.5.5-.5H20v7a1 1 0 001 1h7v19.5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 25px 28px;
+    background-position: 0;
+    padding: 15px 0 15px 35px;
+}
+
+
+/* ********* this flex css is important for both cols to match (as one has a white background) *********** */
+.container-content {
+    display: flex;
+    width: 100%;
+}
+/*.container-register, */
+.container-tasks {
+    flex: 1;
+}
+
+
 /* *** additional css for this prototype to get the above 'live' css to work fully... ends. *** */
