@@ -64,11 +64,10 @@ main.govuk-main-wrapper,
 div.container-content {
     float: left; 
 }
-#info-panel-hmlr-body {
+/*#info-panel-hmlr-body {
     padding: 5px 0 5px 10px;
     border-top: 1px solid #0b0c0c;
     border-bottom: 1px solid #0b0c0c; 
-    /*background-color: #ececec; */
 }
 #info-panel {
     display: flex;
@@ -79,7 +78,6 @@ div.container-content {
 #info-panel .items {
     width: 19%;
     height: 50px;
-    /*box-sizing: border-box;*/
     font-family: Arial,Helvetica,sans-serif;   
     padding: 0;
     margin: 0;
@@ -100,7 +98,7 @@ div.container-content {
     background-size: 25px 28px;
     background-position: 0;
     padding: 15px 0 15px 35px;
-}
+}*/
 
 
 /* ********* this flex css is important for both cols to match (as one has a white background) *********** */

@@ -1,0 +1,131 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+{{ appnType | d('Example text lorem ipsum') }}, ABR: {{ abrNumber | d('A123XYZ') }}, Title Number: {{ titleNumber
+| d('DN1000') }}.
+
+Validity checks
+{% endblock %}
+
+{% block stylesheets %}
+	{% include "./includes/inc_current-live-stylesheets-linked.html" %}
+{% endblock %}
+
+{% block header %}
+    {% include "./includes/inc_current-live-header.html" %}
+{% endblock %}
+
+{% block content %}
+
+{% include "./includes/inc_new-sub-header.html" %}
+
+
+<div class="container-content">
+    {% include "./includes/inc_container-register.html" %}
+
+    <div id="tasks-content" class="container-tasks" tabindex="0">
+
+            <a href="#" id="previous-link" class="govuk-back-link">Previous page
+</a>
+
+        <h2 class="govuk-heading-m">Your tasks</h2>
+        
+<div class="govuk-notification-banner govuk-notification-banner__workflow-return" role="alert"
+aria-labelledby="govuk-notification-banner-title"
+data-module="govuk-notification-banner" aria-hidden="true" hidden="">
+<div class="govuk-notification-banner__header">
+<h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title" >
+  Important
+</h2>
+</div>
+<div class="govuk-notification-banner__content">      <p class="govuk-notification-banner__heading">Send to Workflow to complete this application</p></div>
+</div>
+
+
+      <div class="content">
+<form novalidate method="post" action="#">
+    <input id="csrf_token" name="csrf_token" type="hidden" value="IjU4M2FhMjk5MGEzOThjN2ZlYTNjOWQ1OTY3NzcxMGI4OTlmMmNjZjYi.ZR6Knw.tKCoQQIL6r6LWj6qtSKsBwnNSO8">
+
+          <table class="govuk-table govuk-transferee-addresses-table">
+<caption class="govuk-table__caption govuk-table__caption--m">Address for service</caption>
+<thead class="govuk-table__head">
+<tr class="govuk-table__row">
+  <th scope="col" class="govuk-table__header">Address</th>
+  <th scope="col" class="govuk-table__header">Transferee names</th>
+  <th scope="col" class="govuk-table__header">Edit details</th>
+</tr>
+</thead>
+<tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">50 Clifton Road<br>Exeter<br>EX1 2BN</td>
+      <td class="govuk-table__cell">Elliot Hill</td>
+      <td class="govuk-table__cell transferee-addresses-table-action-cell"><input class="govuk-link govuk-!-padding-right-1 vertical-line" id="change-address-100040208196" name="change-address-100040208196" type="submit" value="Change"> <input class="govuk-link " id="remove-address-100040208196" name="remove-address-100040208196" type="submit" value="Remove"></td>
+    </tr>
+</tbody>
+</table>
+
+
+<input class="govuk-link govuk-form-group" id="TRANSFEREE-ADDRESSES-add-address" name="TRANSFEREE-ADDRESSES-add-address" type="submit" value="Add address">
+
+            
+<div class="govuk-form-group">
+<fieldset class="govuk-fieldset" aria-describedby="more-transferee-addresses-genericradiogroup-hint">
+<legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
+  Other than the UK postal address, are there any more addresses for service that need to be added?
+</legend>
+<div id="more-transferee-addresses-genericradiogroup-hint" class="govuk-hint">
+
+</div>
+<div class="govuk-radios govuk-radios--inline govuk-radios--small"    data-module="govuk-radios">
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="more-transferee-addresses-yes" name="more-transferee-addresses-genericradiogroup" type="radio" value="False">
+      <label class="govuk-label govuk-radios__label" for="more-transferee-addresses-yes">
+    Yes
+  </label>
+    </div>
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="more-transferee-addresses-no" name="more-transferee-addresses-genericradiogroup" type="radio" value="True">
+      <label class="govuk-label govuk-radios__label" for="more-transferee-addresses-no">
+    No
+  </label>
+    </div>
+</div>
+
+</fieldset>
+
+</div>
+
+
+
+    <noscript>
+        <input id="no_js_field" name="no_js_field" type="hidden" value="True">
+    </noscript>
+    <br>
+    <div class="container-buttons-action">
+        <!--  -->
+        <button value="y" type="submit" name="submit_button" class="govuk-button" data-module="govuk-button" id="next-application-button">
+Next
+</button>
+        <a id="reject-application-button" class="govuk-link govuk-!-margin-left-2" href="/application-processing-ui/casework/workflow/200121476">Return to Workflow</a>
+    </div>
+</form>
+      </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block footer %}
+    {% include "./includes/inc_current-live-footer.html" %}
+
+
+    <script>
+        
+        window.onload = (event) => {
+            $('#previous-link').on('click',function(e){
+                history.back();//used just for this prototype design page as this pg can be arrived at from different versions of the first page
+            });
+        };
+    </script>
+{% endblock %}
