@@ -1,0 +1,64 @@
+{% extends "layouts/ap-documentation.html" %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Combinations</h1>
+
+    <p class="govuk-body">When an application contains multiple transactions, a caseworker can currently only work on one of these in Application Processing. This new feature will allow caseworkers to work on 'combinations of transactions'. The piece of work is starting with just Charge and RX1 transactions for Phase 1, Phase 2 will include Subsequent Discharge, and Phase 3 will add Transfers.</p>
+    <p>A caseworker:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+    	<li>will be able to process a combination of transactions in Application Processing</li>
+      <li>can skip a transaction without dropping out of Application Processing</li>
+      <li>have sight of what transactions are included in the application</li>
+      <li>have sight of what has happened with the application before submitting</li>
+    </ul>
+
+    <p class="govuk-body">The system will:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+    	<li>save drafting on completed transactions</li>
+    	<li>identitfy transactions and when these can or cannot be processed in Application Processing</li>
+    	<li>group transactions level tasks, as well as initial and final tasks as 'pseudo transactions'</li>
+    </ul>
+
+    <h2 class="govuk-heading-l">Phase 1 prototype</h2>
+
+    <p class="govuk-body">After severla rounds of user testing and iterations, combinations phase 1 is now live. This prototype documents the design of the combinations feature. User research, iterations and design history for this piece of work can be found in the old AP prototype kit under <a href= https://hmlr-application-processing.herokuapp.com/multi-transaction/>'multi-transactions'</a></p>
+
+    <p>Design considerations:</p>
+
+    <p><a href="/charge-defer/r1-index">Link to prototype flow</a></p>
+
+    <ul class="govuk-list govuk-list--bullet">
+    	<li>
+        <a class="govuk-link" href="v1a/00-worklist">A - Both UI tasks</a><br>
+        Scenario A: The register contains a charge with a restriction and another type of restriction. The other type of restriction does not require consent. The charge evidence is missing. The application should defer with the charge evidence, however our assumption is that it won't due to both tasks being present and caseworkers answering with workarounds.
+      </li>
+    	<li>
+        <a class="govuk-link" href="v1b/00-worklist">B - Two restrictions</a><br>
+        Scenario B: One restriction requires consent, one does not. Consent has not been provided for the restriction that requires it and the case should therefore defer.
+      </li>
+      <li>
+        <a class="govuk-link" href="v1c/07-wrap-up">C - Multiple restrictions</a><br>
+        Scenario C: Multiple restrictions, some needing consent and others not. Consent has been provided for all that require it and therefore the case should markoff.
+      </li>
+    	<li>
+        <a class="govuk-link" href="v1d/07-wrap-up">D - Referral</a><br>
+        Scenario D: One restriction that is above EO settlement (Form B). This will require the users to refer the case to a caseworker of a higher grade. The referral option then adds a PAS note and returns to Workflow.
+      </li>
+
+    </ul>
+
+
+  </div>
+</div>
+
+{% endblock %}
