@@ -8,20 +8,20 @@ Validity checks
 {% endblock %}
 
 {% block stylesheets %}
-	{% include "./includes/inc_current-live-stylesheets-linked.html" %}
+	{% include "../includes/inc_current-live-stylesheets-linked.html" %}
 {% endblock %}
 
 {% block header %}
-    {% include "./includes/inc_current-live-header.html" %}
+    {% include "../includes/inc_current-live-header.html" %}
 {% endblock %}
 
 {% block content %}
 
-{% include "./includes/inc_new-sub-header.html" %}
+{% include "../includes/inc_new-sub-header.html" %}
 
 
 <div class="container-content">
-    {% include "./includes/inc_container-register.html" %}
+    {% include "../includes/inc_container-register.html" %}
 
     <div id="tasks-content" class="container-tasks" tabindex="0">
 
@@ -44,7 +44,7 @@ data-module="govuk-notification-banner" aria-hidden="true" hidden="">
 
 
     <div class="content">
-<form novalidate method="post" action="trailing-info_1-2-add-address2">
+<form novalidate method="post" action="#">
 <input id="csrf_token" name="csrf_token" type="hidden" value="IjU4M2FhMjk5MGEzOThjN2ZlYTNjOWQ1OTY3NzcxMGI4OTlmMmNjZjYi.ZR6J_w.0DsJTc2amgv68F3kGzpVdJeTFZQ">
 
       <div class="govuk-form-group govuk-!-margin-bottom-2">
@@ -112,24 +112,32 @@ For example, AA1 4BB
 
 
 <div class="govuk-form-group">
-<fieldset class="govuk-fieldset" aria-describedby="transferee-addresses-transferee-selection-hint">
-<legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
-  Select transferees for this address
-</legend>
-<div id="transferee-addresses-transferee-selection-hint" class="govuk-hint">
+  <fieldset class="govuk-fieldset" aria-describedby="transferee-addresses-transferee-selection-hint">
+    
+    <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
+      Select transferees for this address
+    </legend>
 
-</div>
-<div class="govuk-checkboxes govuk-checkboxes--small"    data-module="govuk-checkboxes">
-    <div class="govuk-checkboxes__item">
-      <input class="govuk-checkboxes__input" id="transferee-0-elliot_hill" name="transferee-addresses-transferee-selection" type="checkbox" value="Elliot Hill">
-      <label class="govuk-label govuk-checkboxes__label" for="transferee-0-elliot_hill">
-  Elliot Hill
-</label>
+    <div id="transferee-addresses-transferee-selection-hint" class="govuk-hint">
+      <!-- aria-describedby="transferee-addresses-transferee-selection-hint" links to this empty hint text div? -->
     </div>
-</div>
 
-</fieldset>
-
+    <div class="govuk-checkboxes govuk-checkboxes--small"    data-module="govuk-checkboxes">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="transferee-01" name="transferee-addresses-transferee-selection" type="checkbox" value="Elliot Hill">
+          <label class="govuk-label govuk-checkboxes__label" for="transferee-01">
+            Elliot Hill
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="transferee-02" name="transferee-addresses-transferee-selection" type="checkbox" value="John Smith">
+          <label class="govuk-label govuk-checkboxes__label" for="transferee-02">
+            John Smith
+          </label>
+        </div>    
+    </div>
+    
+  </fieldset>
 </div>
 
 <input class="govuk-button" id="transferee-addresses-add-address-save" name="transferee-addresses-add-address-save" type="submit" value="Save address">
@@ -150,7 +158,7 @@ For example, AA1 4BB
 {% endblock %}
 
 {% block footer %}
-    {% include "./includes/inc_current-live-footer.html" %}
+    {% include "../includes/inc_current-live-footer.html" %}
 
 
     <script>

@@ -8,20 +8,20 @@ Validity checks
 {% endblock %}
 
 {% block stylesheets %}
-	{% include "./includes/inc_current-live-stylesheets-linked.html" %}
+	{% include "../includes/inc_current-live-stylesheets-linked.html" %}
 {% endblock %}
 
 {% block header %}
-    {% include "./includes/inc_current-live-header.html" %}
+    {% include "../includes/inc_current-live-header.html" %}
 {% endblock %}
 
 
 {% block content %}
 
-{% include "./includes/inc_new-sub-header.html" %}
+{% include "../includes/inc_new-sub-header.html" %}
 
 <div class="container-content">
-    {% include "./includes/inc_container-register.html" %}
+    {% include "../includes/inc_container-register.html" %}
 
     <div id="tasks-content" class="container-tasks" tabindex="0">
 
@@ -144,18 +144,21 @@ Last name
 
 
 <!-- appears to be a HMLR js function avoiding the standard use of GDS scrollbar -->
-<div class="govuk-form-group">
+<!--div class="govuk-form-group">
     <label class="govuk-label" for="misc-info">
         Miscellaneous information
     </label>
     <textarea class="govuk-textarea" id="misc-info" name="misc-info" rows="4"></textarea>
-</div>
+</div-->
 
 
 <!-- ******************* new design feature - ends ********************** -->
 
+<div class="govuk-hint govuk-!-font-size-16" id="add-trasferee-hint">
+    Add all the transferees required for this transfer.
+</div>
 
-<input class="govuk-button govuk-button--dark" id="CONFIRM-TRANSFEREE-APPLICANTS_add_transferee" name="CONFIRM-TRANSFEREE-APPLICANTS_add_transferee" type="submit" value="Add transferee">
+<input class="govuk-button govuk-button--dark" id="CONFIRM-TRANSFEREE-APPLICANTS_add_transferee" name="CONFIRM-TRANSFEREE-APPLICANTS_add_transferee" type="submit" value="Add transferee" aria-describedby="add-trasferee-hint">
 
 
     <noscript>
@@ -179,13 +182,20 @@ Last name
 {% endblock %}
 
 {% block footer %}
-    {% include "./includes/inc_current-live-footer.html" %}
+    {% include "../includes/inc_current-live-footer.html" %}
 
     <script>
+        /* these scripts used just for this design prototype work */
         window.onload = (event) => {
             $('#CONFIRM-TRANSFEREE-APPLICANTS_add_transferee').on('click',function(e){
-                e.preventDefault();// kill the 'add transferee' btn for this standalone prototype page
+                e.preventDefault();
+                window.location.href = 'trailing-info_1-1-add-transferee.html';
             });
+
+
+            //$('#CONFIRM-TRANSFEREE-APPLICANTS_add_transferee').on('click',function(e){
+                //e.preventDefault();// kill the 'add transferee' btn for this standalone prototype page
+            //});
         };
     </script>
 {% endblock %}

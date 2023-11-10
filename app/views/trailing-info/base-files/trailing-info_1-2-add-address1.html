@@ -1,0 +1,182 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+{{ appnType | d('Example text lorem ipsum') }}, ABR: {{ abrNumber | d('A123XYZ') }}, Title Number: {{ titleNumber
+| d('DN1000') }}.
+
+Validity checks
+{% endblock %}
+
+{% block stylesheets %}
+	{% include "./includes/inc_current-live-stylesheets-linked.html" %}
+{% endblock %}
+
+{% block header %}
+    {% include "./includes/inc_current-live-header.html" %}
+{% endblock %}
+
+{% block content %}
+
+{% include "./includes/inc_new-sub-header.html" %}
+
+
+<div class="container-content">
+    {% include "./includes/inc_container-register.html" %}
+
+    <div id="tasks-content" class="container-tasks" tabindex="0">
+
+      <a href="#" id="previous-link" class="govuk-back-link">Back</a> <!-- [sic] as per latest figma design? -->
+
+      <h2 class="govuk-heading-m">Add address for service</h2>
+      
+      <!-- Why is this banner HTML in the HTML output? Show/hide using JS (and 'display: none') not ideal.    -->
+<!--div class="govuk-notification-banner govuk-notification-banner__workflow-return" role="alert"
+aria-labelledby="govuk-notification-banner-title"
+data-module="govuk-notification-banner" aria-hidden="true" hidden="">
+<div class="govuk-notification-banner__header">
+  <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title" >
+  Important
+  </h2>
+</div>
+<div class="govuk-notification-banner__content">      
+  <p class="govuk-notification-banner__heading">Send to Workflow to complete this application</p></div>
+</div-->
+
+
+    <div class="content">
+<form novalidate method="post" action="#">
+<input id="csrf_token" name="csrf_token" type="hidden" value="IjU4M2FhMjk5MGEzOThjN2ZlYTNjOWQ1OTY3NzcxMGI4OTlmMmNjZjYi.ZR6J_w.0DsJTc2amgv68F3kGzpVdJeTFZQ">
+
+      <div class="govuk-form-group govuk-!-margin-bottom-2">
+<label class="govuk-label" for="addressSearch0">
+Enter a <abbr>UK</abbr> postcode, for example, AA1 4BB   <!-- we shouldn't use hint text as part of the label (but this part of the 'final' design)? -->
+</label>
+<!--div id="addressSearch0-hint" class="govuk-hint">
+For example, AA1 4BB
+</div-->
+<input class="govuk-input  govuk-input--width-10" id="addressSearch0" name="addressSearch0" type="text"> <!--  aria-describedby="addressSearch0-hint" MUST NOT use 'required="required"' which is on live? -->
+</div>
+
+
+<input class="govuk-button govuk-button--dark govuk-form-group" id="addressSearch0Button" name="addressSearch0Button" type="submit" value="Find address">
+
+<div class="govuk-form-group govuk-!-margin-bottom-0">
+<fieldset class="govuk-fieldset" aria-describedby="0-address-not-found-component-hint">
+
+  <!--div id="0-address-not-found-component-hint" class="govuk-hint govuk-!-display-none">
+      Empty div on live using gds css display none? ¯\_(ツ)_/¯
+  </div-->
+
+<div class="govuk-checkboxes govuk-checkboxes--small"    data-module="govuk-checkboxes">
+    <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="0-address-not-found" name="0-address-not-found-component" type="checkbox" value="True">
+      <label class="govuk-label govuk-checkboxes__label" for="0-address-not-found">
+  I cannot find the address
+</label>
+    </div>
+</div>
+
+</fieldset>
+
+</div>
+
+
+<div class="govuk-form-group">
+<fieldset class="govuk-fieldset" aria-describedby="transferee-addresses-care-of-address-hint">
+
+  <div id="transferee-addresses-care-of-address-hint" class="govuk-hint govuk-!-display-none">
+    <!-- on live the fieldset links to this hint text but it is empty? -->
+  </div>
+  <div class="govuk-checkboxes govuk-checkboxes--small"    data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="transferee-addresses-care-of-address-checkbox" name="transferee-addresses-care-of-address" type="checkbox" value="True" data-aria-controls="conditional-transferee-addresses-care-of-address-checkbox">
+        <label class="govuk-label govuk-checkboxes__label" for="transferee-addresses-care-of-address-checkbox">
+          This is a care of address
+        </label>
+      </div>
+      <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-transferee-addresses-care-of-address-checkbox">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="transferee-addresses-care-of-address-text-input">
+          Recipient name
+          </label>
+          <div id="transferee-addresses-care-of-address-text-input-hint" class="govuk-hint">
+
+          </div>
+          <input class="govuk-input" id="transferee-addresses-care-of-address-text-input" name="transferee-addresses-care-of-address-text-input" type="text" aria-describedby="transferee-addresses-care-of-address-text-input-hint"></div>
+      </div>
+  </div>
+
+</fieldset>
+
+</div>
+
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="transferee-addresses-transferee-selection-hint">
+    
+    <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
+      Select transferees for this address
+    </legend>
+
+    <div id="transferee-addresses-transferee-selection-hint" class="govuk-hint">
+      <!-- aria-describedby="transferee-addresses-transferee-selection-hint" links to this empty hint text div? -->
+    </div>
+
+    <div class="govuk-checkboxes govuk-checkboxes--small"    data-module="govuk-checkboxes">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="transferee-01" name="transferee-addresses-transferee-selection" type="checkbox" value="Elliot Hill">
+          <label class="govuk-label govuk-checkboxes__label" for="transferee-01">
+            Elliot Hill
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="transferee-02" name="transferee-addresses-transferee-selection" type="checkbox" value="John Smith">
+          <label class="govuk-label govuk-checkboxes__label" for="transferee-02">
+            John Smith
+          </label>
+        </div>    
+    </div>
+    
+  </fieldset>
+</div>
+
+<input class="govuk-button" id="transferee-addresses-add-address-save" name="transferee-addresses-add-address-save" type="submit" value="Save address">
+<input class="govuk-link link-button-align govuk-form-group" id="transferee-addresses-add-address-cancel" name="transferee-addresses-add-address-cancel" type="submit" value="Cancel adding address"><!-- this should be type 'button'at best -->
+
+
+<noscript>
+  <input id="no_js_field" name="no_js_field" type="hidden" value="True">
+</noscript>
+
+<br>
+</form>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
+
+{% block footer %}
+    {% include "./includes/inc_current-live-footer.html" %}
+
+
+    <script>
+        /* scripts just for this prototype functionality ... */
+        window.onload = (event) => {
+          $('#addressSearch0Button').on('click', function(e){
+                e.preventDefault();
+                window.location.href = 'trailing-info_1-2-address-found.html';
+          });
+
+          $('#transferee-addresses-add-address-cancel').on('click', function(e){
+                e.preventDefault();
+                window.location.href = './index.html';
+          });
+
+          $('#previous-link').on('click',function(e){
+              history.back();//used just for this prototype design page as this pg can be arrived at from different versions of the first page
+          });
+        };
+    </script>
+{% endblock %}
