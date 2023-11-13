@@ -1,7 +1,7 @@
 {% extends "layouts/ap-flow-wide.html" %}
 
 {% block pageTitle %}
-Charge
+Initial tasks
 {% endblock %}
 
 {% block content %}
@@ -63,8 +63,8 @@ Charge
           </div>
         </details>
 
-
-	      <h2 class="govuk-heading-l">Tasks</h2>
+				<hr style="height:1px;border-width:0;color:gray;background-color:gray;margin-bottom:25px">
+	      <h2 class="govuk-heading-m">Your tasks</h2>
 
 <!-- Notification, if no selected -->
 				<div id="warning" class="govuk-notification-banner" role="region"
@@ -91,7 +91,7 @@ Charge
 	        classes: 'js-no-return-to-workflow / govuk-radios--small govuk-radios--inline',
 	        fieldset: {
 	          legend: {
-	            html: 'Do the documents have the same property address and title number as the register?',
+	            html: 'Are the documents for the right property and title number?',
 	            classes: 'govuk-fieldset__legend--s'
 	          }
 	        },
@@ -109,32 +109,7 @@ Charge
 	        ]
 	      }) }}
 
-			  {{ govukRadios({
-			    idPrefix: 'id-check',
-			    name: 'id-check',
-			    classes: 'govuk-radios--small govuk-radios--inline',
-			    fieldset: {
-			      legend: {
-			        html: 'Are the identity panels filled out correctly?',
-			        classes: 'govuk-fieldset__legend--s'
-			      }
-			    },
-			    items: [
-			      {
-			        html: 'Yes',
-			        value: 'Yes',
-			        checked: checked('id-check','Yes')
-			      },
-			      {
-			        html: 'No',
-			        value: 'No',
-			        checked: checked('id-check','No')
-			      }
-			    ]
-			  }) }}
-
-
-	      {{ govukRadios({
+				{{ govukRadios({
 	        idPrefix: 'customer-match',
 	        name: 'customer-match',
 	        classes: 'js-no-return-to-workflow / govuk-radios--small govuk-radios--inline',
@@ -171,7 +146,7 @@ Charge
 	        classes: 'govuk-radios--small govuk-radios--inline',
 	        fieldset: {
 	          legend: {
-	            html: 'Is the application lodged by a conveyancer?',
+	            html: 'Has the application been lodged by a conveyancer?',
 	            classes: 'govuk-fieldset__legend--s'
 	          }
 	        },
@@ -190,14 +165,44 @@ Charge
 	        ]
 	      }) }}
 
+				{{ govukRadios({
+					idPrefix: 'correct-fee',
+					name: 'correct-fee',
+					classes: ' govuk-radios--small govuk-radios--inline',
+					fieldset: {
+						legend: {
+							text: 'Has the correct fee been paid?',
+							classes: 'govuk-fieldset__legend--s'
+						}
+					},
+					hint: {
+						html: '<p><a class="govuk-link" href="#0">Open fee calculator (opens in a new tab)</a></p>
+									<ul class="govuk-list govuk-list--bullet">
+										<li>Fee paid: £60</li>
+										<li>Channel: Business Gateway</li>
+									</ul>'
+					},
+					items: [
+						{
+							html: 'Yes',
+							value: 'Yes',
+							checked: checked('correct-fee','Yes')
+						},
+						{
+							html: 'No',
+							value: 'No',
+							checked: checked('correct-fee','No')
+						}
+					]
+				}) }}
 
 	    <!-- Buttons and links -->
 
 			<div class="task-lists-submit">
 				<button class="govuk-button" data-module="govuk-button">
-					Next
+					Save and continue
 				</button>
-				<a href="workflow-no-drafting" class="govuk-link reject-button">Return to workflow</a>
+				<a href="workflow-no-drafting" class="govuk-link reject-button">Return to Workflow</a>
 			</div>
 
 		</form>

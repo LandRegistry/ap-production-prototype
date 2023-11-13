@@ -47,5 +47,5 @@ router.use(/\/charge-defer\/v([0-9a-z]+)/, (req, res, next) => {
 // routing for combinations
 
 router.use(/\/combinations\/v([0-9a-z]+)/, (req, res, next) => {
-  return require(`./views/charge-defer/v${req.params[0]}/_routes`)(req, res, next);
+  return require(`./views/combinations/v${req.params[0]}/_routes`)(req, res, next);
 })

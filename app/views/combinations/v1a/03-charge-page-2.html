@@ -31,85 +31,64 @@ Charge
 
     <div class="casework-tasks-container">
       {{ govukBackLink({
-        text: 'Back',
-        href: '01-preliminary'
+        text: 'Previous',
+        href: '02-charge-page-1'
       }) }}
 
-    	<form action="02-charge-amount" method="post">
+    	<form action="03-charge-page-2" method="post">
 
-	      <h2 class="govuk-heading-l">Tasks</h2>
+	      <h2 class="govuk-heading-m">Your tasks</h2>
 
 	    	<!-- tasks go here  -->
 
-	    	<!-- fee -->
-
-	    	{{ govukRadios({
-	        idPrefix: 'correct-fee',
-	        name: 'correct-fee',
-	        classes: ' govuk-radios--small govuk-radios--inline',
-	        fieldset: {
-	          legend: {
-	            text: 'Has the correct fee been paid?',
-	            classes: 'govuk-fieldset__legend--s'
-	          }
-	        },
-	        hint: {
-	          html: '<p><a class="govuk-link" href="#0">Open fee calculator</a></p>
-	                <ul class="govuk-list govuk-list--bullet">
-	                  <li>Fee paid: £30</li>
-	                  <li>Channel: Business Gateway</li>
-	                </ul>'
-	        },
-	        items: [
-	          {
-	            html: 'Yes',
-	            value: 'Yes',
-	            checked: checked('correct-fee','Yes')
-	          },
-	          {
-	            html: 'No',
-	            value: 'No',
-	            checked: checked('correct-fee','No')
-	          }
-	        ]
-	      }) }}
-
 	      <!-- charge amount - GOVUK-ified ONS mutually exclusive -->
-			  <div class="govuk-form-group">
-			    <fieldset class="govuk-fieldset" role="group">
-			      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s" id="fieldset-legend-title">What is the amount secured by the charge?
-			      </legend>
 
-		        <div class="ons-js-mutually-exclusive">
-		          <label class="govuk-label govuk-label--s xx-govuk-visually-hidden" for="charge-amount">Charge amount</label>
+				<div class="govuk-form-group">
+  			<fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+    				<legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+      				<h1 class="govuk-fieldset__heading">
+        				Enter charge amount (£) or select undisclosed:
+      				</h1>
+    				</legend>
+    			<div id="contact-hint" class="govuk-hint">
+      			If 0, select undisclosed.
+    			</div>
+    		<div class="govuk-radios--small" data-module="govuk-radios">
+      	<div class="govuk-radios__item">
+        	<input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" checked data-aria-controls="conditional-contact">
+        		<label class="govuk-label govuk-radios__label" for="contact">
+          		Charge Amount (£)
+        		</label>
+      	</div>
+      	<div class="govuk-radios__conditional" id="conditional-contact">
+          <input class="govuk-input govuk-!-width-one-half id="charge-amount" spellcheck="false" >
+        </div>
+      	<div class="govuk-radios__item">
+        	<input class="govuk-radios__input" id="undisclosed">
+        		<label class="govuk-label govuk-radios__label" for="undisclosed">
+          		Undisclosed
+        		</label>
+      	</div>
+      	<div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="undisclosed">
+            Undisclosed
+          </label>
+          	<input class="govuk-input govuk-!-width-one-third" id="contact-by-phone" name="contactByPhone" type="tel" autocomplete="tel">
+        </div>
+      	</div>
+    	</div>
+			</fieldset>
+			</div>
 
-		          <div class="govuk-input__wrapper">
-						    <div class="govuk-input__prefix" aria-hidden="true">£</div>
-						    <input class="govuk-input govuk-input--width-10 ons-js-exclusive-group-item" id="charge-amount" name="charge-amount" type="text" spellcheck="false" value="{{ data['charge-amount'] }}">
-						  </div>
-
-							<div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-								<div class="govuk-checkboxes__divider hmlr-checkboxes__divider--mutually-exclusive" aria-hidden="true">or</div>
-					      <div class="govuk-checkboxes__item">
-					        <input class="govuk-checkboxes__input ons-js-checkbox ons-js-exclusive-option" id="charge-undisclosed" name="charge-undisclosed" type="checkbox" value="undisclosed" data-deselect-message="Selecting this will clear the charge amount">
-					        <label class="govuk-label govuk-checkboxes__label" for="charge-undisclosed">
-					          <span class="govuk-visually-hidden">Or, </span> Undisclosed or 0
-					        </label>
-					      </div>
-					    </div>
-
-		          <span class="ons-js-exclusive-alert govuk-visually-hidden" role="alert" aria-live="polite" data-group-adjective="cleared" data-option-adjective="deselected"></span>
-
-		        </div>
-
-			    </fieldset>
-				</div>
 
 				<!-- charge date - GOVUK-ified ONS mutually exclusive -->
-	      <div class="govuk-form-group govuk-!-margin-top-9">
+	      <div class="govuk-form-group govuk-!-margin-top-5">
 	      	<fieldset class="govuk-fieldset" role="group">
 				    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">What is the charge date?</legend>
-
+						<div id="contact-hint" class="govuk-hint">
+	      			For example 28 10 2014
+	    			</div>
 				    <div class="ons-js-mutually-exclusive ons-mutually-exclusive">
 				      <div class="govuk-date-input" id="charge-date">
 				        <div class="govuk-date-input__item">
@@ -140,12 +119,12 @@ Charge
 
 
 				      <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-								<div class="govuk-checkboxes__divider hmlr-checkboxes__divider--mutually-exclusive" aria-hidden="true">or</div>
+								<div class="govuk-checkboxes__divider hmlr-checkboxes__divider--mutually-exclusive" aria-hidden="true">  </div>
 
 					      <div class="govuk-checkboxes__item">
 					        <input class="govuk-checkboxes__input ons-js-checkbox ons-js-exclusive-option" id="charge-date-undisclosed" name="charge-date-undisclosed" type="checkbox" value="undisclosed" data-deselect-message="Selecting this will clear the date if one has been inputted">
 					        <label class="govuk-label govuk-checkboxes__label" for="charge-date-undisclosed">
-					        <span class="govuk-visually-hidden">Or, </span> No charge date
+					       No charge date
 					        </label>
 					      </div>
 					    </div>
@@ -157,6 +136,55 @@ Charge
 			    </fieldset>
 	  		</div>
 
+<!-- borrower names task shown in live demo -->
+				{{ govukRadios({
+					idPrefix: 'borrower-names',
+					name: 'borrower-names',
+					classes: 'govuk-radios--small govuk-radios--inline',
+					fieldset: {
+						legend: {
+							html: 'The borrower names do not match the registered proprietor. Can the application still be processed?',
+							classes: 'govuk-fieldset__legend--s'
+						}
+					},
+					items: [
+						{
+							html: 'Yes',
+							value: 'Yes',
+							checked: checked('borrower-names','Yes')
+						},
+						{
+							html: 'No',
+							value: 'No',
+							checked: checked('borrower-names','No')
+						}
+					]
+				}) }}
+
+<!-- documents execution task shown in live demo -->
+				{{ govukRadios({
+					idPrefix: 'documents-executed',
+					name: 'documents-executed',
+					classes: 'govuk-radios--small govuk-radios--inline',
+					fieldset: {
+						legend: {
+							html: 'Are the documents executed correctly?',
+							classes: 'govuk-fieldset__legend--s'
+						}
+					},
+					items: [
+						{
+							html: 'Yes',
+							value: 'Yes',
+							checked: checked('documents-executed','Yes')
+						},
+						{
+							html: 'No',
+							value: 'No',
+							checked: checked('documents-executed','No')
+						}
+					]
+				}) }}
 
 	    	<!-- end of tasks  -->
 
