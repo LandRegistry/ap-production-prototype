@@ -13,7 +13,7 @@ body.govuk-template__body {
     background-color: #f3f2f1;
 }
 
-@media (min-width: 40.0625em){
+@media (min-width: 40.0625em){/* desktop */
     .govuk-main-wrapper {
         padding-bottom: 0;
         padding-top: 0;
@@ -111,5 +111,31 @@ div.container-content {
     flex: 1;
 }
 
-
+.container-register {
+    padding-top: 80px; 
+}
+.container-tasks > .govuk-back-link {
+    margin-bottom: 40px;
+}
 /* *** additional css for this prototype to get the above 'live' css to work fully... ends. *** */
+
+
+
+/* *** new proprietory css for these new designs - starts: *** */
+
+
+col.hmlr-col-one-third {
+    width: 33.3%;
+}
+
+tbody.hmlr-tbody--border-bottom tr:last-child th, 
+tbody.hmlr-tbody--border-bottom tr:last-child td {
+    border-bottom-width: 2px; 
+
+}
+tbody.hmlr-tbody--border-bottom + tbody.hmlr-tbody--border-bottom tr:first-child th, 
+tbody.hmlr-tbody--border-bottom + tbody.hmlr-tbody--border-bottom tr:first-child td {
+    padding-top: 45px !important;
+}
+
+/* *** new proprietory css for these new designs - ends *** */
