@@ -138,5 +138,31 @@ tbody.hmlr-tbody--border-bottom + tbody.hmlr-tbody--border-bottom tr:first-child
     padding-top: 45px !important;
 }
 
+.hmlr-summary-card--on-grey .govuk-summary-card__title-wrapper {
+        position: relative;
+        top: -15px;
+        left: 10px;
+        padding: 3px 10px 3px 10px;
+        background-color: #f3f2f1; 
+        display: inline-block;
+}
+.hmlr-summary-card--on-grey .govuk-summary-card__content {
+    padding-top: 0; 
+    padding-bottom: 0;
+}
+@media(min-width: 40.0625em){
+    .hmlr-summary-card--on-grey .govuk-summary-list__row > .govuk-summary-list__key {
+        width: 20%; 
+    }
+}
+.hmlr-summary-card--on-grey .govuk-summary-card__title-wrapper > * {
+    padding: 0; 
+    margin: 0; 
+}
+.hmlr-summary-card--on-grey .govuk-summary-list__row > .govuk-summary-list__key, 
+.hmlr-summary-card--on-grey .govuk-summary-list__value, 
+.hmlr-summary-card--on-grey .govuk-summary-list__actions {
+    vertical-align: top;
+}
 
 /* *** new proprietory css for these new designs - ends *** */
