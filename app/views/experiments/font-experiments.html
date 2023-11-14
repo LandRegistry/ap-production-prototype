@@ -1,0 +1,352 @@
+{% extends "layouts/ap-main.html" %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <h2 class="govuk-heading-l">Font Experiments</h2>
+    <style>
+          br {
+            margin-bottom: 24px;
+            }
+
+
+      /* Heading Styles */
+              .govuk-heading-xl-caption {
+                  font-size: 27px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 300;
+                  line-height: 34px;
+              }
+
+              .govuk-heading-xl {
+                  font-size: 48px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 700;
+                  line-height: 50px;
+              }
+
+              .govuk-heading-l-caption {
+                  font-size: 24px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 300;
+                  line-height: 30px;
+              }
+
+              .govuk-heading-l {
+                  font-size: 36px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 700;
+                  letter-spacing: 0;
+                  line-height: 40px;
+              }
+
+              .govuk-heading-m-caption {
+                  font-size: 19px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 300;
+                  line-height: 24px;
+              }
+
+              .govuk-heading-m {
+                  font-size: 24px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 700;
+                  line-height: 30px;
+              }
+
+              .govuk-heading-s {
+                  font-size: 19px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 700;
+                  line-height: 25px;
+              }
+
+      /* Paragraph Styles */
+              .govuk-body {
+                  font-size: 19px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 300;
+                  line-height: 25px;
+              }
+
+              .govuk-body-bold {
+                  font-size: 19px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 700;
+                  line-height: 25px;
+              }
+
+              .govuk-body-l {
+                  font-size: 24px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 300;
+                  line-height: 32px;
+                  text-transform: none;
+              }
+
+              .govuk-body-l-bold {
+                  font-size: 24px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 700;
+                  font-style: normal;
+                  font-stretch: normal;
+                  line-height: 32px;
+              }
+
+              .govuk-body-s {
+                  font-size: 16px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 300;
+                  line-height: 20px;
+              }
+
+              .govuk-body-s-bold {
+                  font-size: 16px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 700;
+                  line-height: 20px;
+              }
+
+      /* Link Styles */
+
+              .govuk-link {
+                  font-size: 19px;
+                  text-decoration: underline;
+                  font-family: Arial, sans-serif;
+                  font-weight: 300;
+                  line-height: 25px;
+              }
+
+              .govuk-link-bold {
+                  font-size: 19px;
+                  text-decoration: underline;
+                  font-family: Arial, sans-serif;
+                  font-weight: 700;
+                  line-height: 25px;
+              }
+
+              .govuk-link-s {
+                  font-size: 16px;
+                  text-decoration: underline;
+                  font-family: Arial, sans-serif;
+                  font-weight: 300;
+                  line-height: 20px;
+              }
+
+              .govuk-link-s-bold {
+                  font-size: 16px;
+                  text-decoration: underline;
+                  font-family: Arial, sans-serif;
+                  font-weight: 700;
+                  line-height: 20px;
+              }
+
+      /* Mobile Styles */
+
+      /* Mobile Heading Styles */
+              .mobile-govuk-heading-xl-caption {
+                  font-size: 18px;
+                  text-decoration: none;
+                  font-family: Arial, sans-serif;
+                  font-weight: 300;
+                  line-height: 20px;
+              }
+
+              .mobile-govuk-heading-xl {
+                  font-size: 32px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 700;
+                  line-height: 35px;
+              }
+
+              .mobile-govuk-heading-l-caption {
+                  font-size: 18px;
+                  text-decoration: none;
+                  font-family: Arial, sans-serif;
+                  font-weight: 300;
+                  line-height: 20px;
+              }
+
+              .mobile-govuk-heading-l {
+                  font-size: 24px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 700;
+                  line-height: 25px;
+              }
+
+              .mobile-govuk-heading-m-caption {
+                  font-size: 16px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 300;
+                  line-height: 20px;
+              }
+
+              .mobile-govuk-heading-m {
+                  font-size: 18px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 700;
+                  line-height: 20px;
+              }
+
+              .mobile-govuk-heading-s {
+                  font-size: 16px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 700;
+                  line-height: 20px;
+              }
+
+      /* Mobile Paragraph Styles */
+              .mobile-govuk-body {
+                  font-size: 16px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 300;
+                  line-height: 20px;
+              }
+
+              .mobile-govuk-body-bold {
+                  font-size: 16px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 700;
+                  font-style: normal;
+                  font-stretch: normal;
+                  line-height: 20px;
+              }
+
+              .mobile-govuk-body-l {
+                  font-size: 18px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 300;
+                  line-height: 20px;
+              }
+
+              .mobile-govuk-body-l-bold {
+                  font-size: 18px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 700;
+                  line-height: 20px;
+              }
+
+              .mobile-govuk-body-s {
+                  font-size: 14px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 300;
+                  line-height: 16px;
+              }
+
+              .mobile-govuk-body-s-bold {
+                  font-size: 14px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 700;
+                  line-height: 16px;
+              }
+
+              /* Mobile Link Styles */
+              .mobile-govuk-link {
+                  font-size: 16px;
+                  text-decoration: underline;
+                  font-family: Arial, sans-serif;
+                  font-weight: 300;
+                  line-height: 20px;
+              }
+
+              .mobile-govuk-link-bold {
+                  font-size: 16px;
+                  text-decoration: underline;
+                  font-family: Arial, sans-serif;
+                  font-weight: 700;
+                  line-height: 20px;
+              }
+
+              .mobile-govuk-link-s {
+                  font-size: 14px;
+                  text-decoration: underline;
+                  font-family: Arial, sans-serif;
+                  font-weight: 300;
+                  line-height: 16px;
+              }
+
+              .mobile-govuk-link-s-bold {
+                  font-size: 14px;
+                  text-decoration: underline;
+                  font-family: Arial, sans-serif;
+                  font-weight: 700;
+                  line-height: 16px;
+              }
+
+      /* Mobile Footer Style */
+              .mobile-footer {
+                  font-size: 14px;
+                  text-decoration: underline;
+                  font-family: Arial, sans-serif;
+                  font-weight: 300;
+                  line-height: 16px;
+              }
+      </style>
+   <div class="govuk-tabs" data-module="govuk-tabs">
+    <h2 class="govuk-tabs__title">
+        Contents
+    </h2>
+    <ul class="govuk-tabs__list">
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+            <a class="govuk-tabs__tab" href="#desktop">
+                Desktop
+            </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+            <a class="govuk-tabs__tab" href="#mobile">
+                Mobile
+            </a>
+        </li>
+    </ul>
+
+    <!-- Desktop Tab Content -->
+    <section class="govuk-tabs__panel" id="desktop">
+        <h1 class="govuk-heading-xl-caption">Heading XL Caption</h1>
+        <h1 class="govuk-heading-xl">Heading XL</h1>
+        <h2 class="govuk-heading-l-caption">Heading L Caption</h2>
+        <h2 class="govuk-heading-l">Heading L</h2>
+        <h3 class="govuk-heading-m-caption">Heading M Caption</h3>
+        <h3 class="govuk-heading-m">Heading M</h3>
+        <h4 class="govuk-heading-s">Heading S</h4>
+        <p class="govuk-body">This is a standard paragraph (govuk-body).</p>
+        <p class="govuk-body-bold">This is a bold paragraph (govuk-body-bold).</p>
+        <p class="govuk-body-l">This is a large paragraph (govuk-body-l).</p>
+        <p class="govuk-body-l-bold">This is a large bold paragraph (govuk-body-l-bold).</p>
+        <p class="govuk-body-s">This is a small paragraph (govuk-body-s).</p>
+        <p class="govuk-body-s-bold">This is a small bold paragraph (govuk-body-s-bold).</p>  <br>
+        <a href="#" class="govuk-link">This is a link (govuk-link).</a>  <br>
+        <a href="#" class="govuk-link-bold">This is a bold link (govuk-link-bold).</a>  <br>
+        <a href="#" class="govuk-link-s">This is a small link (govuk-link-s).</a>  <br>
+        <a href="#" class="govuk-link-s-bold">This is a small bold link (govuk-link-s-bold).</a>  <br>
+    </section>
+
+    <!-- Mobile Tab Content -->
+    <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="mobile">
+        <h1 class="mobile-govuk-heading-xl-caption">Mobile Heading XL Caption</h1>
+        <h1 class="mobile-govuk-heading-xl">Mobile Heading XL</h1>
+        <h2 class="mobile-govuk-heading-l-caption">Mobile Heading L Caption</h2>
+        <h2 class="mobile-govuk-heading-l">Mobile Heading L</h2>
+        <h3 class="mobile-govuk-heading-m-caption">Mobile Heading M Caption</h3>
+        <h3 class="mobile-govuk-heading-m">Mobile Heading M</h3>
+        <h4 class="mobile-govuk-heading-s">Mobile Heading S</h4>
+        <p class="mobile-govuk-body">Mobile Body</p>
+        <p class="mobile-govuk-body-bold">Mobile Body Bold</p>
+        <p class="mobile-govuk-body-l">Mobile Body Large</p>
+        <p class="mobile-govuk-body-l-bold">Mobile Body Large Bold</p>
+        <p class="mobile-govuk-body-s">Mobile Body Small</p>
+        <p class="mobile-govuk-body-s-bold">Mobile Body Small Bold</p> <br>
+        <a href="#" class="mobile-govuk-link">Mobile Link</a>  <br>
+        <a href="#" class="mobile-govuk-link-bold">Mobile Link Bold</a>  <br>
+        <a href="#" class="mobile-govuk-link-s">Mobile Link Small</a>  <br>
+        <a href="#" class="mobile-govuk-link-s-bold">Mobile Link Small Bold</a>  <br>
+        <footer class="mobile-footer">Mobile Footer</footer> <br>
+    </section>
+</div>
+
+
+
+{% endblock %}
