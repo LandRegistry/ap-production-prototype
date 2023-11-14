@@ -1,0 +1,355 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+{{ appnType | d('Example text lorem ipsum') }}, ABR: {{ abrNumber | d('A123XYZ') }}, Title Number: {{ titleNumber
+| d('DN1000') }}.
+
+Validity checks
+{% endblock %}
+
+{% block stylesheets %}
+	{% include "../includes/inc_current-live-stylesheets-linked.html" %}
+{% endblock %}
+
+{% block header %}
+    {% include "../includes/inc_current-live-header.html" %}
+{% endblock %}
+
+{% block content %}
+
+{% include "../includes/inc_new-sub-header.html" %}
+
+<div class="container-content">
+    {% include "../includes/inc_container-register.html" %}
+
+    <div id="tasks-content" class="container-tasks" tabindex="0">
+
+      <a href="#" id="previous-link" class="govuk-back-link">Previous page</a>
+
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+        Associate transferees with lorem ipsum
+        <!--Address for service and miscellaneous information-->
+      </h2>
+
+      <div class="govuk-hint govuk-!-font-size-16 govuk-!-margin-bottom-5" id="address-for-service-hint">
+        <!-- govuk-!-width-two-thirds -->
+        <!--For each address and item of miscellaneous information select the transferees to associate with it.-->
+        Select the transferees to associate with each address for service and to each item of miscellaneous information.
+      </div>
+
+      <form action="#" method="post" novalidate>
+
+
+        <table class="govuk-table" aria-describedby="address-for-service-hint">
+
+          <caption class="govuk-table__caption govuk-visually-hidden">Addresses</caption>
+          <col class="hmlr-col-one-third">
+          <col>
+
+          <thead class="govuk-table__head govuk-visually-hidden">
+            <tr class="govuk-table__row">
+              <th colspan="2" class="govuk-table__header">Transferees associated with which addresses</th>
+            </tr>
+          </thead>
+
+          <tbody class="govuk-table__body hmlr-tbody--border-bottom">
+            <tr class="govuk-table__row">
+              <th colspan="2" scope="colgroup" class="govuk-table__header">Address and transferees: 1</th>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header govuk-!-font-size-16">Address</th>
+              <td class="govuk-table__cell govuk-!-font-size-16">102 Acacia avenue, Bristol, BN1 3WX</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header govuk-!-font-size-16">Transferees</th>
+              <td class="govuk-table__cell">
+
+                <div class="govuk-form-group govuk-!-margin-bottom-0">
+                  <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-!-font-weight-regular govuk-!-font-size-16">
+                        Select who to associate with this address
+                    </legend>
+                    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="transferee-a" name="transferee" type="checkbox" value="trustee-01">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="transferee-a">
+                          David Jones
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="transferee-a-2" name="transferee" type="checkbox" value="trustee-02">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="transferee-a-2">
+                          Janet Smith
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="transferee-a-3" name="transferee" type="checkbox" value="trustee-03">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="transferee-a-3">
+                          Boswells and Co Ltd
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="transferee-a-4" name="transferee" type="checkbox" value="trustee-04">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="transferee-a-4">
+                          Ian Wentworth
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>                
+
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">
+                <span class="govuk-visually-hidden">Remove</span>
+              </th>
+              <td class="govuk-table__cell govuk-!-text-align-right">
+                <a href="#" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 govuk-!-padding-right-2">Remove this address<span class="govuk-visually-hidden"> address and transferees 1</span></a>
+              </td>
+            </tr>
+          </tbody>
+
+          <tbody class="govuk-table__body hmlr-tbody--border-bottom">
+            <tr class="govuk-table__row">
+              <th colspan="2" scope="colgroup" class="govuk-table__header">Address and transferees: 2</th>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header govuk-!-font-size-16">Address</th>
+              <td class="govuk-table__cell govuk-!-font-size-16">50 The Strand, London, SE1 2WD</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header govuk-!-font-size-16">Transferees</th>
+              <td class="govuk-table__cell">
+
+                <div class="govuk-form-group govuk-!-margin-bottom-0">
+                  <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-!-font-weight-regular govuk-!-font-size-16">
+                        Select who to associate with this address
+                    </legend>
+                    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="transferee-b" name="transferee" type="checkbox" value="trustee-01">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="transferee-b">
+                          David Jones
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="transferee-b-2" name="transferee" type="checkbox" value="trustee-02">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="transferee-b-2">
+                          Janet Smith
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="transferee-b-3" name="transferee" type="checkbox" value="trustee-03">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="transferee-b-3">
+                          Boswells and Co Ltd
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="transferee-b-4" name="transferee" type="checkbox" value="trustee-04">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="transferee-b-4">
+                          Ian Wentworth
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>                
+
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">
+                <span class="govuk-visually-hidden">Remove</span>
+              </th>
+              <td class="govuk-table__cell govuk-!-text-align-right">
+                <a href="#" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 govuk-!-padding-right-2">Remove this address<span class="govuk-visually-hidden"> address and transferees 2</span></a>
+              </td>
+            </tr>
+          </tbody>       
+        </table>
+
+
+        <table class="govuk-table" aria-describedby="address-for-service-hint">
+
+          <caption class="govuk-table__caption govuk-visually-hidden">Miscellaneous information</caption>
+          <col class="hmlr-col-one-third">
+          <col>
+
+          <thead class="govuk-table__head govuk-visually-hidden">
+            <tr class="govuk-table__row">
+              <th colspan="2" class="govuk-table__header">Transferees associated with which miscellaneous information</th>
+            </tr>
+          </thead>
+
+          <tbody class="govuk-table__body hmlr-tbody--border-bottom">
+            <tr class="govuk-table__row">
+              <th colspan="2" scope="colgroup" class="govuk-table__header">Miscellaneous information and transferees: 1</th>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header govuk-!-font-size-16"><span title="Miscellaneous information">Misc Info</span></th>
+              <td class="govuk-table__cell govuk-!-font-size-16">
+                Lorem ipsum excepturi nesciunt necessitatibus dolorem omnis nemo vitae sint culpa.
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header govuk-!-font-size-16">Transferees</th>
+              <td class="govuk-table__cell">
+
+                <div class="govuk-form-group govuk-!-margin-bottom-0">
+                  <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-!-font-weight-regular govuk-!-font-size-16">
+                        Select who to associate with this <span title="Miscellaneous information">Misc Info</span>
+                    </legend>
+                    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="transferee-a" name="transferee" type="checkbox" value="trustee-01">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="transferee-a">
+                          David Jones
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="transferee-a-2" name="transferee" type="checkbox" value="trustee-02">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="transferee-a-2">
+                          Janet Smith
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="transferee-a-3" name="transferee" type="checkbox" value="trustee-03">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="transferee-a-3">
+                          Boswells and Co Ltd
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="transferee-a-4" name="transferee" type="checkbox" value="trustee-04">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="transferee-a-4">
+                          Ian Wentworth
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>                
+
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">
+                <span class="govuk-visually-hidden">Remove</span>
+              </th>
+              <td class="govuk-table__cell govuk-!-text-align-right">
+                <a href="#" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 govuk-!-padding-right-2">Remove this <span title="Miscellaneous information">Misc Info</span><span class="govuk-visually-hidden"> and transferees 1</span></a>
+              </td>
+            </tr>
+          </tbody>  
+
+          <tbody class="govuk-table__body hmlr-tbody--border-bottom">
+            <tr class="govuk-table__row">
+              <th colspan="2" scope="colgroup" class="govuk-table__header">Miscellaneous information and transferees: 2</th>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header govuk-!-font-size-16"><span title="Miscellaneous information">Misc Info</span></th>
+              <td class="govuk-table__cell govuk-!-font-size-16">
+                Lorem ipsum quibusdam alias quas nihil officia rem quattrolium ezattia.
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header govuk-!-font-size-16">Transferees</th>
+              <td class="govuk-table__cell">
+
+                <div class="govuk-form-group govuk-!-margin-bottom-0">
+                  <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-!-font-weight-regular govuk-!-font-size-16">
+                        Select who to associate with this <span title="Miscellaneous information">Misc Info</span>
+                    </legend>
+                    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="transferee-a" name="transferee" type="checkbox" value="trustee-01">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="transferee-a">
+                          David Jones
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="transferee-a-2" name="transferee" type="checkbox" value="trustee-02">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="transferee-a-2">
+                          Janet Smith
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="transferee-a-3" name="transferee" type="checkbox" value="trustee-03">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="transferee-a-3">
+                          Boswells and Co Ltd
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="transferee-a-4" name="transferee" type="checkbox" value="trustee-04">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="transferee-a-4">
+                          Ian Wentworth
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>                
+
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">
+                <span class="govuk-visually-hidden">Remove</span>
+              </th>
+              <td class="govuk-table__cell govuk-!-text-align-right">
+                <a href="#" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 govuk-!-padding-right-2">Remove this <span title="Miscellaneous information">Misc Info</span><span class="govuk-visually-hidden"> and transferees 2</span></a>
+              </td>
+            </tr>
+          </tbody>      
+        </table>
+
+
+
+        <div class="govuk-button-group govuk-!-margin-top-9">
+          <button class="govuk-button" data-module="govuk-button">
+            Save and continue
+          </button>
+          <a class="govuk-link govuk-link--no-visited-state" href="#">Return to Workflow</a>
+        </div>
+
+
+
+
+
+      </form>
+    
+
+    </div>
+
+</div>
+{% endblock %}
+
+{% block footer %}
+    {% include "../includes/inc_current-live-footer.html" %}
+
+
+    <script>
+      /* these js scripts just used for this basic design prototype mockup */
+        window.onload = (event) => {
+
+            $('#TRANSFEREE-ADDRESSES-add-address').on('click', function(e){
+              e.preventDefault();
+              window.location.href = 'trailing-info_1-2-add-address1.html';
+            });
+
+            $('#remove-address-100040208196').on('click', function(e){
+              e.preventDefault();
+              window.location.href = 'trailing-info_1-2.html';
+            });
+
+            $('#change-address-100040208196').on('click', function(e){
+              e.preventDefault();
+              window.location.href = 'trailing-info_1-2-address-found.html';
+            });
+
+            $('#previous-link').on('click',function(e){
+                history.back();//used just for this prototype design page as this pg can be arrived at from different versions of the first page
+            });
+        };
+    </script>
+{% endblock %}
