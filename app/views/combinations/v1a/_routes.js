@@ -32,16 +32,18 @@ router.post('/03-charge-page-2', function (req, res) {
 	  res.redirect('04-charge-page-3');
 })
 
-
-
-router.post('/03-add-charge-entry', function (req, res) {
-	res.redirect('04-discharge');
+router.post('/04-charge-page-3', function (req, res) {
+	res.redirect('05-charge-page-4');
 })
 
-
-router.post('/04-discharge', function (req, res) {
-	res.redirect('05-any-other-entries');
+router.post('/05-charge-page-4', function (req, res) {
+	res.redirect('06-restriction-page-1');
 })
+
+router.post('06-restriction-page-1', function (req, res) {
+	res.redirect('07-restriction-page-2');
+})
+
 
 
 router.post('/05-any-other-entries', function (req, res) {

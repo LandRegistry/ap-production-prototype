@@ -10,7 +10,24 @@ Charge
 {% include "./includes/application-info.html" %}
 <!-- end - application information  -->
 
+<style>
+  .govuk-button--secondary1{
+      background-color:#6F777B;
+      -webkit-box-shadow:0 2px 0 #929191;
+      box-shadow:0 2px 0 #929191;
+      color: #ffffff
+  }
+  .govuk-button--secondary,.govuk-button--secondary1:active,.govuk-button--secondary1:hover,.govuk-button--secondary1:link,.govuk-button--secondary1:visited{
+      color:#0b0c0c
+  }
+  .govuk-button--secondary1:hover{
+      background-color:#dbdad9
+  }
+  .govuk-button--secondary:hover[disabled]{
+      background-color:#f3f2f1
+  }
 
+  </style>
 
 <div class="govuk-grid-row">
 
@@ -29,8 +46,8 @@ Charge
 
     <div class="casework-tasks-container">
       {{ govukBackLink({
-        text: 'Back',
-        href: '02-charge-amount'
+        text: 'Previous',
+        href: '03-charge-page-2'
       }) }}
 
     	<form action="04-charge-page-3" method="post">
@@ -55,7 +72,7 @@ Charge
 
 	    	<!-- tasks go here  -->
 
-	    	<h3 class="govuk-heading-s" style="margin-bottom:0px">Charge details</h3>
+	    	<h3 class="govuk-heading-m" style="margin-bottom:0px">Charge Details</h3>
 
 				<table class="govuk-table form-table" style="margin-bottom:4px;">
 
@@ -138,6 +155,75 @@ Charge
 
 </div>
 
+<div id="register-entries"
+<h3 class="govuk-heading-m" style="margin-bottom:0px">Register Entries</h3>
+<table class="govuk-table form-table" style="margin-bottom:4px;">
+
+  <table class="govuk-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header"></th>
+      </tr>
+    </thead>
+
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">
+
+          <p class='govuk-body govuk-!-font-weight-bold' style=" margin-bottom: 0px" > Charge entry CD100 </p><br>
+          <p class='register-preview-no-margin'>REGISTERED CHARGE dated <b>10/10/2023</b></p>
+
+        </th>
+
+
+     </tr>
+
+     <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+
+        <p class='govuk-body govuk-!-font-weight-bold' style=" margin-bottom: 0px" > Lender entry CY471 </p>
+        <br>
+        <p class='register-preview-no-margin'>  #HFC BANK LIMITED# (Co. Regn. No. 1117305) of Mortgage Centre, Camden House West, The Parade, P.O. Box 1524, Birmingham B1 3PX.</p>
+
+      </th>
+
+
+   </tr>
+
+   </tbody>
+
+
+
+
+  </table>
+
+  </div>
+
+  <!-- COMPONENT FOR ADDING A NEW ENTRY-->
+
+  <div id="add-entry-block">
+
+    <div class="govuk-form-group" style=" margin-bottom: 15px">
+
+
+      <label class="govuk-heading-s" for="width-5">
+        Add another entry
+      </label>
+      <div id="contact-hint" class="govuk-hint">
+        For example CD100
+      </div>
+      <input class="govuk-input govuk-input--width-5" id="width-5" name="width-5" type="text">
+    </div>
+
+    <a id="add-entry-button-lender" role="button" draggable="false" class="govuk-button govuk-button--secondary1"> Add entry</a>
+
+  </div>
+</div>
+
+<hr id="divider-line" class="govuk-section-break govuk-section-break--l govuk-section-break--visible " style="
+margin-top: 10px;
+margin-bottom: 20px;
+">
 
 
 	    	<!-- end of tasks  -->
@@ -149,7 +235,7 @@ Charge
 					<button class="govuk-button" data-module="govuk-button">
 						Next
 					</button>
-					<a href="workflow-no-drafting" class="govuk-link reject-button">Return to workflow</a>
+					<a href="workflow-no-drafting" class="govuk-link reject-button">Cancel processing this transaction</a>
 				</div>
 
 			</form>
