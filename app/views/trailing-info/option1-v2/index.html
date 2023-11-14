@@ -1,0 +1,57 @@
+{% extends "layouts/ap-documentation.html" %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Trailing information - Option 1</h1>
+
+      <p class="govuk-body-l">
+        <a href="trailing-info_1-1" class="govuk-link govuk-link--no-visited-state">
+          Go to the first page
+        </a>
+      </p>
+
+      <p class="govuk-body">
+        As per index in option 1.
+      </p>
+
+
+
+      <p class="govuk-body">Notes:</p>
+
+      <!--ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>
+          If the caseworker populates the 'misc info' textarea with content and then chooses to 'Create additional trustees' (which is an input field and would submit the form, allowing us to save that data), the data is persisted when they page through and return to the 'misc page' again. (The 'Yes' option is pre-selected and the textfield is populate. Form validation stops the user from progressing witout selecting at least one trustee).
+        </li>
+        <li>
+          When a trustee is added to a 'misc info' entry the following page confirms this (using a <abbr>GDS</abbr> notification banner). This could be supplimented with a small "list design" on the same page showing the current 'misc info' items already added?  
+        </li>
+        <li>
+          Added some inline hint text on the first page (for adding all the trustees as early as possible).
+        </li>
+        <li>
+          Does the textarea field require a limited character count? Nesting misc info forms blocks the use of 'Save and continue' btn txt. 'Misc info' hint text is optional. Labels made bold, to match <abbr>HMLR</abbr>'s styles. If/when required I can mockup how these pages would function with form validation (and error messages). <span title="Darren Harridence">DH</span>.
+        </li>
+      </ul-->
+
+      <p class="govuk-body-s">
+        This is not a fully functional prototype, and is a series of clickable design prototypes/assets - without form validation and with some links/buttons disabled. They use <abbr>HTML</abbr> recently supplied from the live service (and which have been updated where appropriate to reflect the <a href="https://www.figma.com/file/GKCRa50e9Be50v2fozvAhz/Address-for-service?type=design&node-id=634%3A43308&mode=design&t=9XP2DAeDhK9Azqac-1" class="govuk-link govuk-link--no-visited-state" target="_blank">latest designs</a> as shown in Figma - 'Final designs: enter <abbr>UK</abbr> postal addresses'). 
+      </p>
+
+      <!--div class="govuk-!-padding-top-3 govuk-!-padding-right-2 govuk-!-padding-bottom-2 govuk-!-padding-left-3 govuk-!-margin-bottom-0" style="margin-top: 150px; border: 1px solid #b1b4b6"></div>
+
+      </div-->
+
+
+
+
+  </div>
+</div>
+
+{% endblock %}
