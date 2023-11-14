@@ -1,0 +1,160 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+Charge
+{% endblock %}
+
+{% block content %}
+
+<!-- application information  -->
+{% include "./includes/application-info.html" %}
+<!-- end - application information  -->
+
+<style>
+  .govuk-button--secondary1{
+      background-color:#6F777B;
+      -webkit-box-shadow:0 2px 0 #929191;
+      box-shadow:0 2px 0 #929191;
+      color: #ffffff
+  }
+  .govuk-button--secondary,.govuk-button--secondary1:active,.govuk-button--secondary1:hover,.govuk-button--secondary1:link,.govuk-button--secondary1:visited{
+      color:#0b0c0c
+  }
+  .govuk-button--secondary1:hover{
+      background-color:#dbdad9
+  }
+  .govuk-button--secondary:hover[disabled]{
+      background-color:#f3f2f1
+  }
+
+  </style>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+
+    <div class="casework-tasks-container">
+
+    	<form action="06-restriction-page-1" method="post">
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Verified by automation
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <div class="checklist" data-testid="task-checklist-container">
+              <div class="checklist-header">
+                <p class="govuk-body govuk-body__extra-margin">You do not need to check these details.</p>
+              </div>
+              <div class="checklist-container">
+                <div class="checklist-items">
+                  <h3 class="govuk-heading-s">Daylist</h3>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>No prior applications</li>
+                    <li>No stops</li>
+                    <li>No official searches</li>
+                  </ul>
+                </div>
+                <div class="checklist-items">
+                  <h3 class="govuk-heading-s">Application</h3>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>Property matches description</li>
+                    <li>All transferors match</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <hr style="height:1px;border-width:0;color:gray;background-color:gray;margin-bottom:25px">
+
+	      <h2 class="govuk-heading-m">Restriction details</h2>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="sort"><b>
+            Select a restriction to add </b>
+          </label>
+          <select class="govuk-select" id="sort" name="sort">
+            <option value="select-restriction" selected>Select restriction</option>
+            <option value="RX1-1">BX966</option>
+            <option value="RX1-2">BXL01</option>
+            <option value="RX1-3">BX572</option>
+            <option value="RX1-4">BXN01</option>
+            <option value="RX1-5">BX900</option>
+          </select>
+
+        </div>
+          <a id="add-entry-button-lender" role="button" draggable="false" class="govuk-button govuk-button--secondary1"> Add Restriction</a>
+
+          	<hr style="height:1px;border-width:0;color:gray;background-color:gray;margin-bottom:25px">
+	    	<!-- Buttons and links -->
+
+        <div class="task-lists-submit">
+					<button class="govuk-button" data-module="govuk-button">
+						Next
+					</button>
+					<a href="workflow-no-drafting" class="govuk-link reject-button">Cancel processing this transaction</a>
+				</div>
+
+			</form>
+
+
+
+	  </div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+
+  $('#change-button').click(function () {
+    $('#regular-md').hide();
+    $('#change-button').hide();
+    $('#chargee-name').hide();
+    $('#register-entries').hide();
+    $('#checkbox-md').hide();
+    $('#chargee-name').hide();
+    $('#special-instructions').hide();
+    $('#editing-md').show();
+   // $('#md-ref-field').focus();
+    var val = $('#md-ref-field').val(); //store the value of the element
+		$('#md-ref-field').val(''); //clear the value of the element
+		$('#md-ref-field').val(val); //set that value back.
+
+  });
+
+
+
+	$('#checkbox-md input:checkbox').change(function () {
+	  if ($(this).prop("checked") == true) {
+    	$("#warning").show();
+      $('.govuk-button').text('Send to Workflow');
+	  } else {
+    	$("#warning").hide();
+      $('.govuk-button').text('Next');
+  	}
+
+  });
+
+
+</script>
+
+{% endblock %}
