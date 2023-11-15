@@ -24,11 +24,106 @@ Validity checks
 
     <div id="tasks-content" class="container-tasks" tabindex="0">
 
-      <a href="trailing-info_1-3.html" id="previous-link" class="govuk-back-link">Previous page</a>
+      <a href="trailing-info_1-4.html" id="previous-link" class="govuk-back-link">Previous page</a>
 
-      <!--h2 class="govuk-heading-m">Miscellaneous information</h2-->
+      <div class="govuk-notification-banner govuk-notification-banner--success govuk-!-margin-bottom-7" role="alert"
+      aria-labelledby="govuk-notification-banner-title"
+      data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Success
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <h3 class="govuk-notification-banner__heading govuk-!-font-size-19">
+            The miscellaneous information was added
+          </h3>
+          <!--p class="govuk-body">The transferees were added to the lorem ipsum dolor ab iure expedita incidunt.</p-->
+        </div>
+      </div>
 
       <div class="content">
+
+        
+
+        <!--div class="govuk-summary-card hmlr-summary-card--on-grey">
+          <div class="govuk-summary-card__title-wrapper">
+            <h1 class="govuk-summary-card__title govuk-!-margin-bottom-0">Added</h1>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row govuk-!-font-size-16">
+                <dt class="govuk-summary-list__key">
+                  <span title="Miscellaneous information">Misc Info 1</span>
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Lorem ipsum dolor sit amet, alias eius minus vitae. Dignissimos, sit velit.
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  David Smith<span class="govuk-visually-hidden">,</span><br> Jane Richards<span class="govuk-visually-hidden">,</span>
+                </dd>
+              </div>
+
+              <div class="govuk-summary-list__row govuk-!-font-size-16">
+                <dt class="govuk-summary-list__key">
+                  <span title="Miscellaneous information">Misc Info 2</span>
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Lorem ipsum minus vitae dolor sit amet, alias eius dignissimos.
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  Elliot Hill<span class="govuk-visually-hidden">,</span><br> John Smith<span class="govuk-visually-hidden">,</span>
+                </dd>
+              </div>              
+
+            </dl>
+          </div>
+        </div-->
+
+
+        <div class="govuk-summary-card hmlr-summary-card--on-grey">
+          <div class="govuk-summary-card__title-wrapper">
+            <h1 class="govuk-summary-card__title govuk-!-margin-bottom-0">Added</h1>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row govuk-!-font-size-16">
+                <dt class="govuk-summary-list__key">
+                  <span title="Miscellaneous information">Misc Info 1</span>
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <span class="govuk-!-display-inline-block govuk-!-margin-bottom-3">Lorem ipsum dolor sit amet, alias eius minus vitae. Dignissimos, sit velit.</span>
+
+                  <span class="govuk-!-display-inline-block">David Smith, Jane Richards</span>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a href="#" class="govuk-link govuk-link--no-visited-state">
+                    Remove<span class="govuk-visually-hidden"> miscellaneous information 1</span>
+                  </a>
+                </dd>
+              </div>
+
+              <div class="govuk-summary-list__row govuk-!-font-size-16">
+                <dt class="govuk-summary-list__key">
+                  <span title="Miscellaneous information">Misc Info 2</span>
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <span class="govuk-!-display-inline-block govuk-!-margin-bottom-3">Lorem ipsum minus vitae dolor sit amet, alias eius dignissimos.</span>
+                  
+                  <span class="govuk-!-display-inline-block">Elliot Hill, John Smith</span>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a href="#" class="govuk-link govuk-link--no-visited-state">
+                    Remove<span class="govuk-visually-hidden"> miscellaneous information 2</span>
+                  </a>                  
+                </dd>
+              </div>              
+
+            </dl>
+          </div>
+        </div>        
+
+
         <form id="theForm" novalidate method="post" action="trailing-info_1-5">
 
           <!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
@@ -36,11 +131,9 @@ Validity checks
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                <h1 class="govuk-fieldset__heading">
+                <h2 class="govuk-fieldset__heading">
                   Do you need to add miscellaneous information?
-
-                  <br>REMOVE the parent radio form 
-                </h1>
+                </h2>
               </legend>
 
               <div class="govuk-radios govuk-radios--small govuk-!-margin-top-2" data-module="govuk-radios">
@@ -79,7 +172,7 @@ Validity checks
                       <div class="govuk-checkboxes govuk-checkboxes--small"    data-module="govuk-checkboxes">
                           <div class="govuk-checkboxes__item">
                             <input class="govuk-checkboxes__input" id="transferee-01" name="transferee-addresses-transferee-selection" type="checkbox" value="Elliot Hill">
-                            <label class="govuk-label govuk-checkboxes__label" for="transferee-01">
+                            <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="transferee-01">
                               Elliot Hill
                             </label>
                           </div>
@@ -87,7 +180,7 @@ Validity checks
                       <div class="govuk-checkboxes govuk-checkboxes--small"    data-module="govuk-checkboxes">
                         <div class="govuk-checkboxes__item">
                           <input class="govuk-checkboxes__input" id="transferee-02" name="transferee-addresses-transferee-selection" type="checkbox" value="Elliot Hill">
-                          <label class="govuk-label govuk-checkboxes__label" for="transferee-02">
+                          <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="transferee-02">
                             John Smith
                           </label>
                         </div>
@@ -153,6 +246,21 @@ Validity checks
     <script>
       /* these js scripts just used for this basic design prototype mockup */
         window.onload = (event) => {
+            var yesOrNo = '';
+
+            $("#theForm").submit(function(e){
+              yesOrNo = $("input:radio[name ='add-info']:checked").val();
+              e.preventDefault();
+
+              /*if(!yesOrNo){
+                e.preventDefault();
+              }else */
+              if(yesOrNo == 'yes'){
+                window.location.href = 'trailing-info_1-5.html';
+              }else if(yesOrNo == 'no'){
+                window.location.href = 'index.html';
+              }
+            });
 
             $('#TRANSFEREE-ADDRESSES-add-address').on('click', function(e){
               e.preventDefault();

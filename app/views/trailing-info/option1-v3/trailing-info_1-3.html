@@ -43,7 +43,7 @@ Validity checks
       </div>
 
       <div class="content">
-        <form novalidate method="post" action="trailing-info_1-4">
+        <form id="theForm" novalidate method="post" action="trailing-info_1-4">
           <input id="csrf_token" name="csrf_token" type="hidden" value="IjU4M2FhMjk5MGEzOThjN2ZlYTNjOWQ1OTY3NzcxMGI4OTlmMmNjZjYi.ZR6Knw.tKCoQQIL6r6LWj6qtSKsBwnNSO8">
 
           <table class="govuk-table govuk-transferee-addresses-table">
@@ -97,6 +97,8 @@ Validity checks
         </div>
 
 
+        {% include "../includes/inc_add-misc-info-question.html" %}
+
 
             <noscript>
                 <input id="no_js_field" name="no_js_field" type="hidden" value="True">
@@ -121,10 +123,25 @@ Validity checks
 {% block footer %}
     {% include "../includes/inc_current-live-footer.html" %}
 
+    {% include "../includes/inc_theForm-js.html" %}
 
     <script>
       /* these js scripts just used for this basic design prototype mockup */
         window.onload = (event) => {
+
+            $("#theForm").submit(function(e){
+                
+                var yesOrNo = $("input:radio[name ='add-info']:checked").val();
+
+                /*if(!yesOrNo){e.preventDefault(); }else */
+                if(yesOrNo == 'yes'){
+                    e.preventDefault();
+                    window.location.href = 'trailing-info_1-5.html';
+                }else if(yesOrNo == 'no'){
+                    e.preventDefault();
+                    window.location.href = 'index.html';
+                }
+            });          
 
             $('#TRANSFEREE-ADDRESSES-add-address').on('click', function(e){
               e.preventDefault();
