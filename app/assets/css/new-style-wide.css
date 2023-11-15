@@ -22,9 +22,9 @@
 		/* 98% white mixed in with header border green = #fcfdfa */
 /*		background-color: #fcfdfa; */
 
-		
+
 		/* grey - home office recommendation https://design.homeoffice.gov.uk/styles/colour */
-		background-color: #f1f1f1;  
+		background-color: #f1f1f1;
 	}
 
 	/* page background colour - header bottom border (behind the green) off-white */
@@ -119,7 +119,7 @@
 	}
 	/* * end block * */
 
-  
+
 	/* ********************************** */
   /* register scrolling */
   /* ********************************** */
@@ -156,6 +156,8 @@
 	#warning {
 		display:none;
 	}
+
+}
 
 
 	/* ********************************** */

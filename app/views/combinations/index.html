@@ -31,28 +31,24 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
     <h2 class="govuk-heading-l">Phase 1 prototype</h2>
 
-    <p class="govuk-body">After severla rounds of user testing and iterations, combinations phase 1 is now live. This prototype documents the design of the combinations feature. User research, iterations and design history for this piece of work can be found in the old AP prototype kit under <a href= https://hmlr-application-processing.herokuapp.com/multi-transaction/>'multi-transactions'</a></p>
+    <p class="govuk-body">After several rounds of user testing and iterations, combinations phase 1 is now live. This prototype documents the design of the combinations feature. User research, iterations and design history for this piece of work can be found in the old AP prototype kit under <a href= https://hmlr-application-processing.herokuapp.com/multi-transaction/>'multi-transactions'</a></p>
 
     <p>Design considerations:</p>
 
-    <p><a href="/charge-defer/r1-index">Link to prototype flow</a></p>
+    <p><a href="/combinations/combos-index">Link to prototype flow</a></p>
 
     <ul class="govuk-list govuk-list--bullet">
     	<li>
-        <a class="govuk-link" href="v1a/00-worklist">A - Both UI tasks</a><br>
-        Scenario A: The register contains a charge with a restriction and another type of restriction. The other type of restriction does not require consent. The charge evidence is missing. The application should defer with the charge evidence, however our assumption is that it won't due to both tasks being present and caseworkers answering with workarounds.
+        <a class="govuk-link" href="v1a/00-worklist">Phase 1 - Charge and RX1</a><br>
+        Phase 1 of combinations was a Charge and any number of RX1's (entering a restriction onto the register). This phase is where we figured out the foundations of the combinations flow including: the 'initial tasks' and 'final tasks' pseudo-transactions, to de-duplicate those application level questions; the summary page design and determining when that appears; the status labels ('Drafted', 'Not drafted', and 'Draft in CORA' which should cover almost all transactions status); and the ability to save drafting and move past a transaction to continue with the rest of an application.
       </li>
     	<li>
-        <a class="govuk-link" href="v1b/00-worklist">B - Two restrictions</a><br>
-        Scenario B: One restriction requires consent, one does not. Consent has not been provided for the restriction that requires it and the case should therefore defer.
+        <a class="govuk-link" href="v1b/00-worklist">Phase 2 - Subsequent Discharge</a><br>
+        In phase 2, we added a subsequent discharge. This type of transactions could be either manual or automated. For the designs we added: having the register entry 'removing' tag across transactions, the ABR changing for the manual discharge, and the use of the 'Drafted' status for an automated transaction.
       </li>
       <li>
-        <a class="govuk-link" href="v1c/07-wrap-up">C - Multiple restrictions</a><br>
-        Scenario C: Multiple restrictions, some needing consent and others not. Consent has been provided for all that require it and therefore the case should markoff.
-      </li>
-    	<li>
-        <a class="govuk-link" href="v1d/07-wrap-up">D - Referral</a><br>
-        Scenario D: One restriction that is above EO settlement (Form B). This will require the users to refer the case to a caseworker of a higher grade. The referral option then adds a PAS note and returns to Workflow.
+        <a class="govuk-link" href="v1c/07-wrap-up">Phase 3 - Transfer</a><br>
+        In Phase 3 we will stress test the combinations journey with longer and more complicated transactions.
       </li>
 
     </ul>
