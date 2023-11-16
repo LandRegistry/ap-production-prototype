@@ -36,7 +36,7 @@ Validity checks
         </div>
         <div class="govuk-notification-banner__content">
           <h3 class="govuk-notification-banner__heading govuk-!-font-size-19">
-            The miscellaneous information was added
+            The miscellaneous information was removed
           </h3>
           <!--p class="govuk-body">The transferees were added to the lorem ipsum dolor ab iure expedita incidunt.</p-->
         </div>
@@ -46,49 +46,12 @@ Validity checks
 
         
 
-        <!--div class="govuk-summary-card hmlr-summary-card--on-grey">
+        <div class="govuk-summary-card hmlr-summary-card--on-grey">
           <div class="govuk-summary-card__title-wrapper">
             <h1 class="govuk-summary-card__title govuk-!-margin-bottom-0">Added</h1>
           </div>
-          <div class="govuk-summary-card__content">
-            <dl class="govuk-summary-list">
-              <div class="govuk-summary-list__row govuk-!-font-size-16">
-                <dt class="govuk-summary-list__key">
-                  <span title="Miscellaneous information">Misc info 1</span>
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  Lorem ipsum dolor sit amet, alias eius minus vitae. Dignissimos, sit velit.
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  David Smith<span class="govuk-visually-hidden">,</span><br> Jane Richards<span class="govuk-visually-hidden">,</span>
-                </dd>
-              </div>
 
-              <div class="govuk-summary-list__row govuk-!-font-size-16">
-                <dt class="govuk-summary-list__key">
-                  <span title="Miscellaneous information">Misc info 2</span>
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  Lorem ipsum minus vitae dolor sit amet, alias eius dignissimos.
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  Elliot Hill<span class="govuk-visually-hidden">,</span><br> John Smith<span class="govuk-visually-hidden">,</span>
-                </dd>
-              </div>              
-
-            </dl>
-          </div>
-        </div-->
-
-
-        <div class="govuk-summary-card hmlr-summary-card--on-grey">
-          <div class="govuk-summary-card__title-wrapper">
-            <h1 class="govuk-summary-card__title govuk-!-margin-bottom-0">
-              Added 
-            </h1>
-          </div>
-
-          <p class="govuk-body govuk-visually-hidden"><!-- it might not be possible to add this P here in the gds component? -->
+          <p class="govuk-body govuk-visually-hidden">
             This is the list of trailing information already added.
           </p>
 
@@ -104,27 +67,13 @@ Validity checks
                   <span class="govuk-!-display-inline-block">Jane Richards</span>
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                  <a href="trailing-info_1-5-removed.html" class="govuk-link govuk-link--no-visited-state">
+                  <a href="#" class="govuk-link govuk-link--no-visited-state">
                     Remove<span class="govuk-visually-hidden"> miscellaneous information 1</span>
                   </a>
                 </dd>
               </div>
 
-              <div class="govuk-summary-list__row govuk-!-font-size-16">
-                <dt class="govuk-summary-list__key">
-                  <span title="Miscellaneous information">Misc info 2</span>
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  <span class="govuk-!-display-inline-block govuk-!-margin-bottom-3">Executor [Administrator] of Elliot Hill and John Smith deceased.</span>
-                  
-                  <span class="govuk-!-display-inline-block">Elliot Hill, John Smith</span>
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a href="trailing-info_1-5-removed.html" class="govuk-link govuk-link--no-visited-state">
-                    Remove<span class="govuk-visually-hidden"> miscellaneous information 2</span>
-                  </a>                  
-                </dd>
-              </div>              
+             
 
             </dl>
           </div>
@@ -134,7 +83,7 @@ Validity checks
 
           <!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
 
-                  {% include "../includes/inc_add-misc-info-question.html" %}
+          {% include "../includes/inc_add-misc-info-question.html" %}       
 
           <!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
 
@@ -146,9 +95,9 @@ Validity checks
             <button class="govuk-button" data-module="govuk-button">
               Next
             </button>
-            <!--a class="govuk-link govuk-link--no-visited-state" id="reject-application-button" href="trailing-info_1-3.html">
+            <a class="govuk-link govuk-link--no-visited-state" id="reject-application-button" href="trailing-info_1-3.html">
               Cancel adding this miscellaneous information
-            </a-->
+            </a>
           </div>
 
            
@@ -181,14 +130,16 @@ Validity checks
                     e.preventDefault();
                     window.location.href = 'ends.html';
                 }
-            });             
+            }); 
 
             $('#TRANSFEREE-ADDRESSES-add-address').on('click', function(e){
               e.preventDefault();
               window.location.href = 'trailing-info_1-1.html';
             });
 
-
+            //$('#previous-link').on('click',function(e){
+                //history.back();//used just for this prototype design page as this pg can be arrived at from different versions of the first page
+            //});
         };
     </script>
 {% endblock %}

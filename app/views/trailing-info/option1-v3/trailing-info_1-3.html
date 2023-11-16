@@ -103,15 +103,26 @@ Validity checks
             <noscript>
                 <input id="no_js_field" name="no_js_field" type="hidden" value="True">
             </noscript>
-            <br>
+            
+          <!-- correct GDS HTML for button + link used on this page -->
+          <div class="govuk-button-group govuk-!-margin-top-8">
+            <button class="govuk-button" data-module="govuk-button">
+              Next
+            </button>
+            <a class="govuk-link govuk-link--no-visited-state" id="reject-application-button" href="ends.html">
+              Return to Workflow
+            </a>
+          </div>
+
+            <!--br>
             <div class="container-buttons-action">
                 <button value="y" type="submit" name="submit_button" class="govuk-button" data-module="govuk-button" id="next-application-button">
                   Next
                 </button>
-                <a id="reject-application-button" class="govuk-link govuk-link--no-visited-state govuk-!-margin-left-2" href="./index.html">
+                <a id="reject-application-button" class="govuk-link govuk-link--no-visited-state govuk-!-margin-left-2" href="./ends.html">
                   Return to Workflow
                 </a>
-            </div>
+            </div-->
         </form>
       </div>
 
@@ -133,13 +144,14 @@ Validity checks
                 
                 var yesOrNo = $("input:radio[name ='add-info']:checked").val();
 
-                /*if(!yesOrNo){e.preventDefault(); }else */
-                if(yesOrNo == 'yes'){
+                if(!yesOrNo){
+                  e.preventDefault(); 
+                }else if(yesOrNo == 'yes'){
                     e.preventDefault();
-                    window.location.href = 'trailing-info_1-5.html';
+                    window.location.href = 'trailing-info_1-4.html';
                 }else if(yesOrNo == 'no'){
                     e.preventDefault();
-                    window.location.href = 'index.html';
+                    window.location.href = 'ends.html';
                 }
             });          
 

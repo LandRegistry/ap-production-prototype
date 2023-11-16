@@ -26,113 +26,62 @@ Validity checks
 
       <a href="trailing-info_1-3.html" id="previous-link" class="govuk-back-link">Previous page</a>
 
-      <!--h2 class="govuk-heading-m">Miscellaneous information</h2-->
+      <h1 class="govuk-heading-m govuk-!-margin-bottom-1">Miscellaneous information</h1>
 
       <div class="content">
         <form id="theForm" novalidate method="post" action="trailing-info_1-5">
 
-          <!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
-          
+          <!-- *** misc info form starts *** -->
           <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                <h1 class="govuk-fieldset__heading">
-                  Do you need to add miscellaneous information?
+            <label class="govuk-label govuk-!-font-weight-bold govuk-visually-hidden" for="misc-info">
+              Miscellaneous information
+            </label>
 
-                  <br>REMOVE the parent radio form 
-                </h1>
-              </legend>
+            <div id="misc-info-hint" class="govuk-hint govuk-!-font-size-16">
+              {% include "../includes/inc_add-trailing-info-hint-text.html" %}
+            </div>                    
 
-              <div class="govuk-radios govuk-radios--small govuk-!-margin-top-2" data-module="govuk-radios">
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="yes-info" name="add-info" type="radio" value="yes" data-aria-controls="conditional-contact">
-                  <label class="govuk-label govuk-radios__label" for="yes-info">
-                    Yes
-                  </label>
-                </div>
-
-                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
-
-                  <!-- *** misc info form starts *** -->
-                  <div class="govuk-form-group govuk-!-padding-top-3">
-                    <label class="govuk-label govuk-!-font-weight-bold" for="misc-info">
-                      Miscellaneous information
-                    </label>
-
-                    <div id="misc-info-hint" class="govuk-hint govuk-!-font-size-16">
-                      Add additional information about lorem ipsum dolor sit amet consectetur.
-                    </div>                    
-
-                    <textarea class="govuk-textarea" id="misc-info" name="misc-info" rows="5" maxlength="1500" aria-describedby="misc-info-hint"></textarea>
-                  </div>
-                  
-                  <div class="govuk-form-group">
-                    <fieldset class="govuk-fieldset" aria-describedby="transferee-hint">
-                      <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
-                        Transferees 
-                      </legend>
-          
-                      <div id="transferee-hint" class="govuk-hint govuk-!-font-size-16">
-                        Select which transferees to add to this lorem ipsum dolor consectetur.
-                      </div>
-          
-                      <div class="govuk-checkboxes govuk-checkboxes--small"    data-module="govuk-checkboxes">
-                          <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="transferee-01" name="transferee-addresses-transferee-selection" type="checkbox" value="Elliot Hill">
-                            <label class="govuk-label govuk-checkboxes__label" for="transferee-01">
-                              Elliot Hill
-                            </label>
-                          </div>
-                      </div>
-                      <div class="govuk-checkboxes govuk-checkboxes--small"    data-module="govuk-checkboxes">
-                        <div class="govuk-checkboxes__item">
-                          <input class="govuk-checkboxes__input" id="transferee-02" name="transferee-addresses-transferee-selection" type="checkbox" value="Elliot Hill">
-                          <label class="govuk-label govuk-checkboxes__label" for="transferee-02">
-                            John Smith
-                          </label>
-                        </div>
-                    </div>            
-                    </fieldset>
-                  </div>                  
-
-                  <input class="govuk-link govuk-!-margin-top-2 " id="TRANSFEREE-ADDRESSES-add-address" name="TRANSFEREE-ADDRESSES-add-address" type="submit" value="Create additional transferees">
-
-                  <!-- *** misc info form ends *** -->
-
-                </div>
-
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="no-info" name="add-info" type="radio" value="no">
-                  <label class="govuk-label govuk-radios__label" for="no-info">
-                    No
-                  </label>
-                </div>
-                
-              </div>
-            </fieldset>
+            <textarea class="govuk-textarea" id="misc-info" name="misc-info" rows="5" maxlength="1500" aria-describedby="misc-info-hint"></textarea>
           </div>
+          
+          <div class="govuk-form-group govuk-!-margin-bottom-2">
+            <fieldset class="govuk-fieldset" aria-describedby="transferee-hint">
+              <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
+                Transferees 
+              </legend>
+  
+              <div id="transferee-hint" class="govuk-hint govuk-!-font-size-16">
+                {% include "../includes/inc_select-transferees-hint-text.html" %}
+              </div>
+  
+              <div class="govuk-checkboxes govuk-checkboxes--small"    data-module="govuk-checkboxes">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="transferee-01" name="transferee-addresses-transferee-selection" type="checkbox" value="Elliot Hill">
+                    <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="transferee-01">
+                      Elliot Hill
+                    </label>
+                  </div>
+              </div>
+              <div class="govuk-checkboxes govuk-checkboxes--small"    data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="transferee-02" name="transferee-addresses-transferee-selection" type="checkbox" value="Elliot Hill">
+                  <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="transferee-02">
+                    John Smith
+                  </label>
+                </div>
+            </div>            
+            </fieldset>
+          </div>                  
 
-
-
-
-          <!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
-     
-
-
-
-<!--p class="govuk-body-s">
-  <a href="" class="govuk-link govuk-link--no-visited-state">Add transferees</a> before completing this form.
-</p-->
-
-                    
-
+          <input class="govuk-link" id="TRANSFEREE-ADDRESSES-add-address" name="TRANSFEREE-ADDRESSES-add-address" type="submit" value="Create transferees">
+          <!-- *** misc info form ends *** -->
 
           <!-- correct GDS HTML for button + link used on this page -->
-          <div class="govuk-button-group">
+          <div class="govuk-button-group govuk-!-margin-top-8">
             <button class="govuk-button" data-module="govuk-button">
               Next
             </button>
-            <a class="govuk-link govuk-link--no-visited-state" id="reject-application-button" href="trailing-info_1-3.html">
+            <a class="govuk-link govuk-link--no-visited-state" id="reject-application-button" href="trailing-info_1-5-no-banner.html">
               Cancel adding this miscellaneous information
             </a>
           </div>

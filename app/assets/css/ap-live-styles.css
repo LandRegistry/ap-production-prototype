@@ -6,11 +6,23 @@
 /* *** 
 Additional "hacky" CSS for this prototype to get the above 'live' css to work fully... starts: 
 
+Based upon the flat CSS and HTML I sourced from live - the pages don't appear to reflow on smaller devices? Need to confirm.
+
 But even the above styles grabbed from test appear to be a hybrid between old and new - sub header appears new?
 *** */
 
 body.govuk-template__body {
     background-color: #f3f2f1;
+}
+
+@media (max-width: 40.0625em){
+    .apui-header .govuk-header__container {
+        display: inline-block;/* this breaks but it stops the horizontal scroll - hack/fix for prototype display */
+    }
+    .container-register * {
+        white-space: normal !important;
+    }
+  
 }
 
 @media (min-width: 40.0625em){/* desktop */
@@ -56,73 +68,74 @@ body.govuk-template__body {
     .register-line-container .register-line-pre {
         white-space: normal;
     }
-}
 
+}
 
 /* *** filthy hacky CSS just to get an old style legacy sub header "emulating" current live version *** */
-main.govuk-main-wrapper, 
-div.container-content {
-    float: left; 
-}
-/*#info-panel-hmlr-body {
-    padding: 5px 0 5px 10px;
-    border-top: 1px solid #0b0c0c;
-    border-bottom: 1px solid #0b0c0c; 
-}
-#info-panel {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: space-around;
-}
-#info-panel .items {
-    width: 19%;
-    height: 50px;
-    font-family: Arial,Helvetica,sans-serif;   
-    padding: 0;
-    margin: 0;
+@media (min-width: 40.0625em){/* desktop */
+    main.govuk-main-wrapper, 
+    div.container-content {
+        float: left; 
+    }
+    /*#info-panel-hmlr-body {
+        padding: 5px 0 5px 10px;
+        border-top: 1px solid #0b0c0c;
+        border-bottom: 1px solid #0b0c0c; 
+    }
+    #info-panel {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: space-around;
+    }
+    #info-panel .items {
+        width: 19%;
+        height: 50px;
+        font-family: Arial,Helvetica,sans-serif;   
+        padding: 0;
+        margin: 0;
 
-}
-#info-panel h1.items {
-    width: 40%; 
-    line-height: 2;
-}
-#info-panel span.items {
-    font-size: 16px; 
-    line-height: 3; 
-    text-align: right;
-}
-#info-panel .document-link {
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Cpath d='M28.681 7.159c-.694-.947-1.662-2.053-2.724-3.116s-2.169-2.03-3.116-2.724C21.229.137 20.448 0 20 0H4.5A2.503 2.503 0 002 2.5v27C2 30.878 3.122 32 4.5 32h23c1.378 0 2.5-1.122 2.5-2.5V10c0-.448-.137-1.23-1.319-2.841zm-4.138-1.702A27.334 27.334 0 0126.811 8H22V3.189a27.334 27.334 0 012.543 2.268zM28 29.5c0 .271-.229.5-.5.5h-23a.507.507 0 01-.5-.5v-27c0-.271.229-.5.5-.5H20v7a1 1 0 001 1h7v19.5z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-size: 25px 28px;
-    background-position: 0;
-    padding: 15px 0 15px 35px;
-}*/
+    }
+    #info-panel h1.items {
+        width: 40%; 
+        line-height: 2;
+    }
+    #info-panel span.items {
+        font-size: 16px; 
+        line-height: 3; 
+        text-align: right;
+    }
+    #info-panel .document-link {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Cpath d='M28.681 7.159c-.694-.947-1.662-2.053-2.724-3.116s-2.169-2.03-3.116-2.724C21.229.137 20.448 0 20 0H4.5A2.503 2.503 0 002 2.5v27C2 30.878 3.122 32 4.5 32h23c1.378 0 2.5-1.122 2.5-2.5V10c0-.448-.137-1.23-1.319-2.841zm-4.138-1.702A27.334 27.334 0 0126.811 8H22V3.189a27.334 27.334 0 012.543 2.268zM28 29.5c0 .271-.229.5-.5.5h-23a.507.507 0 01-.5-.5v-27c0-.271.229-.5.5-.5H20v7a1 1 0 001 1h7v19.5z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-size: 25px 28px;
+        background-position: 0;
+        padding: 15px 0 15px 35px;
+    }*/
 
 
-/* ********* this flex css is important for both cols to match (as one has a white background) *********** */
-.container-content {
-    display: flex;
-    width: 100%;
-}
-/*.container-register, */
-.container-tasks {
-    flex: 1;
+    /* ********* this flex css is important for both cols to match (as one has a white background) *********** */
+    .container-content {
+        display: flex;
+        width: 100%;
+    }
+    /*.container-register, */
+    .container-tasks {
+        flex: 1;
+    }
+
+    .container-register {
+        padding-top: 80px; 
+    }
+    .container-tasks > .govuk-back-link {
+        margin-bottom: 40px;
+    }
+       
 }
 
-.container-register {
-    padding-top: 80px; 
-}
-.container-tasks > .govuk-back-link {
-    margin-bottom: 40px;
-}
 /* *** additional css for this prototype to get the above 'live' css to work fully... ends. *** */
 
-
-
 /* *** new proprietory css for these new designs - starts: *** */
-
 
 col.hmlr-col-one-third {
     width: 33.3%;
@@ -139,12 +152,13 @@ tbody.hmlr-tbody--border-bottom + tbody.hmlr-tbody--border-bottom tr:first-child
 }
 
 .hmlr-summary-card--on-grey .govuk-summary-card__title-wrapper {
-        position: relative;
-        top: -15px;
-        left: 10px;
-        padding: 3px 10px 3px 10px;
-        background-color: #f3f2f1; 
-        display: inline-block;
+    position: relative;
+    top: -15px;
+    left: 10px;
+    padding: 3px 10px 3px 10px;
+    background-color: #f3f2f1; 
+    display: inline-block; 
+    margin-bottom: -10px; 
 }
 .hmlr-summary-card--on-grey .govuk-summary-card__content {
     padding-top: 0; 
