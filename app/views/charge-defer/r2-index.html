@@ -1,0 +1,62 @@
+{% extends "layouts/ap-documentation.html" %}
+{% block header %}
+	{% from "hmlr/components/header/macro.njk" import hmlrHeader %}
+	{{ hmlrHeader({
+	  serviceName: "Application Processing",
+	  serviceUrl: "/transfer-defer"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Round 2 user research links</h1>
+
+    <p><a target="_blank" href="/manage-prototype/clear-data">clear any saved data before using each prototype</a> (opens in new tab)</p>
+		<p>Screens:</p>
+		<ul class="govuk-list govuk-list--bullet">
+    	<li>
+        <a class="govuk-link" href="v2-screens/success">A</a>
+      </li>
+			<li>
+				<a class="govuk-link" href="v2-screens/workflow-no-drafting">B</a>
+			</li>
+			<li>
+				<a class="govuk-link" href="v2-screens/workflow">C</a>
+			</li>
+			<li>
+				<a class="govuk-link" href="v2-screens/deferred">D</a>
+			</li>
+		</ul>
+
+    <p>Scenarios:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+    	<li>
+        <a class="govuk-link" href="v2a/00-worklist">A</a>
+      </li>
+    	<li>
+        <a class="govuk-link" href="v1b/04-discharge">B</a>
+      </li>
+       <li>
+        <a class="govuk-link" href="v1c/04-discharge">C</a>
+      </li>
+    	<li>
+        <a class="govuk-link" href="v1d/04-discharge">D</a>
+      </li>
+
+
+
+    </ul>
+
+
+  </div>
+</div>
+
+{% endblock %}

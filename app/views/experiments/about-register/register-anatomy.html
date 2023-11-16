@@ -1,0 +1,243 @@
+{% extends "layouts/ap-main.html" %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <h2 class="govuk-heading-l">Register anatomy</h2>
+    <style>
+/* Base Styles */
+html {
+    font-size: 19px; /* This sets the default font size to 19px */
+}
+
+body {
+    font-size: 1rem; /* This sets the body font size to the default size defined on the html element */
+}
+
+/* Large Devices (Desktops ≥ 1200px) */
+
+@media (min-width: 1200px) {
+    html {
+        font-size: calc(1rem * 1.1); /* 10% larger than the base size */
+    }
+    /* All font sizes will scale proportionally based on the html element's font size */
+}
+
+/* Extra Extra Large Devices (Large Desktops ≥ 1400px) */
+@media (min-width: 1400px) {
+    html {
+        font-size: calc(1rem * 1.2); /* 20% larger than the base size */
+    }
+    /* All font sizes will scale proportionally based on the html element's font size */
+}
+
+/* Ultra Large Devices (Large Desktops ≥ 1600px) */
+@media (min-width: 1600px) {
+    html {
+        font-size: calc(1rem * 1.3); /* 30% larger than the base size */
+    }
+    /* All font sizes will scale proportionally based on the html element's font size */
+}
+
+
+          br {
+            margin-bottom: 24px;
+            }
+
+      /* Heading Styles */
+              .govuk-heading-xl-caption {
+                  font-size: 27px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 300;
+                  line-height: 34px;
+              }
+
+              .govuk-heading-xl {
+                  font-size: 48px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 700;
+                  line-height: 50px;
+              }
+
+              .govuk-heading-l-caption {
+                  font-size: 24px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 300;
+                  line-height: 30px;
+              }
+
+              .govuk-heading-l {
+                  font-size: 36px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 700;
+                  letter-spacing: 0;
+                  line-height: 40px;
+              }
+
+              .govuk-heading-m-caption {
+                  font-size: 19px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 300;
+                  line-height: 24px;
+              }
+
+              .govuk-heading-m {
+                  font-size: 24px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 700;
+                  line-height: 30px;
+              }
+
+              .govuk-heading-s {
+                  font-size: 19px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 700;
+                  line-height: 25px;
+              }
+
+      /* Paragraph Styles */
+              .govuk-body {
+                  font-size: 19px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 300;
+                  line-height: 25px;
+              }
+
+              .govuk-body-bold {
+                  font-size: 19px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 700;
+                  line-height: 25px;
+              }
+
+              .govuk-body-l {
+                  font-size: 24px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 300;
+                  line-height: 32px;
+                  text-transform: none;
+              }
+
+              .govuk-body-l-bold {
+                  font-size: 24px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 700;
+                  font-style: normal;
+                  font-stretch: normal;
+                  line-height: 32px;
+              }
+
+              .govuk-body-s {
+                  font-size: 16px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 300;
+                  line-height: 20px;
+              }
+
+              .govuk-body-s-bold {
+                  font-size: 16px;
+                  font-family: Arial, sans-serif;
+                  font-weight: 700;
+                  line-height: 20px;
+              }
+
+      /* Link Styles */
+
+              .govuk-link {
+                  font-size: 19px;
+                  text-decoration: underline;
+                  font-family: Arial, sans-serif;
+                  font-weight: 300;
+                  line-height: 25px;
+              }
+
+              .govuk-link-bold {
+                  font-size: 19px;
+                  text-decoration: underline;
+                  font-family: Arial, sans-serif;
+                  font-weight: 700;
+                  line-height: 25px;
+              }
+
+              .govuk-link-s {
+                  font-size: 16px;
+                  text-decoration: underline;
+                  font-family: Arial, sans-serif;
+                  font-weight: 300;
+                  line-height: 20px;
+              }
+
+              .govuk-link-s-bold {
+                  font-size: 16px;
+                  text-decoration: underline;
+                  font-family: Arial, sans-serif;
+                  font-weight: 700;
+                  line-height: 20px;
+              }
+
+
+      /* Removing tag */
+
+                .removing-inset-text--gov {
+                  padding-left: 10px;
+                  margin-top: 20px;
+                  margin-bottom: 20px;
+                  border-left: 10px solid #f6d7d2;
+                }
+
+      </style>
+   <div class="govuk-tabs" data-module="govuk-tabs">
+				<hr style="height:1px;border-width:0;color:gray;background-color:gray;margin-bottom:25px">
+
+        <h2 class="govuk-heading-m">H2 Heading</h2>
+        <hr style="height:1px;border-width:0;color:gray;background-color:gray;margin-bottom:25px">
+        <h3 class="govuk-heading-s">H3 SUBHEADING (ALL CAPS)</h3>
+        <p class="govuk-body">BODY TEXT (ALL CAPS).</p>
+        <ol class="govuk-list--number register-list">
+          <li>[Date] Ordered list of entries</li>
+          <li>[Date] List item - register entry</li>
+        </ol>
+
+        <hr style="height:1px;border-width:0;color:gray;background-color:gray;margin-bottom:25px">
+
+        <h3 class="govuk-heading-s">H3 SUBHEADING (ALL CAPS)</h3>
+        <ol class="govuk-list--number register-list">
+          <li>[Date] [Proprietor(s)][Address]</li>
+          <li>[Date] Body text [Date] [Price]</li>
+          <li>[Date] List item - register entry</li>
+        </ol>
+
+        <hr style="height:1px;border-width:0;color:gray;background-color:gray;margin-bottom:25px">
+
+        <h3 class="govuk-heading-s">H3 SUBHEADING (ALL CAPS)</h3>
+        <ol class="govuk-list--number register-list">
+          <li>[Date] Ordered list of entries</li>
+          <li id="c2" class="withdraw">
+              <div class="removing-inset-text--gov" id="inset-c2">
+                <div id="tag-c2">
+        	        <strong class="govuk-tag govuk-tag--red" id="tag" style="margin-bottom: 10px;">
+        	        Removing
+        	        </strong>
+        	      </div>
+                [Date] List item - register entry</li>
+          <li>
+            <div class="removing-inset-text--gov" id="inset-c2">
+              <div id="tag-c2">
+                <strong class="govuk-tag govuk-tag--red" id="tag" style="margin-bottom: 10px;">
+                Removing
+                </strong>
+              </div>
+              [Date] List item - register entry</li>
+        </ol>
+
+        <hr style="height:1px;border-width:0;color:gray;background-color:gray;margin-bottom:25px">
+
+</div>
+
+
+
+{% endblock %}

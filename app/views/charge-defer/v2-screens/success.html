@@ -1,0 +1,31 @@
+{% extends "layouts/ap-flow-regular.html" %}
+
+{% block pageTitle %}
+Sent for mark off
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row govuk-body">
+    <div class="govuk-grid-column-two-thirds">
+    	<div class="govuk-panel govuk-panel--confirmation">
+	    	<h1 class="govuk-panel__title">
+	          Application {{ abrNumber | d('A123XYZ') }} complete
+	      </h1>
+	      <div class="govuk-panel__body">
+	        Sent for mark off
+	      </div>
+	    </div>
+
+      <!-- <h2 class="govuk-heading-m">What's next</h2> -->
+
+      <p class="govuk-body govuk-!-margin-top-6">
+        <a href="/charge-defer/r2-index" class="govuk-link">Start processing a new application</a>
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}
