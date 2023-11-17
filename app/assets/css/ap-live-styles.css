@@ -117,20 +117,29 @@ body.govuk-template__body {
     /* ********* this flex css is important for both cols to match (as one has a white background) *********** */
     .container-content {
         display: flex;
-        width: 100%;
+        width: 100%; 
+        margin-left: -10px; 
+        
     }
     /*.container-register, */
     .container-tasks {
-        flex: 1;
+        flex: 1; 
+        padding: 0 10px 10px 10px;
     }
 
     .container-register {
         padding-top: 80px; 
+        border-right: 2px solid #b1b4b6; 
+        padding: 10px 20px 10px 10px;
     }
     .container-tasks > .govuk-back-link {
         margin-bottom: 40px;
     }
        
+}
+
+.hmlr-strike-through {
+    text-decoration: line-through;
 }
 
 /* *** additional css for this prototype to get the above 'live' css to work fully... ends. *** */
