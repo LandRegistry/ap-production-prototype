@@ -57,6 +57,16 @@
     }
 }
 
+.hmlr-table--tds-vertical-middle tbody tr th, 
+.hmlr-table--tds-vertical-middle tbody tr td {
+    vertical-align: middle; 
+
+    ul {
+        margin-top: govuk-spacing(1);
+        margin-bottom: 0;
+    }
+}
+
 @include govuk-media-query($from: desktop){
     .hmlr-min-height-375 {
         min-height: 375px;
