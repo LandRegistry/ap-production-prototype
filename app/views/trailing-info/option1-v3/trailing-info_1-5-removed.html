@@ -46,38 +46,28 @@ Validity checks
 
         
 
-        <div class="govuk-summary-card hmlr-summary-card--on-grey">
-          <div class="govuk-summary-card__title-wrapper">
-            <h1 class="govuk-summary-card__title govuk-!-margin-bottom-0">Added</h1>
-          </div>
+        <table class="govuk-table govuk-transferee-addresses-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Added</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header"><span class="govuk-visually-hidden">Number</span></th>
+              <th scope="col" class="govuk-table__header"><span title="Miscellaneous information">Misc info</span></th>
+              <th scope="col" class="govuk-table__header">Remove</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">1</th>
+                  <td class="govuk-table__cell">Executor [Administrator] of Jane Richards deceased.</td>
+                  <td class="govuk-table__cell transferee-addresses-table-action-cell">
+                    
+                    <input class="govuk-link" id="remove-address-100040208196a" name="remove-address-x" type="submit" value="Remove">
 
-          <p class="govuk-body govuk-visually-hidden">
-            This is the list of trailing information already added.
-          </p>
-
-          <div class="govuk-summary-card__content">
-            <dl class="govuk-summary-list">
-              <div class="govuk-summary-list__row govuk-!-font-size-16">
-                <dt class="govuk-summary-list__key">
-                  <span title="Miscellaneous information">Misc info 1</span>
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  <span class="govuk-!-display-inline-block govuk-!-margin-bottom-3">Executor [Administrator] of Jane Richards deceased.</span>
-
-                  <span class="govuk-!-display-inline-block">Jane Richards</span>
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a href="#" class="govuk-link govuk-link--no-visited-state">
-                    Remove<span class="govuk-visually-hidden"> miscellaneous information 1</span>
-                  </a>
-                </dd>
-              </div>
-
-             
-
-            </dl>
-          </div>
-        </div>        
+                  </td>
+                </tr>
+                
+          </tbody>
+        </table>      
 
         <form id="theForm" novalidate method="post" action="ends">
 
