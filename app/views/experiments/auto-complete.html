@@ -6,39 +6,94 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
 {% block content %}
 <script>
-
-   // Event listener for when the DOM is fully loaded
+// Add an event listener for the 'DOMContentLoaded' event
 document.addEventListener('DOMContentLoaded', function() {
-    // Getting the search box and results list elements from the DOM
+    // Get the search box and results list elements from the document
     var searchBox = document.getElementById('search-box');
     var resultsList = document.getElementById('results-list');
 
-    // Adding an event listener for input events on the search box
+    // Add an event listener for the 'input' event on the search box
     searchBox.addEventListener('input', function(e) {
-        // Retrieving the current value of the search box
-        var searchQuery = e.target.value;
+        // Get the current value of the search box and convert it to lower case
+        var searchQuery = e.target.value.toLowerCase();
+        // Clear any previous results in the results list
+        resultsList.innerHTML = '';
 
-        // Basic validation: Proceed only if the query length is more than 2 characters
-        if (searchQuery.length > 2) {
-            // Performing an API call to a search endpoint with the user's query
-            fetch('https://your-api.com/search?q=' + searchQuery)
-                .then(response => response.json()) // Parsing the response to JSON
-                .then(data => {
-                    resultsList.innerHTML = ''; // Clearing previous results
+        // Check if the search query is not just whitespace
+        if (searchQuery.trim()) {
+            // Define a list of suggestions
+            var suggestions = ['Apple', 'Banana', 'Cherry', 'Date', 'Elderberry', 'Fig', 'Grape'];
 
-                    // Iterating over each item in the response data
-                    data.forEach(item => {
-                        var li = document.createElement('li'); // Creating a new list item
-                        li.textContent = item.name; // Setting the text of the item
-                        resultsList.appendChild(li); // Adding the item to the results list
-                    });
-                })
-                .catch(error => console.error('Error:', error)); // Handling errors in the API call
+            // Filter the suggestions to include only those that contain the search query
+            // Limit the number of suggestions to 5
+            var filteredSuggestions = suggestions.filter(function(suggestion) {
+                return suggestion.toLowerCase().includes(searchQuery);
+            }).slice(0, 5);
+
+            // Iterate over the filtered suggestions
+            filteredSuggestions.forEach(function(suggestion) {
+                // Create a new list item element
+                var li = document.createElement('li');
+                // Add the 'autocomplete__option' class to the list item
+                li.classList.add('autocomplete__option');
+                // Create a regular expression to find instances of the search query
+                var regex = new RegExp(searchQuery, 'gi');
+                // Set the inner HTML of the list item, replacing the search query with a bold version
+                li.innerHTML = suggestion.replace(regex, function(match) { return '<strong>' + match + '</strong>'; });
+                // Add the list item to the results list
+                resultsList.appendChild(li);
+
+                // Add a click event listener to the list item
+                li.addEventListener('click', function() {
+                    // Alert the user with the selected suggestion when clicked
+                    alert('You selected: ' + suggestion);
+                    // Simulate a page refresh, as there's no actual data source or further action defined
+                    location.reload();
+                });
+            });
+
+            // Make the results list visible
+            resultsList.classList.add('autocomplete__menu--visible');
         } else {
-            resultsList.innerHTML = ''; // Clearing the results list if query is too short
+            // Hide the results list if the search query is empty or whitespace
+            resultsList.classList.remove('autocomplete__menu--visible');
         }
     });
+
+    /*
+    // To use an API as the data source instead of the static list,
+    // comment out the above static list and uncomment the following block of code
+
+    // searchBox.addEventListener('input', function(e) {
+    //     var searchQuery = e.target.value.toLowerCase();
+    //     resultsList.innerHTML = '';
+    //     if (searchQuery.trim()) {
+    //         fetch('https://your-api.com/search?q=' + encodeURIComponent(searchQuery))
+    //             .then(response => response.json())
+    //             .then(data => {
+    //                 var suggestions = data.slice(0, 5);
+    //                 suggestions.forEach(function(suggestion) {
+    //                     var li = document.createElement('li');
+    //                     li.classList.add('autocomplete__option');
+    //                     var regex = new RegExp(searchQuery, 'gi');
+    //                     li.innerHTML = suggestion.replace(regex, function(match) { return '<strong>' + match + '</strong>'; });
+    //                     resultsList.appendChild(li);
+    //                     li.addEventListener('click', function() {
+    //                         alert('You selected: ' + suggestion);
+    //                         location.reload();
+    //                     });
+    //                 });
+    //                 resultsList.classList.add('autocomplete__menu--visible');
+    //             })
+    //             .catch(error => console.error('Error:', error));
+    //     } else {
+    //         resultsList.classList.remove('autocomplete__menu--visible');
+    //     }
+    // });
+    */
 });
+
+
 
 
 
@@ -46,67 +101,32 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="govuk-grid-row">
     <h2 class="govuk-heading-l">Auto-complete</h2>
     <style>
+.autocomplete__option strong {
+    font-weight: bold;
+}
 .autocomplete__wrapper {
   position: relative;
 }
 
-.autocomplete__hint,
-.autocomplete__input,
-.autocomplete__option {
+.autocomplete__input {
   -webkit-appearance: none;
   border: 2px solid #0b0c0c;
   box-sizing: border-box;
   width: 100%;
-  font-size: 16px;
-  line-height: 1.25;
   padding: 5px;
-}
-
-@media (min-width: 641px) {
-  .autocomplete__hint,
-  .autocomplete__input,
-  .autocomplete__option {
-    font-size: 19px;
-    line-height: 1.31579;
-  }
-}
-
-.autocomplete__input {
-  background-color: transparent;
-  position: relative;
-}
-
-.autocomplete__input--focused {
-  outline: 3px solid #fd0;
-  box-shadow: inset 0 0 0 2px;
-}
-
-.autocomplete__input--show-all-values {
-  padding-right: 34px; /* Space for arrow */
-  cursor: pointer;
-}
-
-.autocomplete__dropdown-arrow-down {
-  z-index: -1;
-  position: absolute;
-  right: 8px;
-  top: 10px;
-  width: 24px;
-  height: 24px;
+  font-size: 16px;
 }
 
 .autocomplete__menu {
-  background-color: #fff;
-  color: #0B0C0C;
+  list-style-type: none;
   margin: 0;
-  max-height: 342px;
-  overflow-x: hidden;
   padding: 0;
+  background-color: #fff;
+  border: 2px solid #0b0c0c;
   position: absolute;
-  top: 100%;
-  width: calc(100% - 4px);
-  z-index: 100;
+  width: 100%;
   display: none; /* Initially hidden */
+  z-index: 1000;
 }
 
 .autocomplete__menu--visible {
@@ -114,57 +134,34 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .autocomplete__option {
-  border-bottom: 1px solid #b1b4b6;
+  padding: 5px;
   cursor: pointer;
-  display: block;
+  border-bottom: 1px solid #b1b4b6;
 }
 
-.autocomplete__option:first-of-type {
-  border-top-width: 0;
+.autocomplete__option:last-child {
+  border-bottom: none;
 }
 
-.autocomplete__option:last-of-type {
-  border-bottom-width: 0;
-}
-
-.autocomplete__option--odd {
-  background-color: #FAFAFA;
-}
-
-.autocomplete__option--focused,
-.autocomplete__option:hover {
+.autocomplete__option:hover,
+.autocomplete__option--focused {
   background-color: #1d70b8;
   color: white;
 }
 
-@media (-ms-high-contrast: active), (forced-colors: active) {
-  .autocomplete__menu {
-    border-color: FieldText;
-  }
-
-  .autocomplete__option--focused,
-  .autocomplete__option:hover {
-    forced-color-adjust: none;
-    background-color: Highlight;
-    color: HighlightText;
-  }
+/* Style for highlighted text */
+strong {
+  font-weight: bold;
 }
-
-.autocomplete__option--no-results {
-  color: #646b6f;
-  cursor: not-allowed;
-}
-
 
 </style>
 
 
+<div class="autocomplete__wrapper">
+    <input type="text" class="autocomplete__input" id="search-box" placeholder="Search...">
+    <ul class="autocomplete__menu" id="results-list"></ul>
+</div>
 
-    <div class="autocomplete__wrapper">
-        <input type="text" class="autocomplete__input" id="search-box" placeholder="Search...">
-        <ul class="autocomplete__menu" id="results-list"></ul>
-    </div>
-    <script src="autocomplete.js"></script>
 
 
 {% endblock %}
