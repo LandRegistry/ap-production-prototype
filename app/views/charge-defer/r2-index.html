@@ -3,7 +3,7 @@
 	{% from "hmlr/components/header/macro.njk" import hmlrHeader %}
 	{{ hmlrHeader({
 	  serviceName: "Application Processing",
-	  serviceUrl: "/transfer-defer"
+	  serviceUrl: "/charge-defer"
 	}) }}
 {% endblock %}
 
@@ -25,13 +25,13 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
         <a class="govuk-link" href="v2-screens/success">A</a>
       </li>
 			<li>
-				<a class="govuk-link" href="v2-screens/workflow-no-drafting">B</a>
+				<a class="govuk-link" href="v2-screens/workflow">B</a>
 			</li>
 			<li>
-				<a class="govuk-link" href="v2-screens/workflow">C</a>
+				<a class="govuk-link" href="v2-screens/deferred">C</a>
 			</li>
 			<li>
-				<a class="govuk-link" href="v2-screens/deferred">D</a>
+				<a class="govuk-link" href="v2-screens/deferred-new">D</a>
 			</li>
 		</ul>
 
@@ -42,13 +42,13 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
         <a class="govuk-link" href="v2a/00-worklist">A</a>
       </li>
     	<li>
-        <a class="govuk-link" href="v1b/04-discharge">B</a>
+        <a class="govuk-link" href="v2b/00-worklist">B</a>
       </li>
        <li>
-        <a class="govuk-link" href="v1c/04-discharge">C</a>
+        <a class="govuk-link" href="v2c/04-discharge">C</a>
       </li>
     	<li>
-        <a class="govuk-link" href="v1d/04-discharge">D</a>
+        <a class="govuk-link" href="v2d/04-discharge">D</a>
       </li>
 
 
