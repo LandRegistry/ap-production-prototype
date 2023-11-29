@@ -47,12 +47,12 @@ Charge
 	        classes: 'govuk-radios--small',
 	        fieldset: {
 	          legend: {
-	            text: 'Do any of these restrictions stop this application completing?',
+	            text: 'Has evidence been provided for all relevant restrictions?',
 	            classes: 'govuk-fieldset__legend--s'
 	          }
 	        },
           hint: {
-            html: 'Check register entry B3'
+            html: 'Check register entry B3 and B4'
           },
 	        items: [
 	          {
@@ -60,6 +60,11 @@ Charge
 	            value: 'Yes',
 	            checked: checked('register-restrictions','Yes')
 	          },
+            {
+              html: 'Not needed',
+              value: 'Not needed',
+              checked: checked('register-restrictions','Not needed')
+            },
 	          {
 	            html: 'No',
 	            value: 'No',

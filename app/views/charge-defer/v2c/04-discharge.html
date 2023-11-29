@@ -71,37 +71,42 @@ Charge
 
 
 	      <!-- register restrictions -->
-	      {{ govukRadios({
-	        idPrefix: 'register-restrictions',
-	        name: 'register-restrictions',
-	        classes: 'govuk-radios--small',
-	        fieldset: {
-	          legend: {
-              text: 'Do any of these restrictions stop this application completing?',
-	            classes: 'govuk-fieldset__legend--s'
-	          }
-	        },
+        {{ govukRadios({
+          idPrefix: 'register-restrictions',
+          name: 'register-restrictions',
+          classes: 'govuk-radios--small',
+          fieldset: {
+            legend: {
+              text: 'Has evidence been provided for all relevant restrictions?',
+              classes: 'govuk-fieldset__legend--s'
+            }
+          },
           hint: {
             html: 'Check register entry B4'
           },
-	        items: [
-	          {
-	            html: 'Yes',
-	            value: 'Yes',
-	            checked: checked('register-restrictions','Yes')
-	          },
-	          {
-	            html: 'No',
-	            value: 'No',
-	            checked: checked('register-restrictions','No')
-	          },
+          items: [
+            {
+              html: 'Yes',
+              value: 'Yes',
+              checked: checked('register-restrictions','Yes')
+            },
+            {
+              html: 'Not needed',
+              value: 'Not needed',
+              checked: checked('register-restrictions','Not needed')
+            },
+            {
+              html: 'No',
+              value: 'No',
+              checked: checked('register-restrictions','No')
+            },
             {
               html: 'Needs a referral',
               value: 'Needs a referral',
               checked: checked('register-restrictions','Needs a referral')
             }
-	        ]
-	      }) }}
+          ]
+        }) }}
 
 	    	<!-- end of tasks  -->
 
