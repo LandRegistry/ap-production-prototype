@@ -44,9 +44,16 @@ router.post('06-restriction-page-1', function (req, res) {
 	res.redirect('07-restriction-page-2');
 })
 
+router.post('07-restriction-page-2', function (req, res) {
+	res.redirect('08-final-tasks-page-1');
+})
+
+router.post('08-final-tasks-page-1', function (req, res) {
+	res.redirect('09-final-tasks-page-2');
+})
 
 
-router.post('/05-any-other-entries', function (req, res) {
+router.post('/09-final-tasks-page-2', function (req, res) {
 
 	  if 	(req.session.data['property-match'] == 'No'
      	|| req.session.data['id-check'] == 'No'
@@ -59,9 +66,9 @@ router.post('/05-any-other-entries', function (req, res) {
 			|| req.session.data['docs-meet-requirements'] == 'No'
 			|| req.session.data['additional-transactions'] == 'Yes'
 	  	) {
-	    res.redirect('workflow');
+	    res.redirect('90-summary-page-workflow');
 	  } else {
-	    res.redirect('deferred');
+	    res.redirect('90-summary-page-drafted');
 	  }
 })
 
