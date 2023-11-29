@@ -1,7 +1,7 @@
 {% extends "layouts/ap-flow-wide.html" %}
 
 {% block pageTitle %}
-Charge
+Restriction (RX1)
 {% endblock %}
 
 {% block content %}
@@ -107,7 +107,7 @@ Charge
 					<button class="govuk-button" data-module="govuk-button">
 						Next
 					</button>
-					<a href="workflow-no-drafting" class="govuk-link reject-button">Cancel processing this transaction</a>
+					<a href="summary-interim-2" class="govuk-link reject-button">Cancel processing this transaction</a>
 				</div>
 
 			</form>
@@ -124,35 +124,6 @@ Charge
 
 {% block pageScripts %}
 <script>
-
-  $('#change-button').click(function () {
-    $('#regular-md').hide();
-    $('#change-button').hide();
-    $('#chargee-name').hide();
-    $('#register-entries').hide();
-    $('#checkbox-md').hide();
-    $('#chargee-name').hide();
-    $('#special-instructions').hide();
-    $('#editing-md').show();
-   // $('#md-ref-field').focus();
-    var val = $('#md-ref-field').val(); //store the value of the element
-		$('#md-ref-field').val(''); //clear the value of the element
-		$('#md-ref-field').val(val); //set that value back.
-
-  });
-
-
-
-	$('#checkbox-md input:checkbox').change(function () {
-	  if ($(this).prop("checked") == true) {
-    	$("#warning").show();
-      $('.govuk-button').text('Send to Workflow');
-	  } else {
-    	$("#warning").hide();
-      $('.govuk-button').text('Next');
-  	}
-
-  });
 
 
 </script>
