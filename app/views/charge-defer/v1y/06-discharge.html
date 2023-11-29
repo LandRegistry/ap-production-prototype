@@ -4,7 +4,7 @@
 	{% from "hmlr/components/header/macro.njk" import hmlrHeader %}
 	{{ hmlrHeader({
 	  serviceName: "Application Processing",
-	  serviceUrl: "/transfer-defer/r3-index"
+	  serviceUrl: "/charge-defer/charge-evidence-index"
 	}) }}
 {% endblock %}
 
@@ -121,6 +121,9 @@
 	            classes: 'govuk-fieldset__legend--s'
 	          }
 	        },
+					hint: {
+					 html: 'Check the evidence for all charges in the register'
+				 },
 	        items: [
 	          {
 	            html: 'EDM (electronic evidence)',

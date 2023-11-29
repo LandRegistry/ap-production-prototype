@@ -40,6 +40,36 @@ Charge
 	    	<!-- tasks go here  -->
 
 
+                <!-- discharge evidence -->
+        	    	{{ govukRadios({
+        	        idPrefix: 'discharge-removal',
+        	        name: 'discharge-removal',
+        	        classes: 'govuk-radios--small',
+        	        fieldset: {
+        	          legend: {
+        	            text: 'Can the existing charges be removed?',
+        	            classes: 'govuk-fieldset__legend--s'
+        	          }
+        	        },
+        	        items: [
+        	          {
+        	            html: 'Yes, evidence has been lodged',
+        	            value: 'Yes',
+        	            checked: checked('discharge-removal','Yes')
+        	          },
+        	          {
+        	            html: 'No, there is no evidence',
+        	            value: 'No',
+        	            checked: checked('discharge-removal','No')
+        	          },
+        		     {
+        	            html: 'Keep the existing charge',
+        	            value: 'Keep',
+        	            checked: checked('discharge-removal','Not required')
+        	          }
+        	        ]
+        	      }) }}
+
 	      <!-- register restrictions -->
 	      {{ govukRadios({
 	        idPrefix: 'register-restrictions',
@@ -52,7 +82,7 @@ Charge
 	          }
 	        },
           hint: {
-	          html: 'You do not need to check Charge or Joint Proprietor restrictions for this question.'
+	          html: 'This question is not applicable to charge and joint proprietor restrictions'
 	        },
 	        items: [
 	          {
