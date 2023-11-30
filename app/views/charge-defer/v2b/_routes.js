@@ -35,22 +35,7 @@ router.post('/04-discharge', function (req, res) {
 
 
 router.post('/05-any-other-entries', function (req, res) {
-
-	  if 	(req.session.data['property-match'] == 'No'
-     	|| req.session.data['id-check'] == 'No'
-      || req.session.data['customer-match'] == 'No'
-      || req.session.data['conveyancer-match'] == 'No'
-      || req.session.data['correct-fee'] == 'No'
-			|| req.session.data['undisclosed'] == 'No-MDRef'
-      || req.session.data['register-restrictions'] == 'No'
-      || req.session.data['register-restrictions'] == 'Needs a referral'
-			|| req.session.data['docs-meet-requirements'] == 'No'
-			|| req.session.data['additional-transactions'] == 'Yes'
-	  	) {
 	    res.redirect('workflow');
-	  } else {
-	    res.redirect('deferred');
-	  }
 })
 
 
