@@ -7,7 +7,7 @@ Charge
 {% block content %}
 
   <!-- application information  -->
-	{% include "./includes/application-info-final-tasks.html" %}
+	{% include "./includes/application-info.html" %}
 	<!-- end - application information  -->
 
 <div class="govuk-grid-row">
@@ -28,29 +28,23 @@ Charge
     <tbody class="govuk-table__body ">
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header">1. Discharge</th>
-        <td class="govuk-table__cell govuk-table__cell--numeric"> <strong class="govuk-tag govuk-tag--green">
-         Drafted
+        <td class="govuk-table__cell govuk-table__cell--numeric"> <strong class="govuk-tag govuk-tag--purple">
+         Not drafted
         </strong> </td>
       </tr>
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header">2. Charge</th>
-				<td class="govuk-table__cell govuk-table__cell--numeric"> <strong class="govuk-tag govuk-tag--green">
-         Drafted
-        </strong> </td>
+				<td class="govuk-table__cell govuk-table__cell--numeric"></td>
       </tr>
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header">3. Restriction (RX1) </th>
-				<td class="govuk-table__cell govuk-table__cell--numeric"> <strong class="govuk-tag govuk-tag--green">
-         Drafted
-        </strong> </td>
+<td class="govuk-table__cell govuk-table__cell--numeric"></td>
       </tr>
 
     </tbody>
   </table>
 
     <br>
-		<h3 class="govuk-heading-m">What happens next</h3>
-		<p> The application is drafted and ready to mark off.</p>
 <!--
   <dl class="govuk-summary-list">
 
@@ -80,10 +74,12 @@ Charge
 -->
 <div class="govuk-button-group">
   {{ govukButton({
-    html: 'Submit to markoff',
-    href: 'success'
+    html: 'Continue processing',
+    href: '03-charge-page-1'
   }) }}
-	<a href= "workflow"> Return application to Workflow</a>
+</div>
+<div>
+  <a class="govuk-link" href="workflow">Return application to Workflow</a>
 </div>
 
 

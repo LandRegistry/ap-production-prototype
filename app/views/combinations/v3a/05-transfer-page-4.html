@@ -1,0 +1,236 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+Charge
+
+{% endblock %}
+
+{% block content %}
+
+
+  <!-- application information  -->
+	{% include "./includes/application-info-transfer.html" %}
+	<!-- end - application information  -->
+
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+
+    <div class="casework-tasks-container">
+			{{ govukBackLink({
+				text: 'Previous',
+				href: '04-transfer-page-3'
+			}) }}
+
+    	<form action="05-transfer-page-4" method="post">
+
+	      <h2 class="govuk-heading-m">Your tasks</h2>
+
+	    	<!-- tasks go here  -->
+
+				<!-- Transferee 1 -->
+
+								<fieldset class="govuk-fieldset" aria-describedby="transferee-1" id="transferee-1">
+
+									<h2 class="govuk-fieldset__legend--s ">
+										Transferee 1
+									</h2>
+
+									<div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+										<label class="govuk-label" for="sort">
+											Transferee type
+										</label>
+										<div class="govuk-radios__item">
+
+											<input class="govuk-radios__input" id="individual-1" name="radios-1" type="radio"
+												value="text" data-aria-controls="conditional-individual-1" checked>
+											<label class="govuk-label govuk-radios__label" for="individual-1">
+												Private individual
+											</label>
+										</div>
+										<div class="govuk-radios__conditional govuk-radios__conditional--hidden govuk-!-padding-top-2"
+											id="conditional-individual-1">
+											<div class="govuk-form-group">
+
+												<label class="govuk-label" for="type-individual-1">
+													First name
+												</label>
+												<input class="govuk-input govuk-!-width-one-third" id="type-individual-1"
+													name="type-individual-1" type="text" value='Fletcher Kobi'>
+
+												<label class="govuk-label govuk-!-padding-top-4" for="type-individual-1">
+													Last name
+												</label>
+												<input class="govuk-input govuk-!-width-one-third" id="type-individual-1"
+													name="type-individual-1" type="text" value='Mooney'>
+											</div>
+										</div>
+
+
+										<div class="govuk-radios__item">
+
+											<input class="govuk-radios__input" id="company-1" name="radios-1" type="radio" value="text"
+												data-aria-controls="conditional-company-1">
+											<label class="govuk-label govuk-radios__label" for="company-1">
+												UK based company
+											</label>
+										</div>
+										<div class="govuk-radios__conditional govuk-radios__conditional--hidden govuk-!-padding-top-2"
+											id="conditional-company-1">
+											<div class="govuk-form-group">
+												<label class="govuk-label" for="type-company-name-1">
+													Company name
+												</label>
+												<input class="govuk-input govuk-!-width-one-third" value=''
+													id="type-company-name-1" name="type-company-name-1" type="text">
+
+												<label class="govuk-label govuk-!-padding-top-4" for="type-company-number-1">
+													Company number
+												</label>
+												<div id="more-detail-hint" class="govuk-hint">
+													Include any prefix, for example, NI or SC
+												</div>
+												<input class="govuk-input govuk-!-width-one-third" value=''
+													id="type-company-number-1" name="type-company-number-1" type="text">
+
+												<div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+													<div class="govuk-checkboxes__item">
+														<input class="govuk-checkboxes__input" id="not-found-1" name="not-found-1"
+															type="checkbox" value="not-found-1">
+														<label class="govuk-label govuk-checkboxes__label" for="not-found-1">
+															I cannot find the company number
+														</label>
+													</div>
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</fieldset>
+
+
+
+								 <!-- TRANSFEREE 2 -->
+
+								 <fieldset class="govuk-fieldset govuk-!-padding-top-1" aria-describedby="transferee-2" id="transferee-2">
+
+
+									<h2 class="govuk-fieldset__legend--s ">
+									  Transferee 2 <span>
+
+
+										<a href="#" id="remove-button-2" class="govuk-link govuk-!-font-size-16"> - Remove</a>
+									  </span>
+									</h2>
+
+									<div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+									  <label class="govuk-label" for="sort">
+										Transferee type
+									  </label>
+									  <div class="govuk-radios__item">
+
+										<input class="govuk-radios__input" id="individual-2" name="radios-2" type="radio" value="text"
+										  data-aria-controls="conditional-individual-2" checked>
+										<label class="govuk-label govuk-radios__label" for="individual-2">
+										  Private individual
+										</label>
+									  </div>
+									  <div class="govuk-radios__conditional govuk-radios__conditional--hidden govuk-!-padding-top-2"
+										id="conditional-individual-2">
+										<div class="govuk-form-group">
+										  <label class="govuk-label" for="type-individual-2">
+											First name
+										  </label>
+										  <input class="govuk-input govuk-!-width-one-third" id="type-individual-2" name="type-individual-2"
+											type="text" value="Ruari Adaline">
+
+										  <label class="govuk-label govuk-!-padding-top-4" for="type-individual-2">
+											Last name
+										  </label>
+										  <input class="govuk-input govuk-!-width-one-third" id="type-individual-2" name="type-individual-2"
+											type="text" value="Mooney">
+										</div>
+									  </div>
+
+
+									  <div class="govuk-radios__item">
+
+										<input class="govuk-radios__input" id="company-2" name="radios-2" type="radio" value="text"
+										  data-aria-controls="conditional-company-2">
+										<label class="govuk-label govuk-radios__label" for="company-2">
+										  UK based company
+										</label>
+									  </div>
+									  <div class="govuk-radios__conditional govuk-radios__conditional--hidden govuk-!-padding-top-2"
+										id="conditional-company-2">
+										<div class="govuk-form-group">
+										  <label class="govuk-label" for="type-company-name-2">
+											Company name
+										  </label>
+										  <input class="govuk-input govuk-!-width-one-third" value='' id="type-company-name-2"
+											name="type-company-name-2" type="text">
+
+										  <label class="govuk-label govuk-!-padding-top-4" for="type-company-number-2">
+											Company number
+										  </label>
+										  <div id="more-detail-hint" class="govuk-hint">
+											Include any prefix, for example, NI or SC
+										  </div>
+										  <input class="govuk-input govuk-!-width-one-third" value='' id="type-company-number-2"
+											name="type-number-2" type="text">
+
+
+										  <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+											<div class="govuk-checkboxes__item">
+											  <input class="govuk-checkboxes__input" id="not-found-2" name="not-found-2" type="checkbox"
+												value="not-found-2">
+											  <label class="govuk-label govuk-checkboxes__label" for="not-found-2">
+												I cannot find the company number
+											  </label>
+											</div>
+										  </div>
+										</div>
+									  </div>
+									</div>
+								  </fieldset>
+
+
+
+	    	<!-- end of tasks  -->
+
+
+	    	<!-- Buttons and links -->
+				<div class="task-lists-submit">
+					<button class="govuk-button" data-module="govuk-button">
+						Next
+					</button>
+					<a href="summary-interim" class="govuk-link reject-button">Cancel processing this transaction</a>
+				</div>
+
+			</form>
+
+
+
+	  </div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+{% endblock %}

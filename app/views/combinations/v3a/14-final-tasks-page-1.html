@@ -1,0 +1,156 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+Charge
+{% endblock %}
+
+{% block content %}
+
+<!-- application information  -->
+{% include "./includes/application-info-final-tasks.html" %}
+<!-- end - application information  -->
+
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+
+    <div class="casework-tasks-container">
+
+
+
+    	<form action="14-final-tasks-page-1" method="post">
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Verified by automation
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <div class="checklist" data-testid="task-checklist-container">
+              <div class="checklist-header">
+                <p class="govuk-body govuk-body__extra-margin">You do not need to check these details.</p>
+              </div>
+              <div class="checklist-container">
+                <div class="checklist-items">
+                  <h3 class="govuk-heading-s">Daylist</h3>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>No prior applications</li>
+                    <li>No stops</li>
+                    <li>No official searches</li>
+                  </ul>
+                </div>
+                <div class="checklist-items">
+                  <h3 class="govuk-heading-s">Application</h3>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>Property matches description</li>
+                    <li>All transferors match</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <hr style="height:1px;border-width:0;color:gray;background-color:gray;margin-bottom:25px">
+
+
+	      <h2 class="govuk-heading-m">Your tasks</h2>
+
+	    	<!-- tasks go here  -->
+
+	      <!-- documents meet requirements?  -->
+	      {{ govukRadios({
+	        idPrefix: 'docs-meet-requirements',
+	        name: 'docs-meet-requirements',
+	        classes: 'govuk-radios--small govuk-radios--inline',
+	        fieldset: {
+	          legend: {
+	            text: 'Do included documents meet all requirements?',
+	            classes: 'govuk-fieldset__legend--s'
+	          }
+	        },
+	        items: [
+	          {
+	            html: 'Yes',
+	            value: 'Yes',
+	            checked: checked('docs-meet-requirements','Yes')
+	          },
+	          {
+	            html: 'No',
+	            value: 'No',
+	            checked: checked('docs-meet-requirements','No')
+	          }
+	        ]
+	      }) }}
+
+	      <!-- additional transactions?  -->
+	      {{ govukRadios({
+	        idPrefix: 'additional-transactions',
+	        name: 'additional-transactions',
+	        classes: 'govuk-radios--small govuk-radios--inline',
+	        fieldset: {
+	          legend: {
+	            text: 'Are there any additional transactions not covered by previous tasks?',
+	            classes: 'govuk-fieldset__legend--s'
+	          }
+	        },
+	        items: [
+	          {
+	            html: 'Yes',
+	            value: 'Yes',
+	            checked: checked('additional-transactions','Yes')
+	          },
+	          {
+	            html: 'No',
+	            value: 'No',
+	            checked: checked('additional-transactions','No')
+	          }
+	        ]
+	      }) }}
+
+        <h3 class="govuk-heading-l" style="border-top:1px solid #a6a6a6; padding-top:20px">
+          Correspondence
+        </h3>
+
+        <p>Send a requisition, stock letter or notice if needed.</p>
+
+        <div style="border-bottom:1px solid #a6a6a6; padding-bottom:30px" onclick="myFunction()" class="js-pc-corres-window">
+      <a href="">Send correspondence (opens in a new window)</a>
+        </div>
+	    	<!-- end of tasks  -->
+
+
+	    	<!-- Buttons and links -->
+
+				<div class="task-lists-submit">
+			    <button class="govuk-button" data-module="govuk-button">
+			      Next
+			    </button>
+
+	 			</div>
+
+		  </form>
+
+
+
+	  </div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+{% endblock %}
