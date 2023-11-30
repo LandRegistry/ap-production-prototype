@@ -12,6 +12,10 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
+{{ govukBackLink({
+	text: 'Back',
+	href: 'index'
+}) }}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -20,7 +24,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
     <p>The prototypes in this section are the 'final' or live versions of the combinations flow at each phase, recreated as accurately as we can do what has been built.<i> They are currently a work in progress as the flow is being moved over from the old prototype. </i> </p>
 
-		<p>These prototypes may need updating regularly for tweaks and changes. Last update: 13/11/2023</p>
+		<p>These prototypes may need updating regularly for tweaks and changes. Last update: 30/11/2023</p>
 
     <p>Scenarios:</p>
 
@@ -29,10 +33,10 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
         <a class="govuk-link" href="v1a/00-worklist">A</a>
       </li>
     	<li>
-        <a class="govuk-link" href="v1b/00-worklist">B</a>
+        <a class="govuk-link" href="v2a/00-worklist">B</a>
       </li>
        <li>
-        <a class="govuk-link" href="v1c/00-worklist">C</a>
+        <a class="govuk-link" href="v3a/00-worklist">C</a>
       </li>
 
 
