@@ -1,0 +1,115 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+Charge
+
+{% endblock %}
+
+{% block content %}
+
+
+  <!-- application information  -->
+	{% include "./includes/application-info-transfer.html" %}
+	<!-- end - application information  -->
+
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+
+    <div class="casework-tasks-container">
+			{{ govukBackLink({
+				text: 'Previous',
+				href: '03-transfer-page-2'
+			}) }}
+
+    	<form action="04-transfer-page-3" method="post">
+
+
+	      <h2 class="govuk-heading-m">Your tasks</h2>
+
+	    	<!-- tasks go here  -->
+
+				{{ govukRadios({
+					idPrefix: 'execution-discrepancies',
+					name: 'execution-discrepancies',
+					classes: 'govuk-radios--small govuk-radios--inline',
+					fieldset: {
+						legend: {
+							html: 'Are included documents executed correctly?',
+							classes: 'govuk-fieldset__legend--s'
+						}
+					},
+					items: [
+						{
+							html: 'Yes',
+							value: 'Yes',
+							checked: checked('execution-discrepancies','Yes')
+						},
+						{
+							html: 'No',
+							value: 'No',
+							checked: checked('execution-discrepancies','No')
+						}
+					]
+				}) }}
+
+				{{ govukRadios({
+				idPrefix: 'single-residential',
+				name: 'single-residential',
+				classes: 'govuk-radios--small',
+				fieldset: {
+					legend: {
+						text: 'Is the property single residential?',
+						classes: 'govuk-fieldset__legend--s'
+					}
+				},
+				items: [
+					{
+						html: 'Yes',
+						value: 'Yes',
+						checked: checked('single-residential','Yes')
+					},
+					{
+						html: 'No',
+						value: 'No',
+						checked: checked('single-residential','No')
+					}
+				]
+				}) }}
+
+
+	    	<!-- end of tasks  -->
+
+
+	    	<!-- Buttons and links -->
+				<div class="task-lists-submit">
+					<button class="govuk-button" data-module="govuk-button">
+						Next
+					</button>
+					<a href="summary-interim" class="govuk-link reject-button">Cancel processing this transaction</a>
+				</div>
+
+			</form>
+
+
+
+	  </div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+{% endblock %}

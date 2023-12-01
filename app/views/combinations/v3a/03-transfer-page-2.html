@@ -1,0 +1,106 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+Charge
+
+{% endblock %}
+
+{% block content %}
+
+
+  <!-- application information  -->
+	{% include "./includes/application-info-transfer.html" %}
+	<!-- end - application information  -->
+
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+
+    <div class="casework-tasks-container">
+			{{ govukBackLink({
+				text: 'Previous',
+				href: '02-transfer-page-1'
+			}) }}
+
+    	<form action="03-transfer-page-2" method="post">
+
+
+
+	      <h2 class="govuk-heading-m">Your tasks</h2>
+
+	    	<!-- tasks go here  -->
+
+					      {{ govukInput({
+								  id: 'transfer-amount',
+								  name: 'transfer-amount',
+								  value: '136,000',
+								  classes: 'govuk-input--width-10',
+								  label: {
+								    html: 'What is the transfer amount?',
+								    classes: 'govuk-label--s'
+								  }
+								}) }}
+
+								{{ govukDateInput({
+								  id: 'transfer-date',
+								  namePrefix: 'transfer-date',
+								  fieldset: {
+								    legend: {
+								      text: 'What is the date of the transfer?',
+								      classes: 'govuk-fieldset__legend--s'
+								    }
+								  },
+								    items: [
+								    {
+								        name: 'day',
+								        classes: 'govuk-input--width-2',
+								        value: '21'
+								    },
+								    {
+								        name: 'month',
+								        classes: 'govuk-input--width-2',
+								        value: '06'
+								    },
+								    {
+								        name: 'year',
+								        classes: 'govuk-input--width-4',
+								        value: '2023'
+								    }
+								    ]
+								}) }}
+
+	    	<!-- end of tasks  -->
+
+
+	    	<!-- Buttons and links -->
+				<div class="task-lists-submit">
+					<button class="govuk-button" data-module="govuk-button">
+						Next
+					</button>
+					<a href="summary-interim" class="govuk-link reject-button">Cancel processing this transaction</a>
+				</div>
+
+			</form>
+
+
+
+	  </div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+{% endblock %}

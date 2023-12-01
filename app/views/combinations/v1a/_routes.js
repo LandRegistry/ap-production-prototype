@@ -40,15 +40,15 @@ router.post('/05-charge-page-4', function (req, res) {
 	res.redirect('06-restriction-page-1');
 })
 
-router.post('06-restriction-page-1', function (req, res) {
+router.post('/06-restriction-page-1', function (req, res) {
 	res.redirect('07-restriction-page-2');
 })
 
-router.post('07-restriction-page-2', function (req, res) {
+router.post('/07-restriction-page-2', function (req, res) {
 	res.redirect('08-final-tasks-page-1');
 })
 
-router.post('08-final-tasks-page-1', function (req, res) {
+router.post('/08-final-tasks-page-1', function (req, res) {
 	res.redirect('09-final-tasks-page-2');
 })
 

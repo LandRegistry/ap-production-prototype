@@ -1,0 +1,210 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+Charge
+
+{% endblock %}
+
+{% block content %}
+
+
+  <!-- application information  -->
+	{% include "./includes/application-info-charge.html" %}
+	<!-- end - application information  -->
+
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+
+    <div class="casework-tasks-container">
+      {{ govukBackLink({
+        text: 'Previous',
+        href: '08-charge-page-1'
+      }) }}
+
+    	<form action="09-charge-page-2" method="post">
+
+	      <h2 class="govuk-heading-m">Your tasks</h2>
+
+	    	<!-- tasks go here  -->
+
+	      <!-- charge amount - GOVUK-ified ONS mutually exclusive -->
+
+				<div class="govuk-form-group">
+  			<fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+    				<legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+      				<h1 class="govuk-fieldset__heading">
+        				Enter charge amount (£) or select undisclosed:
+      				</h1>
+    				</legend>
+    			<div id="contact-hint" class="govuk-hint">
+      			If 0, select undisclosed.
+    			</div>
+    		<div class="govuk-radios--small" data-module="govuk-radios">
+      	<div class="govuk-radios__item">
+        	<input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" checked data-aria-controls="conditional-contact">
+        		<label class="govuk-label govuk-radios__label" for="contact">
+          		Charge Amount (£)
+        		</label>
+      	</div>
+      	<div class="govuk-radios__conditional" id="conditional-contact">
+          <input class="govuk-input govuk-!-width-one-half id="charge-amount" spellcheck="false" >
+        </div>
+      	<div class="govuk-radios__item">
+        	<input class="govuk-radios__input" id="undisclosed">
+        		<label class="govuk-label govuk-radios__label" for="undisclosed">
+          		Undisclosed
+        		</label>
+      	</div>
+      	<div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="undisclosed">
+            Undisclosed
+          </label>
+          	<input class="govuk-input govuk-!-width-one-third" id="contact-by-phone" name="contactByPhone" type="tel" autocomplete="tel">
+        </div>
+      	</div>
+    	</div>
+			</fieldset>
+			</div>
+
+
+				<!-- charge date - GOVUK-ified ONS mutually exclusive -->
+	      <div class="govuk-form-group govuk-!-margin-top-5">
+	      	<fieldset class="govuk-fieldset" role="group">
+				    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">What is the charge date?</legend>
+						<div id="contact-hint" class="govuk-hint">
+	      			For example 28 10 2014
+	    			</div>
+				    <div class="ons-js-mutually-exclusive ons-mutually-exclusive">
+				      <div class="govuk-date-input" id="charge-date">
+				        <div class="govuk-date-input__item">
+				          <div class="govuk-form-group">
+				            <label class="govuk-label govuk-date-input__label" for="charge-date-day">
+				              Day
+				            </label>
+				            <input class="govuk-input govuk-date-input__input govuk-input--width-2 ons-js-exclusive-group-item" value="10" id="charge-date-day" name="charge-date-day" type="text" inputmode="numeric" value="{{ data['charge-date-day'] }}">
+				          </div>
+				        </div>
+				        <div class="govuk-date-input__item">
+				          <div class="govuk-form-group">
+				            <label class="govuk-label govuk-date-input__label" for="charge-date-month">
+				              Month
+				            </label>
+				            <input class="govuk-input govuk-date-input__input govuk-input--width-2 ons-js-exclusive-group-item" value="10" id="charge-date-month" name="charge-date-month" type="text" inputmode="numeric" value="{{ data['charge-date-month'] }}">
+				          </div>
+				        </div>
+				        <div class="govuk-date-input__item">
+				          <div class="govuk-form-group">
+				            <label class="govuk-label govuk-date-input__label" for="charge-date-year">
+				              Year
+				            </label>
+				            <input class="govuk-input govuk-date-input__input govuk-input--width-4 ons-js-exclusive-group-item" value="2023" id="charge-date-year" name="charge-date-year" type="text" inputmode="numeric" value="{{ data['charge-date-year'] }}">
+				          </div>
+				        </div>
+				      </div>
+
+
+				      <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+								<div class="govuk-checkboxes__divider hmlr-checkboxes__divider--mutually-exclusive" aria-hidden="true">  </div>
+
+					      <div class="govuk-checkboxes__item">
+					        <input class="govuk-checkboxes__input ons-js-checkbox ons-js-exclusive-option" id="charge-date-undisclosed" name="charge-date-undisclosed" type="checkbox" value="undisclosed" data-deselect-message="Selecting this will clear the date if one has been inputted">
+					        <label class="govuk-label govuk-checkboxes__label" for="charge-date-undisclosed">
+					       No charge date
+					        </label>
+					      </div>
+					    </div>
+
+		       	  <span class="ons-js-exclusive-alert govuk-visually-hidden" role="alert" aria-live="polite" data-group-adjective="cleared" data-option-adjective="deselected"></span>
+
+		       	</div>
+
+			    </fieldset>
+	  		</div>
+
+<!-- borrower names task shown in live demo -->
+				{{ govukRadios({
+					idPrefix: 'borrower-names',
+					name: 'borrower-names',
+					classes: 'govuk-radios--small govuk-radios--inline',
+					fieldset: {
+						legend: {
+							html: 'The borrower names do not match the registered proprietor. Can the application still be processed?',
+							classes: 'govuk-fieldset__legend--s'
+						}
+					},
+					items: [
+						{
+							html: 'Yes',
+							value: 'Yes',
+							checked: checked('borrower-names','Yes')
+						},
+						{
+							html: 'No',
+							value: 'No',
+							checked: checked('borrower-names','No')
+						}
+					]
+				}) }}
+
+<!-- documents execution task shown in live demo -->
+				{{ govukRadios({
+					idPrefix: 'documents-executed',
+					name: 'documents-executed',
+					classes: 'govuk-radios--small govuk-radios--inline',
+					fieldset: {
+						legend: {
+							html: 'Are the documents executed correctly?',
+							classes: 'govuk-fieldset__legend--s'
+						}
+					},
+					items: [
+						{
+							html: 'Yes',
+							value: 'Yes',
+							checked: checked('documents-executed','Yes')
+						},
+						{
+							html: 'No',
+							value: 'No',
+							checked: checked('documents-executed','No')
+						}
+					]
+				}) }}
+
+	    	<!-- end of tasks  -->
+
+
+	    	<!-- Buttons and links -->
+				<div class="task-lists-submit">
+					<button class="govuk-button" data-module="govuk-button">
+						Next
+					</button>
+					<a href="summary-interim-2" class="govuk-link reject-button">Cancel processing this transaction</a>
+				</div>
+
+			</form>
+
+
+
+	  </div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+{% endblock %}

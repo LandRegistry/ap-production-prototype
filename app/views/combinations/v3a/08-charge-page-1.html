@@ -1,0 +1,121 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+Charge
+
+{% endblock %}
+
+{% block content %}
+
+
+  <!-- application information  -->
+	{% include "./includes/application-info-charge.html" %}
+	<!-- end - application information  -->
+
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+
+    <div class="casework-tasks-container">
+
+
+    	<form action="08-charge-page-1" method="post">
+
+					<details class="govuk-details" data-module="govuk-details">
+						<summary class="govuk-details__summary">
+							<span class="govuk-details__summary-text">
+								Verified by automation
+							</span>
+						</summary>
+						<div class="govuk-details__text">
+							<div class="checklist" data-testid="task-checklist-container">
+								<div class="checklist-header">
+									<p class="govuk-body govuk-body__extra-margin">You do not need to check these details.</p>
+								</div>
+								<div class="checklist-container">
+									<div class="checklist-items">
+										<h3 class="govuk-heading-s">Daylist</h3>
+										<ul class="govuk-list govuk-list--bullet">
+											<li>No prior applications</li>
+											<li>No stops</li>
+											<li>No official searches</li>
+										</ul>
+									</div>
+									<div class="checklist-items">
+										<h3 class="govuk-heading-s">Application</h3>
+										<ul class="govuk-list govuk-list--bullet">
+											<li>Property matches description</li>
+											<li>All transferors match</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</details>
+
+				<hr style="height:1px;border-width:0;color:gray;background-color:gray;margin-bottom:25px">
+	      <h2 class="govuk-heading-m">Your tasks</h2>
+
+	    	<!-- tasks go here  -->
+
+
+							  {{ govukRadios({
+							    idPrefix: 'id-check',
+							    name: 'id-check',
+							    classes: 'govuk-radios--small govuk-radios--inline',
+							    fieldset: {
+							      legend: {
+							        html: 'Are the identity panels filled out correctly?',
+							        classes: 'govuk-fieldset__legend--s'
+							      }
+							    },
+							    items: [
+							      {
+							        html: 'Yes',
+							        value: 'Yes',
+							        checked: checked('id-check','Yes')
+							      },
+							      {
+							        html: 'No',
+							        value: 'No',
+							        checked: checked('id-check','No')
+							      }
+							    ]
+							  }) }}
+
+
+	    	<!-- end of tasks  -->
+
+
+	    	<!-- Buttons and links -->
+				<div class="task-lists-submit">
+					<button class="govuk-button" data-module="govuk-button">
+						Next
+					</button>
+					<a href="summary-interim-2" class="govuk-link reject-button">Cancel processing this transaction</a>
+				</div>
+
+			</form>
+
+
+
+	  </div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+
+	<div class="govuk-grid-row ap-no-row-l-r-margin">
+		<div id="application-info-container">
+			<div class="govuk-grid-column-one-quarter ap-no-column-l-r-padding">
+	  		<h1 class="govuk-heading-m application-type">Restriction (RX1)</h1>
+		  </div>
+
+			<div class="govuk-grid-column-one-quarter ap-no-column-r-padding">
+				<span class="govuk-body">Title number: </span><span class="title-number govuk-body">{{ titleNumber | d('DN1029KU') }}</span>
+			</div>
+
+			<div class="govuk-grid-column-one-quarter ap-no-column-r-padding">
+	  		<span class="govuk-body">ABR number: </span><span class="abr govuk-body">{{ abrNumber | d('A123XYZ') }}</span>
+			</div>
+
+		  <div class="govuk-grid-column-one-quarter ap-no-column-r-padding">
+		  	<p id="documents-launcher">
+		      <a href="_document-viewer" class="govuk-link document-link js-documents-window" target="_blank">Open all documents</a>
+				</p>
+			</div>
+		</div>
+	</div>

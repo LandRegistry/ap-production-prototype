@@ -9,7 +9,7 @@
 {% block content %}
 
 	<!-- application information  -->
-	{% include "./includes/application-info.html" %}
+	{% include "./includes/application-info-final-tasks.html" %}
 	<!-- end - application information  -->
 
 
@@ -38,7 +38,7 @@
 
     	<form method="post">
 
-	      <h2 class="govuk-heading-l">Your tasks</h2>
+	      <h2 class="govuk-heading-m">Your tasks</h2>
 
 
 	    	<!-- tasks go here  -->
@@ -47,9 +47,10 @@
         <table class="govuk-table form-table">
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header" style="width: 40%">Document</th>
-              <th scope="col" class="govuk-table__header" style="width: 55%">Document date</th>
-              <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="width: 5%">Remove</th>
+              <th scope="col" class="govuk-table__header" style="width: 25%">Name</th>
+              <th scope="col" class="govuk-table__header" style="width: 25%">Category</th>
+              <th scope="col" class="govuk-table__header" style="width: 25%">Date</th>
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="width: 25%">Discard document</th>
             </tr>
           </thead>
 
@@ -61,74 +62,23 @@
 
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                {{ govukSelect({
-                  id: 'doc1-name',
-                  name: 'doc1-name',
-                  label: {
-                    html: '<a href="_document-viewer#doc1" target="_blank">AP1</a>'
-                  },
-                  items: docTypes,
-                  value: 'Application Form'
-                }) }}
-              </th>
-              <td class="js-date-input / govuk-table__cell" style="display: none">
-                {{ govukDateInput({
-                  id: 'doc1-date',
-                  name: 'doc1-date',
-                  classes: 'js-incomplete-toggle',
-                  attributes: {
-                    style: 'margin-bottom: 7px'
-                  }
-                }) }}
+              <td class="js-text / govuk-table__cell">
+                <span style="display: block;"><b>1. Charge</b></span>
+              </td>
 
-                {{ govukRadios({
-                  idPrefix: 'doc1-incomplete-reason',
-                  name: 'doc1-incomplete-reason',
-                  fieldset: {
-                    legend: {
-                      text: 'Incomplete reason',
-                      classes: 'govuk-!-font-size-16 govuk-!-margin-bottom-0'
-                    }
-                  },
-                  classes: 'govuk-radios--inline govuk-radios--small',
-                  formGroup: {
-                    classes: 'js-hidden js-incomplete-toggle'
-                  },
-                  items: [
-                    {
-                      value: 'Illegible',
-                      text: 'Illegible'
-                    },
-                    {
-                      value: 'Unavailable',
-                      text: 'Unavailable'
-                    }
-                  ]
-                }) }}
-
-                {{ govukCheckboxes({
-                  idPrefix: 'doc1-incomplete',
-                  name: 'doc1-incomplete',
-                  classes: 'js-incomplete / govuk-checkboxes--small govuk-!-margin-top-1',
-                  items: [
-                    {
-                      value: 'Incomplete date',
-                      text: 'Incomplete date'
-                    }
-                  ]
-                }) }}
+              <td class="js-text / govuk-table__cell">
+                <span style="display: block;">Charge</span>
               </td>
               <td class="js-date-text / govuk-table__cell">
-                <span style="display: block; margin-top: 32px">11 April 2019</span>
+                <span style="display: block;">11 April 2019</span>
               </td>
               <td class="govuk-table__cell govuk-table__cell--numeric">
-                <div class="govuk-form-group" style="margin-top: 22px">
+                <div class="govuk-form-group" style="margin-left: 10px">
                   <div class="govuk-checkboxes govuk-checkboxes--small">
                     <div class="govuk-checkboxes__item">
                       <input class="js-remove / govuk-checkboxes__input" name="remove-1" type="checkbox">
                       <label class="govuk-checkboxes__label">
-                        <span class="govuk-visually-hidden">Remove document #</span></label>
+                        <span>Discard</span></label>
                     </div>
                   </div>
                 </div>
@@ -136,84 +86,38 @@
             </tr>
 
 
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                {{ govukSelect({
-                  id: 'doc3-name',
-                  name: 'doc3-name',
-                  label: {
-                    html: '<a href="_document-viewer#doc2" target="_blank">CHG</a>'
-                  },
-                  items: docTypes
-                }) }}
-              </th>
-              <td class="js-date-input / govuk-table__cell" style="display: none">
-                {{ govukDateInput({
-                  id: 'doc3-date',
-                  name: 'doc3-date',
-                  classes: 'js-incomplete-toggle',
-                  attributes: {
-                    style: 'margin-bottom: 7px'
-                  }
-                }) }}
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td class="js-text / govuk-table__cell">
+                    <span style="display: block;"><b>2. Restriction (Standard)</b></span>
+                  </td>
 
-                {{ govukRadios({
-                  idPrefix: 'doc3-incomplete-reason',
-                  name: 'doc3-incomplete-reason',
-                  fieldset: {
-                    legend: {
-                      text: 'Incomplete reason',
-                      classes: 'govuk-!-font-size-16 govuk-!-margin-bottom-0'
-                    }
-                  },
-                  classes: 'govuk-radios--inline govuk-radios--small',
-                  formGroup: {
-                    classes: 'js-hidden js-incomplete-toggle'
-                  },
-                  items: [
-                    {
-                      value: 'Illegible',
-                      text: 'Illegible'
-                    },
-                    {
-                      value: 'Unavailable',
-                      text: 'Unavailable'
-                    }
-                  ]
-                }) }}
-
-                {{ govukCheckboxes({
-                  idPrefix: 'doc3-incomplete',
-                  name: 'doc3-incomplete',
-                  classes: 'js-incomplete / govuk-checkboxes--small govuk-!-margin-top-1',
-                  items: [
-                    {
-                      value: 'Incomplete date',
-                      text: 'Incomplete date'
-                    }
-                  ]
-                }) }}
-              </td>
-              <td class="js-date-text / govuk-table__cell">
-                <span style="display: block; margin-top: 32px">11 April 2019</span>
-              </td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">
-                <div class="govuk-form-group" style="margin-top: 22px">
-                  <div class="govuk-checkboxes govuk-checkboxes--small">
-                    <div class="govuk-checkboxes__item">
-                      <input class="js-remove / govuk-checkboxes__input" name="remove-2" type="checkbox">
-                      <label class="govuk-checkboxes__label">
-                        <span class="govuk-visually-hidden">Remove document #</span></label>
+                  <td class="js-text / govuk-table__cell">
+                    <span style="display: block;">Application form</span>
+                  </td>
+                  <td class="js-date-text / govuk-table__cell">
+                    <span style="display: block;">11 April 2019</span>
+                  </td>
+                  <td class="govuk-table__cell govuk-table__cell--numeric">
+                    <div class="govuk-form-group" style="margin-left: 10px">
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="js-remove / govuk-checkboxes__input" name="remove-1" type="checkbox">
+                          <label class="govuk-checkboxes__label">
+                            <span>Discard</span></label>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </td>
-            </tr>
+                  </td>
+                </tr>
 
           </tbody>
         </table>
-
+        <div style="margin-bottom: 30px">
+        <a href= class="govuk-link reject-button">Change document category</a>
+        </div>
       </div>
+
 
 
 
@@ -224,9 +128,9 @@
 
 				<div class="task-lists-submit">
 			    <button class="govuk-button" data-module="govuk-button">
-			      Save and continue
+			      Next
 			    </button>
-			    <a href="workflow" class="govuk-link reject-button">Return application to Workflow</a>
+
 	 			</div>
 
 		  </form>
