@@ -49,3 +49,8 @@ router.use(/\/charge-defer\/v([0-9a-z]+)/, (req, res, next) => {
 router.use(/\/combinations\/v([0-9a-z]+)/, (req, res, next) => {
   return require(`./views/combinations/v${req.params[0]}/_routes`)(req, res, next);
 })
+
+// routing for trailing information
+router.use("/trailing-info/prototype/", (req, res, next) => {
+  return require("./views/trailing-info/prototype/_routes")(req, res, next);
+})

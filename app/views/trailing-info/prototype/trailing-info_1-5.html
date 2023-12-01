@@ -1,0 +1,145 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+{{ appnType | d('Example text lorem ipsum') }}, ABR: {{ abrNumber | d('A123XYZ') }}, Title Number: {{ titleNumber
+| d('DN1000') }}.
+
+Validity checks
+{% endblock %}
+
+{% block stylesheets %}
+	{% include "../includes/inc_current-live-stylesheets-linked.html" %}
+{% endblock %}
+
+{% block header %}
+    {% include "../includes/inc_current-live-header.html" %}
+{% endblock %}
+
+{% block content %}
+
+{% include "../includes/inc_new-sub-header.html" %}
+
+<div class="container-content">
+    {% include "../includes/inc_container-register.html" %}
+
+    <div id="tasks-content" class="container-tasks" tabindex="0">
+
+      <a href="trailing-info_1-4.html" id="previous-link" class="govuk-back-link">Previous page</a>
+
+      <div class="govuk-notification-banner govuk-notification-banner--success govuk-!-margin-bottom-7" role="alert"
+      aria-labelledby="govuk-notification-banner-title"
+      data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Success
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <h3 class="govuk-notification-banner__heading govuk-!-font-size-19">
+            Additional information about the transferees has been added
+          </h3>
+          <!--p class="govuk-body">The transferees were added to the lorem ipsum dolor ab iure expedita incidunt.</p-->
+        </div>
+      </div>
+
+      <div class="content">
+
+        
+        <table class="govuk-table govuk-transferee-addresses-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Information added about the transferees</caption>
+          <thead class="govuk-table__head govuk-visually-hidden">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header"><span class="govuk-visually-hidden">Number</span></th>
+              <th scope="col" class="govuk-table__header">Additional information</th>
+              <th scope="col" class="govuk-table__header">Remove</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">1</th>
+                  <td class="govuk-table__cell">Executor [Administrator] of Jane Richards deceased.</td>
+                  <td class="govuk-table__cell transferee-addresses-table-action-cell">
+                    
+                    <input class="govuk-link" id="remove-address-100040208196a" name="remove-address-x" type="submit" value="Remove">
+
+                  </td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">2</th>
+                  <td class="govuk-table__cell">Executor [Administrator] of Elliot Hill and John Smith deceased.</td>
+                  <td class="govuk-table__cell transferee-addresses-table-action-cell">
+                    
+                    <input class="govuk-link " id="remove-address-100040208196b" name="remove-address-x" type="submit" value="Remove">
+
+                  </td>
+                </tr>                
+          </tbody>
+        </table>
+
+        <form id="theForm" novalidate method="post" action="ends">
+
+          <!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+
+                  {% include "../includes/inc_add-misc-info-question2.html" %}
+
+          <!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+
+                    
+
+
+          <!-- correct GDS HTML for button + link used on this page -->
+          <div class="govuk-button-group govuk-!-margin-top-8">
+            <button class="govuk-button" data-module="govuk-button">
+              Next
+            </button>
+            <!--a class="govuk-link govuk-link--no-visited-state" id="reject-application-button" href="trailing-info_1-3.html">
+              Cancel adding additional information
+            </a-->
+          </div>
+
+           
+        </form>
+      </div>
+
+    </div>
+
+</div>
+{% endblock %}
+
+{% block footer %}
+    {% include "../includes/inc_current-live-footer.html" %}
+
+
+    <script>
+      /* these js scripts just used for this basic design prototype mockup */
+        window.onload = (event) => {
+
+            $("#theForm").submit(function(e){
+                
+                var yesOrNo = $("input:radio[name ='add-info']:checked").val();
+
+                /*if(!yesOrNo){
+                  e.preventDefault(); 
+                }else */if(yesOrNo == 'yes'){
+                    e.preventDefault();
+                    window.location.href = 'trailing-info_1-4.html';
+                }else if(yesOrNo == 'no'){
+                    e.preventDefault();
+                    window.location.href = 'ends.html';
+                }
+            });             
+
+            $('#TRANSFEREE-ADDRESSES-add-address').on('click', function(e){
+              e.preventDefault();
+              window.location.href = 'trailing-info_1-1.html';
+            });
+
+            $('#remove-address-100040208196a').add('#remove-address-100040208196b').on('click', function(e){
+              e.preventDefault();
+              window.location.href = 'trailing-info_1-5-removed.html';
+            });
+
+
+        };
+    </script>
+{% endblock %}
