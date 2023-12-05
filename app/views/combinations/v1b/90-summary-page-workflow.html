@@ -7,7 +7,7 @@ Charge
 {% block content %}
 
   <!-- application information  -->
-	{% include "./includes/application-info.html" %}
+	{% include "./includes/application-info-final-tasks.html" %}
 	<!-- end - application information  -->
 
 <div class="govuk-grid-row">
@@ -34,17 +34,25 @@ Charge
       </tr>
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header">2. Charge</th>
-<td class="govuk-table__cell govuk-table__cell--numeric"></td>
+				<td class="govuk-table__cell govuk-table__cell--numeric"> <strong class="govuk-tag govuk-tag--green">
+         Drafted
+        </strong> </td>
       </tr>
       <tr class="govuk-table__row">
-        <th scope="row" class="govuk-table__header">3. Restriction </th>
-<td class="govuk-table__cell govuk-table__cell--numeric"></td>
+        <th scope="row" class="govuk-table__header">3. Restriction (RX1) </th>
+				<td class="govuk-table__cell govuk-table__cell--numeric"> <strong class="govuk-tag govuk-tag--green">
+         Drafted
+        </strong> </td>
       </tr>
 
     </tbody>
   </table>
 
     <br>
+		<h3 class="govuk-heading-m">What happens next</h3>
+		<p> Drafting has been saved on completed transactions. Send to Workflow to finish this application.
+
+			</p>
 <!--
   <dl class="govuk-summary-list">
 
@@ -74,13 +82,11 @@ Charge
 -->
 <div class="govuk-button-group">
   {{ govukButton({
-    html: 'Start processing',
-    href: '01-preliminary'
+    html: 'Send to Workflow',
+    href: 'workflow'
   }) }}
 </div>
-<div>
-  <a class="govuk-link" href="workflow-no-drafting">Return to Workflow</a>
-</div>
+
 
 </div>
 </div>
