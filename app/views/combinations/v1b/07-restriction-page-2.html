@@ -1,0 +1,141 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+Restriction (RX1)
+{% endblock %}
+
+{% block content %}
+
+<!-- application information  -->
+{% include "./includes/application-info-rx1.html" %}
+<!-- end - application information  -->
+
+<style>
+  .govuk-button--secondary1{
+      background-color:#6F777B;
+      -webkit-box-shadow:0 2px 0 #929191;
+      box-shadow:0 2px 0 #929191;
+      color: #ffffff
+  }
+  .govuk-button--secondary,.govuk-button--secondary1:active,.govuk-button--secondary1:hover,.govuk-button--secondary1:link,.govuk-button--secondary1:visited{
+      color:#0b0c0c
+  }
+  .govuk-button--secondary1:hover{
+      background-color:#dbdad9
+  }
+  .govuk-button--secondary:hover[disabled]{
+      background-color:#f3f2f1
+  }
+
+  </style>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+
+    <div class="casework-tasks-container">
+      {{ govukBackLink({
+        text: 'Previous',
+        href: '06-restriction-page-1'
+      }) }}
+
+    	<form action="07-restriction-page-2" method="post">
+
+	      <h2 class="govuk-heading-m">Your tasks</h2>
+
+        {{ govukRadios({
+	        idPrefix: 'serve-notice',
+	        name: 'serve-notice',
+	        classes: 'govuk-radios--small govuk-radios--stacked',
+	        fieldset: {
+	          legend: {
+	            text: 'Do you need to serve notice?',
+	            classes: 'govuk-fieldset__legend--s'
+	          }
+	        },
+	        items: [
+	          {
+	            html: 'Yes, I have served an information notice',
+	            value: 'Yes',
+	            checked: checked('serve-notice','Yes')
+	          },
+            {
+	            html: 'I need to serve an objection notice',
+	            value: 'Objection',
+	            checked: checked('serve-notice','Objection')
+	          },
+	          {
+	            html: 'No, it is not needed',
+	            value: 'No',
+	            checked: checked('serve-notice','No')
+	          }
+	        ]
+	      }) }}
+	    	<!-- Buttons and links -->
+
+        <div class="task-lists-submit">
+					<button class="govuk-button" data-module="govuk-button">
+						Save and continue
+					</button>
+					<a href="summary-interim-2" class="govuk-link reject-button">Cancel processing this transaction</a>
+				</div>
+
+			</form>
+
+
+
+	  </div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+
+  $('#change-button').click(function () {
+    $('#regular-md').hide();
+    $('#change-button').hide();
+    $('#chargee-name').hide();
+    $('#register-entries').hide();
+    $('#checkbox-md').hide();
+    $('#chargee-name').hide();
+    $('#special-instructions').hide();
+    $('#editing-md').show();
+   // $('#md-ref-field').focus();
+    var val = $('#md-ref-field').val(); //store the value of the element
+		$('#md-ref-field').val(''); //clear the value of the element
+		$('#md-ref-field').val(val); //set that value back.
+
+  });
+
+
+
+	$('#checkbox-md input:checkbox').change(function () {
+	  if ($(this).prop("checked") == true) {
+    	$("#warning").show();
+      $('.govuk-button').text('Send to Workflow');
+	  } else {
+    	$("#warning").hide();
+      $('.govuk-button').text('Next');
+  	}
+
+  });
+
+
+</script>
+
+{% endblock %}
