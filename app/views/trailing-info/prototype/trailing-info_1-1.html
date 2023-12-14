@@ -1,8 +1,9 @@
 {% extends "layouts/ap-flow-wide.html" %}
 
 {% block pageTitle %}
-{{ appnType | d('Example text lorem ipsum') }}, ABR: {{ abrNumber | d('A123XYZ') }}, Title Number: {{ titleNumber
-| d('DN1000') }}.
+{% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-0'] == '' or data['forenames0'] != null or data['surname0'] != null) %}
+Error: {% endif %}  {{ appnType | d('Example text lorem ipsum') }}, ABR: {{ abrNumber | d('A123XYZ') }}, Title Number: {{ titleNumber
+| d('DN1000') }}. 
 
 Validity checks
 {% endblock %}
@@ -31,21 +32,21 @@ Validity checks
 
     <div id="tasks-content" class="container-tasks" tabindex="0">
 
-            <a href="#" class="govuk-back-link">Previous</a>
+        <a href="#" class="govuk-back-link">Previous</a>
 
         <h2 class="govuk-heading-m">Your tasks</h2>
         
-<div class="govuk-notification-banner govuk-notification-banner__workflow-return" role="alert"
-aria-labelledby="govuk-notification-banner-title"
-data-module="govuk-notification-banner" aria-hidden="true" hidden="">
-<div class="govuk-notification-banner__header">
-<h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title" >
-    Important
-</h2>
-</div>
-<div class="govuk-notification-banner__content">      
-    <p class="govuk-notification-banner__heading">Send to Workflow to complete this application</p></div>
-</div>
+        <div class="govuk-notification-banner govuk-notification-banner__workflow-return" role="alert"
+        aria-labelledby="govuk-notification-banner-title"
+        data-module="govuk-notification-banner" aria-hidden="true" hidden="">
+        <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title" >
+            Important
+        </h2>
+        </div>
+        <div class="govuk-notification-banner__content">      
+            <p class="govuk-notification-banner__heading">Send to Workflow to complete this application</p></div>
+        </div>
 
 
         <div class="content">
@@ -64,14 +65,11 @@ data-module="govuk-notification-banner" aria-hidden="true" hidden="">
 </div-->
 <div class="govuk-radios  govuk-radios--small"    data-module="govuk-radios">
     <div class="govuk-radios__item">
-        
+
         <input class="govuk-radios__input" id="private-individual-radio0" name="CONFIRM-TRANSFEREE-APPLICANTS_transferee-0" type="radio" value="PRIVATE_INDIVIDUAL" data-aria-controls="conditional-private-individual-radio0"
-            {% if (data['forenames0'] != null) %}
+            {% if (data['forenames0'] != null or data['surname0'] != null) %}
                 checked
-            {% elseif (data['lastname0'] != null) %}
-                checked
-            {% endif %}
-        >
+            {% endif %}>
         
         <label class="govuk-label govuk-radios__label" for="private-individual-radio0">
             Private Individual
@@ -117,7 +115,7 @@ data-module="govuk-notification-banner" aria-hidden="true" hidden="">
 
         <div class="govuk-form-group">
                 <label class="govuk-label" for="company_number0">
-                Company Number
+                    Company Number
                 </label>
                 <div id="company_number0-hint" class="govuk-hint">
                     Include any prefix, for example, NI or SC
@@ -170,7 +168,7 @@ data-module="govuk-notification-banner" aria-hidden="true" hidden="">
 
  
 
-<input class="govuk-button govuk-button--dark" id="CONFIRM-TRANSFEREE-APPLICANTS_add_transferee" name="CONFIRM-TRANSFEREE-APPLICANTS_add_transferee" type="submit" value="Add transferee" aria-describedby="add-trasferee-hint">
+<input class="govuk-button govuk-button--dark" id="add_transferee_btn" name="add_transferee_btn" type="submit" value="Add transferee" aria-describedby="add-trasferee-hint">
 
 
     <noscript>

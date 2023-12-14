@@ -26,8 +26,9 @@ Validity checks
         <div id="tasks-content" class="container-tasks" tabindex="0">
 
                 <a href="trailing-info_1-1.html" class="govuk-back-link">Previous</a>
+                
 
-            <!--h2 class="govuk-heading-m">Your tasks</h2-->
+            <h2 class="govuk-heading-m">Your tasks</h2>
             
 <div class="govuk-notification-banner govuk-notification-banner__workflow-return" role="alert"
   aria-labelledby="govuk-notification-banner-title"
@@ -42,7 +43,7 @@ Validity checks
 
 
           <div class="content">
-    <form novalidate method="post" action="trailing-info_1-2">
+    <form novalidate method="post" action="#">
         <input id="csrf_token" name="csrf_token" type="hidden" value="IjU4M2FhMjk5MGEzOThjN2ZlYTNjOWQ1OTY3NzcxMGI4OTlmMmNjZjYi.ZR6JqA.YV8fnmdBd5XI_iFNzjwfommV-jU">
 
                 <input id="CONFIRM-TRANSFEREE-APPLICANTS" name="CONFIRM-TRANSFEREE-APPLICANTS" type="hidden" value="">
@@ -55,18 +56,15 @@ Validity checks
   </legend>
   <!--div id="CONFIRM-TRANSFEREE-APPLICANTS_transferee-0-hint" class="govuk-hint">
     
-  </div-->
+  </div-->          
+
   <div class="govuk-radios  govuk-radios--small"    data-module="govuk-radios">
         <div class="govuk-radios__item">
-          
-          <input class="govuk-radios__input" id="private-individual-radio0" name="CONFIRM-TRANSFEREE-APPLICANTS_transferee-0" type="radio" value="PRIVATE_INDIVIDUAL" data-aria-controls="conditional-private-individual-radio0" 
-          {% if (data['forenames0'] != null) %}
-            checked
-          {% elseif (data['lastname0'] != null) %}
-              checked
-          {% endif %}       
-          >
-          
+
+          <input class="govuk-radios__input" id="private-individual-radio0" name="CONFIRM-TRANSFEREE-APPLICANTS_transferee-0" type="radio" value="PRIVATE_INDIVIDUAL" data-aria-controls="conditional-private-individual-radio0"{% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-0'] == 'PRIVATE_INDIVIDUAL') %}
+          checked
+        {% endif %}>
+
           <label class="govuk-label govuk-radios__label" for="private-individual-radio0">
         Private Individual
       </label>
@@ -93,7 +91,9 @@ Validity checks
 
           </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="uk-company-radio0" name="CONFIRM-TRANSFEREE-APPLICANTS_transferee-0" type="radio" value="UK_COMPANY" data-aria-controls="conditional-uk-company-radio0">
+          <input class="govuk-radios__input" id="uk-company-radio0" name="CONFIRM-TRANSFEREE-APPLICANTS_transferee-0" type="radio" value="UK_COMPANY" data-aria-controls="conditional-uk-company-radio0"{% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-0'] == 'UK_COMPANY') %}
+          checked
+        {% endif %}>
           <label class="govuk-label govuk-radios__label" for="uk-company-radio0">
         UK Based Company
       </label>
@@ -155,7 +155,10 @@ Validity checks
   </div>
   <div class="govuk-radios  govuk-radios--small"    data-module="govuk-radios">
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="private-individual-radio1" name="CONFIRM-TRANSFEREE-APPLICANTS_transferee-1" type="radio" value="PRIVATE_INDIVIDUAL" data-aria-controls="conditional-private-individual-radio1">
+          
+          <input class="govuk-radios__input" id="private-individual-radio1" name="CONFIRM-TRANSFEREE-APPLICANTS_transferee-1" type="radio" value="PRIVATE_INDIVIDUAL" data-aria-controls="conditional-private-individual-radio1" data-aria-controls="conditional-uk-company-radio0" {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-1'] == 'PRIVATE_INDIVIDUAL') %}
+          checked
+        {% endif %}>
           <label class="govuk-label govuk-radios__label" for="private-individual-radio1">
             Private Individual
         </label>
@@ -168,7 +171,7 @@ Validity checks
   <div id="forenames1-hint" class="govuk-hint">
     <!-- empty hint text div and 'required' used on the input field? -->
   </div>
-<input class="govuk-input  govuk-input--width-20" id="forenames1" name="forenames1" type="text" aria-describedby="forenames1-hint" value="">
+<input class="govuk-input  govuk-input--width-20" id="forenames1" name="forenames1" type="text" aria-describedby="forenames1-hint" value="{{ data['forenames1'] }}">
 </div>
 
 <div class="govuk-form-group">
@@ -178,13 +181,15 @@ Validity checks
   <div id="surname1-hint" class="govuk-hint">
     <!-- empty hint text div and 'required' used on the input field? -->
   </div>
-<input class="govuk-input  govuk-input--width-20" id="surname1" name="surname1" type="text" aria-describedby="surname1-hint" value="">
+<input class="govuk-input  govuk-input--width-20" id="surname1" name="surname1" type="text" aria-describedby="surname1-hint" value="{{ data['surname1'] }}">
 </div>
 
 
           </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="uk-company-radio1" name="CONFIRM-TRANSFEREE-APPLICANTS_transferee-1" type="radio" value="UK_COMPANY" data-aria-controls="conditional-uk-company-radio1">
+          <input class="govuk-radios__input" id="uk-company-radio1" name="CONFIRM-TRANSFEREE-APPLICANTS_transferee-1" type="radio" value="UK_COMPANY" data-aria-controls="conditional-uk-company-radio1"{% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-1'] == 'UK_COMPANY') %}
+          checked
+        {% endif %}>
           <label class="govuk-label govuk-radios__label" for="uk-company-radio1">
         UK Based Company
       </label>
@@ -235,7 +240,7 @@ Validity checks
 </div>
 
 
-    <input class="govuk-button govuk-button--dark" id="CONFIRM-TRANSFEREE-APPLICANTS_add_transferee" name="CONFIRM-TRANSFEREE-APPLICANTS_add_transferee" type="submit" value="Add transferee">
+    <input class="govuk-button govuk-button--dark" id="add_transferee_btn" name="add_transferee_btn" type="submit" value="Add transferee">
 
 
         <noscript>
@@ -264,7 +269,7 @@ Validity checks
 
     <script>
         /* these scripts used just for this design prototype work */
-        window.onload = (event) => {
+        /*window.onload = (event) => {
             $('#CONFIRM-TRANSFEREE-APPLICANTS_add_transferee').on('click',function(e){
                 e.preventDefault();//kill this for this design prototype on this page
             });
@@ -272,6 +277,6 @@ Validity checks
             $('#CONFIRM-TRANSFEREE-APPLICANTS_remove_transferee_0').add('#CONFIRM-TRANSFEREE-APPLICANTS_remove_transferee_1').on('click',function(e){
                 e.preventDefault();//kill this functionality for this design prototype
             });
-        };
+        };*/
     </script>
 {% endblock %}
