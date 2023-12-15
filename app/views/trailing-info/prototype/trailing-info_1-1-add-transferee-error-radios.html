@@ -92,284 +92,310 @@ Error: Validity checks
 
             <input class="govuk-link remove-transferee-button remove-transferee-button__confirm-transferee-applicants" id="CONFIRM-TRANSFEREE-APPLICANTS_remove_transferee_0" name="CONFIRM-TRANSFEREE-APPLICANTS_remove_transferee_0" type="submit" value="Remove">
 
-<div class="govuk-form-group">
-<fieldset class="govuk-fieldset" aria-describedby="CONFIRM-TRANSFEREE-APPLICANTS_transferee-0-hint CONFIRM-TRANSFEREE-error">
-<legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
-    Transferee 1
-</legend>
-<!--div id="CONFIRM-TRANSFEREE-APPLICANTS_transferee-0-hint" class="govuk-hint">
-
-</div-->
-
-
-
-<div class="govuk-radios  govuk-radios--small"    data-module="govuk-radios">
-    <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="private-individual-radio0" name="CONFIRM-TRANSFEREE-APPLICANTS_transferee-0" type="radio" value="PRIVATE_INDIVIDUAL" data-aria-controls="conditional-private-individual-radio0" 
-        {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-0'] == 'PRIVATE_INDIVIDUAL') %}
-          checked
-        {% endif %}>
-
-        <label class="govuk-label govuk-radios__label" for="private-individual-radio0">
-            Private Individual
-        </label>
-    </div>
-        <div class="govuk-radios__conditional" id="conditional-private-individual-radio0">
             <div class="govuk-form-group 
-              {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-0'] == 'PRIVATE_INDIVIDUAL' and data['forenames0'] == '') %}
+              {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-0'] == null) %}
                   govuk-form-group--error
               {% endif %}">
 
-              <label class="govuk-label" for="forenames0">
-                First name(s) 
-              </label>
-
-              {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-0'] == 'PRIVATE_INDIVIDUAL' and data['forenames0'] == '') %}
-                <p id="firstname0-error" class="govuk-error-message">
-                  <span class="govuk-visually-hidden">Error:</span> Enter a first name for transferee 1
-                </p>
-              {% endif %}
-
-
-              <!--div id="forenames0-hint" class="govuk-hint">
-
-              </div-->
-
-              <input class="govuk-input govuk-input--width-20  
-              {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-0'] == 'PRIVATE_INDIVIDUAL' and data['forenames0'] == '') %}
-                  govuk-input--error
-              {% endif %}" id="forenames0" name="forenames0" type="text" value="{{ data['forenames0'] }}"   
-              {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-0'] == 'PRIVATE_INDIVIDUAL' and data['forenames0'] == '') %}
-                aria-describedby="firstname0-error"
-              {% endif %}>
-            </div>
-
-            <div class="govuk-form-group 
-              {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-0'] == 'PRIVATE_INDIVIDUAL' and data['forenames0'] == '') %}
-                  govuk-form-group--error
-              {% endif %}">
-              <label class="govuk-label" for="surname0">
-                Last name
-              </label>
-
-              {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-0'] == 'PRIVATE_INDIVIDUAL' and data['surname0'] == '') %}
-                <p id="surname0-error" class="govuk-error-message">
-                  <span class="govuk-visually-hidden">Error:</span> Enter a last name for transferee 1
-                </p>
-              {% endif %}
-
-              <!--div id="surname0-hint" class="govuk-hint">
-
-              </div-->
-
-              <input class="govuk-input  govuk-input--width-20  
-              {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-0'] == 'PRIVATE_INDIVIDUAL' and data['surname0'] == '') %}
-                  govuk-input--error
-              {% endif %}" id="surname0" name="surname0" type="text" value="{{ data['surname0'] }}" 
-              {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-0'] == 'PRIVATE_INDIVIDUAL' and data['surname0'] == '') %}
-                aria-describedby="surname0-error"
-              {% endif %}>
-            </div>
-        </div>
-
-        <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="uk-company-radio0" name="CONFIRM-TRANSFEREE-APPLICANTS_transferee-0" type="radio" value="UK_COMPANY" data-aria-controls="conditional-uk-company-radio0" 
-            {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-0'] == 'UK_COMPANY') %}
-              checked
-            {% endif %}>
-            <label class="govuk-label govuk-radios__label" for="uk-company-radio0">
-                UK Based Company
-            </label>
-        </div>
-      
-        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-uk-company-radio0">
-          <div class="govuk-form-group">
-              <label class="govuk-label" for="name0">
-                Company Name
-              </label>
-        
-              <input class="govuk-input  govuk-input--width-20" id="name0" name="name0" type="text">
-          </div>
-
-          <div class="govuk-form-group">
-              <label class="govuk-label" for="company_number0">
-                Company Number
-              </label>
-              <div id="company_number0-hint" class="govuk-hint">
-                Include any prefix, for example, NI or SC
-              </div>
-              <input class="govuk-input  govuk-input--width-20" id="company_number0" name="company_number0" type="text" aria-describedby="company_number0-hint">
-          </div>
-
-          <div class="govuk-form-group"><!-- HTML from live: this was nested within a parent form-group div? -->
-            <!--fieldset class="govuk-fieldset" aria-describedby="cannot-find-company-number-0-hint"-->
-                <!--div id="cannot-find-company-number-0-hint" class="govuk-hint govuk-!-display-none">
-  
-                </div-->
-                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-                  <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="cannot-find-company-number-0-option" name="cannot-find-company-number-0" type="checkbox" value="True">
-                      <label class="govuk-label govuk-checkboxes__label" for="cannot-find-company-number-0-option">
-                        I cannot find the company number
-                      </label>
-                  </div>
-                </div>
-            <!--/fieldset-->
-          </div>        
-        
-        </div>
-
-    </div>
-
-</fieldset>
-
-    <input class="govuk-link remove-transferee-button remove-transferee-button__confirm-transferee-applicants" id="CONFIRM-TRANSFEREE-APPLICANTS_remove_transferee_1" name="CONFIRM-TRANSFEREE-APPLICANTS_remove_transferee_1" type="submit" value="Remove">
-        
-    <div class="govuk-form-group">
-      <fieldset class="govuk-fieldset" aria-describedby="CONFIRM-TRANSFEREE-APPLICANTS_transferee-1-hint">
-        <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
-            Transferee 2
-        </legend>
-        
-        <!--div id="CONFIRM-TRANSFEREE-APPLICANTS_transferee-1-hint" class="govuk-hint">
-          
-        </div-->
-
-        <div class="govuk-radios  govuk-radios--small" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                
-                <input class="govuk-radios__input" id="private-individual-radio1" name="CONFIRM-TRANSFEREE-APPLICANTS_transferee-1" type="radio" value="PRIVATE_INDIVIDUAL" data-aria-controls="conditional-private-individual-radio1" 
-                {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-1'] == 'PRIVATE_INDIVIDUAL') %}
-                  checked
+                <fieldset class="govuk-fieldset" 
+                {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-0'] == null) %}
+                  aria-describedby="transferee0-error"
                 {% endif %}>
-
-                <label class="govuk-label govuk-radios__label" for="private-individual-radio1">
-                  Private Individual
-                </label>
-              </div>
-                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-private-individual-radio1">
-                  <div class="govuk-form-group 
-                  {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-1'] == 'PRIVATE_INDIVIDUAL' and data['forenames1'] == '') %}
-                      govuk-form-group--error
-                  {% endif %}">
-                    <label class="govuk-label" for="forenames1">
-                      First name
-                    </label>
-
-                    {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-1'] == 'PRIVATE_INDIVIDUAL' and data['forenames1'] == '') %}
-                      <p id="firstname1-error" class="govuk-error-message">
-                        <span class="govuk-visually-hidden">Error:</span> Enter a first name for transferee 2
-                      </p>
-                    {% endif %}
-
-
-                    <!--div id="forenames1-hint" class="govuk-hint">
-                      empty hint text div and 'required' used on the input field? 
-                    </div-->
-                  <input class="govuk-input govuk-input--width-20   
-                  {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-1'] == 'PRIVATE_INDIVIDUAL' and data['forenames1'] == '') %}
-                      govuk-input--error
-                  {% endif %}" id="forenames1" name="forenames1" type="text"   
-                  {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-1'] == 'PRIVATE_INDIVIDUAL' and data['forenames1'] == '') %}
-                  aria-describedby="forenames1-error"
-                  {% endif %} value="{{ data['forenames1'] }}">
-                </div>
-
-                <div class="govuk-form-group 
-                  {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-1'] == 'PRIVATE_INDIVIDUAL' and data['surname1'] == '') %}
-                      govuk-form-group--error
-                  {% endif %}">
-                    <label class="govuk-label" for="surname1">
-                      Last name
-                    </label>
-
-                    {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-1'] == 'PRIVATE_INDIVIDUAL' and data['surname1'] == '') %}
-                    <p id="surname1-error" class="govuk-error-message">
-                        <span class="govuk-visually-hidden">Error:</span> Enter a last name for transferee 2
-                      </p>
-                    {% endif %}
-
-                  <!--div id="surname1-hint" class="govuk-hint">
-                    empty hint text div and 'required' used on the input field? 
+                  <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
+                      Transferee 1
+                  </legend>
+                  <!--div id="CONFIRM-TRANSFEREE-APPLICANTS_transferee-0-hint" class="govuk-hint">
+                                      removed from the fieldset: CONFIRM-TRANSFEREE-APPLICANTS_transferee-0-hint
                   </div-->
-                  <input class="govuk-input govuk-input--width-20   
-                  {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-1'] == 'PRIVATE_INDIVIDUAL' and data['surname1'] == '') %}
-                      govuk-input--error
-                  {% endif %}" id="surname1" name="surname1" type="text" value="{{ data['surname1'] }}"   
-                  {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-1'] == 'PRIVATE_INDIVIDUAL' and data['surname1'] == '') %}
-                  aria-describedby="surname1-error"
-                  {% endif %}>
-                </div>
 
+                  {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-0'] == null) %}
+                      <p id="transferee0-error" class="govuk-error-message">
+                          <span class="govuk-visually-hidden">Error:</span> Select the type of transferee for transferee 1
+                      </p>
+                  {% endif %}
 
-                </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="uk-company-radio1" name="CONFIRM-TRANSFEREE-APPLICANTS_transferee-1" type="radio" value="UK_COMPANY" data-aria-controls="conditional-uk-company-radio1"{% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-1'] == 'UK_COMPANY') %}
-                  checked
-                {% endif %}>
+                  <div class="govuk-radios  govuk-radios--small"    data-module="govuk-radios">
+                      <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="private-individual-radio0" name="CONFIRM-TRANSFEREE-APPLICANTS_transferee-0" type="radio" value="PRIVATE_INDIVIDUAL" data-aria-controls="conditional-private-individual-radio0" 
+                          {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-0'] == 'PRIVATE_INDIVIDUAL') %}
+                            checked
+                          {% endif %}>
 
-                <label class="govuk-label govuk-radios__label" for="uk-company-radio1">
-                  UK Based Company
-                </label>
-              </div>
-                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-uk-company-radio1">
-                  
-                  <div class="govuk-form-group">
-                  
-                      <label class="govuk-label" for="name1">
-                        Company Name
-                      </label>
-                      
-                      <!--div id="name1-hint" class="govuk-hint">
-                        
-                      </div-->
-
-                      <input class="govuk-input  govuk-input--width-20" id="name1" name="name1" type="text">
-                  
-                  </div>
-
-                  <div class="govuk-form-group">
-                    
-                    <label class="govuk-label" for="company_number1">
-                      Company Number
-                    </label>
-                    
-                    <div id="company_number1-hint" class="govuk-hint">
-                      Include any prefix, for example, NI or SC
-                    </div>
-                    
-                    <input class="govuk-input  govuk-input--width-20" id="company_number1" name="company_number1" type="text" aria-describedby="company_number1-hint">
-                  
-                  </div>
-
-                  
-
-                  <div class="govuk-form-group">
-                    <!--fieldset class="govuk-fieldset" aria-describedby="cannot-find-company-number-1-hint"-->
-                      <!--div id="cannot-find-company-number-1-hint" class="govuk-hint govuk-!-display-none">
-                        
-                      </div-->
-                      <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-                        <div class="govuk-checkboxes__item">
-                          <input class="govuk-checkboxes__input" id="cannot-find-company-number-1-option" name="cannot-find-company-number-1" type="checkbox" value="True">
-                          <label class="govuk-label govuk-checkboxes__label" for="cannot-find-company-number-1-option">
-                            I cannot find the company number
+                          <label class="govuk-label govuk-radios__label" for="private-individual-radio0">
+                              Private Individual
                           </label>
-                        </div>
                       </div>
+                          
+                      <div class="govuk-radios__conditional" id="conditional-private-individual-radio0">
+                              <div class="govuk-form-group 
+                                {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-0'] == 'PRIVATE_INDIVIDUAL' and data['forenames0'] == '') %}
+                                    govuk-form-group--error
+                                {% endif %}">
 
-                    <!--/fieldset-->
-                  </div>            
+                                <label class="govuk-label" for="forenames0">
+                                  First name(s) 
+                                </label>
 
+                                {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-0'] == 'PRIVATE_INDIVIDUAL' and data['forenames0'] == '') %}
+                                  <p id="firstname0-error" class="govuk-error-message">
+                                    <span class="govuk-visually-hidden">Error:</span> Enter a first name for transferee 1
+                                  </p>
+                                {% endif %}
+
+
+                                <!--div id="forenames0-hint" class="govuk-hint">
+
+                                </div-->
+
+                                <input class="govuk-input govuk-input--width-20  
+                                {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-0'] == 'PRIVATE_INDIVIDUAL' and data['forenames0'] == '') %}
+                                    govuk-input--error
+                                {% endif %}" id="forenames0" name="forenames0" type="text" value="{{ data['forenames0'] }}"   
+                                {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-0'] == 'PRIVATE_INDIVIDUAL' and data['forenames0'] == '') %}
+                                  aria-describedby="firstname0-error"
+                                {% endif %}>
+                              </div>
+
+                              <div class="govuk-form-group 
+                                {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-0'] == 'PRIVATE_INDIVIDUAL' and data['forenames0'] == '') %}
+                                    govuk-form-group--error
+                                {% endif %}">
+                                <label class="govuk-label" for="surname0">
+                                  Last name
+                                </label>
+
+                                {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-0'] == 'PRIVATE_INDIVIDUAL' and data['surname0'] == '') %}
+                                  <p id="surname0-error" class="govuk-error-message">
+                                    <span class="govuk-visually-hidden">Error:</span> Enter a last name for transferee 1
+                                  </p>
+                                {% endif %}
+
+                                <!--div id="surname0-hint" class="govuk-hint">
+
+                                </div-->
+
+                                <input class="govuk-input  govuk-input--width-20  
+                                {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-0'] == 'PRIVATE_INDIVIDUAL' and data['surname0'] == '') %}
+                                    govuk-input--error
+                                {% endif %}" id="surname0" name="surname0" type="text" value="{{ data['surname0'] }}" 
+                                {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-0'] == 'PRIVATE_INDIVIDUAL' and data['surname0'] == '') %}
+                                  aria-describedby="surname0-error"
+                                {% endif %}>
+                              </div>
+                          </div>
+
+                          <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="uk-company-radio0" name="CONFIRM-TRANSFEREE-APPLICANTS_transferee-0" type="radio" value="UK_COMPANY" data-aria-controls="conditional-uk-company-radio0" 
+                              {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-0'] == 'UK_COMPANY') %}
+                                checked
+                              {% endif %}>
+                              <label class="govuk-label govuk-radios__label" for="uk-company-radio0">
+                                  UK Based Company
+                              </label>
+                          </div>
+                        
+                          <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-uk-company-radio0">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label" for="name0">
+                                  Company Name
+                                </label>
+                          
+                                <input class="govuk-input  govuk-input--width-20" id="name0" name="name0" type="text">
+                            </div>
+
+                            <div class="govuk-form-group">
+                                <label class="govuk-label" for="company_number0">
+                                  Company Number
+                                </label>
+                                <div id="company_number0-hint" class="govuk-hint">
+                                  Include any prefix, for example, NI or SC
+                                </div>
+                                <input class="govuk-input  govuk-input--width-20" id="company_number0" name="company_number0" type="text" aria-describedby="company_number0-hint">
+                            </div>
+
+                            <div class="govuk-form-group"><!-- HTML from live: this was nested within a parent form-group div? -->
+                              <!--fieldset class="govuk-fieldset" aria-describedby="cannot-find-company-number-0-hint"-->
+                                  <!--div id="cannot-find-company-number-0-hint" class="govuk-hint govuk-!-display-none">
+                    
+                                  </div-->
+                                  <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                                    <div class="govuk-checkboxes__item">
+                                        <input class="govuk-checkboxes__input" id="cannot-find-company-number-0-option" name="cannot-find-company-number-0" type="checkbox" value="True">
+                                        <label class="govuk-label govuk-checkboxes__label" for="cannot-find-company-number-0-option">
+                                          I cannot find the company number
+                                        </label>
+                                    </div>
+                                  </div>
+                              <!--/fieldset-->
+                            </div>        
+                          
+                          </div>
+
+                  </div>
+
+                </fieldset>
+
+                <input class="govuk-link remove-transferee-button remove-transferee-button__confirm-transferee-applicants" id="CONFIRM-TRANSFEREE-APPLICANTS_remove_transferee_1" name="CONFIRM-TRANSFEREE-APPLICANTS_remove_transferee_1" type="submit" value="Remove">
+
+            </div>
+
+            <div class="govuk-form-group 
+            {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-1'] == null) %}
+                govuk-form-group--error
+            {% endif %}">
+
+              <fieldset class="govuk-fieldset"  
+              {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-1'] == null) %}
+                aria-describedby="transferee1-error"
+              {% endif %}>
+                <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
+                    Transferee 2
+                </legend>
+                
+                <!--div id="CONFIRM-TRANSFEREE-APPLICANTS_transferee-1-hint" class="govuk-hint">
+                  matching 'aria-describedby' removed from fieldset tag
+                </div-->
+
+                {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-1'] == null) %}
+                  <p id="transferee0-error" class="govuk-error-message">
+                      <span class="govuk-visually-hidden">Error:</span> Select the type of transferee for transferee 2
+                  </p>
+                {% endif %}                
+
+                <div class="govuk-radios  govuk-radios--small" data-module="govuk-radios">
+                      <div class="govuk-radios__item">
+                        
+                        <input class="govuk-radios__input" id="private-individual-radio1" name="CONFIRM-TRANSFEREE-APPLICANTS_transferee-1" type="radio" value="PRIVATE_INDIVIDUAL" data-aria-controls="conditional-private-individual-radio1" 
+                        {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-1'] == 'PRIVATE_INDIVIDUAL') %}
+                          checked
+                        {% endif %}>
+
+                        <label class="govuk-label govuk-radios__label" for="private-individual-radio1">
+                          Private Individual
+                        </label>
+                      </div>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-private-individual-radio1">
+                          <div class="govuk-form-group 
+                          {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-1'] == 'PRIVATE_INDIVIDUAL' and data['forenames1'] == '') %}
+                              govuk-form-group--error
+                          {% endif %}">
+                            <label class="govuk-label" for="forenames1">
+                              First name
+                            </label>
+
+                            {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-1'] == 'PRIVATE_INDIVIDUAL' and data['forenames1'] == '') %}
+                              <p id="firstname1-error" class="govuk-error-message">
+                                <span class="govuk-visually-hidden">Error:</span> Enter a first name for transferee 2
+                              </p>
+                            {% endif %}
+
+
+                            <!--div id="forenames1-hint" class="govuk-hint">
+                              empty hint text div and 'required' used on the input field? 
+                            </div-->
+                          <input class="govuk-input govuk-input--width-20   
+                          {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-1'] == 'PRIVATE_INDIVIDUAL' and data['forenames1'] == '') %}
+                              govuk-input--error
+                          {% endif %}" id="forenames1" name="forenames1" type="text"   
+                          {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-1'] == 'PRIVATE_INDIVIDUAL' and data['forenames1'] == '') %}
+                          aria-describedby="forenames1-error"
+                          {% endif %} value="{{ data['forenames1'] }}">
+                        </div>
+
+                        <div class="govuk-form-group 
+                          {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-1'] == 'PRIVATE_INDIVIDUAL' and data['surname1'] == '') %}
+                              govuk-form-group--error
+                          {% endif %}">
+                            <label class="govuk-label" for="surname1">
+                              Last name
+                            </label>
+
+                            {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-1'] == 'PRIVATE_INDIVIDUAL' and data['surname1'] == '') %}
+                            <p id="surname1-error" class="govuk-error-message">
+                                <span class="govuk-visually-hidden">Error:</span> Enter a last name for transferee 2
+                              </p>
+                            {% endif %}
+
+                          <!--div id="surname1-hint" class="govuk-hint">
+                            empty hint text div and 'required' used on the input field? 
+                          </div-->
+                          <input class="govuk-input govuk-input--width-20   
+                          {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-1'] == 'PRIVATE_INDIVIDUAL' and data['surname1'] == '') %}
+                              govuk-input--error
+                          {% endif %}" id="surname1" name="surname1" type="text" value="{{ data['surname1'] }}"   
+                          {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-1'] == 'PRIVATE_INDIVIDUAL' and data['surname1'] == '') %}
+                          aria-describedby="surname1-error"
+                          {% endif %}>
+                        </div>
+
+
+                        </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="uk-company-radio1" name="CONFIRM-TRANSFEREE-APPLICANTS_transferee-1" type="radio" value="UK_COMPANY" data-aria-controls="conditional-uk-company-radio1"{% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-1'] == 'UK_COMPANY') %}
+                          checked
+                        {% endif %}>
+
+                        <label class="govuk-label govuk-radios__label" for="uk-company-radio1">
+                          UK Based Company
+                        </label>
+                      </div>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-uk-company-radio1">
+                          
+                          <div class="govuk-form-group">
+                          
+                              <label class="govuk-label" for="name1">
+                                Company Name
+                              </label>
+                              
+                              <!--div id="name1-hint" class="govuk-hint">
+                                
+                              </div-->
+
+                              <input class="govuk-input  govuk-input--width-20" id="name1" name="name1" type="text">
+                          
+                          </div>
+
+                          <div class="govuk-form-group">
+                            
+                            <label class="govuk-label" for="company_number1">
+                              Company Number
+                            </label>
+                            
+                            <div id="company_number1-hint" class="govuk-hint">
+                              Include any prefix, for example, NI or SC
+                            </div>
+                            
+                            <input class="govuk-input  govuk-input--width-20" id="company_number1" name="company_number1" type="text" aria-describedby="company_number1-hint">
+                          
+                          </div>
+
+                          
+
+                          <div class="govuk-form-group">
+                            <!--fieldset class="govuk-fieldset" aria-describedby="cannot-find-company-number-1-hint"-->
+                              <!--div id="cannot-find-company-number-1-hint" class="govuk-hint govuk-!-display-none">
+                                
+                              </div-->
+                              <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="cannot-find-company-number-1-option" name="cannot-find-company-number-1" type="checkbox" value="True">
+                                  <label class="govuk-label govuk-checkboxes__label" for="cannot-find-company-number-1-option">
+                                    I cannot find the company number
+                                  </label>
+                                </div>
+                              </div>
+
+                            <!--/fieldset-->
+                          </div>            
+
+                        </div>
+
+                        
                 </div>
 
-                
-        </div>
+              </fieldset>
 
-      </fieldset>
-    </div>
-
-</div>
+            </div>
 
 
 
