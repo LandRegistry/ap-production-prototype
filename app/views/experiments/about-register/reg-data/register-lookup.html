@@ -1,0 +1,178 @@
+{% extends "layouts/ap-main.html" %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+  .app-example__toolbar {
+    height: 40px;
+    position: relative;
+    margin-top: -5px;
+    margin-bottom: -1px;
+    padding-top: 16px;
+    padding-right: 19px;
+    padding-bottom: 6px;
+    padding-left: 19px;
+    border-bottom-color: rgb(177, 180, 182);
+    border-bottom: 0;
+    background-color: #ffffff;
+  }
+
+</style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <main id="main-content" class="app-content" role="main">
+      <span class="govuk-caption-xl">
+        Components
+      </span>
+      <h1 class="govuk-heading-xl">
+        Register view
+      </h1>
+      <div class="app-example app-example--tabs">
+        <div class="app-example__toolbar">
+          <a class="app-example__new-window" href="#" target="_blank">
+            Open this example in a new tab<span class="govuk-visually-hidden">: cookie banner</span>
+          </a>
+        </div>
+      <div class="govuk-tabs" data-module="govuk-tabs">
+        <!-- Tab Headers -->
+        <ul class="govuk-tabs__list">
+            <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+            <a class="govuk-tabs__tab" href="/your-page#simple">
+                Simple
+            </a>
+            </li>
+            <li class="govuk-tabs__list-item">
+            <a class="govuk-tabs__tab" href="/your-page#complex">
+                Complex
+            </a>
+            </li>
+        </ul>
+        <!-- Tab Contents -->
+        <div class="govuk-tabs__panel" id="simple">
+            <pre><code tabindex="0" class="language-html">
+                <!-- Insert your HTML code here -->
+            </code></pre>
+        </div>
+        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="complex">
+            <pre><code tabindex="0" class="language-html">
+                <!-- Insert your HTML code here -->
+            </code></pre>
+        </div>
+        </div>
+      </div>
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Register details</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Type</th>
+                <th scope="col" class="govuk-table__header">API Property</th>
+              <th scope="col" class="govuk-table__header">Example</th>
+              <th scope="col" class="govuk-table__header">Description</th>
+              <th scope="col" class="govuk-table__header">Colour</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Title Number</th>
+              <td class="govuk-table__cell">title_number</td>
+              <td class="govuk-table__cell">AGL117262</td>
+              <td class="govuk-table__cell">Unique reference number for the title</td>
+              <td class="govuk-table__cell"> Purple
+                <svg width="20" height="20" style="vertical-align: middle;">
+                  <circle cx="10" cy="10" r="10" fill="#800080"></circle>
+                </svg>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </main>
+    </div>
+</div>
+
+
+
+
+ {# <main id="main-content" class="app-content" role="main">
+      <span class="govuk-caption-xl">
+        Components
+      </span>
+      <h1 class="govuk-heading-xl">
+        Register view
+      </h1>
+      <div class="app-example app-example--tabs">
+            <div class="app-example__toolbar">
+                <a class="app-example__new-window" href="#" target="_blank">
+                Open this example in a new tab<span class="govuk-visually-hidden">: cookie banner</span>
+                </a>
+            </div>
+
+        <ul class="govuk-tabs__list">
+            <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+            <a class="govuk-tabs__tab" href="#tab-1">
+                Simple
+            </a>
+            </li>
+            <li class="govuk-tabs__list-item">
+            <a class="govuk-tabs__tab" href="#tab-2">
+                Complex
+            </a>
+            </li>
+        </ul>
+        <div class="govuk-tabs__panel" id="tab-1">
+            <div class="app-example__code" data-module="app-copy">
+            <span class="govuk-visually-hidden" aria-live="assertive"></span>
+            <button class="app-copy-button">Copy code</button>
+            <pre><code tabindex="0" class="language-html">
+                <!-- Insert your HTML code here -->
+            </code></pre>
+            </div>
+
+        </div>
+        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="tab-2">
+          <!-- Content for Tab 2 -->
+        </div>
+    </div>
+</div>
+    <main id="main-content" class="app-content" role="main">
+        <div class="govuk-tabs__panel" id="title-response">
+            <h2 class="govuk-heading-l">About</h2>
+            <!-- Insert your About table here -->
+            <table class="govuk-table">
+            <caption class="govuk-table__caption govuk-table__caption--m">Register details</caption>
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Name</th>
+                <th scope="col" class="govuk-table__header">Example</th>
+                <th scope="col" class="govuk-table__header">API Property</th>
+                <th scope="col" class="govuk-table__header">Description</th>
+                <th scope="col" class="govuk-table__header">Colour Coding</th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Title Number</th>
+                <td class="govuk-table__cell">MS123456</td>
+                <td class="govuk-table__cell">title_number</td>
+                <td class="govuk-table__cell">Unique reference number for the title</td>
+                <td class="govuk-table__cell">  Purple
+                    <svg width="20" height="20" style="vertical-align: middle;">
+                        <circle cx="10" cy="10" r="10" fill="#800080"></circle>
+                    </svg>
+                </td>
+            </tbody>
+            </table>
+        </div> #}
+
+
+
+
+
+
+
+{% endblock %}
