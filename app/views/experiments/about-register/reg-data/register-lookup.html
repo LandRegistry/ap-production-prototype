@@ -7,19 +7,136 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 {% block content %}
 
 <style>
+    * {
+    font-family: Arial, sans-serif;
+}
 
-  .app-example__toolbar {
-    height: 40px;
-    position: relative;
-    margin-top: -5px;
-    margin-bottom: -1px;
-    padding-top: 16px;
-    padding-right: 19px;
-    padding-bottom: 6px;
-    padding-left: 19px;
-    border-bottom-color: rgb(177, 180, 182);
-    border-bottom: 0;
-    background-color: #ffffff;
+
+    #register-container {
+      padding-right: 25px;
+      background-color: #f6f6f6;
+      border: none;
+        border-bottom-width: medium;
+        border-bottom-style: none;
+        border-bottom-color: currentcolor;
+      border-bottom: 3px double #a0a0a0;
+    }
+      .app-example__toolbar {
+        height: 40px;
+        position: relative;
+        margin-top: -5px;
+        margin-bottom: -1px;
+        padding-top: 16px;
+        padding-right: 19px;
+        padding-bottom: 6px;
+        padding-left: 19px;
+        border-bottom-color: rgb(177, 180, 182);
+        border-bottom: 0;
+        background-color: #ffffff;
+      }
+      .govuk-heading-m {
+        margin-bottom: 20px;
+      }
+
+
+    .govuk-tabs__panel {
+        width: 735px;
+        max-height: 820px; /* Maximum height after which scrolling will occur */
+        overflow: auto; /* Enable scrolling if content overflows */
+        border: 1px solid #ccc; /* Optional: adds a border for better visibility */
+        padding: 10px; /* Optional: adds some space inside the div */
+        box-sizing: border-box; /* Ensures padding is included in the width */
+        background-color: #f1f1f1;
+    }
+     .govuk-tabs {
+        width: 735px;
+    }
+
+
+    .govuk-tabs__panel--hidden {
+        display: none; /* Keeps the hidden panel invisible */
+    }
+        #register-container .removing-inset-text--gov {
+    padding-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-left: 10px solid #f6d7d2;
+    }
+
+    #register-container .govuk-template__body {
+        /* background-color: #f1f1f1; */
+    }
+
+    #register-container .govuk-header--hmlr {
+        /* border-bottom-color: #f1f1f1; */
+    }
+
+    #register-container #application-info-container {
+        padding-top: 20px;
+        padding-bottom: 45px;
+        border-bottom: 1px solid #b1b4b6;
+        margin-bottom: 30px;
+    }
+
+    #register-container #documents-launcher {
+        text-align: right;
+    }
+
+    #register-container .title-number, #register-container .abr {
+        font-weight: 800;
+    }
+
+    #register-container .abr {
+        margin-right: 30px;
+    }
+
+    #register-container h1.application-type {
+        display: inline;
+        margin-right: 50px;
+    }
+
+    #register-container .ap-no-column-l-r-padding {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    #register-container .ap-no-column-r-padding {
+        padding-right: 0px;
+    }
+
+    #register-container .ap-no-row-l-r-margin {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    #register-container .govuk-notification-banner--error {
+        border-color: #d4351c;
+        background-color: #d4351c;
+    }
+
+    #register-container .govuk-panel--confirmation--partial {
+        background-color: #1d70b8;
+    }
+
+    #register-container .govuk-visually-hidden--HMLR {
+        display: none;
+    }
+
+    #register-container .ap-secondary-button {
+        background-color: #505a5f;
+    }
+  .govuk-heading-m {
+  color: #0b0c0c;
+  font-family: "GDS Transport", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 700;
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.1111111111;
+  display: block;
+  margin-top: 0;
+  margin-bottom: 15px;
   }
 
 </style>
@@ -55,16 +172,43 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
         </ul>
         <!-- Tab Contents -->
         <div class="govuk-tabs__panel" id="simple">
-            <pre><code tabindex="0" class="language-html">
-                <!-- Insert your HTML code here -->
-            </code></pre>
+        <div id="register-container">
+          {# <h3 class="govuk-heading-m">A: Property Register</h3>
+          <p>This register describes the land and estate comprised in the title.</p>
+          <p>[SUBURB OF WILLOWDALE]</p>
+          <ol class="govuk-list govuk-list--number">
+              <li>(18.06.1990) The Freehold property delineated in green on the attached plan, known as 45 Oakfield Drive, Willowdale (WD5 3AB).</li>
+              <li>The Deed of Transfer dated 30 March 1990 mentioned in the Charges Register contains the covenant: "The property shall not be used for commercial purposes."</li>
+          </ol>
+
+          <h3 class="govuk-heading-m">B: Proprietorship Register</h3>
+          <p>This register specifies the class of title and identifies the owner. It contains any entries that affect the right of disposal.</p>
+          <p>Title absolute</p>
+          <ol class="govuk-list govuk-list--number">
+              <li>(28.02.2023) PROPRIETOR: EMMA THOMPSON of 45 Oakfield Drive, Willowdale WD5 3AB.</li>
+              <li>(28.02.2023) The price stated to have been paid on 25 February 2023 was £320,000.</li>
+              <li>(28.02.2023) RESTRICTION: No disposition of the registered estate is to be registered without a written consent signed by the proprietor for the time being of the Charge dated 25 February 2023 in favour of Greenfield Bank referred to in the Charges Register.</li>
+          </ol>
+
+          <h3 class="govuk-heading-m">C: Charges Register</h3>
+          <p>This register contains any charges and other matters that affect the land.</p>
+          <ol class="govuk-list govuk-list--number">
+              <li>The property is subject to the rights contained in a Transfer of the title dated 30 March 1990 made between (1) Oliver Hampton and (2) John and Mary Smith: "Subject also to the right of the owners and occupiers of the neighboring property to the south for access to shared services such as water drainage and the right to light and air."</li>
+              <li>(28.02.2023) REGISTERED CHARGE dated 25 February 2023.</li>
+              <li>(28.02.2023) Proprietor: Greenfield Bank (Company No. 12345678) of 100 Finance Square, Capital City CF10 1AA.</li>
+          </ol>
+
+          <p>End of register</p>
+            </div> #}
+      </div>
+
         </div>
         <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="complex">
             <pre><code tabindex="0" class="language-html">
                 <!-- Insert your HTML code here -->
             </code></pre>
         </div>
-        </div>
+
       </div>
         <table class="govuk-table">
           <caption class="govuk-table__caption govuk-table__caption--m">Register details</caption>
@@ -89,6 +233,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
                 </svg>
               </td>
             </tr>
+
                 <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">Application Timestamp</th>
                 <td class="govuk-table__cell">string (date-time format)</td>
