@@ -89,6 +89,602 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
                 </svg>
               </td>
             </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Application Timestamp</th>
+                <td class="govuk-table__cell">string (date-time format)</td>
+                <td class="govuk-table__cell">2002-11-29T15:30:00Z</td>
+                <td class="govuk-table__cell">Date and time of the latest application for a substantive change to the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for application_timestamp]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Continuation Title Number</th>
+                <td class="govuk-table__cell">string</td>
+                <td class="govuk-table__cell">AGL789102</td>
+                <td class="govuk-table__cell">Title number under which a closed title has continued</td>
+                <td class="govuk-table__cell">[Color and SVG circle for continuation_title_number]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Scheme Status</th>
+                <td class="govuk-table__cell">string</td>
+                <td class="govuk-table__cell">current scheme title</td>
+                <td class="govuk-table__cell">Indicates the scheme status of the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for scheme_status]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Caution Against First Registration</th>
+                <td class="govuk-table__cell">boolean</td>
+                <td class="govuk-table__cell">false</td>
+                <td class="govuk-table__cell">Indicates if the title is a caution against first registration</td>
+                <td class="govuk-table__cell">[Color and SVG circle for caution_against_first_registration]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Application Reference</th>
+                <td class="govuk-table__cell">string</td>
+                <td class="govuk-table__cell">2023-REF123456</td>
+                <td class="govuk-table__cell">Application Barcode Reference of the latest application</td>
+                <td class="govuk-table__cell">[Color and SVG circle for application_reference]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Timeshare Lease Issued</th>
+                <td class="govuk-table__cell">boolean</td>
+                <td class="govuk-table__cell">true</td>
+                <td class="govuk-table__cell">Indicates if a timeshare lease has been issued</td>
+                <td class="govuk-table__cell">[Color and SVG circle for timeshare_lease_issued]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Multiple District</th>
+                <td class="govuk-table__cell">boolean</td>
+                <td class="govuk-table__cell">false</td>
+                <td class="govuk-table__cell">States if the title falls within more than one district</td>
+                <td class="govuk-table__cell">[Color and SVG circle for multiple_district]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Prices Paid</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">£350,000 on 01/01/2020</td>
+                <td class="govuk-table__cell">Information about prices paid for the property</td>
+                <td class="govuk-table__cell">[Color and SVG circle for prices_paid]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Proprietors</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">John Doe and Jane Smith</td>
+                <td class="govuk-table__cell">Details of the proprietors of the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for proprietors]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">District Name</th>
+                <td class="govuk-table__cell">string</td>
+                <td class="govuk-table__cell">Birkenhead</td>
+                <td class="govuk-table__cell">Name of the administrative district covering the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for district_name]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Entries</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">Right of way recorded on 05/05/2010</td>
+                <td class="govuk-table__cell">Specific entries related to the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for entries]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Edition Date</th>
+                <td class="govuk-table__cell">string (date format)</td>
+                <td class="govuk-table__cell">2020-01-01</td>
+                <td class="govuk-table__cell">Date of the current version of the register</td>
+                <td class="govuk-table__cell">[Color and SVG circle for edition_date]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Pre Act Caution</th>
+                <td class="govuk-table__cell">boolean</td>
+                <td class="govuk-table__cell">true</td>
+                <td class="govuk-table__cell">Indicates a caution against first registration lodged prior to the LR Act 2002</td>
+                <td class="govuk-table__cell">[Color and SVG circle for pre_act_caution]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Estate Interest</th>
+                <td class="govuk-table__cell">string</td>
+                <td class="govuk-table__cell">Absolute Freehold Estate in Land</td>
+                <td class="govuk-table__cell">Type of legal interest of an estate</td>
+                <td class="govuk-table__cell">[Color and SVG circle for estate_interest]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Tenure</th>
+                <td class="govuk-table__cell">string</td>
+                <td class="govuk-table__cell">Freehold</td>
+                <td class="govuk-table__cell">Tenure of the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for tenure]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Class of Title</th>
+                <td class="govuk-table__cell">string</td>
+                <td class="govuk-table__cell">Absolute</td>
+                <td class="govuk-table__cell">Measure of confidence in the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for class_of_title]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Properties</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">Property at 123 Main Street, Birkenhead</td>
+                <td class="govuk-table__cell">Details of properties associated with the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for properties]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Status</th>
+                <td class="govuk-table__cell">string</td>
+                <td class="govuk-table__cell">open</td>
+                <td class="govuk-table__cell">Status of the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for status]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Developer Status</th>
+                <td class="govuk-table__cell">string</td>
+                <td class="govuk-table__cell">currently a developing title</td>
+                <td class="govuk-table__cell">Indicates if the title is part of a developing estate</td>
+                <td class="govuk-table__cell">[Color and SVG circle for developer_status]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Commonhold Type</th>
+                <td class="govuk-table__cell">string</td>
+                <td class="govuk-table__cell">common parts title</td>
+                <td class="govuk-table__cell">Status of a title registered as commonhold</td>
+                <td class="govuk-table__cell">[Color and SVG circle for commonhold_type]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Charge Response</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Includes details when a charge is found on a title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for ChargeResponse]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Interests</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Lists interests on the title, such as easements and rights</td>
+                <td class="govuk-table__cell">[Color and SVG circle for Interests]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Response Object</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Contains common properties for all successful responses</td>
+                <td class="govuk-table__cell">[Color and SVG circle for ResponseObject]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Data Issue</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Represents issues related to data quality</td>
+                <td class="govuk-table__cell">[Color and SVG circle for DataIssue]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Title Status Info</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Provides status-related information of the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for TitleStatusInfo]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">ErrorResponse</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Details about error responses in the API</td>
+                <td class="govuk-table__cell">[Color and SVG circle for ErrorResponse]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">TitleResponse</th>
+                <td class="govuk-table__cell">Object</td>
+                <td class="govuk-table__cell">[See detailed structure]</td>
+                <td class="govuk-table__cell">Represents a title for land or property</td>
+                <td class="govuk-table__cell">[Color and SVG circle for TitleResponse]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Prices Paid</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Information about prices paid for the property</td>
+                <td class="govuk-table__cell">[Color and SVG circle for PricesPaid]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Proprietors</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Details of the proprietors of the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for Proprietors]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Entries</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Specific entries related to the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for Entries]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Interests</th>
+                <td class="govuk-table__cell">Object</td>
+                <td class="govuk-table__cell">[See detailed structure]</td>
+                <td class="govuk-table__cell">Lists interests on the title, such as easements and rights</td>
+                <td class="govuk-table__cell">[Color and SVG circle for Interests]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Concerns</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Details about specific concerns related to the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for Concerns]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">ResponseObject</th>
+                <td class="govuk-table__cell">Object</td>
+                <td class="govuk-table__cell">[See detailed structure]</td>
+                <td class="govuk-table__cell">Contains properties common to all successful response types</td>
+                <td class="govuk-table__cell">[Color and SVG circle for ResponseObject]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">DataIssue</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Represents issues related to data quality</td>
+                <td class="govuk-table__cell">[Color and SVG circle for DataIssue]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">DataQualityIssueType</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Categorizes types of data issues</td>
+                <td class="govuk-table__cell">[Color and SVG circle for DataQualityIssueType]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Tenure</th>
+                <td class="govuk-table__cell">String</td>
+                <td class="govuk-table__cell">freehold</td>
+                <td class="govuk-table__cell">Determines the rights of the title's proprietors</td>
+                <td class="govuk-table__cell">[Color and SVG circle for Tenure]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Class Of Title</th>
+                <td class="govuk-table__cell">String</td>
+                <td class="govuk-table__cell">absolute</td>
+                <td class="govuk-table__cell">Measure of confidence in the title's guarantee against legal challenges</td>
+                <td class="govuk-table__cell">[Color and SVG circle for ClassOfTitle]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Title Status Info</th>
+                <td class="govuk-table__cell">Object</td>
+                <td class="govuk-table__cell">[See detailed structure]</td>
+                <td class="govuk-table__cell">Encapsulates information related to the status of the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for TitleStatusInfo]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Developer Status</th>
+                <td class="govuk-table__cell">String</td>
+                <td class="govuk-table__cell">currently a developing title</td>
+                <td class="govuk-table__cell">Indicates the status of a title within a developing estate</td>
+                <td class="govuk-table__cell">[Color and SVG circle for DeveloperStatus]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Commonhold Type</th>
+                <td class="govuk-table__cell">String</td>
+                <td class="govuk-table__cell">part</td>
+                <td class="govuk-table__cell">Indicates the current status of a title registered as commonhold</td>
+                <td class="govuk-table__cell">[Color and SVG circle for CommonholdType]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Scheme Status</th>
+                <td class="govuk-table__cell">String</td>
+                <td class="govuk-table__cell">pre-allocated scheme title, no applications pending</td>
+                <td class="govuk-table__cell">Indicates whether a title number is a scheme title or not</td>
+                <td class="govuk-table__cell">[Color and SVG circle for SchemeStatus]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Register Entry</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Represents an entry in the land register</td>
+                <td class="govuk-table__cell">[Color and SVG circle for RegisterEntry]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Sub Register</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Refers to a subsection of the land register</td>
+                <td class="govuk-table__cell">[Color and SVG circle for SubRegister]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Schedule Info</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Information related to schedules in the land register</td>
+                <td class="govuk-table__cell">[Color and SVG circle for ScheduleInfo]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Schedule Code</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Code representing a specific schedule in the land register</td>
+                <td class="govuk-table__cell">[Color and SVG circle for ScheduleCode]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Language Code</th>
+                <td class="govuk-table__cell">String</td>
+                <td class="govuk-table__cell">eng</td>
+                <td class="govuk-table__cell">A three-character code representing a language according to the ISO 639-3 standard</td>
+                <td class="govuk-table__cell">[Color and SVG circle for LanguageCode]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Property</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Details of the property associated with the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for Property]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Address</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Address of the property or proprietor</td>
+                <td class="govuk-table__cell">[Color and SVG circle for Address]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Private Individual</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Information about a private individual associated with the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for PrivateIndividual]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Proprietor</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Information about the proprietor(s) of the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for Proprietor]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Proprietor UK Address</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">UK address of the proprietor</td>
+                <td class="govuk-table__cell">[Color and SVG circle for ProprietorUKAddress]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Proprietor Address</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Address details of the proprietor</td>
+                <td class="govuk-table__cell">[Color and SVG circle for ProprietorAddress]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Proprietor Foreign Address</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Foreign address of the proprietor</td>
+                <td class="govuk-table__cell">[Color and SVG circle for ProprietorForeignAddress]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Proprietor BFPO Address</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">BFPO (British Forces Post Office) address of the proprietor</td>
+                <td class="govuk-table__cell">[Color and SVG circle for ProprietorBfpoAddress]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Proprietor DX Address</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">DX (Document Exchange) address details of the proprietor</td>
+                <td class="govuk-table__cell">[Color and SVG circle for ProprietorDxAddress]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Proprietor Electronic Address</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Electronic address (such as email) of the proprietor</td>
+                <td class="govuk-table__cell">[Color and SVG circle for ProprietorElectronicAddress]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Proprietor Unknown Address</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Indicates an unknown or unspecified address for the proprietor</td>
+                <td class="govuk-table__cell">[Color and SVG circle for ProprietorUnknownAddress]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Organisation</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Details about the organisation associated with the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for Organisation]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Organisation Type</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Type of organisation listed as proprietor or involved in the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for OrganisationType]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Company Location</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Location information for a company involved in the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for CompanyLocation]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Private Individual Name</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Name of a private individual associated with the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for PrivateIndividualName]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Private Individual Alias</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Alias or alternative name of a private individual associated with the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for PrivateIndividualAlias]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Price Paid</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Details about the price paid for the property</td>
+                <td class="govuk-table__cell">[Color and SVG circle for PricePaid]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Price Paid Type</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Type of price paid transaction for the property</td>
+                <td class="govuk-table__cell">[Color and SVG circle for PricePaidType]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Price Paid Date</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Date when the price was paid for the property</td>
+                <td class="govuk-table__cell">[Color and SVG circle for PricePaidDate]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Amount Single</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Single amount related to a transaction or charge</td>
+                <td class="govuk-table__cell">[Color and SVG circle for AmountSingle]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Amount</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Amount related to a transaction or charge</td>
+                <td class="govuk-table__cell">[Color and SVG circle for Amount]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Amount Range</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Range of amounts related to a transaction or charge</td>
+                <td class="govuk-table__cell">[Color and SVG circle for AmountRange]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Interests (Detailed)</th>
+                <td class="govuk-table__cell">Object</td>
+                <td class="govuk-table__cell">[See detailed structure]</td>
+                <td class="govuk-table__cell">Detailed list of interests on the title, including notices, easements, covenants, etc.</td>
+                <td class="govuk-table__cell">[Color and SVG circle for InterestsDetailed]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Restriction</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Details of any restrictions on the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for Restriction]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Exemption</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Details of any exemptions associated with the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for Exemption]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Compliance</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Information regarding compliance with terms or conditions of the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for Compliance]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Authority</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Authority or governing body information related to the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for Authority]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Party</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Information about parties (individuals or entities) involved in the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for Party]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Notice</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Details of notices associated with the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for Notice]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Source</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Source of information or data related to the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for Source]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Registered Charge</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Details of registered charges on the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for RegisteredCharge]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Charge</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Information about charges (financial encumbrances) on the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for Charge]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Unknown Charge</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Details of any unknown or unspecified charges on the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for UnknownCharge]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Equitable Charge</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Information about any equitable charges on the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for EquitableCharge]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Personal Covenant</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Details of personal covenants associated with the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for PersonalCovenant]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Indemnity</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Information regarding indemnities related to the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for Indemnity]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Indemnifier</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Details about the indemnifier associated with the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for Indemnifier]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Indemnity Type</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Type of indemnity associated with the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for IndemnityType]</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Implied Covenant</th>
+                <td class="govuk-table__cell">[Type]</td>
+                <td class="govuk-table__cell">[Example Value]</td>
+                <td class="govuk-table__cell">Details of any implied covenants in the title</td>
+                <td class="govuk-table__cell">[Color and SVG circle for ImpliedCovenant]</td>
+                </tr>
+
           </tbody>
         </table>
     </main>
