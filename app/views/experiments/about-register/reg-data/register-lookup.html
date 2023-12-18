@@ -5,6 +5,19 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
+<script>
+
+  // JavaScript to toggle the filter layout visibility
+  document.addEventListener('DOMContentLoaded', function() {
+    var filterButton = document.getElementById('filter-button');
+    var filterLayout = document.getElementById('filter-layout');
+
+    filterButton.addEventListener('click', function() {
+      // Toggle the display of the filter layout
+      filterLayout.style.display = filterLayout.style.display === 'none' ? 'block' : 'none';
+    });
+  });
+</script>
 
 <style>
     * {
@@ -13,7 +26,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
     #register-container {
       padding-right: 25px;
-      background-color: #f6f6f6;
+      {# background-color: #f6f6f6; #}
       border: none;
         border-bottom-width: medium;
         border-bottom-style: none;
@@ -31,7 +44,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
         padding-left: 19px;
         border-bottom-color: rgb(177, 180, 182);
         border-bottom: 0;
-        background-color: #ffffff;
+
       }
       .govuk-heading-m {
         margin-bottom: 20px;
@@ -45,7 +58,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
         border: 1px solid #ccc; /* Optional: adds a border for better visibility */
         padding: 10px; /* Optional: adds some space inside the div */
         box-sizing: border-box; /* Ensures padding is included in the width */
-        background-color: #f1f1f1;
+        {# background-color: #f1f1f1; #}
     }
      .govuk-tabs {
         width: 735px;
@@ -62,13 +75,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
     border-left: 10px solid #f6d7d2;
     }
 
-    #register-container .govuk-template__body {
-        /* background-color: #f1f1f1; */
-    }
 
-    #register-container .govuk-header--hmlr {
-        /* border-bottom-color: #f1f1f1; */
-    }
 
     #register-container #application-info-container {
         padding-top: 20px;
@@ -110,7 +117,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
     #register-container .govuk-notification-banner--error {
         border-color: #d4351c;
-        background-color: #d4351c;
+        {# background-color: #d4351c; #}
     }
 
     #register-container .govuk-panel--confirmation--partial {
@@ -119,10 +126,6 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
     #register-container .govuk-visually-hidden--HMLR {
         display: none;
-    }
-
-    #register-container .ap-secondary-button {
-        background-color: #505a5f;
     }
 
     .govuk-heading-xl  {
@@ -136,52 +139,99 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
     }
     .govuk-table__caption--m {
       font-family:Arial;
+      font-size:24px;
     }
 </style>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <main id="main-content" class="app-content" role="main">
-      <span class="govuk-caption-xl">
-        Components
-      </span>
-      <h1 class="govuk-heading-xl">
-        Register view
-      </h1>
-      <div class="app-example app-example--tabs">
-        <div class="app-example__toolbar">
-          <a class="app-example__new-window" href="#" target="_blank">
-            Open this example in a new tab<span class="govuk-visually-hidden">: cookie banner</span>
-          </a>
-        </div>
-      <div class="govuk-tabs" data-module="govuk-tabs">
-        <!-- Tab Headers -->
-        <ul class="govuk-tabs__list">
-            <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-            <a class="govuk-tabs__tab" href="/your-page#simple">
-                Simple
+      <main id="main-content" class="app-content" role="main">
+        <span class="govuk-caption-xl">
+          Components
+        </span>
+        <h1 class="govuk-heading-xl">
+          Register view
+        </h1>
+        <div class="app-example app-example--tabs">
+          <div class="app-example__toolbar">
+            <a class="app-example__new-window" href="#" target="_blank">
+              Open this example in a new tab<span class="govuk-visually-hidden">:register view</span>
             </a>
-            </li>
-            <li class="govuk-tabs__list-item">
-            <a class="govuk-tabs__tab" href="/your-page#complex">
-                Complex
-            </a>
-            </li>
-        </ul>
-        <!-- Tab Contents -->
-        <div class="govuk-tabs__panel" id="simple">
-        <div id="register-container">
+          </div>
         </div>
-        </div>
-        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="complex">
-           <div id="register-container">
-        </div>
+        <div class="govuk-tabs" data-module="govuk-tabs">
+          <!-- Tab Headers -->
+          <ul class="govuk-tabs__list">
+              <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+                <a class="govuk-tabs__tab" href="/your-page#simple">
+                    Simple
+                </a>
+                </li>
+                <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="/your-page#complex">
+                    Complex
+                </a>
+              </li>
+          </ul>
+          <!-- Tab Contents -->
+          <div class="govuk-tabs__panel" id="simple">
+            <div id="register-container">
+            </div>
+          </div>
+          <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="complex">
+            <div id="register-container">
+          </div>
         </div>
 
+    <main id="main-content" class="app-content" role="main">
+      <div style="display: grid; grid-template-columns: 3fr 1fr; align-items: center;">
+        <h2 style="margin: 0;">Register details</h2>
+        <button class="govuk-button" data-module="govuk-button" id="filter-button" type="button" style="justify-self: end;">Filter</button>
       </div>
-        <table class="govuk-table">
-          <caption class="govuk-table__caption govuk-table__caption--m">Register details</caption>
-          <thead class="govuk-table__head">
+
+
+      <div class="moj-filter-layout" id="filter-layout" style="display: none;">
+      <div class="moj-filter__content">
+                            <!-- Selected Filters (if any) -->
+                          <div class="moj-filter__selected"></div>
+
+                            <!-- Filter Options: Checkboxes -->
+                            <div class="moj-filter__options">
+                                <fieldset class="govuk-fieldset">
+                                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                                        Select
+                                    </legend>
+                                    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                                        <!-- Checkbox for Blue -->
+                                        <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="type" name="type" type="checkbox" value="1" checked>
+                                            <label class="govuk-label govuk-checkboxes__label" for="type">
+                                                A Register
+                                            </label>
+                                        </div>
+                                        <!-- Checkbox for Yellow -->
+                                        <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="2" checked>
+                                            <label class="govuk-label govuk-checkboxes__label" for="type-2">
+                                                B Register
+                                            </label>
+                                        </div>
+                                        <!-- Checkbox for Red -->
+                                        <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="type-3" name="type" type="checkbox" value="3">
+                                            <label class="govuk-label govuk-checkboxes__label" for="type-3">
+                                                C Register
+                                            </label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+      </div>
+
+    </main>
+  </div>
+  <table class="govuk-table">
+    <table class="govuk-table">
             <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header">Type</th>
                 <th scope="col" class="govuk-table__header">API Property</th>
@@ -214,7 +264,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
                 <td class="govuk-table__cell">..</td>
                 <td class="govuk-table__cell">AGL789102</td>
                 <td class="govuk-table__cell">Title number under which a closed title has continued</td>
-                {# <td class="govuk-table__cell">[Color and SVG circle for continuation_title_number]</td> #}
+
                 </tr>
                 <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">Caution Against First Registration</th>
@@ -228,21 +278,21 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
                 <td class="govuk-table__cell">..</td>
                 <td class="govuk-table__cell">2023-REF123456</td>
                 <td class="govuk-table__cell">Application Barcode Reference of the latest application</td>
-                {# <td class="govuk-table__cell">[Color and SVG circle for application_reference]</td> #}
+
                 </tr>
                 <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">Timeshare Lease Issued</th>
                 <td class="govuk-table__cell">..</td>
                 <td class="govuk-table__cell">..</td>
                 <td class="govuk-table__cell">Indicates if a timeshare lease has been issued</td>
-                {# <td class="govuk-table__cell">[Color and SVG circle for timeshare_lease_issued]</td> #}
+
                 </tr>
                 <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">Multiple District</th>
                 <td class="govuk-table__cell">..</td>
                 <td class="govuk-table__cell">false</td>
                 <td class="govuk-table__cell">States if the title falls within more than one district</td>
-                {# <td class="govuk-table__cell">[Color and SVG circle for multiple_district]</td> #}
+
                 </tr>
                 <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">Prices Paid</th>
@@ -254,8 +304,8 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
                 <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">Proprietors</th>
                 <td class="govuk-table__cell">..</td>
-                <td class="govuk-table__cell">..<td>
-                <td class="govuk-table__cell">Details of the proprietors of the title</td>
+                <td class="govuk-table__cell">..</td><td>
+                </td><td class="govuk-table__cell">Details of the proprietors of the title</td>
                 <td class="govuk-table__cell">..</td>
                 </tr>
                 <tr class="govuk-table__row">
@@ -792,89 +842,8 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
                 </tr>
 
           </tbody>
-        </table>
-    </main>
-    </div>
+  </table>
 </div>
-
-
-
-
- {# <main id="main-content" class="app-content" role="main">
-      <span class="govuk-caption-xl">
-        Components
-      </span>
-      <h1 class="govuk-heading-xl">
-        Register view
-      </h1>
-      <div class="app-example app-example--tabs">
-            <div class="app-example__toolbar">
-                <a class="app-example__new-window" href="#" target="_blank">
-                Open this example in a new tab<span class="govuk-visually-hidden">: cookie banner</span>
-                </a>
-            </div>
-
-        <ul class="govuk-tabs__list">
-            <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-            <a class="govuk-tabs__tab" href="#tab-1">
-                Simple
-            </a>
-            </li>
-            <li class="govuk-tabs__list-item">
-            <a class="govuk-tabs__tab" href="#tab-2">
-                Complex
-            </a>
-            </li>
-        </ul>
-        <div class="govuk-tabs__panel" id="tab-1">
-            <div class="app-example__code" data-module="app-copy">
-            <span class="govuk-visually-hidden" aria-live="assertive"></span>
-            <button class="app-copy-button">Copy code</button>
-            <pre><code tabindex="0" class="language-html">
-                <!-- Insert your HTML code here -->
-            </code></pre>
-            </div>
-
-        </div>
-        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="tab-2">
-          <!-- Content for Tab 2 -->
-        </div>
-    </div>
-</div>
-    <main id="main-content" class="app-content" role="main">
-        <div class="govuk-tabs__panel" id="title-response">
-            <h2 class="govuk-heading-l">About</h2>
-            <!-- Insert your About table here -->
-            <table class="govuk-table">
-            <caption class="govuk-table__caption govuk-table__caption--m">Register details</caption>
-            <thead class="govuk-table__head">
-                <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header">Name</th>
-                <th scope="col" class="govuk-table__header">Example</th>
-                <th scope="col" class="govuk-table__header">API Property</th>
-                <th scope="col" class="govuk-table__header">Description</th>
-                <th scope="col" class="govuk-table__header">Colour Coding</th>
-                </tr>
-            </thead>
-            <tbody class="govuk-table__body">
-                <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">Title Number</th>
-                <td class="govuk-table__cell">MS123456</td>
-                <td class="govuk-table__cell">title_number</td>
-                <td class="govuk-table__cell">Unique reference number for the title</td>
-                <td class="govuk-table__cell">  Purple
-                    <svg width="20" height="20" style="vertical-align: middle;">
-                        <circle cx="10" cy="10" r="10" fill="#800080"></circle>
-                    </svg>
-                </td>
-            </tbody>
-            </table>
-        </div> #}
-
-
-
-
-
 
 
 {% endblock %}
