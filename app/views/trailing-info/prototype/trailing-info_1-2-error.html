@@ -28,6 +28,33 @@ Validity checks
         <a href="#" id="previous-link" class="govuk-back-link">Previous page</a>
 
 
+        {% if (data['more-transferee-addresses-genericradiogroup'] == null or data['add-info'] == '') %}
+        <div class="govuk-error-summary" data-module="govuk-error-summary">
+          <div role="alert">
+            <h2 class="govuk-error-summary__title">
+              There is a problem 
+            </h2>
+            <div class="govuk-error-summary__body">
+                <ul class="govuk-list govuk-error-summary__list">
+                {% if (data['more-transferee-addresses-genericradiogroup'] == null) %}
+                    <li><a href="#more-transferee-addresses-yes">Select yes if there is anything else you want to add, other than <abbr>UK</abbr> postal addresses</a></li>
+                {% endif %}
+
+                {% if (data['add-info'] == null) %}
+                    <li><a href="#yes-info">Select yes if you need to add any additional information about the transferees</a></li>
+                {% endif %}
+
+                </ul>
+            </div>
+          </div>
+        </div>     
+        {% endif %}         
+
+
+
+
+
+
         <h2 class="govuk-heading-m govuk-visually-hidden">Address for service</h2>
         
         <div class="govuk-notification-banner govuk-notification-banner__workflow-return" role="alert" aria-labelledby="govuk-notification-banner-title"
@@ -90,8 +117,14 @@ Validity checks
                 <!-- ********** ************************************************* ********** -->
 
                             
-                <div class="govuk-form-group">
-
+                <div class="govuk-form-group 
+                {% if (data['more-transferee-addresses-genericradiogroup'] == null) %}
+                    govuk-form-group--error
+                {% endif %}">
+                    <fieldset class="govuk-fieldset"  
+                    {% if (data['more-transferee-addresses-genericradiogroup'] == null) %}
+                      aria-describedby="more-transferee-addresses-error"
+                    {% endif %}>
                         <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
                             Other than <abbr>UK</abbr> postal addresses is there anything else you want to add?
                         </legend>
@@ -100,11 +133,15 @@ Validity checks
                         removed from fieldset: more-transferee-addresses-genericradiogroup-hint
                         </div-->
 
-                    
+                        {% if (data['more-transferee-addresses-genericradiogroup'] == null) %}
+                            <p id="more-transferee-addresses-error" class="govuk-error-message">
+                                <span class="govuk-visually-hidden">Error:</span> Select yes if there is anything else you want to add, other than <abbr>UK</abbr> postal addresses
+                            </p>
+                        {% endif %}                        
 
                         <div class="govuk-radios govuk-radios--inline govuk-radios--small"    data-module="govuk-radios">
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="more-transferee-addresses-yes" name="more-transferee-addresses-genericradiogroup" type="radio" value="yes"{% if (data['more-transferee-addresses-genericradiogroup'] == 'yes') %}
+                                <input class="govuk-radios__input" id="more-transferee-addresses-yes" name="more-transferee-addresses-genericradiogroup" type="radio" value="yes" {% if (data['more-transferee-addresses-genericradiogroup'] == 'yes') %}
                                 checked
                               {% endif %}>
                                 <label class="govuk-label govuk-radios__label" for="more-transferee-addresses-yes">
@@ -112,7 +149,7 @@ Validity checks
                                 </label>                        
                             </div>
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="more-transferee-addresses-no" name="more-transferee-addresses-genericradiogroup" type="radio" value="no"{% if (data['more-transferee-addresses-genericradiogroup'] == 'no') %}
+                                <input class="govuk-radios__input" id="more-transferee-addresses-no" name="more-transferee-addresses-genericradiogroup" type="radio" value="no" {% if (data['more-transferee-addresses-genericradiogroup'] == 'no') %}
                                 checked
                               {% endif %}>
                                 <label class="govuk-label govuk-radios__label" for="more-transferee-addresses-no">
@@ -124,37 +161,7 @@ Validity checks
                     </fieldset>
                 </div>
 
-                <div class="govuk-form-group">
-                    <fieldset class="govuk-fieldset">
-                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                        <h1 class="govuk-fieldset__heading">
-                          Do you need to add any additional information about the transferees?
-                        </h1>
-                      </legend>
-                
-                                      
-                      <div class="govuk-radios govuk-radios--small govuk-radios--inline govuk-!-margin-top-2" data-module="govuk-radios">
-                        <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="yes-info" name="add-info" type="radio" value="yes" {% if (data['add-info'] == 'yes') %}
-                          checked
-                        {% endif %}>
-                          <label class="govuk-label govuk-radios__label" for="yes-info">
-                            Yes
-                          </label>
-                        </div>
-                
-                        <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="no-info" name="add-info" type="radio" value="no" {% if (data['add-info'] == 'no') %}
-                          checked
-                        {% endif %}>
-                          <label class="govuk-label govuk-radios__label" for="no-info">
-                            No
-                          </label>
-                        </div>
-                      </div>
-                    </fieldset>
-                  </div>
-                
+                {% include "../prototype/inc_add-misc-info-question2.html" %}
 
                 <noscript>
                     <input id="no_js_field" name="no_js_field" type="hidden" value="True">
@@ -188,7 +195,7 @@ Validity checks
                 
                 var yesOrNo = $("input:radio[name ='add-info']:checked").val();
 
-                //if(!yesOrNo){e.preventDefault(); }else 
+
                 if(yesOrNo == 'yes'){
                     e.preventDefault();
                     window.location.href = 'trailing-info_1-4.html';

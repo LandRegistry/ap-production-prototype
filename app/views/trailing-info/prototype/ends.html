@@ -17,7 +17,31 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
         <a href="trailing-info_1-1.html" class="govuk-link govuk-link--no-visited-state">
           Return to first page of these designs
         </a>
-      </p>      
+      </p>     
+      
+      
+<!-- test code for Rosie 
+
+      {% set html %}
+        <p class="govuk-notification-banner__heading">
+          You have 7 days left to send your application.
+          <a class="govuk-notification-banner__link" href="#">View application</a>.
+        </p>
+
+
+        {{ govukDetails({
+          summaryText: "Help with nationality",
+          text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+        }) }}
+  
+
+      {% endset %}
+      
+      {{ govukNotificationBanner({
+        html: html
+      }) }}
+-->
+
 
     </div>
 </div>

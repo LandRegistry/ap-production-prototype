@@ -49,7 +49,7 @@ data-module="govuk-notification-banner" aria-hidden="true" hidden="">
 
       <div class="govuk-form-group govuk-!-margin-bottom-2">
 <label class="govuk-label" for="addressSearch0">
-Enter a <abbr>UK</abbr> postcode, for example, AA1 4BB   <!-- we shouldn't use hint text as part of the label (but this part of the 'final' design)? -->
+Enter a <abbr>UK</abbr> postcode, for example, AA1 4BB   <!-- we shouldn't use hint text as part of the label (but this part of the 'final' design) -->
 </label>
 <!--div id="addressSearch0-hint" class="govuk-hint">
 For example, AA1 4BB
@@ -94,7 +94,7 @@ For example, AA1 4BB
           This is a care of address
         </label>
       </div>
-      <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-transferee-addresses-care-of-address-checkbox">
+      <!--div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-transferee-addresses-care-of-address-checkbox">
         <div class="govuk-form-group">
           <label class="govuk-label" for="transferee-addresses-care-of-address-text-input">
           Recipient name
@@ -103,7 +103,7 @@ For example, AA1 4BB
 
           </div>
           <input class="govuk-input" id="transferee-addresses-care-of-address-text-input" name="transferee-addresses-care-of-address-text-input" type="text" aria-describedby="transferee-addresses-care-of-address-text-input-hint"></div>
-      </div>
+      </div-->
   </div>
 
 </fieldset>
@@ -123,25 +123,26 @@ For example, AA1 4BB
     </div>
 
     <div class="govuk-checkboxes govuk-checkboxes--small"    data-module="govuk-checkboxes">
-        <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="transferee-01" name="transferee-addresses-transferee-selection" type="checkbox" value="Elliot Hill">
-          <label class="govuk-label govuk-checkboxes__label" for="transferee-01">
-            Elliot Hill
-          </label>
-        </div>
-        <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="transferee-02" name="transferee-addresses-transferee-selection" type="checkbox" value="John Smith">
-          <label class="govuk-label govuk-checkboxes__label" for="transferee-02">
-            John Smith
-          </label>
-        </div>    
+
+      {% include "./inc_transferees-list-checkboxes.html" %}
+
     </div>
     
   </fieldset>
 </div>
 
-<input class="govuk-button" id="transferee-addresses-add-address-save" name="transferee-addresses-add-address-save" type="submit" value="Save address">
-<input class="govuk-link link-button-align govuk-form-group" id="transferee-addresses-add-address-cancel" name="transferee-addresses-add-address-cancel" type="submit" value="Cancel adding address"><!-- this should be type 'button'at best -->
+<!--input class="govuk-button govuk-!-margin-right-2" id="transferee-addresses-add-address-save" name="transferee-addresses-add-address-save" type="submit" value="Save address">
+
+<input class="govuk-link link-button-align govuk-form-group" id="transferee-addresses-add-address-cancel" name="transferee-addresses-add-address-cancel" type="submit" value="Cancel adding address"-->
+
+<div class="govuk-button-group">
+  <button id="nextBtn" type="submit" class="govuk-button" data-module="govuk-button">
+    Next
+  </button>
+
+  <a class="govuk-link govuk-link--no-visited-state" href="trailing-info_1-2.html">Cancel</a>
+  
+</div>
 
 
 <noscript>
@@ -160,8 +161,23 @@ For example, AA1 4BB
 {% block footer %}
     {% include "../includes/inc_current-live-footer.html" %}
 
-
     <script>
+      window.onload = (event) => {//wait for jquery to load (follows in the prototype DOM)
+        var nextBtn = $('#nextBtn');
+        nextBtn.attr('disabled', 'disabled').attr('aria-disabled','true');
+        var notFoundBox = $('#0-address-not-found');
+
+        notFoundBox.on('change', function(){
+          if (notFoundBox.is(':checked')) {
+            nextBtn.removeAttr('disabled').attr('aria-disabled','false');
+          }else{
+            nextBtn.attr('disabled', 'disabled').attr('aria-disabled','true');
+          }
+        });
+      }
+    </script>
+
+    <!--script>
         /* scripts just for this prototype functionality ... */
         window.onload = (event) => {
           $('#addressSearch0Button').on('click', function(e){
@@ -178,5 +194,5 @@ For example, AA1 4BB
               history.back();//used just for this prototype design page as this pg can be arrived at from different versions of the first page
           });
         };
-    </script>
+    </script-->
 {% endblock %}

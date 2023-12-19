@@ -25,6 +25,27 @@ router.post('/trailing-info_1-1', function (req, res) {
     }
 })
 
+router.post('/trailing-info_1-2', function (req, res) {
+
+    if (req.session.data['more-transferee-addresses-genericradiogroup'] == null || req.session.data['add-info'] == null) {
+        //radios unselected
+        res.redirect("trailing-info_1-2-error")
+    } else {
+        res.redirect("trailing-info_1-4") 
+    }
+})
+
+router.post('/trailing-info_1-2-error', function (req, res) {
+
+    if (req.session.data['more-transferee-addresses-genericradiogroup'] == null || req.session.data['add-info'] == null) {
+        //radios unselected
+        res.redirect("trailing-info_1-2-error")//redirect to self
+        
+    } else {
+        res.redirect("trailing-info_1-4") 
+    }
+})
+
 router.post('/trailing-info_1-1-error-radios', function (req, res) {
 
     if (req.session.data['add_transferee_btn'] == 'Add transferee') {//go to pg with 2nd transferee
@@ -88,26 +109,55 @@ router.post('/trailing-info_1-2', function (req, res) {//address for service pag
     }
 })
 
+router.post('/trailing-info_1-2-add-address1', function (req, res) {//address for service page
 
-/* next ...
+    if (req.session.data['0-address-not-found-component'] == 'True') {//cannot find address is selected
+        
+        res.redirect("trailing-info_1-3")
 
-do page: trailing-info_1-2-add-address1
-on the 'Save address' btn - validate: If you has not checked 'Can't find address' then 'Enter a UK postcode' (which is hint text and a label together) OR 'Select and address' 
+    } else {
 
-The list of transferees must be dynamically generated; max of two
+        if (req.session.data['addressSearch0'] == '') {  
+        
+            res.redirect("trailing-info_1-2-add-address1-error")//error msg "Enter a UK postcode"
 
-If the user has selected an address they must select at least one transferee (Error: Select more or more transferees for this address)
+        } else if (req.session.data['addressSearch0Button'] == 'Find address' && req.session.data['addressSearch0'] != ''){
+            
+            res.redirect("trailing-info_1-3") //res.redirect("trailing-info_1-2-address-found")
+
+        }        
+
+    } 
+         
+})
+
+router.post('/trailing-info_1-2-add-address1-error', function (req, res) {//address for service error page
+
+    if (req.session.data['addressSearch0'] == '' && req.session.data['0-address-not-found-component'] != 'True') {
+
+        res.redirect("trailing-info_1-2-add-address1-error")// redirect to self
+
+    } else if (req.session.data['addressSearch0'] != '' && req.session.data['0-address-not-found-component'] != 'True') {//postcode has input
+
+        res.redirect("trailing-info_1-2-address-found")// redirect to page with address select list
+
+    } else if (req.session.data['0-address-not-found-component'] == 'True') {//[sic] cannot find address is selected
+        
+        res.redirect("trailing-info_1-3")
+
+    }         
+})
 
 
+router.post('/trailing-info_1-2-address-found', function (req, res) {
+
+    //on this page: 
+    //form val for select address list - must choose
+    //dynamically generate address list based on input?
+    //add include file for the trustrees as on previous pg
 
 
-
-
-
-*/
-
-
-
+})
 
 /* can delete trailing-infor_1-1-add-transferee ????
 
