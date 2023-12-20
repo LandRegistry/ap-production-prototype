@@ -1,7 +1,7 @@
 {% extends "layouts/ap-flow-wide.html" %}
 
 {% block pageTitle %}
-{{ appnType | d('Example text lorem ipsum') }}, ABR: {{ abrNumber | d('A123XYZ') }}, Title Number: {{ titleNumber
+Error: {{ appnType | d('Example text lorem ipsum') }}, ABR: {{ abrNumber | d('A123XYZ') }}, Title Number: {{ titleNumber
 | d('DN1000') }}.
 
 Validity checks
@@ -27,6 +27,19 @@ Validity checks
 
       <a href="trailing-info_1-2-add-address1.html" id="previous-link" class="govuk-back-link">Back</a> 
 
+      <div class="govuk-error-summary" data-module="govuk-error-summary">
+        <div role="alert">
+          <h2 class="govuk-error-summary__title">
+            There is a problem 
+          </h2>
+          <div class="govuk-error-summary__body">
+              <ul class="govuk-list govuk-error-summary__list">
+                  <li><a href="#addressSearch0Select">Select an address</a></li>
+              </ul>
+          </div>
+        </div>
+      </div>   
+
       <h2 class="govuk-heading-m">Add address</h2>
       
       <!--div class="govuk-notification-banner govuk-notification-banner__workflow-return" role="alert"
@@ -47,18 +60,20 @@ Validity checks
         
           <input id="csrf_token" name="csrf_token" type="hidden" value="IjU4M2FhMjk5MGEzOThjN2ZlYTNjOWQ1OTY3NzcxMGI4OTlmMmNjZjYi.ZR6Kcw.C2NGJMNZmZB8LS4O5FlGkz7L8LU">
 
-        <div class="govuk-form-group govuk-!-margin-bottom-2">
+        <div class="govuk-form-group govuk-!-margin-bottom-2 govuk-form-group--error">
           <label class="govuk-label govuk-!-font-weight-bold" for="addressSearch0Select">
-          Select address
+            Select address
           </label>
 
           <!--div id="addressSearch0Select-hint" class="govuk-hint">
-            empty hint div on live
-
-             aria-describedby="addressSearch0Select-hint"
+            empty hint div on live? 
           </div-->
 
-          <select class="govuk-select constrained-width" id="addressSearch0Select" name="addressSearch0Select">
+          <p id="addressSearch0Select-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Select a location
+          </p>          
+
+          <select class="govuk-select constrained-width govuk-select--error" id="addressSearch0Select" name="addressSearch0Select" aria-describedby="addressSearch0Select-error">
               <option value="">Select address</option>
               <option value="100040208183">33 Clifton Road, Exeter, EX1 2BN</option>
               <option value="100040208184">34 Clifton Road, Exeter, EX1 2BN</option>
@@ -67,7 +82,7 @@ Validity checks
               <option value="100040208197">51 Clifton Road, Exeter, EX1 2BN</option>
               <option value="100040208198">52 Clifton Road, Exeter, EX1 2BN</option>
               <option value="100040208199">53 Clifton Road, Exeter, EX1 2BN</option>
-              <option value="10013042929">63 Clifton Road, Exeter, EX1 2BN</option>
+              <option value="100130429293">63 Clifton Road, Exeter, EX1 2BN</option>
           </select>
         </div>
 
@@ -90,11 +105,12 @@ Validity checks
         </div>
 
         <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="transferee-addresses-care-of-address-hint">
+          <fieldset class="govuk-fieldset">
 
-              <div id="transferee-addresses-care-of-address-hint" class="govuk-hint govuk-!-display-none">
-                  <!-- aria-describedby="transferee-addresses-care-of-address-hint" empty linked hint text div on live -->
-              </div>
+              <!--div id="transferee-addresses-care-of-address-hint" class="govuk-hint govuk-!-display-none">
+                aria-describedby="transferee-addresses-care-of-address-hint"
+                  aria-describedby="transferee-addresses-care-of-address-hint" empty linked hint text div on live 
+              </div-->
               
               <div class="govuk-checkboxes govuk-checkboxes--small"    data-module="govuk-checkboxes">
                   <div class="govuk-checkboxes__item">
@@ -109,7 +125,7 @@ Validity checks
                       Recipient name
                     </label>
                     <!--div id="transferee-addresses-care-of-address-text-input-hint" class="govuk-hint">
-                      ???  aria-describedby="transferee-addresses-care-of-address-text-input-hint"
+                       ???   aria-describedby="transferee-addresses-care-of-address-text-input-hint"
                     </div-->
                     <input class="govuk-input" id="transferee-addresses-care-of-address-text-input" name="transferee-addresses-care-of-address-text-input" type="text"></div>
                   </div>

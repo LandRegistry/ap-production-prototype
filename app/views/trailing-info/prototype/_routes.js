@@ -115,17 +115,9 @@ router.post('/trailing-info_1-2-add-address1', function (req, res) {//address fo
         
         res.redirect("trailing-info_1-3")
 
-    } else {
-
-        if (req.session.data['addressSearch0'] == '') {  
+    } else if (req.session.data['addressSearch0'] == '') {  
         
             res.redirect("trailing-info_1-2-add-address1-error")//error msg "Enter a UK postcode"
-
-        } else if (req.session.data['addressSearch0Button'] == 'Find address' && req.session.data['addressSearch0'] != ''){
-            
-            res.redirect("trailing-info_1-3") //res.redirect("trailing-info_1-2-address-found")
-
-        }        
 
     } 
          
@@ -151,11 +143,43 @@ router.post('/trailing-info_1-2-add-address1-error', function (req, res) {//addr
 
 router.post('/trailing-info_1-2-address-found', function (req, res) {
 
-    //on this page: 
-    //form val for select address list - must choose
-    //dynamically generate address list based on input?
-    //add include file for the trustrees as on previous pg
+    if (req.session.data['0-address-not-found-component'] == 'True') {//cannot find address is selected
+        
+        res.redirect("trailing-info_1-3")
 
+    } else if (req.session.data['addressSearch0Select'] == '') {  
+        
+            res.redirect("trailing-info_1-2-address-found-error")//error msg 'Select an address'
+
+    } else {
+
+        res.redirect("trailing-info_1-3")
+
+    }    
+
+})
+
+router.post('/trailing-info_1-2-address-found-error', function (req, res) {
+
+    if (req.session.data['0-address-not-found-component'] == 'True') {//cannot find address is selected
+        
+        res.redirect("trailing-info_1-3")
+
+    } else if (req.session.data['addressSearch0Select'] != '') {  
+        
+        res.redirect("trailing-info_1-3")    
+
+    } else {
+
+        res.redirect("trailing-info_1-2-address-found-error")//error msg 'Select an address'
+
+    }    
+
+})
+
+router.post('/trailing-info_1-3', function (req, res) {
+   
+    res.redirect("trailing-info_1-4") 
 
 })
 

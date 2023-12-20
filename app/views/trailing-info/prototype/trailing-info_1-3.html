@@ -24,7 +24,7 @@ Validity checks
 
     <div id="tasks-content" class="container-tasks" tabindex="0">
 
-      <a href="#" id="previous-link" class="govuk-back-link">Previous page</a>
+      <a href="trailing-info_1-2-address-found.html" id="previous-link" class="govuk-back-link">Previous page</a>
 
       <h2 class="govuk-heading-m govuk-visually-hidden">Address for service</h2>
       
@@ -43,7 +43,7 @@ Validity checks
       </div>
 
       <div class="content">
-        <form id="theForm" novalidate method="post" action="trailing-info_1-4">
+        <form id="theForm" novalidate method="post" action="#">
           <input id="csrf_token" name="csrf_token" type="hidden" value="IjU4M2FhMjk5MGEzOThjN2ZlYTNjOWQ1OTY3NzcxMGI4OTlmMmNjZjYi.ZR6Knw.tKCoQQIL6r6LWj6qtSKsBwnNSO8">
 
           <table class="govuk-table govuk-transferee-addresses-table">
@@ -57,8 +57,37 @@ Validity checks
           </thead>
           <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
-                <td class="govuk-table__cell">Elliot Hill, <br>John Smith</td>
-                <td class="govuk-table__cell">50 Clifton Road, <br>Exeter, EX1 2BN</td>
+                <td class="govuk-table__cell">
+                  {% if (data['forenames0'] != null and data['surname0'] != null) %}
+                    {{ data['forenames0'] }} {{ data['surname0'] }}{% if (data['forenames1'] != null and data['surname1'] != null) %},{% endif %} 
+                  {% endif %}
+
+                  {% if (data['forenames1'] != null and data['surname1'] != null) %}
+                    {% if (data['forenames0'] != null and data['surname0'] != null) %}<br>{% endif %}
+                    {{ data['forenames1'] }} {{ data['surname1'] }} 
+                  {% endif %}
+                
+                </td>
+                <td class="govuk-table__cell">
+
+                  {% if (data['addressSearch0Select'] == '100040208183') %}
+                    33 Clifton Road, <br>Exeter, EX1 2BN
+                  {% elseif (data['addressSearch0Select'] == '100040208184') %}
+                    34 Clifton Road, <br>Exeter, EX1 2BN
+                  {% elseif (data['addressSearch0Select'] == '100040208185') %}
+                    37 Clifton Road, <br>Exeter, EX1 2BN
+                  {% elseif (data['addressSearch0Select'] == '100040208196') %}
+                    50 Clifton Road, <br>Exeter, EX1 2BN
+                  {% elseif (data['addressSearch0Select'] == '100040208197') %}
+                    51 Clifton Road, <br>Exeter, EX1 2BN
+                  {% elseif (data['addressSearch0Select'] == '100040208198') %}
+                    52 Clifton Road, <br>Exeter, EX1 2BN
+                  {% elseif (data['addressSearch0Select'] == '100040208199') %}
+                    53 Clifton Road, <br>Exeter, EX1 2BN
+                  {% elseif (data['addressSearch0Select'] == '10013042929') %}
+                    63 Clifton Road, <br>Exeter, EX1 2BN
+                  {% endif %}
+                </td>
                 <td class="govuk-table__cell transferee-addresses-table-action-cell">
                   <input class="govuk-link govuk-!-padding-right-1 vertical-line" id="change-address-100040208196" name="change-address-100040208196" type="submit" value="Change"> 
                   <input class="govuk-link " id="remove-address-100040208196" name="remove-address-100040208196" type="submit" value="Remove">
@@ -70,49 +99,78 @@ Validity checks
 
         <input class="govuk-link govuk-form-group" id="TRANSFEREE-ADDRESSES-add-address" name="TRANSFEREE-ADDRESSES-add-address" type="submit" value="Add address">
 
-                    
         <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="more-transferee-addresses-genericradiogroup-hint">
-            <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
-              Other than <abbr>UK</abbr> postal addresses is there anything else you want to add?
+            <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
+                    Other than <abbr>UK</abbr> postal addresses is there anything else you want to add?
+                </legend>
+
+
+                <div class="govuk-radios govuk-radios--inline govuk-radios--small"    data-module="govuk-radios">
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="more-transferee-addresses-yes" name="more-transferee-addresses-genericradiogroup" type="radio" value="yes" {% if (data['more-transferee-addresses-genericradiogroup'] == 'yes') %}
+                        checked
+                      {% endif %}>
+                        <label class="govuk-label govuk-radios__label" for="more-transferee-addresses-yes">
+                            Yes
+                        </label>                        
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="more-transferee-addresses-no" name="more-transferee-addresses-genericradiogroup" type="radio" value="no" {% if (data['more-transferee-addresses-genericradiogroup'] == 'no') %}
+                        checked
+                      {% endif %}>
+                        <label class="govuk-label govuk-radios__label" for="more-transferee-addresses-no">
+                            No 
+                        </label>
+                    </div>
+                </div>
+
+            </fieldset>
+        </div>        
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              <h1 class="govuk-fieldset__heading">
+                Do you need to add any additional information about the transferees?
+              </h1>
             </legend>
-            <div id="more-transferee-addresses-genericradiogroup-hint" class="govuk-hint">
-              <!--  aria-describedby="more-transferee-addresses-genericradiogroup-hint" empty linked hint content on live -->
-            </div>
-            <div class="govuk-radios govuk-radios--inline govuk-radios--small"    data-module="govuk-radios">
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="more-transferee-addresses-yes" name="more-transferee-addresses-genericradiogroup" type="radio" value="False">
-                  <label class="govuk-label govuk-radios__label" for="more-transferee-addresses-yes">
-                    Yes
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="more-transferee-addresses-no" name="more-transferee-addresses-genericradiogroup" type="radio" value="True">
-                  <label class="govuk-label govuk-radios__label" for="more-transferee-addresses-no">
-                    No
-                  </label>
-                </div>
+      
+                            
+            <div class="govuk-radios govuk-radios--small govuk-radios--inline govuk-!-margin-top-2" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="yes-info" name="add-info" type="radio" value="yes" {% if (data['add-info'] == 'yes') %}
+                checked
+              {% endif %}>
+                <label class="govuk-label govuk-radios__label" for="yes-info">
+                  Yes  
+                </label>
+              </div>
+      
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="no-info" name="add-info" type="radio" value="no" {% if (data['add-info'] == 'no') %}
+                checked
+              {% endif %}>
+                <label class="govuk-label govuk-radios__label" for="no-info">
+                  No
+                </label>
+              </div>
             </div>
           </fieldset>
         </div>
 
-
-        {% include "../includes/inc_add-misc-info-question2.html" %}
-
-
-            <noscript>
-                <input id="no_js_field" name="no_js_field" type="hidden" value="True">
-            </noscript>
-            
-          <!-- correct GDS HTML for button + link used on this page -->
-          <div class="govuk-button-group govuk-!-margin-top-8">
-            <button class="govuk-button" data-module="govuk-button">
-              Next
-            </button>
-            <a class="govuk-link govuk-link--no-visited-state" id="reject-application-button" href="ends.html">
-              Return to Workflow
-            </a>
-          </div>
+        <noscript>
+            <input id="no_js_field" name="no_js_field" type="hidden" value="True">
+        </noscript>
+          
+        <div class="govuk-button-group govuk-!-margin-top-8">
+          <button class="govuk-button" data-module="govuk-button">
+            Next
+          </button>
+          <a class="govuk-link govuk-link--no-visited-state" id="reject-application-button" href="ends.html">
+            Return to Workflow
+          </a>
+        </div>
 
             <!--br>
             <div class="container-buttons-action">
@@ -136,7 +194,7 @@ Validity checks
 
     {% include "../includes/inc_theForm-js.html" %}
 
-    <script>
+    <!--script>
       /* these js scripts just used for this basic design prototype mockup */
         window.onload = (event) => {
 
@@ -174,5 +232,5 @@ Validity checks
                 history.back();//used just for this prototype design page as this pg can be arrived at from different versions of the first page
             });
         };
-    </script>
+    </script-->
 {% endblock %}

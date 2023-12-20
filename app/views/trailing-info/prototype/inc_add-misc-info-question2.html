@@ -3,7 +3,7 @@
     govuk-form-group--error
 {% endif %}">
     <fieldset class="govuk-fieldset"  
-    {% if (data['more-transferee-addresses-genericradiogroup'] == null) %}
+    {% if (data['add-info'] == null) %}
       aria-describedby="add-info-error"
     {% endif %}>
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
@@ -21,17 +21,17 @@
       <div class="govuk-radios govuk-radios--small govuk-radios--inline govuk-!-margin-top-2" data-module="govuk-radios">
         <div class="govuk-radios__item">
           <input class="govuk-radios__input" id="yes-info" name="add-info" type="radio" value="yes" 
-          {% if (data['more-transferee-addresses-genericradiogroup'] == 'yes') %}
+          {% if (data['add-info'] == 'yes') %}
               checked
           {% endif %}>
           <label class="govuk-label govuk-radios__label" for="yes-info">
-            Yes
+            Yes 
           </label>
         </div>
 
         <div class="govuk-radios__item">
           <input class="govuk-radios__input" id="no-info" name="add-info" type="radio" value="no" 
-          {% if (data['more-transferee-addresses-genericradiogroup'] == 'no') %}
+          {% if (data['add-info'] == 'no') %}
               checked
           {% endif %}>
           <label class="govuk-label govuk-radios__label" for="no-info">
