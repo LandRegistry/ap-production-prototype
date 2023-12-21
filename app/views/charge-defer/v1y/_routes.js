@@ -7,7 +7,7 @@ var PASNotes = {}
 router.get('*', function(req, res, next){
   res.locals['titleNumber'] = 'EX365565'
   res.locals['abrNumber'] = 'A312YYX'
-  res.locals['appnType'] = 'Transfer'
+  res.locals['appnType'] = 'Charge'
 
   next()
 })
