@@ -42,14 +42,14 @@ router.post('/05-any-other-entries', function (req, res) {
       || req.session.data['conveyancer-match'] == 'No'
       || req.session.data['correct-fee'] == 'No'
 			|| req.session.data['undisclosed'] == 'No-MDRef'
+      || req.session.data['discharge-removal'] == 'Yes'
       || req.session.data['register-restrictions'] == 'No'
       || req.session.data['register-restrictions'] == 'Needs a referral'
 			|| req.session.data['docs-meet-requirements'] == 'No'
 			|| req.session.data['additional-transactions'] == 'Yes'
 	  	) {
 	    res.redirect('workflow');
-    } else if (req.session.data['discharge-removal'] =='Keep'
-      || req.session.data['discharge-removal'] == 'Yes'){
+    } else if (req.session.data['discharge-removal'] =='Keep'){
       res.redirect ('success');
 	  } else {
 	    res.redirect('deferred');
