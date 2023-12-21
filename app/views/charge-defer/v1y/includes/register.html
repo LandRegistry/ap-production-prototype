@@ -63,17 +63,34 @@
             </strong>
           </div>
       (11.06.2012) REGISTERED CHARGE dated 24 May 2012.
+      </div>
     </li>
+    </div>
     {% else %}
-      <li id="temp">
+      <li id="temp-c">
         (11.06.2012) REGISTERED CHARGE dated 24 May 2012.
       </li>
       {% endif %}
 
 
-      <li>
+      <div id="c2-container">
+        {% if (data['discharge-removal'] == 'Yes-e') or (data['discharge-removal'] == 'Yes-p')%}
+        <li id="c2" class="withdraw">
+          <div class="removing-inset-text--gov" id="inset-c2">
+            <div id="tag-c2">
+              <strong class="govuk-tag govuk-tag--red" id="tag" style="margin-bottom: 10px;">
+              Removing
+              </strong>
+            </div>
       (11.06.2012) Proprietor: #LANDMARK MORTGAGES LIMITED# (Co. Regn. No. 3273685) of Admiral House, Harlington Way, Fleet, Hampshire GU51 4YA.
-    </li>
+      </div>
+      </li>
+      </div>
+      {% else %}
+        <li id="temp-c2">
+          (11.06.2012) Proprietor: #LANDMARK MORTGAGES LIMITED# (Co. Regn. No. 3273685) of Admiral House, Harlington Way, Fleet, Hampshire GU51 4YA.
+          </li>
+          {% endif %}
 
   </ol>
 

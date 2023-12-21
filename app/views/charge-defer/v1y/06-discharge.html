@@ -258,6 +258,71 @@ $('.js-register-radio-remove input').change(function() {
   }
 
 });
+
+$('.js-register-radio-remove input').change(function() {
+  var register = $(this).attr('data-register');
+  var item = $(this).attr('data-item');
+  var toRemove = $(this).attr('data-remove');
+
+
+  if (toRemove == 'y' ) {
+  	if ($('#c1-container').is(":hidden") == false ||
+		$('#c2-container').is(":hidden") == false) // stop adding more entries if selecting the two options for yes
+  	{
+	  	$('#c1-container').hide();
+	  	$('#temp2').hide();
+	  	$('#c-register').append('<li id="c1" class="withdraw">   <div class="removing-inset-text--gov" id="inset-c1">      <div id="tag-c1"> <strong class="govuk-tag govuk-tag--red" id="tag" style="margin-bottom: 10px;">    Removing</strong></div>(11.06.2012) REGISTERED CHARGE dated 24 May 2012.</div></li><li id="c2" class="withdraw">		<div class="removing-inset-text--gov" id="inset-c2">				<div id="tag-c2"><strong class="govuk-tag govuk-tag--red" id="tag" style="margin-bottom: 10px;">						Removing</strong></div>(11.06.2012) Proprietor: #LANDMARK MORTGAGES LIMITED# (Co. Regn. No. 3273685) of Admiral House, Harlington Way, Fleet, Hampshire GU51 4YA.</div></li>');
+ 		}
+  } else {
+  	$('#c1-container').show();
+  	$('#c1').remove();
+
+		var evidence = $("input:radio[name ='discharge-removal']:checked").val()
+
+  	if ((evidence == 'No'||'Yes-p')) // if coming back from next page then changing answer need to tidy up and show the right things
+  	{
+  		$('.temp2').remove();
+  		$('#temp-c').hide();
+  		$('#c-register').append('<li id="temp2" class="temp2">        (11.06.2012) REGISTERED CHARGE dated 24 May 2012.</li><li>(11.06.2012) Proprietor: #LANDMARK MORTGAGES LIMITED# (Co. Regn. No. 3273685) of Admiral House, Harlington Way, Fleet, Hampshire GU51 4YA.</li>');
+
+  	}
+
+  	// if no evidence lodged selected add the li back in - if its not visible
+  }
+
+});
+
+$('.js-register-radio-remove input').change(function() {
+  var register = $(this).attr('data-register');
+  var item = $(this).attr('data-item');
+  var toRemove = $(this).attr('data-remove');
+
+
+  if (toRemove == 'y' ) {
+  	if ($('#c2-container').is(":hidden") == false)  // stop adding more entries if selecting the two options for yes
+  	{
+	  	$('#c2-container').hide();
+	  	$('#temp3').hide();
+	  	$('#c-register').append('<li id="c2" class="withdraw">		<div class="removing-inset-text--gov" id="inset-c2">				<div id="tag-c2"><strong class="govuk-tag govuk-tag--red" id="tag" style="margin-bottom: 10px;">						Removing</strong></div>(11.06.2012) Proprietor: #LANDMARK MORTGAGES LIMITED# (Co. Regn. No. 3273685) of Admiral House, Harlington Way, Fleet, Hampshire GU51 4YA.</div></li>');
+ 		}
+  } else {
+  	$('#c2-container').show();
+  	$('#c2').remove();
+
+		var evidence = $("input:radio[name ='discharge-removal']:checked").val()
+
+  	if ((evidence == 'No'||'Yes-p')) // if coming back from next page then changing answer need to tidy up and show the right things
+  	{
+  		$('.temp3').remove();
+  		$('#temp-c2').hide();
+  		$('#-register').append('<li id="tempc2" class="tempc2">        (11.06.2012) Proprietor: #LANDMARK MORTGAGES LIMITED# (Co. Regn. No. 3273685) of Admiral House, Harlington Way, Fleet, Hampshire GU51 4YA.</li>');
+
+  	}
+
+  	// if no evidence lodged selected add the li back in - if its not visible
+  }
+
+});
 </script>
 
 {% endblock %}
