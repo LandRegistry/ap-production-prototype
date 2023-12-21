@@ -5,13 +5,13 @@
         <div class="govuk-checkboxes__item">
             
             <input class="govuk-checkboxes__input" id="transferee-00" name="transferee-addresses-transferee-selection" type="checkbox" value="{{ data['forenames0'] }} {{ data['surname0'] }}" 
-            {% if (data['transferee-01'] == 'False') %}
+            {% if (data['transferee-addresses-transferee-selection'] != null ) %}
                 checked
             {% endif %}>
-            
-            <label class="govuk-label govuk-checkboxes__label" for="transferee-00">
+
+            <label class="govuk-label govuk-checkboxes__label" for="transferee-00"> 
                 {{ data['forenames0'] }} {{ data['surname0'] }}
-            </label>
+            </label><!-- govuk-!-font-size-16 -->
 
         </div>
     {% endif %}
@@ -19,14 +19,14 @@
     {% if (data['forenames1'] != null and data['surname1'] != null) %}
         <div class="govuk-checkboxes__item">
             
-            <input class="govuk-checkboxes__input" id="transferee-01" name="transferee-addresses-transferee-selection" type="checkbox" value="{{ data['forenames1'] }} {{ data['surname1'] }}" 
-            {% if (data['transferee-01'] == 'False') %}
+            <input class="govuk-checkboxes__input" id="transferee-01" name="transferee-addresses-transferee-selection2" type="checkbox" value="{{ data['forenames1'] }} {{ data['surname1'] }}" 
+            {% if (data['transferee-addresses-transferee-selection2'] != null) %}
                 checked
             {% endif %}>
 
             <label class="govuk-label govuk-checkboxes__label" for="transferee-01">
                {{ data['forenames1'] }} {{ data['surname1'] }}
-            </label>
+            </label><!-- govuk-!-font-size-16 -->
             
         </div>
     {% endif %}

@@ -97,11 +97,12 @@ Validity checks
 
 
       <div class="govuk-form-group">
-      <fieldset class="govuk-fieldset" aria-describedby="transferee-addresses-care-of-address-hint">
+      <fieldset class="govuk-fieldset">
 
-        <div id="transferee-addresses-care-of-address-hint" class="govuk-hint govuk-!-display-none">
-          <!-- on live the fieldset links to this hint text but it is empty? -->
-        </div>
+        <!--div id="transferee-addresses-care-of-address-hint" class="govuk-hint govuk-!-display-none">
+          on live the fieldset links to this hint text but it is empty
+           aria-describedby="transferee-addresses-care-of-address-hint"
+        </div-->
         <div class="govuk-checkboxes govuk-checkboxes--small"    data-module="govuk-checkboxes">
             <div class="govuk-checkboxes__item">
               <input class="govuk-checkboxes__input" id="transferee-addresses-care-of-address-checkbox" name="transferee-addresses-care-of-address" type="checkbox" value="True" data-aria-controls="conditional-transferee-addresses-care-of-address-checkbox"  
@@ -131,15 +132,16 @@ Validity checks
 
 
       <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="transferee-addresses-transferee-selection-hint">
+        <fieldset class="govuk-fieldset" aria-describedby="">
           
           <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
             Select transferees for this address
           </legend>
 
-          <div id="transferee-addresses-transferee-selection-hint" class="govuk-hint">
-            <!-- aria-describedby="transferee-addresses-transferee-selection-hint" links to this empty hint text div? -->
-          </div>
+          <!--div id="transferee-addresses-transferee-selection-hint" class="govuk-hint">
+            aria-describedby="transferee-addresses-transferee-selection-hint" links to this empty hint text div
+               aria-describedby="transferee-addresses-transferee-selection-hint"
+          </div-->
 
           <div class="govuk-checkboxes govuk-checkboxes--small"    data-module="govuk-checkboxes">
               
@@ -186,7 +188,7 @@ Validity checks
 
 
     <script>
-      window.onload = (event) => {//wait for jquery to load (follows in the prototype DOM)
+      window.onload = (event) => {//wait for jquery to load (as this follows in the prototype DOM)
         var nextBtn = $('#nextBtn');
         nextBtn.attr('disabled', 'disabled').attr('aria-disabled','true');
         var notFoundBox = $('#0-address-not-found');
