@@ -152,7 +152,7 @@
 	            attributes: {
                 'data-register': '2',
                 'data-item': '3',
-                'data-remove': 'y'
+                'data-remove': 'o'
               }
 	          },
 	          {
@@ -246,7 +246,7 @@ $('.js-register-radio-remove input').change(function() {
 
 		var evidence = $("input:radio[name ='discharge-removal']:checked").val()
 
-  	if ((evidence == 'No')) // if coming back from next page then changing answer need to tidy up and show the right things
+  	if ((evidence == 'No'||'Yes-p')) // if coming back from next page then changing answer need to tidy up and show the right things
   	{
   		$('.temp1').remove();
   		$('#temp').hide();
