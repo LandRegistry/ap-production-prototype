@@ -21,10 +21,6 @@ router.post('/00-summary-page', function (req, res) {
 })
 
 router.post('/01-preliminary', function (req, res) {
-    res.redirect('02-summary-page');
-})
-
-router.post('/02-summary-page', function (req, res) {
     res.redirect('03-charge-page-1');
 })
 

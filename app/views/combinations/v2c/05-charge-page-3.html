@@ -1,0 +1,288 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+Charge
+{% endblock %}
+
+{% block content %}
+
+<!-- application information  -->
+{% include "./includes/application-info-charge.html" %}
+<!-- end - application information  -->
+
+<style>
+  .govuk-button--secondary1{
+      background-color:#6F777B;
+      -webkit-box-shadow:0 2px 0 #929191;
+      box-shadow:0 2px 0 #929191;
+      color: #ffffff
+  }
+  .govuk-button--secondary,.govuk-button--secondary1:active,.govuk-button--secondary1:hover,.govuk-button--secondary1:link,.govuk-button--secondary1:visited{
+      color:#0b0c0c
+  }
+  .govuk-button--secondary1:hover{
+      background-color:#dbdad9
+  }
+  .govuk-button--secondary:hover[disabled]{
+      background-color:#f3f2f1
+  }
+
+  </style>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+
+    <div class="casework-tasks-container">
+      {{ govukBackLink({
+        text: 'Previous',
+        href: '04-charge-page-2'
+      }) }}
+
+    	<form action="05-charge-page-3" method="post">
+
+	      <h2 class="govuk-heading-m">Your tasks</h2>
+
+	      <!-- Notification, if charge does not have an MD Ref selected -->
+				<div id="warning" class="govuk-notification-banner" role="region"
+				  aria-labelledby="govuk-notification-banner-title"
+				  data-module="govuk-notification-banner">
+				  <div class="govuk-notification-banner__header">
+				    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+				      Important
+				    </h2>
+				  </div>
+				  <div class="govuk-notification-banner__content">
+				    <p class="govuk-notification-banner__heading">
+				      <a class="govuk-notification-banner__link" href="workflow-no-drafting">Send to Workflow</a> to complete this application.
+				    </p>
+				  </div>
+				</div>
+
+	    	<!-- tasks go here  -->
+
+	    	<h3 class="govuk-heading-m" style="margin-bottom:0px">Charge Details</h3>
+
+				<table class="govuk-table form-table" style="margin-bottom:4px;">
+
+				  <thead class="govuk-table__head">
+				    <tr class="govuk-table__row">
+				      <th scope="col" class="govuk-table__header govuk-!-width-one-third"></th>
+				      <th scope="col" class="govuk-table__header govuk-!-width-two-thirds"></th>
+				    </tr>
+				  </thead>
+
+				  <tbody class="govuk-table__body">
+				    <tr class="govuk-table__row">
+				      <th scope="row" class="govuk-table__header">MD Reference</th>
+				      <td class="govuk-table__cell">
+				        <div id="regular-md"> MD53TTR <a href="#" id="change-button" style="float:right;" class="govuk-link">
+				            Change </a>
+				        </div>
+
+
+				        <div id="editing-md" style="display: none">
+
+				          {{
+				          govukInput({
+
+				          name: 'md-ref',
+				          id: 'md-ref-field',
+				          classes: 'govuk-input--width-5',
+				          formGroup: {
+				          classes: 'govuk-!-margin-bottom-1'
+				          },
+				          prefix: {
+				          text: "MD"
+				          },
+				          value: '895712',
+				          spellcheck: false
+
+				          }) }}
+
+				          <div style="display:flex">
+				            <a href="03-add-charge-entry-2.html" id="save-md-ref-button" role="button" draggable="false"
+				              class="govuk-button govuk-button--secondary" style="
+				            margin-bottom: 8px; margin-top: 4px;"> Save changes </a>
+
+				            <a id="save-md-ref-button" role="button" draggable="false" class="govuk-link"
+				              style="margin-top: 11px; margin-left:15px;"> Cancel changes </a>
+				          </div>
+				        </div>
+
+				      </td>
+
+				    </tr>
+
+				    <tr id="chargee-name" class="govuk-table__row">
+				      <th scope="row" class="govuk-table__header">Lender name</th>
+				      <td class="govuk-table__cell">Bank of England</td>
+				    </tr>
+
+
+				  </tbody>
+				</table>
+
+
+
+
+
+<div id="checkbox-md">
+
+  {{ govukCheckboxes({
+  name: 'undisclosed',
+  classes: 'govuk-checkboxes--small',
+  items: [
+  {
+  id: 'checkbox-md',
+  html: 'Charge does not have an MD reference',
+  value: 'No-MDRef',
+  checked: checked('undisclosed','No-MDRef')
+  }
+  ]
+  }) }}
+
+</div>
+
+<div id="register-entries"
+<h3 class="govuk-heading-m" style="margin-bottom:0px">Register Entries</h3>
+<table class="govuk-table form-table" style="margin-bottom:4px;">
+
+  <table class="govuk-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header"></th>
+      </tr>
+    </thead>
+
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">
+
+          <p class='govuk-body govuk-!-font-weight-bold' style=" margin-bottom: 0px" > Charge entry CD100 </p><br>
+          <p class='register-preview-no-margin'>REGISTERED CHARGE dated <b>10/10/2023</b></p>
+
+        </th>
+
+
+     </tr>
+
+     <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+
+        <p class='govuk-body govuk-!-font-weight-bold' style=" margin-bottom: 0px" > Lender entry CY471 </p>
+        <br>
+        <p class='register-preview-no-margin'>  #HFC BANK LIMITED# (Co. Regn. No. 1117305) of Mortgage Centre, Camden House West, The Parade, P.O. Box 1524, Birmingham B1 3PX.</p>
+
+      </th>
+
+
+   </tr>
+
+   </tbody>
+
+
+
+
+  </table>
+
+  </div>
+
+  <!-- COMPONENT FOR ADDING A NEW ENTRY-->
+
+  <div id="add-entry-block">
+
+    <div class="govuk-form-group" style=" margin-bottom: 15px">
+
+
+      <label class="govuk-heading-s" for="width-5">
+        Add another entry
+      </label>
+      <div id="contact-hint" class="govuk-hint">
+        For example CD100
+      </div>
+      <input class="govuk-input govuk-input--width-5" id="width-5" name="width-5" type="text">
+    </div>
+
+    <a id="add-entry-button-lender" role="button" draggable="false" class="govuk-button govuk-button--secondary1"> Add entry</a>
+
+  </div>
+</div>
+
+<hr id="divider-line" class="govuk-section-break govuk-section-break--l govuk-section-break--visible " style="
+margin-top: 10px;
+margin-bottom: 20px;
+">
+
+
+	    	<!-- end of tasks  -->
+
+
+	    	<!-- Buttons and links -->
+
+        <div class="task-lists-submit">
+					<button class="govuk-button" data-module="govuk-button">
+						Next
+					</button>
+					<a href="summary-interim" class="govuk-link reject-button">Cancel processing this transaction</a>
+				</div>
+
+			</form>
+
+
+
+	  </div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+
+  $('#change-button').click(function () {
+    $('#regular-md').hide();
+    $('#change-button').hide();
+    $('#chargee-name').hide();
+    $('#register-entries').hide();
+    $('#checkbox-md').hide();
+    $('#chargee-name').hide();
+    $('#special-instructions').hide();
+    $('#editing-md').show();
+   // $('#md-ref-field').focus();
+    var val = $('#md-ref-field').val(); //store the value of the element
+		$('#md-ref-field').val(''); //clear the value of the element
+		$('#md-ref-field').val(val); //set that value back.
+
+  });
+
+
+
+	$('#checkbox-md input:checkbox').change(function () {
+	  if ($(this).prop("checked") == true) {
+    	$("#warning").show();
+      $('.govuk-button').text('Send to Workflow');
+	  } else {
+    	$("#warning").hide();
+      $('.govuk-button').text('Next');
+  	}
+
+  });
+
+
+</script>
+
+{% endblock %}
