@@ -11,15 +11,49 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
       <h1 class="govuk-heading-l">Trailing information - Updated designs</h1>
 
-      <p class="govuk-body">
-        These are the final designs, with updated content (text). While these flat <abbr>HTML</abbr> designs can be clicked through a fully functional prototype (with form validation, etc) is in a standalone directory.
-      </p>
+      <h2 class="govuk-heading-s">'Click-through' designs:</h2>
 
-      <p class="govuk-body-l">
-        <a href="./trailing-info_1-1" class="govuk-link govuk-link--no-visited-state">
-          Go to the first page
+      <p class="govuk-body">
+        These are the finalised designs, with updated content (text). While these flat <abbr>HTML</abbr> designs can be clicked through a fully functional prototype (with form validation, etc) is in a standalone directory. <a href="./trailing-info_1-1" class="govuk-link govuk-link--no-visited-state">
+          Go to the designs
         </a>
       </p>
+
+      <h2 class="govuk-heading-s">Functional prototype:</h2>
+
+      <p class="govuk-body">
+        This is the functional prototype for <abbr>UR</abbr>, with functioning error messages and the passing around of user input data (i.e, no 'hardcoded' demonstration data). Users can enter 1 or 2 transferee names and an entry of misc-info. <a href="../prototype/index" class="govuk-link govuk-link--no-visited-state" target="_blank">
+          Go to the prototype (Opens in a new tab)
+        </a>
+      </p>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <details class="govuk-details govuk-!-margin-top-8" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Prototype notes for the delivery team
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+
+          <p class="govuk-body-s">
+            Some general notes regarding the <abbr>HTML</abbr> taken from the live service, to feedback: 
+          </p>
+          
+          <ul class="govuk-list govuk-list--bullet govuk-!-font-size-16">
+            <li>Remove "required" from all inputs</li>
+            <li>Checkbox form-group divs are often incorrectly nested within another govuk-form-group</li>
+            <li>Removed hint <abbr>ID</abbr> from fieldsets when there is no hint</li>
+            <li>Removed empty hint blocks and related aria-describedby attributes</li>
+            <li>On the main texarea field I'ved added new <abbr>CSS</abbr> styling: incorporated here as an inline style</li>
+            <li>Update/change made to button: 'Next' in file trailing-info_1-2-add-address1</li>
+            <li>(Commented out 'Recipient name' from the <abbr>HTML</abbr> instead round-trip it).</li>
+            <li>Do we need 'add address' validation?</li>
+          </ul>    
+          
+        </div>
+      </details>
           
       <details class="govuk-details govuk-!-margin-top-8" data-module="govuk-details">
         <summary class="govuk-details__summary">

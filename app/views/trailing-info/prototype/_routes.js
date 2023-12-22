@@ -86,14 +86,6 @@ router.post('/trailing-info_1-1-add-transferee-error-radios', function (req, res
 
 router.post('/trailing-info_1-2', function (req, res) {//address for service page
 
-    //user can click the 'Add address' hyperlink to go to 'trailing-info_1-2-add-address1'
-
-    //if (req.session.data['TRANSFEREE-ADDRESSES-add-address'] == '') {//there must be at least 1 address???
-
-        //res.redirect("trailing-info_1-2")//submit to self (for form validation to be written into the HTML output)    
-
-    //} else 
-
     if (req.session.data['more-transferee-addresses-genericradiogroup'] == null || req.session.data['add-info'] == null) {
         
         res.redirect("trailing-info_1-2")//submit to self for form error msgs to display
@@ -136,7 +128,6 @@ router.post('/trailing-info_1-2-add-address1-error', function (req, res) {//addr
     }         
 })
 
-
 router.post('/trailing-info_1-2-address-found', function (req, res) {
 
     if (req.session.data['0-address-not-found-component'] == 'True') {//cannot find address is selected
@@ -175,7 +166,7 @@ router.post('/trailing-info_1-2-address-found-error', function (req, res) {
 
 router.post('/trailing-info_1-3', function (req, res) {
       
-        res.redirect("trailing-info_1-4")
+    res.redirect("trailing-info_1-4")
 
 })
 
@@ -251,37 +242,5 @@ router.post('/trailing-info_1-5-error', function (req, res) {
 
 })
 
-/* can delete trailing-infor_1-1-add-transferee ????
-
-router.post('/trailing-info_1-1-add-transferee', function (req, res) {
-    
-    if(req.session.data['CONFIRM-TRANSFEREE-APPLICANTS_add_transferee'] == 'Add transferee'){   
-        res.redirect("trailing-info_1-1-add-transferee")
-    } else {
-        
-        if( (req.session.data['forenames0'] == '') || (req.session.data['surname0'] == '') ){
-            res.redirect("trailing-info_1-1-add-transferee-error-radios")
-        } else if( (req.session.data['forenames1'] == '') || (req.session.data['surname1'] == '') ){
-            res.redirect("trailing-info_1-1-add-transferee-error-radios")
-        } else {
-            res.redirect("trailing-info_1-2")
-        }
-
-    }
-
-//trailing-info_1-1-add-transferee-error-radios.html
-*/
-
-
-    //res.redirect('trailing-info_1-3');
-
-    /*var myTest = req.session.data['forenames0']
-    if (myTest == null){
-        res.redirect("trailing-info_1-1-error-blank")
-    } else {
-        res.redirect("index")
-    }
-
-})*/
 
 module.exports = router
