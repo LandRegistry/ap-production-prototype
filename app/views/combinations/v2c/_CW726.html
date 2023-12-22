@@ -1,0 +1,79 @@
+<div id="CW726">
+
+  <div id="cre-text-editing" class="js-new-reg-item">
+    <p class='register-preview' style="
+    margin-bottom: 10px;
+">
+
+
+
+      LLOYDS BANK PLC (Co. Regn. No. 2065) Dept. No.<span class="highlight" id="infill-text-1">[Infill 1]</span> of Bristol Securities Centre, P.O. Box 853, Unit <span class="highlight" id="infill-text-2">[Infill 2]</span>, City Business Park, Easton Road, Bristol BS99 5HZ.
+
+    </p>
+  </div>
+
+  <div id='cre-buttons-lender' style="display:none; max-width: 38em;">
+    <a href="#" id="cre-button-edit" style="
+    padding-right: 8px;
+" class="govuk-link"> Edit </a>
+
+    <a href="" id="cre-button-remove" class="govuk-link" style=" color:	#d4351c;"> Remove </a>
+  </div>
+
+
+  <div id="cre-edit-form-lender">
+
+    <h3 class="govuk-fieldset__legend--s">Complete the infills for CW726</h3>
+
+
+    <form method="get">
+
+
+      {{ govukInput({
+      id: 'field-1',
+      name: 'field-1',
+      classes: 'js-register-infill govuk-!-margin-bottom-2',
+      attributes: {
+      'data-infill': '1'
+      },
+      value: data['field-1'],
+      label: {
+      html: 'Infill 1'
+      }
+      }) }}
+
+      {{ govukInput({
+        id: 'field-2',
+        name: 'field-2',
+        classes: 'js-register-infill govuk-!-margin-bottom-2',
+        attributes: {
+        'data-infill': '2'
+        },
+        value: data['field-2'],
+        label: {
+        html: 'Infill 2'
+        }
+        }) }}
+
+
+        {{ govukCheckboxes({
+          name: 'undisclosed',
+          classes: 'govuk-checkboxes--small',
+          items: [
+            {
+              id: 'js-undisclosed-2',
+              html: 'Some infills cannot be completed',
+              value: 'Undisclosed',
+              checked: checked('undiscolused','Undisclosed')
+            }
+          ]
+        }) }}
+
+    </form>
+
+    <a href="#" id='cre-button-save-lender' role="button" draggable="false" class="govuk-button govuk-button--secondary"
+      onclick="return false" style="  margin-bottom: 12px;  margin-top: 16px;"> Save entry </a>
+
+
+  </div>
+</div>
