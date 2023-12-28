@@ -1,0 +1,124 @@
+<div id="BX921">
+
+  <div id="cre-text-editing" class="js-new-reg-item">
+    <p class='register-preview' style="margin-bottom: 10px">
+No <span class="highlight" id="infill-text-1">[Infill 1]</span> of the registered estate <span class="highlight" id="infill-text-2">[Infill 2]</span> by the proprietor of the registered estate <span class="highlight" id="infill-text-3">[Infill 3]</span> is to be registered without a written consent signed by <span class="highlight" id=infill-text-4>[Infill 4]</span> of <span class="highlight" id=infill-text-5>[Infill 5]</span> <span class="highlight" id=infill-text-6>[Infill 6]</span>.
+    </p>
+  </div>
+
+  <div id='cre-buttons-restriction' style="display:none; max-width: 38em;">
+    <a href="#" id="cre-button-edit" style="padding-right: 8px;"  class="govuk-link"> Edit </a>
+
+    <a href="" id="cre-button-remove" class="govuk-link" style=" color:	#d4351c;"> Remove </a>
+  </div>
+
+
+  <div id="restriction-edit-form">
+
+    <h3 class="govuk-fieldset__legend--s">Complete the infills for BXN01</h3>
+
+
+    <form method="get">
+
+
+
+      {{ govukInput({
+      id: 'field-1',
+      name: 'field-1',
+      classes: 'js-register-infill govuk-!-margin-bottom-2',
+      attributes: {
+      'data-infill': '1'
+      },
+      value: data['field-1'],
+      label: {
+      html: 'Infill 1'
+      }
+      }) }}
+
+      {{ govukInput({
+      id: 'field-2',
+      name: 'field-2',
+      classes: 'js-register-infill govuk-!-margin-bottom-2',
+      attributes: {
+      'data-infill': '2'
+      },
+      value: data['field-2'],
+      label: {
+      html: 'Infill 2 - optional'
+      }
+      }) }}
+
+      {{ govukInput({
+      id: 'field-3',
+      name: 'field-3',
+      classes: 'js-register-infill govuk-!-margin-bottom-2',
+      attributes: {
+      'data-infill': '3'
+      },
+      value: data['field-3'],
+      label: {
+      html: 'Infill 3 - optional'
+      }
+      }) }}
+
+      {{ govukInput({
+      id: 'field-4',
+      name: 'field-4',
+      classes: 'js-register-infill govuk-!-margin-bottom-2',
+      attributes: {
+      'data-infill': '4'
+      },
+      value: data['field-4'],
+      label: {
+      html: 'Infill 4'
+      }
+      }) }}
+
+      {{ govukInput({
+      id: 'field-5',
+      name: 'field-5',
+      classes: 'js-register-infill govuk-!-margin-bottom-2',
+      attributes: {
+      'data-infill': '5'
+      },
+      value: data['field-5'],
+      label: {
+      html: 'Infill 5'
+      }
+      }) }}
+
+      {{ govukInput({
+      id: 'field-6',
+      name: 'field-6',
+      classes: 'js-register-infill govuk-!-margin-bottom-2',
+      attributes: {
+      'data-infill': '6'
+      },
+      value: data['field-6'],
+      label: {
+      html: 'Infill 6 - optional'
+      }
+      }) }}
+
+      {{ govukCheckboxes({
+        name: 'undisclosed',
+        classes: 'govuk-checkboxes--small',
+        items: [
+          {
+            id: 'js-undisclosed-2',
+            html: 'Some infills cannot be completed',
+            value: 'Undisclosed',
+            checked: checked('undiscolused','Undisclosed')
+          }
+        ]
+      }) }}
+
+    </form>
+
+    <a href="#" id='restriction-button-save' role="button" draggable="false"
+      class="govuk-button govuk-button--secondary" onclick="return false"
+      style="  margin-bottom: 12px;  margin-top: 16px;"> Save entry </a>
+
+
+  </div>
+</div>

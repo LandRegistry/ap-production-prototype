@@ -27,6 +27,21 @@ Restriction (RX1)
       background-color:#f3f2f1
   }
 
+    #restriction-button-save {
+      margin-top: 15px;
+    }
+
+    #restriction-button-save-2 {
+      margin-top: 15px;
+    }
+
+    .edited-text-bold {
+      font-weight: 700;
+    }
+
+    .highlight{
+     background-color:#ffdd00
+   }
   </style>
 
 <div class="govuk-grid-row">
@@ -83,7 +98,7 @@ Restriction (RX1)
         <hr style="height:1px;border-width:0;color:gray;background-color:gray;margin-bottom:25px">
 
 	      <h2 class="govuk-heading-m">Restriction details</h2>
-
+        <div id="restriction-selction">
         <div class="govuk-form-group">
           <label class="govuk-label" for="sort"><b>
             Select a restriction to add </b>
@@ -98,9 +113,34 @@ Restriction (RX1)
           </select>
 
         </div>
-          <a id="add-entry-button-lender" role="button" draggable="false" class="govuk-button govuk-button--secondary1"> Add Restriction</a>
+          <a id="add-restriction-button" role="button" draggable="false" class="govuk-button govuk-button--secondary1"> Add restriction</a>
 
           	<hr style="height:1px;border-width:0;color:gray;background-color:gray;margin-bottom:25px">
+        </div>
+            <!-- Table starts here-->
+
+            <table class="govuk-table " style="
+            margin-bottom: 20px;">
+
+
+              <tbody class="govuk-table__body">
+
+
+                <!-- RESTRICTION ENTRY Form N -->
+
+                <tr class="govuk-table__row" style="display: none" id="restriction-entry">
+                  <th scope="row" class="govuk-table__header">
+                    <p class='govuk-body govuk-!-font-weight-bold' style=" margin-bottom: 4px"> Restriction entry BXN01 </p>
+                    {% include "./includes/_BX102N.html" %}
+                  </th>
+                </tr>
+
+
+
+              </tbody>
+            </table>
+
+            <!-- Table ends here-->
 	    	<!-- Buttons and links -->
 
         <div class="task-lists-submit">
@@ -125,6 +165,178 @@ Restriction (RX1)
 {% block pageScripts %}
 <script>
 
+  //ENTER A NEW ENTRY (NEW CRE CODE ADDED)
+
+  //when the button to add a new entry is pressed
+  $('#add-restriction-button').click(function (e) {
+    //then show the restriction entry
+    $('#restriction-entry').show();
+    //then hide the restriction selection components
+    $('#restriction-selection').hide();
+    //and reset the text field
+    $('#width-5').val('');
+
+
+  });
+
+  // when the button to save the cre code is added
+  $('#restriction-button-save').click(function () {
+    //then hide the infills
+    $('#restriction-edit-form').hide();
+    $("#infill-text-1, #infill-text-2, #infill-text-3, #infill-text-4, #infill-text-5, #infill-text-6 ").removeClass('highlight').addClass('edited-text-bold')
+  });
+
+  // Reveal edit button after save
+  $('#restriction-button-save').click(function () {
+    $('#cre-buttons').show();
+  });
+
+
+
+
+  //Andy's code - free format infill 1
+  function updateFFInfill1() {
+    const infill = document.getElementById('infill-text-1');
+    var textareaText = $('#field-1').val();
+
+    if (textareaText.trim() == '') {
+      textareaText = '[Infill 1]';
+    }
+
+    infill.textContent = textareaText;
+
+  }
+
+  // ****************
+  // free format textarea - listener
+  // ****************
+  $('#field-1').on('change keyup keydown', function (e) {
+
+    updateFFInfill1();
+
+  });
+
+  //Andy's code - free format infill 2
+  function updateFFInfill2() {
+
+    const infill = document.getElementById('infill-text-2');
+
+    var textareaText = $('#field-2').val();
+
+    if (textareaText.trim() == '') {
+      textareaText = '[Infill 2]';
+    }
+
+    infill.textContent = textareaText;
+
+  }
+
+  // ****************
+  // free format textarea - listener
+  // ****************
+  $('#field-2').on('change keyup keydown', function (e) {
+
+    updateFFInfill2();
+
+  });
+
+
+
+  //Andy's code - free format infill 3
+  function updateFFInfill3() {
+
+    const infill = document.getElementById('infill-text-3');
+
+    var textareaText = $('#field-3').val();
+
+    if (textareaText.trim() == '') {
+      textareaText = '[Infill 3]';
+    }
+
+    infill.textContent = textareaText;
+
+  }
+
+  // ****************
+  // free format textarea - listener
+  // ****************
+  $('#field-3').on('change keyup keydown', function (e) {
+
+    updateFFInfill3();
+
+  });
+
+  //Andy's code - free format infill 4
+  function updateFFInfill4() {
+    const infill = document.getElementById('infill-text-4');
+    var textareaText = $('#field-4').val();
+
+    if (textareaText.trim() == '') {
+      textareaText = '[Infill 4]';
+    }
+
+    infill.textContent = textareaText;
+
+  }
+
+  // ****************
+  // free format textarea - listener
+  // ****************
+  $('#field-4').on('change keyup keydown', function (e) {
+
+    updateFFInfill4();
+
+  });
+
+  //Andy's code - free format infill 5
+  function updateFFInfill5() {
+    const infill = document.getElementById('infill-text-5');
+    var textareaText = $('#field-5').val();
+
+    if (textareaText.trim() == '') {
+      textareaText = '[Infill 5]';
+    }
+
+    infill.textContent = textareaText;
+
+  }
+
+  // ****************
+  // free format textarea - listener
+  // ****************
+  $('#field-5').on('change keyup keydown', function (e) {
+
+    updateFFInfill5();
+
+  });
+
+  //Andy's code - free format infill 6
+  function updateFFInfill6() {
+    const infill = document.getElementById('infill-text-6');
+    var textareaText = $('#field-6').val();
+
+    if (textareaText.trim() == '') {
+      textareaText = '[Infill 6]';
+    }
+
+    infill.textContent = textareaText;
+
+  }
+
+  // ****************
+  // free format textarea - listener
+  // ****************
+  $('#field-6').on('change keyup keydown', function (e) {
+
+    updateFFInfill6();
+
+  });
+
+  //Listener for loading spinner
+    window.addEventListener ("load", function () {
+      const loader = document.querySelector(".loader");
+      loader.className += " hidden"; //class "loader hidden"
+    });
 
 </script>
 
