@@ -38,6 +38,10 @@ Restriction (RX1)
     .edited-text-bold {
       font-weight: 700;
     }
+
+    .highlight{
+     background-color:#ffdd00
+   }
   </style>
 
 <div class="govuk-grid-row">
@@ -94,7 +98,7 @@ Restriction (RX1)
         <hr style="height:1px;border-width:0;color:gray;background-color:gray;margin-bottom:25px">
 
 	      <h2 class="govuk-heading-m">Restriction details</h2>
-
+        <div id="restriction-selction">
         <div class="govuk-form-group">
           <label class="govuk-label" for="sort"><b>
             Select a restriction to add </b>
@@ -109,10 +113,10 @@ Restriction (RX1)
           </select>
 
         </div>
-          <a id="add-restriction-button" role="button" draggable="false" class="govuk-button govuk-button--secondary1"> Add Restriction</a>
+          <a id="add-restriction-button" role="button" draggable="false" class="govuk-button govuk-button--secondary1"> Add restriction</a>
 
           	<hr style="height:1px;border-width:0;color:gray;background-color:gray;margin-bottom:25px">
-
+        </div>
             <!-- Table starts here-->
 
             <table class="govuk-table " style="
@@ -167,6 +171,8 @@ Restriction (RX1)
   $('#add-restriction-button').click(function (e) {
     //then show the restriction entry
     $('#restriction-entry').show();
+    //then hide the restriction selection components
+    $('#restriction-selection').hide();
     //and reset the text field
     $('#width-5').val('');
 
@@ -184,6 +190,153 @@ Restriction (RX1)
   $('#restriction-button-save').click(function () {
     $('#cre-buttons').show();
   });
+
+
+
+
+  //Andy's code - free format infill 1
+  function updateFFInfill1() {
+    const infill = document.getElementById('infill-text-1');
+    var textareaText = $('#field-1').val();
+
+    if (textareaText.trim() == '') {
+      textareaText = '[Infill 1]';
+    }
+
+    infill.textContent = textareaText;
+
+  }
+
+  // ****************
+  // free format textarea - listener
+  // ****************
+  $('#field-1').on('change keyup keydown', function (e) {
+
+    updateFFInfill1();
+
+  });
+
+  //Andy's code - free format infill 2
+  function updateFFInfill2() {
+
+    const infill = document.getElementById('infill-text-2');
+
+    var textareaText = $('#field-2').val();
+
+    if (textareaText.trim() == '') {
+      textareaText = '[Infill 2]';
+    }
+
+    infill.textContent = textareaText;
+
+  }
+
+  // ****************
+  // free format textarea - listener
+  // ****************
+  $('#field-2').on('change keyup keydown', function (e) {
+
+    updateFFInfill2();
+
+  });
+
+
+
+  //Andy's code - free format infill 3
+  function updateFFInfill3() {
+
+    const infill = document.getElementById('infill-text-3');
+
+    var textareaText = $('#field-3').val();
+
+    if (textareaText.trim() == '') {
+      textareaText = '[Infill 3]';
+    }
+
+    infill.textContent = textareaText;
+
+  }
+
+  // ****************
+  // free format textarea - listener
+  // ****************
+  $('#field-3').on('change keyup keydown', function (e) {
+
+    updateFFInfill3();
+
+  });
+
+  //Andy's code - free format infill 4
+  function updateFFInfill4() {
+    const infill = document.getElementById('infill-text-4');
+    var textareaText = $('#field-4').val();
+
+    if (textareaText.trim() == '') {
+      textareaText = '[Infill 4]';
+    }
+
+    infill.textContent = textareaText;
+
+  }
+
+  // ****************
+  // free format textarea - listener
+  // ****************
+  $('#field-4').on('change keyup keydown', function (e) {
+
+    updateFFInfill4();
+
+  });
+
+  //Andy's code - free format infill 5
+  function updateFFInfill5() {
+    const infill = document.getElementById('infill-text-5');
+    var textareaText = $('#field-5').val();
+
+    if (textareaText.trim() == '') {
+      textareaText = '[Infill 5]';
+    }
+
+    infill.textContent = textareaText;
+
+  }
+
+  // ****************
+  // free format textarea - listener
+  // ****************
+  $('#field-5').on('change keyup keydown', function (e) {
+
+    updateFFInfill5();
+
+  });
+
+  //Andy's code - free format infill 6
+  function updateFFInfill6() {
+    const infill = document.getElementById('infill-text-6');
+    var textareaText = $('#field-6').val();
+
+    if (textareaText.trim() == '') {
+      textareaText = '[Infill 6]';
+    }
+
+    infill.textContent = textareaText;
+
+  }
+
+  // ****************
+  // free format textarea - listener
+  // ****************
+  $('#field-6').on('change keyup keydown', function (e) {
+
+    updateFFInfill6();
+
+  });
+
+  //Listener for loading spinner
+    window.addEventListener ("load", function () {
+      const loader = document.querySelector(".loader");
+      loader.className += " hidden"; //class "loader hidden"
+    });
 
 </script>
 
