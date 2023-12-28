@@ -27,6 +27,17 @@ Restriction (RX1)
       background-color:#f3f2f1
   }
 
+    #restriction-button-save {
+      margin-top: 15px;
+    }
+
+    #restriction-button-save-2 {
+      margin-top: 15px;
+    }
+
+    .edited-text-bold {
+      font-weight: 700;
+    }
   </style>
 
 <div class="govuk-grid-row">
@@ -98,9 +109,34 @@ Restriction (RX1)
           </select>
 
         </div>
-          <a id="add-entry-button-lender" role="button" draggable="false" class="govuk-button govuk-button--secondary1"> Add Restriction</a>
+          <a id="add-restriction-button" role="button" draggable="false" class="govuk-button govuk-button--secondary1"> Add Restriction</a>
 
           	<hr style="height:1px;border-width:0;color:gray;background-color:gray;margin-bottom:25px">
+
+            <!-- Table starts here-->
+
+            <table class="govuk-table " style="
+            margin-bottom: 20px;">
+
+
+              <tbody class="govuk-table__body">
+
+
+                <!-- RESTRICTION ENTRY Form N -->
+
+                <tr class="govuk-table__row" style="display: none" id="restriction-entry">
+                  <th scope="row" class="govuk-table__header">
+                    <p class='govuk-body govuk-!-font-weight-bold' style=" margin-bottom: 4px"> Restriction entry BXN01 </p>
+                    {% include "./includes/_BX102N.html" %}
+                  </th>
+                </tr>
+
+
+
+              </tbody>
+            </table>
+
+            <!-- Table ends here-->
 	    	<!-- Buttons and links -->
 
         <div class="task-lists-submit">
@@ -125,6 +161,29 @@ Restriction (RX1)
 {% block pageScripts %}
 <script>
 
+  //ENTER A NEW ENTRY (NEW CRE CODE ADDED)
+
+  //when the button to add a new entry is pressed
+  $('#add-restriction-button').click(function (e) {
+    //then show the restriction entry
+    $('#restriction-entry').show();
+    //and reset the text field
+    $('#width-5').val('');
+
+
+  });
+
+  // when the button to save the cre code is added
+  $('#restriction-button-save').click(function () {
+    //then hide the infills
+    $('#restriction-edit-form').hide();
+    $("#infill-text-1, #infill-text-2, #infill-text-3, #infill-text-4, #infill-text-5, #infill-text-6 ").removeClass('highlight').addClass('edited-text-bold')
+  });
+
+  // Reveal edit button after save
+  $('#restriction-button-save').click(function () {
+    $('#cre-buttons').show();
+  });
 
 </script>
 

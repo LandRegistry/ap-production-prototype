@@ -96,7 +96,7 @@ Charge
 				            <label class="govuk-label govuk-date-input__label" for="charge-date-day">
 				              Day
 				            </label>
-				            <input class="govuk-input govuk-date-input__input govuk-input--width-2 ons-js-exclusive-group-item" value="10" id="charge-date-day" name="charge-date-day" type="text" inputmode="numeric" value="{{ data['charge-date-day'] }}">
+				            <input class="govuk-input govuk-date-input__input govuk-input--width-2 ons-js-exclusive-group-item" value="21" id="charge-date-day" name="charge-date-day" type="text" inputmode="numeric" value="{{ data['charge-date-day'] }}">
 				          </div>
 				        </div>
 				        <div class="govuk-date-input__item">
@@ -104,7 +104,7 @@ Charge
 				            <label class="govuk-label govuk-date-input__label" for="charge-date-month">
 				              Month
 				            </label>
-				            <input class="govuk-input govuk-date-input__input govuk-input--width-2 ons-js-exclusive-group-item" value="10" id="charge-date-month" name="charge-date-month" type="text" inputmode="numeric" value="{{ data['charge-date-month'] }}">
+				            <input class="govuk-input govuk-date-input__input govuk-input--width-2 ons-js-exclusive-group-item" value="08" id="charge-date-month" name="charge-date-month" type="text" inputmode="numeric" value="{{ data['charge-date-month'] }}">
 				          </div>
 				        </div>
 				        <div class="govuk-date-input__item">
@@ -112,7 +112,7 @@ Charge
 				            <label class="govuk-label govuk-date-input__label" for="charge-date-year">
 				              Year
 				            </label>
-				            <input class="govuk-input govuk-date-input__input govuk-input--width-4 ons-js-exclusive-group-item" value="2023" id="charge-date-year" name="charge-date-year" type="text" inputmode="numeric" value="{{ data['charge-date-year'] }}">
+				            <input class="govuk-input govuk-date-input__input govuk-input--width-4 ons-js-exclusive-group-item" value="2021" id="charge-date-year" name="charge-date-year" type="text" inputmode="numeric" value="{{ data['charge-date-year'] }}">
 				          </div>
 				        </div>
 				      </div>
@@ -136,30 +136,6 @@ Charge
 			    </fieldset>
 	  		</div>
 
-<!-- borrower names task shown in live demo -->
-				{{ govukRadios({
-					idPrefix: 'borrower-names',
-					name: 'borrower-names',
-					classes: 'govuk-radios--small govuk-radios--inline',
-					fieldset: {
-						legend: {
-							html: 'The borrower names do not match the registered proprietor. Can the application still be processed?',
-							classes: 'govuk-fieldset__legend--s'
-						}
-					},
-					items: [
-						{
-							html: 'Yes',
-							value: 'Yes',
-							checked: checked('borrower-names','Yes')
-						},
-						{
-							html: 'No',
-							value: 'No',
-							checked: checked('borrower-names','No')
-						}
-					]
-				}) }}
 
 <!-- documents execution task shown in live demo -->
 				{{ govukRadios({
