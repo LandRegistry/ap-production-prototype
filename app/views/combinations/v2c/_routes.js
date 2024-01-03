@@ -29,7 +29,7 @@ router.post('/03-charge-page-1', function (req, res) {
 })
 
 router.post('/04-charge-page-2', function (req, res) {
-	  res.redirect('05-charge-page-3');
+	  res.redirect('/combinations/phase2-index');
 })
 
 router.post('/05-charge-page-3', function (req, res) {
