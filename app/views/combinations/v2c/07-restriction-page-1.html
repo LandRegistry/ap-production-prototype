@@ -27,6 +27,21 @@ Restriction (RX1)
       background-color:#f3f2f1
   }
 
+      #restriction-button-save {
+        margin-top: 15px;
+      }
+
+      #restriction-button-save-2 {
+        margin-top: 15px;
+      }
+
+      .edited-text-bold {
+        font-weight: 700;
+      }
+
+      .highlight{
+       background-color:#ffdd00
+     }
   </style>
 
 <div class="govuk-grid-row">
@@ -98,10 +113,34 @@ Restriction (RX1)
           </select>
 
         </div>
-          <a id="add-entry-button-lender" role="button" draggable="false" class="govuk-button govuk-button--secondary1"> Add Restriction</a>
+          <a id="add-restriction-button" role="button" draggable="false" class="govuk-button govuk-button--secondary1"> Add restriction</a>
 
           	<hr style="height:1px;border-width:0;color:gray;background-color:gray;margin-bottom:25px">
 	    	<!-- Buttons and links -->
+        </div>
+        <!-- Table starts here-->
+
+        <table class="govuk-table " style="
+        margin-bottom: 20px;">
+
+
+          <tbody class="govuk-table__body">
+
+
+            <!-- RESTRICTION ENTRY Form N -->
+
+            <tr class="govuk-table__row" style="display: none" id="restriction-entry">
+              <th scope="row" class="govuk-table__header">
+                <p class='govuk-body govuk-!-font-weight-bold' style=" margin-bottom: 4px"> Restriction entry BXN01 </p>
+                {% include "./includes/_BX102N.html" %}
+              </th>
+            </tr>
+
+
+
+          </tbody>
+        </table>
+
 
         <div class="task-lists-submit">
 					<button class="govuk-button" data-module="govuk-button">
