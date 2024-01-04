@@ -196,6 +196,71 @@ Initial tasks
 					]
 				}) }}
 
+				<h3 class="govuk-heading-s">Searches on Daylist</h3>
+			 <table class="govuk-table form-table">
+				 <thead class="govuk-table__head">
+					 <tr class="govuk-table__row">
+						 <th scope="col" class="govuk-table__header" style="width: 25%">Priority date</th>
+						 <th scope="col" class="govuk-table__header" style="width: 25%">Applicant name</th>
+						 <th scope="col" class="govuk-table__header" style="width: 25%">Type</th>
+					 </tr>
+				 </thead>
+
+				 <tbody class="govuk-table__body">
+					 <tr class="govuk-table__row">
+						 <td class="js-text / govuk-table__cell">
+							 <span style="display: block;">31 January 2022</span>
+						 </td>
+
+						 <td class="js-text / govuk-table__cell">
+							 <span style="display: block;">Bank of England</span>
+						 </td>
+						 <td class="js-date-text / govuk-table__cell">
+							 <span style="display: block;">Charge</span>
+						 </td>
+					 </tr>
+
+
+					 <tbody class="govuk-table__body">
+						 <tr class="govuk-table__row">
+							 <td class="js-text / govuk-table__cell">
+								 <span style="display: block;">29 January 2022</span>
+							 </td>
+
+							 <td class="js-text / govuk-table__cell">
+								 <span style="display: block;">Bank of England</span>
+							 </td>
+							 <td class="js-date-text / govuk-table__cell">
+								 <span style="display: block;">Lease</span>
+							 </td>
+						 </tr>
+					</tbody>
+					</table>
+
+					{{ govukRadios({
+						idPrefix: 'official-searches',
+						name: 'official-searches',
+						classes: ' govuk-radios--small govuk-radios--inline',
+						fieldset: {
+							legend: {
+								text: 'Does the search with priority protect the application?',
+								classes: 'govuk-fieldset__legend--s'
+							}
+						},
+						items: [
+							{
+								html: 'Yes',
+								value: 'Yes',
+								checked: checked('official-searches','Yes')
+							},
+							{
+								html: 'No',
+								value: 'No',
+								checked: checked('official-searches','No')
+							}
+						]
+					}) }}
+
 	    <!-- Buttons and links -->
 
 			<div class="task-lists-submit">
