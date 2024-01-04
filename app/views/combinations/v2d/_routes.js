@@ -56,15 +56,17 @@ router.post('/09-final-tasks-page-1', function (req, res) {
 router.post('/10-final-tasks-page-2', function (req, res) {
 
 	  if 	(req.session.data['property-match'] == 'No'
-     	|| req.session.data['id-check'] == 'No'
-      || req.session.data['customer-match'] == 'No'
-      || req.session.data['conveyancer-match'] == 'No'
-      || req.session.data['correct-fee'] == 'No'
-			|| req.session.data['undisclosed'] == 'No-MDRef'
-      || req.session.data['register-restrictions'] == 'No'
-      || req.session.data['register-restrictions'] == 'Needs a referral'
-			|| req.session.data['docs-meet-requirements'] == 'No'
-			|| req.session.data['additional-transactions'] == 'Yes'
+    || req.session.data['customer-match'] == 'No'
+    || req.session.data['conveyancer-match'] == 'No'
+    || req.session.data['correct-fee'] == 'No'
+    || req.session.data['official-searches'] == 'No'
+    || req.session.data['id-check'] == 'No'
+    || req.session.data['documents-executed'] == 'No'
+    || req.session.data['undisclosed'] == 'No-MDRef'
+    || req.session.data['amend-exisiting-entries'] == 'Yes'
+    || req.session.data['serve-notice'] == 'Objection'
+    || req.session.data['docs-meet-requirements'] == 'No'
+    || req.session.data['additional-transactions'] == 'Yes'
 	  	) {
 	    res.redirect('90-summary-page-workflow');
 	  } else {
