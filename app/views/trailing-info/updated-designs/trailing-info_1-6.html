@@ -1,0 +1,289 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+{{ appnType | d('Example text lorem ipsum') }}, ABR: {{ abrNumber | d('A123XYZ') }}, Title Number: {{ titleNumber
+| d('DN1000') }}.
+
+Validity checks
+{% endblock %}
+
+{% block stylesheets %}
+	{% include "../includes/inc_current-live-stylesheets-linked.html" %}
+{% endblock %}
+
+{% block header %}
+    {% include "../includes/inc_current-live-header.html" %}
+{% endblock %}
+
+{% block content %}
+
+{% include "../includes/inc_new-sub-header.html" %}
+
+<div class="container-content">
+    {% include "../includes/inc_container-register.html" %}
+
+    <!-- ************************************************* -->
+
+    <div id="tasks-content" class="container-tasks" tabindex="0">
+  
+      <a href="trailing-info_1-5.html" id="previous-link" class="govuk-back-link">Previous page</a>
+
+      <h2 class="govuk-heading-m">Your tasks</h2>
+            
+      <!--div class="govuk-notification-banner govuk-notification-banner__workflow-return" role="alert"
+      aria-labelledby="govuk-notification-banner-title"
+      data-module="govuk-notification-banner" aria-hidden="true" hidden="">
+      <div class="govuk-notification-banner__header">
+      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title" >
+      Important
+      </h2>
+      </div>
+      <div class="govuk-notification-banner__content">      <p class="govuk-notification-banner__heading">Send to Workflow to complete this application</p></div>
+      </div-->
+
+
+      <div class="content">
+        <form id="theForm" method="post" novalidate>
+          <input id="csrf_token" name="csrf_token" type="hidden" value="">
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
+                Are all entries to be removed indicated on the register?
+              </legend>
+              <!--div id="add-other-entries-genericradiogroup-hint" class="govuk-hint">
+              </div-->
+              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="reg-yes" name="reg" type="radio" value="True">
+                  <label class="govuk-label govuk-radios__label" for="reg-yes">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="reg-no" name="reg" type="radio" value="False">
+                  <label class="govuk-label govuk-radios__label" for="reg-no">
+                    No
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>          
+                    
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="additional-provisions-genericradiogroup-hint">
+            <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
+            Do any personal covenants need to be added?
+            </legend>
+            <div id="additional-provisions-genericradiogroup-hint" class="govuk-hint">
+
+            </div>
+            <div class="govuk-radios  govuk-radios--small"    data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="additional-provisions-yes" name="additional-provisions-genericradiogroup" type="radio" value="True" data-aria-controls="conditional-additional-provisions-yes">
+                <label class="govuk-label govuk-radios__label" for="additional-provisions-yes">
+              Yes
+            </label>
+              </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-additional-provisions-yes">
+                  
+            <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="additional-provisions-genericcheckboxgroup-hint">
+            <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
+            Select which entries to add
+            </legend>
+            <div id="additional-provisions-genericcheckboxgroup-hint" class="govuk-hint">
+
+            </div>
+            <div class="govuk-checkboxes govuk-checkboxes--small"    data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="indemnityCovenant" name="additional-provisions-genericcheckboxgroup" type="checkbox" value="indemnity_covenant" data-aria-controls="conditional-indemnityCovenant">
+                  <label class="govuk-label govuk-checkboxes__label" for="indemnityCovenant">
+              Indemnity covenant (BP264, BP253)
+            </label>
+                </div>
+                  <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-indemnityCovenant">
+                    <p class='govuk-body'>The Transfer to the proprietor contains a covenant to observe and perform the covenants <strong class="gov-yellow" data-test-id="Infill-1" data-name="Infill-1-id" data-answer="">[Infill 1]</strong> and of indemnity in respect thereof.</p>
+            <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="Infill-1-id-hint">
+            <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
+            Where is the indemnity located?
+            </legend>
+            <div id="Infill-1-id-hint" class="govuk-hint">
+
+            </div>
+            <div class="govuk-radios  govuk-radios--small"    data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="additional_provisions-radiobutton-charges-register" name="Infill-1-id" type="radio" value="referred to in the Charges Register">
+                <label class="govuk-label govuk-radios__label" for="additional_provisions-radiobutton-charges-register">
+              Charges register
+            </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="additional_provisions-radiobutton-property-register" name="Infill-1-id" type="radio" value="referred to in the Property Register">
+                <label class="govuk-label govuk-radios__label" for="additional_provisions-radiobutton-property-register">
+              Property register
+            </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="additional_provisions-radiobutton-the-register" name="Infill-1-id" type="radio" value="referred to in the register">
+                <label class="govuk-label govuk-radios__label" for="additional_provisions-radiobutton-the-register">
+              The register
+            </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="additional_provisions-radiobutton-other-location" name="Infill-1-id" type="radio" value="referred to in an other location" data-aria-controls="conditional-additional_provisions-radiobutton-other-location">
+                <label class="govuk-label govuk-radios__label" for="additional_provisions-radiobutton-other-location">
+              Other location
+            </label>
+              </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-additional_provisions-radiobutton-other-location">
+                  
+
+            <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="2000">
+            <div class="govuk-form-group">
+            <label class="govuk-label" for="additional_provisions-infill-textarea">
+            Describe the indemnity location
+            </label>
+            <div id="additional_provisions-infill-textarea-hint" class="govuk-hint">
+
+            </div>
+            <textarea class="govuk-textarea govuk-js-character-count" id="additional_provisions-infill-textarea" name="additional_provisions-infill-textarea" rows="3" aria-describedby="additional_provisions-infill-textarea-info additional_provisions-infill-textarea-hint" required="required"></textarea>
+            </div>
+
+            <div id="additional_provisions-infill-textarea-info" class="govuk-hint govuk-character-count__message">
+            You can enter up to 2000 characters
+            </div>
+
+
+            </div>
+
+                </div>
+            </div>
+
+            </fieldset>
+
+            </div>
+
+                  </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="impliedCovenant" name="additional-provisions-genericcheckboxgroup" type="checkbox" value="implied_covenant">
+                  <label class="govuk-label govuk-checkboxes__label" for="impliedCovenant">
+              Implied covenant (BWICT)
+            </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="otherPersonalCovenant" name="additional-provisions-genericcheckboxgroup" type="checkbox" value="other_personal_covenant">
+                  <label class="govuk-label govuk-checkboxes__label" for="otherPersonalCovenant">
+              Other personal covenant
+            </label>
+                </div>
+            </div>
+
+            </fieldset>
+
+            </div>
+
+                </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="additional-provisions-no" name="additional-provisions-genericradiogroup" type="radio" value="False">
+                <label class="govuk-label govuk-radios__label" for="additional-provisions-no">
+              No
+            </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+                   
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="add-other-entries-genericradiogroup-hint">
+            <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
+              Do any other new entries need to be added?
+            </legend>
+            <div id="add-other-entries-genericradiogroup-hint" class="govuk-hint">
+
+            </div>
+            <div class="govuk-radios govuk-radios--inline govuk-radios--small"    data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="add-other-entries-yes" name="add-other-entries-genericradiogroup" type="radio" value="True">
+                <label class="govuk-label govuk-radios__label" for="add-other-entries-yes">
+              Yes
+            </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="add-other-entries-no" name="add-other-entries-genericradiogroup" type="radio" value="False">
+                <label class="govuk-label govuk-radios__label" for="add-other-entries-no">
+              No
+            </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+
+                    
+        <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="amend-existing-entries-genericradiogroup-hint">
+        <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
+        Do any existing entries need to be amended?
+        </legend>
+        <div id="amend-existing-entries-genericradiogroup-hint" class="govuk-hint">
+
+        </div>
+        <div class="govuk-radios govuk-radios--inline govuk-radios--small"    data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="amend-existing-entries-yes" name="amend-existing-entries-genericradiogroup" type="radio" value="True">
+            <label class="govuk-label govuk-radios__label" for="amend-existing-entries-yes">
+          Yes
+        </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="amend-existing-entries-no" name="amend-existing-entries-genericradiogroup" type="radio" value="False">
+            <label class="govuk-label govuk-radios__label" for="amend-existing-entries-no">
+          No
+        </label>
+          </div>
+        </div>
+
+        </fieldset>
+
+        </div>
+
+
+
+          <noscript>
+              <input id="no_js_field" name="no_js_field" type="hidden" value="True">
+          </noscript>
+          <br>
+          <div class="container-buttons-action">
+              <!-- TRANSFER -->
+              <button value="y" type="submit" name="submit_button" class="govuk-button" data-module="govuk-button" id="next-application-button">
+                Next
+              </button>
+              <a id="reject-application-button" class="govuk-link govuk-link--no-visited-state govuk-!-margin-left-2" href="ends.html">Return to Workflow</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- ************************************************* -->
+
+</div>
+{% endblock %}
+
+{% block footer %}
+    {% include "../includes/inc_current-live-footer.html" %}
+
+
+    <script>
+      /* these js scripts just used for this basic design prototype mockup */
+        window.onload = (event) => {
+            
+            $('#next-application-button').on('click', function(e){
+              e.preventDefault();
+              window.location.href = 'ends.html';
+            });
+
+        };
+    </script>
+{% endblock %}
