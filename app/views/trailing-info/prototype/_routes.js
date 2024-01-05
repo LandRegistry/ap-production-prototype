@@ -12,11 +12,24 @@ router.post('/trailing-info_1-1', function (req, res) {
 
     if (req.session.data['add_transferee_btn'] == 'Add transferee') {//user selects to add another transferee
 
-        res.redirect("trailing-info_1-1-add-transferee-error-radios")
+        res.redirect("trailing-info_1-1-add-transferee")//no error - transferee 2 appears
 
     } else if (req.session.data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-0'] == null || req.session.data['forenames0'] == '' || req.session.data['surname0'] == '') {//if empty/unselected form elements, pass to this pg where full error validation is provided
 
         res.redirect("trailing-info_1-1-error-radios")
+
+    } else {//no empty/unselected form elements > next (add address for service)
+
+        res.redirect("trailing-info_1-2")
+
+    }
+})
+
+router.post('/trailing-info_1-1-add-transferee', function (req, res) {
+
+    if (req.session.data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-1'] != 'PRIVATE_INDIVIDUAL' || req.session.data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-1'] == 'UK_COMPANY') {//if radios for the 2nd transferee are not unselected
+
+        res.redirect("trailing-info_1-1-add-transferee-error-radios")
 
     } else {//no empty/unselected form elements > next (add address for service)
 
