@@ -43,8 +43,13 @@ router.post('/trailing-info_1-2', function (req, res) {
     if (req.session.data['more-transferee-addresses-genericradiogroup'] == null || req.session.data['add-info'] == null) {
         //radios unselected
         res.redirect("trailing-info_1-2-error")
-    } else {
+
+    } else if (req.session.data['add-info'] == 'yes') {
+
         res.redirect("trailing-info_1-4") 
+
+    } else {
+        res.redirect("trailing-info_1-6") //final pg of this flow
     }
 })
 
@@ -53,29 +58,37 @@ router.post('/trailing-info_1-2-error', function (req, res) {
     if (req.session.data['more-transferee-addresses-genericradiogroup'] == null || req.session.data['add-info'] == null) {
         //radios unselected
         res.redirect("trailing-info_1-2-error")//redirect to self
+
+    } else if (req.session.data['add-info'] == 'yes') {
+
+        res.redirect("trailing-info_1-4")         
         
     } else {
-        res.redirect("trailing-info_1-4") 
+        res.redirect("trailing-info_1-6") 
     }
 })
 
 router.post('/trailing-info_1-1-error-radios', function (req, res) {
 
-    if (req.session.data['add_transferee_btn'] == 'Add transferee') {//go to pg with 2nd transferee
+    if(req.session.data['add_transferee_btn'] == 'Add transferee'){//add another btn
 
-        res.redirect("trailing-info_1-1-add-transferee-error-radios")
+        if (req.session.data['forenames0'] == '' || req.session.data['surname0'] == '') {//1 or more inputs are empty
 
-    } else if (req.session.data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-0'] == null) {//select the radio
+            res.redirect("trailing-info_1-1-error-radios")//res.redirect("https://www.gov.uk")
 
-        res.redirect("trailing-info_1-1-error-radios")
+        } else {
 
-    } else if (req.session.data['forenames0'] == '' || req.session.data['surname0'] == '') {//passed radio, but either inputs are empty
+            res.redirect("trailing-info_1-1-add-transferee")
 
-        res.redirect("trailing-info_1-1-error-radios")        
+        }
 
-    } else {//passed validation > next (add address for service)
+    }else{ //main form submit
+        
+        if (req.session.data['forenames0'] == '' || req.session.data['surname0'] == '') {//1 or more inputs are empty
 
-        res.redirect("trailing-info_1-2")
+            res.redirect("trailing-info_1-1-error-radios")//res.redirect("https://www.gov.uk/browse/births-deaths-marriages")
+
+        }
 
     }
 })
@@ -151,6 +164,10 @@ router.post('/trailing-info_1-2-address-found', function (req, res) {
         
             res.redirect("trailing-info_1-2-address-found-error")//error msg 'Select an address'
 
+    } else if (req.session.data['transferee-addresses-transferee-selection'] == '' && req.session.data['transferee-addresses-transferee-selection2'] == '') {  
+    
+        res.redirect("trailing-info_1-2-address-found-error")//error msg 'Select an address'            
+
     } else {
 
         res.redirect("trailing-info_1-3")
@@ -165,21 +182,49 @@ router.post('/trailing-info_1-2-address-found-error', function (req, res) {
         
         res.redirect("trailing-info_1-3")
 
-    } else if (req.session.data['addressSearch0Select'] != '') {  
+    } else if (req.session.data['addressSearch0Select'] == '') {  
         
-        res.redirect("trailing-info_1-3")    
+        res.redirect("trailing-info_1-2-address-found-error")//error msg 'Select an address'
+
+    } else if (req.session.data['transferee-addresses-transferee-selection'] == '' && req.session.data['transferee-addresses-transferee-selection2'] == '') {  
+    
+        res.redirect("trailing-info_1-2-address-found-error")//error msg 'Select an address'          
 
     } else {
 
-        res.redirect("trailing-info_1-2-address-found-error")//error msg 'Select an address'
+        res.redirect("trailing-info_1-3")
 
     }    
 
 })
 
 router.post('/trailing-info_1-3', function (req, res) {
-      
-    res.redirect("trailing-info_1-4")
+    if (req.session.data['more-transferee-addresses-genericradiogroup'] == null || req.session.data['add-info'] == null) {
+        
+        res.redirect("trailing-info_1-3-error")
+
+    } else if (req.session.data['add-info'] == 'yes') {
+
+        res.redirect("trailing-info_1-4")         
+    
+    } else {
+        res.redirect("trailing-info_1-6")
+    }
+
+})
+
+router.post('/trailing-info_1-3-error', function (req, res) {
+    if (req.session.data['more-transferee-addresses-genericradiogroup'] == null || req.session.data['add-info'] == null) {
+        
+        res.redirect("trailing-info_1-3-error")
+
+    } else if (req.session.data['add-info'] == 'yes') {
+
+        res.redirect("trailing-info_1-4")         
+    
+    } else {
+        res.redirect("trailing-info_1-6")
+    }
 
 })
 

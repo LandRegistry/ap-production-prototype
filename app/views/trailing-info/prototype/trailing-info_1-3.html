@@ -58,12 +58,12 @@ Validity checks
           <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell">
-                  {% if (data['forenames0'] != null and data['surname0'] != null) %}
-                    {{ data['forenames0'] }} {{ data['surname0'] }}{% if (data['forenames1'] != null and data['surname1'] != null) %},{% endif %} 
+                  {% if (data['transferee-addresses-transferee-selection'] != null) %}
+                    {{ data['forenames0'] }} {{ data['surname0'] }}{% if (data['transferee-addresses-transferee-selection2'] != null) %},{% endif %} 
                   {% endif %}
 
-                  {% if (data['forenames1'] != null and data['surname1'] != null) %}
-                    {% if (data['forenames0'] != null and data['surname0'] != null) %}<br>{% endif %}
+                  {% if (data['transferee-addresses-transferee-selection2'] != null) %}
+                    {% if (data['transferee-addresses-transferee-selection'] != null) %}<br>{% endif %}
                     {{ data['forenames1'] }} {{ data['surname1'] }} 
                   {% endif %}
                 
@@ -84,7 +84,7 @@ Validity checks
                     52 Clifton Road, <br>Exeter, EX1 2BN
                   {% elseif (data['addressSearch0Select'] == '100040208199') %}
                     53 Clifton Road, <br>Exeter, EX1 2BN
-                  {% elseif (data['addressSearch0Select'] == '10013042929') %}
+                  {% elseif (data['addressSearch0Select'] == '100130429293') %}
                     63 Clifton Road, <br>Exeter, EX1 2BN
                   {% endif %}
                 </td>

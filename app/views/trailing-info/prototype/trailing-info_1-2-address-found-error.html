@@ -27,6 +27,7 @@ Validity checks
 
       <a href="trailing-info_1-2-add-address1.html" id="previous-link" class="govuk-back-link">Back</a> 
 
+      {% if (data['addressSearch0Select'] == '') or (data['transferee-addresses-transferee-selection'] == null and data['transferee-addresses-transferee-selection2'] == null ) %}
       <div class="govuk-error-summary" data-module="govuk-error-summary">
         <div role="alert">
           <h2 class="govuk-error-summary__title">
@@ -34,11 +35,20 @@ Validity checks
           </h2>
           <div class="govuk-error-summary__body">
               <ul class="govuk-list govuk-error-summary__list">
+                
+                {% if (data['addressSearch0Select'] == '') %}
                   <li><a href="#addressSearch0Select">Select an address</a></li>
+                {% endif %}
+
+                {% if (data['transferee-addresses-transferee-selection'] == null and data['transferee-addresses-transferee-selection2'] == null ) %}
+                  <li><a href="#transferee-00">Select a transferee for this address</a></li>
+                {% endif %}
+
               </ul>
           </div>
         </div>
-      </div>   
+      </div>  
+      {% endif %} 
 
       <h2 class="govuk-heading-m">Add address</h2>
       
@@ -60,7 +70,9 @@ Validity checks
         
           <input id="csrf_token" name="csrf_token" type="hidden" value="IjU4M2FhMjk5MGEzOThjN2ZlYTNjOWQ1OTY3NzcxMGI4OTlmMmNjZjYi.ZR6Kcw.C2NGJMNZmZB8LS4O5FlGkz7L8LU">
 
-        <div class="govuk-form-group govuk-!-margin-bottom-2 govuk-form-group--error">
+        <div class="govuk-form-group govuk-!-margin-bottom-2 {% if (data['addressSearch0Select'] == '') %}
+        govuk-form-group--error
+        {% endif %}">
           <label class="govuk-label govuk-!-font-weight-bold" for="addressSearch0Select">
             Select address
           </label>
@@ -69,20 +81,27 @@ Validity checks
             empty hint div on live? 
           </div-->
 
+          {% if (data['addressSearch0Select'] == '') %}
           <p id="addressSearch0Select-error" class="govuk-error-message">
             <span class="govuk-visually-hidden">Error:</span> Select a location
-          </p>          
+          </p> 
+          {% endif %}         
 
-          <select class="govuk-select constrained-width govuk-select--error" id="addressSearch0Select" name="addressSearch0Select" aria-describedby="addressSearch0Select-error">
+          <select class="govuk-select constrained-width 
+          {% if (data['addressSearch0Select'] == '') %}
+            govuk-select--error
+          {% endif %}" id="addressSearch0Select" name="addressSearch0Select" {% if (data['addressSearch0Select'] == '') %}
+          aria-describedby="addressSearch0Select-error"
+          {% endif %}>
               <option value="">Select address</option>
-              <option value="100040208183">33 Clifton Road, Exeter, EX1 2BN</option>
-              <option value="100040208184">34 Clifton Road, Exeter, EX1 2BN</option>
-              <option value="100040208185">37 Clifton Road, Exeter, EX1 2BN</option>
-              <option value="100040208196">50 Clifton Road, Exeter, EX1 2BN</option>
-              <option value="100040208197">51 Clifton Road, Exeter, EX1 2BN</option>
-              <option value="100040208198">52 Clifton Road, Exeter, EX1 2BN</option>
-              <option value="100040208199">53 Clifton Road, Exeter, EX1 2BN</option>
-              <option value="100130429293">63 Clifton Road, Exeter, EX1 2BN</option>
+              <option value="100040208183" {% if (data['addressSearch0Select'] == '100040208183') %}selected{% endif %}>33 Clifton Road, Exeter, EX1 2BN</option>
+              <option value="100040208184" {% if (data['addressSearch0Select'] == '100040208184') %}selected{% endif %}>34 Clifton Road, Exeter, EX1 2BN</option>
+              <option value="100040208185" {% if (data['addressSearch0Select'] == '100040208185') %}selected{% endif %}>37 Clifton Road, Exeter, EX1 2BN</option>
+              <option value="100040208196" {% if (data['addressSearch0Select'] == '100040208196') %}selected{% endif %}>50 Clifton Road, Exeter, EX1 2BN</option>
+              <option value="100040208197" {% if (data['addressSearch0Select'] == '100040208197') %}selected{% endif %}>51 Clifton Road, Exeter, EX1 2BN</option>
+              <option value="100040208198" {% if (data['addressSearch0Select'] == '100040208198') %}selected{% endif %}>52 Clifton Road, Exeter, EX1 2BN</option>
+              <option value="100040208199" {% if (data['addressSearch0Select'] == '100040208199') %}selected{% endif %}>53 Clifton Road, Exeter, EX1 2BN</option>
+              <option value="100130429293" {% if (data['addressSearch0Select'] == '100130429293') %}selected{% endif %}>63 Clifton Road, Exeter, EX1 2BN</option>
           </select>
         </div>
 
@@ -112,7 +131,7 @@ Validity checks
                   aria-describedby="transferee-addresses-care-of-address-hint" empty linked hint text div on live 
               </div-->
               
-              <div class="govuk-checkboxes govuk-checkboxes--small"    data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
                   <div class="govuk-checkboxes__item">
                     <input class="govuk-checkboxes__input" id="transferee-addresses-care-of-address-checkbox" name="transferee-addresses-care-of-address" type="checkbox" value="True" data-aria-controls="conditional-transferee-addresses-care-of-address-checkbox">
                     <label class="govuk-label govuk-checkboxes__label" for="transferee-addresses-care-of-address-checkbox">
@@ -135,7 +154,12 @@ Validity checks
         </div>
 
 
-        <div class="govuk-form-group">
+        <div class="govuk-form-group 
+        {% if (data['transferee-addresses-transferee-selection'] == null and data['transferee-addresses-transferee-selection2'] == null ) %}
+         govuk-form-group--error
+        {% endif %}" {% if (data['transferee-addresses-transferee-selection'] == null and data['transferee-addresses-transferee-selection2'] == null ) %}
+        aria-describedby="transferee-addresses-transferee-selection-error"
+        {% endif %}>
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
               Select transferees for this address
@@ -146,6 +170,12 @@ Validity checks
 
                  aria-describedby="transferee-addresses-transferee-selection-hint"
             </div-->
+            
+            {% if (data['transferee-addresses-transferee-selection'] == null and data['transferee-addresses-transferee-selection2'] == null ) %}
+            <p id="transferee-addresses-transferee-selection-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Select a transferee for this address
+            </p> 
+            {% endif %}            
             
             <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
               {% include "../prototype/inc_transferees-list-checkboxes.html" %}    

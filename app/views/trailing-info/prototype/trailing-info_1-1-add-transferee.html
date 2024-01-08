@@ -64,7 +64,7 @@ Validity checks
           <input class="govuk-radios__input" id="private-individual-radio0" name="CONFIRM-TRANSFEREE-APPLICANTS_transferee-0" type="radio" value="PRIVATE_INDIVIDUAL" data-aria-controls="conditional-private-individual-radio0"{% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-0'] == 'PRIVATE_INDIVIDUAL') %}
           checked
         {% endif %}>
-111111111111111111111
+
           <label class="govuk-label govuk-radios__label" for="private-individual-radio0">
         Private Individual
       </label>
@@ -94,7 +94,7 @@ Validity checks
           <input class="govuk-radios__input" id="uk-company-radio0" name="CONFIRM-TRANSFEREE-APPLICANTS_transferee-0" type="radio" value="UK_COMPANY" data-aria-controls="conditional-uk-company-radio0"{% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-0'] == 'UK_COMPANY') %}
           checked
         {% endif %}>
-        2222222222222222222222
+
           <label class="govuk-label govuk-radios__label" for="uk-company-radio0">
         UK Based Company
       </label>
@@ -159,38 +159,37 @@ Validity checks
           
           <input class="govuk-radios__input" id="private-individual-radio1" name="CONFIRM-TRANSFEREE-APPLICANTS_transferee-1" type="radio" value="PRIVATE_INDIVIDUAL" data-aria-controls="conditional-private-individual-radio1" data-aria-controls="conditional-uk-company-radio0" {% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-1'] == 'PRIVATE_INDIVIDUAL') %}
           checked
-        {% endif %}>3333333333333333333
+        {% endif %}>
           <label class="govuk-label govuk-radios__label" for="private-individual-radio1">
             Private Individual
         </label>
         </div>
           <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-private-individual-radio1">
             <div class="govuk-form-group">
-  <label class="govuk-label" for="forenames1">
-    First name
-  </label>
-  <div id="forenames1-hint" class="govuk-hint">
-    <!-- empty hint text div and 'required' used on the input field? -->
-  </div>
-<input class="govuk-input  govuk-input--width-20" id="forenames1" name="forenames1" type="text" aria-describedby="forenames1-hint" value="{{ data['forenames1'] }}">
-</div>
+              <label class="govuk-label" for="forenames1">
+                First name
+              </label>
+              <div id="forenames1-hint" class="govuk-hint">
+                <!-- empty hint text div and 'required' used on the input field? -->
+              </div>
+              <input class="govuk-input  govuk-input--width-20" id="forenames1" name="forenames1" type="text" aria-describedby="forenames1-hint" value="{{ data['forenames1'] }}">
+            </div>
 
-<div class="govuk-form-group">
-  <label class="govuk-label" for="surname1">
-    Last name
-  </label>
-  <div id="surname1-hint" class="govuk-hint">
-    <!-- empty hint text div and 'required' used on the input field? -->
-  </div>
-<input class="govuk-input  govuk-input--width-20" id="surname1" name="surname1" type="text" aria-describedby="surname1-hint" value="{{ data['surname1'] }}">
-</div>
-
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="surname1">
+                Last name
+              </label>
+              <div id="surname1-hint" class="govuk-hint">
+                <!-- empty hint text div and 'required' used on the input field? -->
+              </div>
+              <input class="govuk-input  govuk-input--width-20" id="surname1" name="surname1" type="text" aria-describedby="surname1-hint" value="{{ data['surname1'] }}">
+            </div>
 
           </div>
         <div class="govuk-radios__item">
           <input class="govuk-radios__input" id="uk-company-radio1" name="CONFIRM-TRANSFEREE-APPLICANTS_transferee-1" type="radio" value="UK_COMPANY" data-aria-controls="conditional-uk-company-radio1"{% if (data['CONFIRM-TRANSFEREE-APPLICANTS_transferee-1'] == 'UK_COMPANY') %}
           checked
-        {% endif %}>4444444444444444444444
+        {% endif %}>
           <label class="govuk-label govuk-radios__label" for="uk-company-radio1">
         UK Based Company
       </label>

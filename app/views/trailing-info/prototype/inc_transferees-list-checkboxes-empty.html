@@ -1,0 +1,38 @@
+
+{% if (data['surname0'] != null) %}
+
+    {% if (data['forenames0'] != null and data['surname0'] != null) %}
+        <div class="govuk-checkboxes__item">
+            
+            <input class="govuk-checkboxes__input" id="transferee-00" name="transferee-addresses-transferee-selection" type="checkbox" value="{ data['forenames0'] }} {{ data['surname0'] }}">
+
+            <label class="govuk-label govuk-checkboxes__label" for="transferee-00"> 
+                {{ data['forenames0'] }} {{ data['surname0'] }}
+            </label><!-- govuk-!-font-size-16 -->
+
+        </div>
+    {% endif %}
+
+    {% if (data['forenames1'] != null and data['surname1'] != null) %}
+        <div class="govuk-checkboxes__item">
+            
+            <input class="govuk-checkboxes__input" id="transferee-01" name="transferee-addresses-transferee-selection2" type="checkbox" value="{{ data['forenames1'] }} {{ data['surname1'] }}">
+
+            <label class="govuk-label govuk-checkboxes__label" for="transferee-01">
+               {{ data['forenames1'] }} {{ data['surname1'] }}
+            </label><!-- govuk-!-font-size-16 -->
+            
+        </div>
+    {% endif %}
+
+{% else %}
+
+    <!-- there are currently no values set for both transferees (fallback if landing on this page via bookmark) ... -->
+    <p class="govuk-body">
+        No transferees have been added.
+    </p>    
+    <p class="govuk-body">
+        <a href="trailing-info_1-1.html" class="govuk-link govuk-link--no-visited-state">Add transferees</a>
+    </p>
+
+{% endif %}
