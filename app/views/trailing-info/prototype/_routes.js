@@ -125,15 +125,19 @@ router.post('/trailing-info_1-2', function (req, res) {//address for service pag
 
 router.post('/trailing-info_1-2-add-address1', function (req, res) {//address for service page
 
-    if (req.session.data['0-address-not-found-component'] == 'True') {//cannot find address is selected
+    if (req.session.data['addressSearch0'] == '' && req.session.data['0-address-not-found-component'] != 'True') {
+
+        res.redirect("trailing-info_1-2-add-address1-error")// redirect to error pg version
+
+    } else if (req.session.data['addressSearch0'] != '' && req.session.data['0-address-not-found-component'] != 'True') {//postcode has input
+
+        res.redirect("trailing-info_1-2-address-found")// redirect to page with address select list
+
+    } else if (req.session.data['0-address-not-found-component'] == 'True') {//[sic] cannot find address is selected
         
         res.redirect("trailing-info_1-3")
 
-    } else if (req.session.data['addressSearch0'] == '') {  
-        
-            res.redirect("trailing-info_1-2-add-address1-error")//error msg "Enter a UK postcode"
-
-    } 
+    }   
          
 })
 
