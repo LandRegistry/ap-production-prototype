@@ -265,38 +265,42 @@ router.post('/trailing-info_1-4-error', function (req, res) {
 })
 
 router.post('/trailing-info_1-5', function (req, res) {
-    
+
     if (req.session.data['add-info2'] == null) {
+        //radios unselected
 
         res.redirect("trailing-info_1-5-error")
-
+        
     } else if (req.session.data['add-info2'] == 'yes') {
 
-        res.redirect("trailing-info_1-4")
-
-    } else if (req.session.data['add-info2'] == 'no') {
-
-        res.redirect("ends")
-    
+        res.redirect("trailing-info_1-4")         
+        
+    } else {
+        res.redirect("trailing-info_1-6") 
     }
 
 })
 
 router.post('/trailing-info_1-5-error', function (req, res) {
     
-    if (req.session.data['add-info2'] == null) {
+    if (req.session.data['add-info2'] == null) {//radios unselected
 
         res.redirect("trailing-info_1-5-error")
-
+        
     } else if (req.session.data['add-info2'] == 'yes') {
 
-        res.redirect("trailing-info_1-4")
-
-    } else if (req.session.data['add-info2'] == 'no') {
-
-        res.redirect("ends")
-    
+        res.redirect("trailing-info_1-4")         
+        
+    } else {
+        res.redirect("trailing-info_1-6") 
     }
+
+})
+
+router.post('/trailing-info_1-6', function (req, res) {
+    /* no error messaging logic added to this page, as it serves simply to return the user back to the pre-existing flow (adding some contex)*/
+
+    /* using the modern gds kit - the 'ends.html' target is simply coded within the the action attr on the form element */
 
 })
 

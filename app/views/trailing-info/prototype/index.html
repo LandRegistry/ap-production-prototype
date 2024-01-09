@@ -11,6 +11,46 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
       <h1 class="govuk-heading-l">Trailing information - prototype</h1>
 
+
+      <style>
+        /* quick styles ... */
+        #mybox {
+          border: 1px solid #ccc;
+          margin-bottom: 20px;
+          padding: 20px 20px 0 20px;
+          margin-left: 20px;
+        }
+        #mybox button {
+          margin-bottom: 20px;
+        }
+        #mybox strong {
+          font-weight: normal;
+        }
+      </style>
+
+      <form method="post">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds" id="mybox">
+            <h2 class="govuk-heading-s">
+              Clear session data
+            </h2>
+            <div class="govuk-warning-text">
+              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="govuk-warning-text__text govuk-!-font-size-16">
+                <span class="govuk-warning-text__assistive">Warning</span>
+                This will clear all of the data entered in this session
+              </strong>
+            </div>
+      
+            <button class="govuk-button govuk-!-font-size-16" data-module="govuk-button">
+              Clear the data
+            </button>
+      
+          </div>
+        </div>
+      </form>
+
+
       <p class="govuk-body">
         The functional prototpe:
       </p>
