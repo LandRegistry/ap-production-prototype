@@ -1,10 +1,10 @@
-# new Application Processing UI design (2023)
+# Application Processing 'Production' prototype
 
-Whilst migrating as-is functionality from the current live product to a new front end tech stack, there are some design implications
+This repo contains a copy of the new UI repo, now hosted seperately and edited for use in demonstrations to users.
 
-This repo is to help us ideate and test those changes, as well as document details about the changes and progress with the migration.
+This is to help us keep final work and works in progress distinct. The content here is intended for use by product and devs as well as users and so should not contain any sensitive information.
 
-We may also want to use this repo for new AP work, post migration.
+We will aim to update this repo with all features which have been finalised and handed over to delivery teams.
 
 
 ## running this app
