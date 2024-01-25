@@ -1,7 +1,7 @@
 {% extends "layouts/ap-documentation.html" %}
 
 {% block pageTitle %}
-Application Processing UI technical rewrite prototype
+Application Processing production prototype
 {% endblock %}
 
 {% block content %}
@@ -14,49 +14,25 @@ Application Processing UI technical rewrite prototype
       {{ serviceName }}
     </h1>
 
-    <p>Design experiments and documentation for UI technology re-write to python/flask</p>
+    <p>This protoype is intended for demonstration purposes only. It contains final designs for Application Processing that have or will be handed over to teams to build. </p>
+    <p>These designs should replicate the UI in the live service, however may not fully reproduce behaviours due to the limitations of this prototype kit. The prototype should be updated regularly but may contain inconsistencies as more features are added and flows are updated. If you find an error or inconsistency please inform a member of the AP design team.</p>
 
-    <p>This prototype will gradually replace the <a href="https://hmlr-application-processing.herokuapp.com/">current prototype</a></p>
-
-
-    <h2 class="govuk-heading-l">Making pages in this kit</h2>
-
-    <p>this kit is based on the Gov prototype kit.</p>
-
-    <h3 class="govuk-heading-m">Getting started</h3>
-    <p>Copy the <a href="example-flow/">Example (starter) flow</a>.</p>
-    <ul class="govuk-list govuk-list--bullet">
-    	<li>Copy that into a new folder in views, and call the folder what you want</li>
-    	<li>add a route to the main routes file (app/routes.js) - a route that looks at the folder you just created.  see lines 12 to 19 to see what to copy.  replace /example-flow with your folder name</li>
-    	<li>inside your views folder make the versions of your prototype, make folders names v1, v2 etc.</li>
-    	<li>everything required to make a flow is contained in the example flow...</li>
-    	<li>Use the notes within the code of the example flow to make your own flow</li>
-    </ul>
-
-    <h3 class="govuk-heading-m">How the template (example) flow has been made</h3>
-
-    <h4 class="govuk-heading-s">3 page layouts</h4>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>documentation page - use <code>&#123;&#37; extends "layouts/ap-documentation.html" &#37;&#125;</code> at the top of your page</li>
-			<li>wide page, the two column, register and task page - use <code>&#123;&#37; extends "layouts/ap-flow-wide.html" &#37;&#125;</code> at the top of your page</li>
-		  <li>regular width page, like confirmation - use <code>&#123;&#37; extends "layouts/ap-flow-regular.html" &#37;&#125;</code> at the top of your page</li>
-    </ul>
-
-    <h4 class="govuk-heading-s">css</h4>
-    <p>There are 4 css files, refactoring is needed as there is duplication.  Using the 3 layouts will load the correct css.  If you need to add something, consider adding it to the 2 css files - regular and wide - for the two page width layouts we have</p>
-
-    <h4 class="govuk-heading-s">JavaScript</h4>
-    <p>any JS needed by more than one page, you can get the template to load the scripts.  Add a line to the <code>/include/scripts.html</code> file.</p>
+    <p>This prototype is also set up as the new UI rewrite of AP and will gradually replace the <a href="https://hmlr-application-processing.herokuapp.com/">current prototype</a></p>
 
 
-    <h2 class="govuk-heading-l">new UI documentation</h2>
+    <h2 class="govuk-heading-l">About this prototype</h2>
 
-    <p>Final designs</p>
+    <p>This kit is based on the Gov prototype kit.</p>
+    <p>This prototype was last updated on 25/01/2024.</p>
+
+    <h2 class="govuk-heading-l">AP wide functionality</h2>
+
+    <p>Final designs of components and pages used across the AP flows. The UI around each might be misaligned with the rest of the service as the aim is simply to demonstrate singular components.</p>
     <p>Tested with users (where noted)</p>
 
     <ul class="govuk-list govuk-list--bullet">
-      <li><a href="complete/system-messages/">system messages</a></li>
-      <li><a href="complete/confirmation-pages/">confirmation pages</a></li>
+      <li><a href="complete/system-messages/">System messages</a></li>
+      <li><a href="complete/confirmation-pages/">Confirmation pages</a></li>
     </ul>
 
 
