@@ -1,6 +1,6 @@
 # Application Processing 'Production' prototype
 
-This repo contains a copy of the new UI repo, now hosted seperately and edited for use in demonstrations to users.
+This repo contains a copy of the new UI repo, now hosted separately and edited for use in demonstrations to users.
 
 This is to help us keep final work and works in progress distinct. The content here is intended for use by product and devs as well as users and so should not contain any sensitive information.
 
@@ -23,4 +23,4 @@ for example
 ## also added to the empty proto kit app:
 
 - jquery has been installed
-- [HMLR design system components](http://hmlr-design-system.herokuapp.com/get-started/prototyping/) (currently header and footer) 
+- [HMLR design system components](http://hmlr-design-system.herokuapp.com/get-started/prototyping/) (currently header and footer)

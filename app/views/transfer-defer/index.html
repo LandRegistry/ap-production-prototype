@@ -9,16 +9,17 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">Transfer - deferral for discharges - IC6 PROM-122</h1>
+    <h1 class="govuk-heading-xl">Charge - Deferral for discharge</h1>
 
-    <p class="govuk-body">When an application does not include evidence of discharge, and we need to request it because there are restrictions in the register, a caseworker:</p>
-
+    <p class="govuk-body">When an application does not include evidence of discharge or consent and there is a charge with a restriction, the application needs to be deferred. Caseworkers can manually defer a case in Workflow. This feature enables a caseworker to automatically defer from Application Processing when evidence of discharge is missing.</p>
+    <p>This update contains:</p>
     <ul class="govuk-list govuk-list--bullet">
-    	<li>will know evidence is required</li>
-      <li>will write a requisition letter (C90), if this is the only reason to requisition</li>
-      <li>use legacy system PC Corres to write the letter</li>
+    	<li>A new task about charge evidence with automatic deferral functionality</li>
+      <li>The inclusion of a link to PC Corres from within AP</li>
+      <li>A second pass task to process the application from Application Processing after the case has been automatically deferred and following receipt of evidence</li>
+      <li>A new confirmation page for when a case has been successfully deferred automatically</li>
     </ul>
-
+<!--
     <p class="govuk-body">the system will:</p>
 
     <ul class="govuk-list govuk-list--bullet">
@@ -35,9 +36,12 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
       <li>do any additional tasks required - if circumstances have changed (Business rules will establish this)</li>
       <li>complete the application - markoff, or send it to legacy processing</li>
     </ul>
+    -->
 
-    <p><a href="/charge-defer/charge-evidence-index">Charge evidence final design (in charges)</a></p>
+<h2 class="govuk-heading-l">Final version<h2>
+  <p><a href="/charge-defer/charge-evidence-index">Charge evidence final design (in charges)</a></p>
 
+<!--
     <h2 class="govuk-heading-l">Round 3 prototypes for user research</h2>
 
     <p class="govuk-body">Add notes about what we want to learn and links to figma files and research plan and output</p>
@@ -115,7 +119,7 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
       </li>
 
     </ul>
-
+-->
 
   </div>
 </div>

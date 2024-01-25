@@ -46,26 +46,31 @@ Charge
 	        classes: 'govuk-radios--small',
 	        fieldset: {
 	          legend: {
-	            text: 'Can the existing charge be removed?',
+	            text: 'Has evidence been lodged for the existing charge?',
 	            classes: 'govuk-fieldset__legend--s'
 	          }
 	        },
 	        items: [
 	          {
-	            html: 'Yes, evidence has been lodged',
+	            html: 'Discharge lodged',
 	            value: 'Yes',
 	            checked: checked('discharge-removal','Yes')
 	          },
 	          {
-	            html: 'No, there is no evidence',
-	            value: 'No',
-	            checked: checked('discharge-removal','No')
+	            html: 'Needs a discharge',
+	            value: 'No discharge',
+	            checked: checked('discharge-removal','No discharge')
 	          },
 		     {
-	            html: 'Keep the existing charge',
+	            html: 'Consent lodged or not required',
 	            value: 'Keep',
 	            checked: checked('discharge-removal','Not required')
-	          }
+	          },
+            {
+              html: 'Needs consent',
+              value: 'No consent',
+              checked: checked('discharge-removal','No consent')
+            }
 	        ]
 	      }) }}
 
