@@ -1,0 +1,28 @@
+{% extends "layouts/ap-flow-regular.html" %}
+
+{% block pageTitle %}
+Sent to Workflow, undrafted
+{% endblock %}
+
+
+{% block content %}
+
+
+  <div class="govuk-grid-row govuk-body">
+    <div class="govuk-grid-column-two-thirds">
+    	<div class="govuk-panel govuk-panel--confirmation govuk-panel--confirmation--partial">
+        <h1 class="govuk-panel__title">
+          Application {{ abrNumber | d('A123XYZ') }} not drafted
+        </h1>
+        <div class="govuk-panel__body">
+          Sent to Workflow
+        </div>
+      </div>
+
+      <p class="govuk-body govuk-!-margin-top-6">
+        <a href="/charge-defer/compliance-index" class="govuk-link">Go to Workflow</a> to complete the application or start a new one.
+      </p>
+    </div>
+  </div>
+
+{% endblock %}

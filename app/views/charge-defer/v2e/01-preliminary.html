@@ -1,0 +1,213 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+Charge
+{% endblock %}
+
+{% block content %}
+
+  <!-- application information  -->
+	{% include "./includes/application-info.html" %}
+	<!-- end - application information  -->
+
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+
+    <div class="casework-tasks-container">
+
+    	<form action="01-preliminary" method="post">
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Verified by automation
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <div class="checklist" data-testid="task-checklist-container">
+              <div class="checklist-header">
+                <p class="govuk-body govuk-body__extra-margin">You do not need to check these details.</p>
+              </div>
+              <div class="checklist-container">
+                <div class="checklist-items">
+                  <h3 class="govuk-heading-s">Daylist</h3>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>No prior applications</li>
+                    <li>No stops</li>
+                    <li>No official searches</li>
+                  </ul>
+                </div>
+                <div class="checklist-items">
+                  <h3 class="govuk-heading-s">Application</h3>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>Property matches description</li>
+                    <li>All transferors match</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+
+	      <h2 class="govuk-heading-l">Your tasks</h2>
+
+<!-- Notification, if no selected -->
+				<div id="warning" class="govuk-notification-banner" role="region"
+				  aria-labelledby="govuk-notification-banner-title"
+				  data-module="govuk-notification-banner">
+				  <div class="govuk-notification-banner__header">
+				    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+				      Important
+				    </h2>
+				  </div>
+				  <div class="govuk-notification-banner__content">
+				    <p class="govuk-notification-banner__heading">
+				      <a class="govuk-notification-banner__link" href="workflow-no-drafting">Send to Workflow</a> to complete this application.
+				    </p>
+				  </div>
+				</div>
+
+
+	    <!-- First task - yes no  -->
+
+	      {{ govukRadios({
+	        idPrefix: 'property-match',
+	        name: 'property-match',
+	        classes: 'js-no-return-to-workflow / govuk-radios--small govuk-radios--inline',
+	        fieldset: {
+	          legend: {
+	            html: 'Do the documents have the same property address and title number as the register?',
+	            classes: 'govuk-fieldset__legend--s'
+	          }
+	        },
+	        items: [
+	          {
+	            html: 'Yes',
+	            value: 'Yes',
+	            checked: checked('property-match','Yes')
+	          },
+	          {
+	            html: 'No',
+	            value: 'No',
+	            checked: checked('property-match','No')
+	          }
+	        ]
+	      }) }}
+
+			  {{ govukRadios({
+			    idPrefix: 'id-check',
+			    name: 'id-check',
+			    classes: 'govuk-radios--small govuk-radios--inline',
+			    fieldset: {
+			      legend: {
+			        html: 'Are the identity panels filled out correctly?',
+			        classes: 'govuk-fieldset__legend--s'
+			      }
+			    },
+			    items: [
+			      {
+			        html: 'Yes',
+			        value: 'Yes',
+			        checked: checked('id-check','Yes')
+			      },
+			      {
+			        html: 'No',
+			        value: 'No',
+			        checked: checked('id-check','No')
+			      }
+			    ]
+			  }) }}
+
+
+	      {{ govukRadios({
+	        idPrefix: 'customer-match',
+	        name: 'customer-match',
+	        classes: 'js-no-return-to-workflow / govuk-radios--small govuk-radios--inline',
+	        fieldset: {
+	          legend: {
+	            html: 'Do following customer details match documents?',
+	            classes: 'govuk-fieldset__legend--s'
+	          }
+	        },
+	        hint: {
+	          html: '<ul class="govuk-list govuk-list--bullet">
+	                  <li>Key number: 7437831</li>
+	                  <li>Customer name(s): Young & Perry Solicitors</li>
+	                </ul>'
+	        },
+	        items: [
+	          {
+	            html: 'Yes',
+	            value: 'Yes',
+	            checked: checked('customer-match','Yes')
+	          },
+	          {
+	            html: 'No',
+	            value: 'No',
+	            checked: checked('customer-match','No')
+	          }
+	        ]
+	      }) }}
+
+
+	      {{ govukRadios({
+	        idPrefix: 'conveyancer-match',
+	        name: 'conveyancer-match',
+	        classes: 'govuk-radios--small govuk-radios--inline',
+	        fieldset: {
+	          legend: {
+	            html: 'Is the application lodged by a conveyancer?',
+	            classes: 'govuk-fieldset__legend--s'
+	          }
+	        },
+
+	        items: [
+	          {
+	            html: 'Yes',
+	            value: 'Yes',
+	            checked: checked('conveyancer-match','Yes')
+	          },
+	          {
+	            html: 'No',
+	            value: 'No',
+	            checked: checked('conveyancer-match','No')
+	          }
+	        ]
+	      }) }}
+
+
+	    <!-- Buttons and links -->
+
+			<div class="task-lists-submit">
+				<button class="govuk-button" data-module="govuk-button">
+					Next
+				</button>
+				<a href="workflow-no-drafting" class="govuk-link reject-button">Return to workflow</a>
+			</div>
+
+		</form>
+
+
+
+	  </div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+{% endblock %}

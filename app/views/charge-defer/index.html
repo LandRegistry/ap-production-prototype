@@ -9,17 +9,17 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">Charge - deferral for consent to restriction</h1>
+    <h1 class="govuk-heading-xl">Charge - Deferral for compliance to restriction</h1>
 
-    <p class="govuk-body">When an application contains a restriction which requires the consent of a specified party. If the consent is missing a requisition needs to be sent and the application deferred (put into a specific pot whilst we wait for a response to the requistion).</p>
-    <p>A caseworker:</p>
+    <p class="govuk-body">When an application contains a restriction which requires the consent of a specified party. If the consent is missing a requisition needs to be sent and the application deferred.</p>
+    <p>Caseworkers can manually defer a case in Workflow. This feature enables a caseworker to automatically defer from Application Processing when compliance to a restriction is missing.</p>
+    <p>This update includes:</p>
 
     <ul class="govuk-list govuk-list--bullet">
-    	<li>will know if consent is required</li>
-      <li>will write a requisition letter (C90), if this is the only reason to requisition</li>
-      <li>use legacy system PC Corres to write the letter</li>
+    	<li>A change to the existing restrictions question to include an option for referral and an automatic deferral option when no other PAS notes have been added.</li>
+    	<li>A second pass task following a customer reply if the application was deferrred in AP.</li>
     </ul>
-
+<!--
     <p class="govuk-body">The system will:</p>
 
     <ul class="govuk-list govuk-list--bullet">
@@ -64,7 +64,10 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
       </li>
 
     </ul>
+-->
 
+<h2 class="govuk-heading-l">Final version<h2>
+  <p><a href="/charge-defer/compliance-index">Compliance to restriction final design (in charges)</a></p>
 
   </div>
 </div>
