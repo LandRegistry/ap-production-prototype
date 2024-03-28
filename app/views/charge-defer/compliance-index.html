@@ -1,0 +1,38 @@
+{% extends "layouts/ap-documentation.html" %}
+{% block header %}
+	{% from "hmlr/components/header/macro.njk" import hmlrHeader %}
+	{{ hmlrHeader({
+	  serviceName: "Application Processing",
+	  serviceUrl: "/charge-defer"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Compliance to restriction deferral demo</h1>
+		<p>Please note: This prototype is for demonstrative purposes only and does not replicate the exact behaviour of the live system.
+
+    <p><a target="_blank" href="/manage-prototype/clear-data">clear any saved data before using each prototype</a> (opens in new tab)</p>
+		<p>Screens:</p>
+		<ul class="govuk-list govuk-list--bullet">
+    	<li>
+        <a class="govuk-link" href="v2e/00-worklist">Compliance to restriction</a>
+      </li>
+			<li>
+				<a class="govuk-link" href="v2f/00-worklist">Second pass</a>
+			</li>
+	</ul>
+
+
+
+  </div>
+</div>
+
+{% endblock %}

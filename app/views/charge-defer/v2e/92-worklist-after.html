@@ -1,0 +1,147 @@
+{% extends "layouts/workflow.html" %}
+
+{% block pageTitle %}
+My worklist
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/charge-defer/r2-index"
+      },
+      {
+        text: "My Worklist"
+      }
+    ]
+  }) }}
+	</div>
+</div>
+
+
+<!-- this page needs making semantically correct - specifically the use of the table with rows for actions -->
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-margin-top-6">
+
+    <div data-progress-now-table>
+      <h1 id="my_worklist_header" class="govuk-heading-l">
+        My Worklist : 0 applications
+      </h1>
+      <p class="govuk-body">
+        Your category of work is <b>Volume register update</b>.
+        <a class="govuk-link" href="#" title="Select category of work page">Change your category of work</a>.
+      </p>
+
+    </div>
+
+  </div>
+</div>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-margin-top-6">
+
+		<div data-progress-later-table>
+		  <h2 id="my_worklist_header" class="govuk-heading-l">
+		    Progress later : 3 applications
+		  </h2>
+
+
+	  <table class="govuk-table">
+
+	    <thead class="govuk-table__head">
+	      <tr class="govuk-table__row black-border__worklist">
+	        <th scope="col" class="govuk-table__header">Priority date</th>
+	        <th scope="col" class="govuk-table__header ">Title number</th>
+	        <th scope="col" class="govuk-table__header ">ABR</th>
+	        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Category</th>
+	        <th scope="col" class="govuk-table__header">Date Obtained</th>
+	        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Next action</th>
+	      </tr>
+	    </thead>
+	    <tbody class="govuk-table__body">
+	      <tr class="govuk-table__row">
+	        <td class="govuk-table__cell row-paddding__worklist">5 January 2022</td>
+	        <td class="govuk-table__cell row-paddding__worklist">DN720113</td>
+	        <td class="govuk-table__cell row-paddding__worklist">P427YCS</td>
+	        <td class="govuk-table__cell row-paddding__worklist">Volume Register Update</td>
+	        <td class="govuk-table__cell row-paddding__worklist">2 February 2022</td>
+	        <td class="govuk-table__cell row-paddding__worklist">New - start to process</td>
+	      </tr>
+	      <tr class="govuk-table__row black-border__worklist">
+	        <td class="govuk-table__cell" colspan="6">
+	          <div style="float:left">
+	            <a href=# class="govuk-link">Return to ESRV</a>
+	          </div>
+	          <div style="float:right">
+	            <ul style="margin:0px;">
+	              <li class="inline-list__worklist"><a href=# class="govuk-link">Waiting for lawyer</a></li>
+	              <li class="inline-list__worklist"><a href=# class="govuk-link">Refer</a></li>
+	              <li class="inline-list__worklist"><a href=# class="govuk-link">Work on this</a></li>
+	              <li class="inline-list__worklist"><a href=# class="govuk-link">Defer</a></li></li>
+	              <li class="inline-list__worklist"><a href=# class="govuk-link">More info</a></li>
+	            </ul>
+	          </div>
+	        </td>
+	      </tr>
+
+	      <tr class="govuk-table__row">
+	        <td class="govuk-table__cell row-paddding__worklist">4 January 2022</td>
+	        <td class="govuk-table__cell row-paddding__worklist">SYK495213</td>
+	        <td class="govuk-table__cell row-paddding__worklist">H736MZR</td>
+	        <td class="govuk-table__cell row-paddding__worklist">Volume Register Update</td>
+	        <td class="govuk-table__cell row-paddding__worklist">2 February 2022</td>
+	        <td class="govuk-table__cell row-paddding__worklist">Waiting lawyer's response</td>
+	      </tr>
+	      <tr class="govuk-table__row black-border__worklist">
+	        <td class="govuk-table__cell" colspan="6">
+	          <div style="float:left">
+	            <a href=# class="govuk-link">Return to ESRV</a>
+	          </div>
+	          <div style="float:right">
+	            <ul style="margin:0px;">
+	              <li class="inline-list__worklist"><a href=# class="govuk-link">Refer</a></li>
+	              <li class="inline-list__worklist"><a href=# class="govuk-link">Work on this</a></li>
+	              <li class="inline-list__worklist"><a href=# class="govuk-link">Defer</a></li></li>
+	              <li class="inline-list__worklist"><a href=# class="govuk-link">More info</a></li>
+	            </ul>
+	        </div>
+	        </td>
+	      </tr>
+
+	      <tr class="govuk-table__row">
+	        <td class="govuk-table__cell row-paddding__worklist">5 January 2022</td>
+	        <td class="govuk-table__cell row-paddding__worklist">MAN97798</td>
+	        <td class="govuk-table__cell row-paddding__worklist">T656MZR</td>
+	        <td class="govuk-table__cell row-paddding__worklist">Volume Register Update</td>
+	        <td class="govuk-table__cell row-paddding__worklist">2 February 2022</td>
+	        <td class="govuk-table__cell row-paddding__worklist">New - start to process</td>
+	      </tr>
+	      <tr class="govuk-table__row black-border__worklist">
+	        <td class="govuk-table__cell" colspan="6">
+	          <div style="float:left">
+	            <a href=# class="govuk-link">Return to ESRV</a>
+	          </div>
+	          <div style="float:right">
+	            <ul style="margin:0px;">
+	              <li class="inline-list__worklist"><a href=# class="govuk-link">Waiting for lawyer</a></li>
+	              <li class="inline-list__worklist"><a href=# class="govuk-link">Refer</a></li>
+	              <li class="inline-list__worklist"><a href=# class="govuk-link">Work on this</a></li>
+	              <li class="inline-list__worklist"><a href=# class="govuk-link">Defer</a></li></li>
+	              <li class="inline-list__worklist" style="margin:0px"><a href=# class="govuk-link">More info</a></li>
+	            </ul>
+	          </div>
+	      </tr>
+	    </tbody>
+	  </table>
+
+
+  </div>
+</div>
+
+{% endblock %}
