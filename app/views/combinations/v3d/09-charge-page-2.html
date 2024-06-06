@@ -1,0 +1,481 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+Charge
+{% endblock %}
+
+{% block content %}
+
+<!-- application information  -->
+{% include "./includes/application-info-charge.html" %}
+<!-- end - application information  -->
+
+<style>
+  .govuk-button--secondary1{
+      background-color:#6F777B;
+      -webkit-box-shadow:0 2px 0 #929191;
+      box-shadow:0 2px 0 #929191;
+      color: #ffffff
+  }
+  .govuk-button--secondary,.govuk-button--secondary1:active,.govuk-button--secondary1:hover,.govuk-button--secondary1:link,.govuk-button--secondary1:visited{
+      color:#0b0c0c
+  }
+  .govuk-button--secondary1:hover{
+      background-color:#dbdad9
+  }
+  .govuk-button--secondary:hover[disabled]{
+      background-color:#f3f2f1
+  }
+
+  </style>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register-removing-3-new.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+
+    <div class="casework-tasks-container">
+      {{ govukBackLink({
+        text: 'Previous',
+        href: '08-charge-page-1'
+      }) }}
+
+    	<form action="09-charge-page-2" method="post">
+
+	      <h2 class="govuk-heading-m">Your tasks</h2>
+
+	      <!-- Notification, if charge does not have an MD Ref selected -->
+				<div id="warning" class="govuk-notification-banner" role="region"
+				  aria-labelledby="govuk-notification-banner-title"
+				  data-module="govuk-notification-banner">
+				  <div class="govuk-notification-banner__header">
+				    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+				      Important
+				    </h2>
+				  </div>
+				  <div class="govuk-notification-banner__content">
+				    <p class="govuk-notification-banner__heading">
+				      <a class="govuk-notification-banner__link" href="workflow-no-drafting">Send to Workflow</a> to complete this application.
+				    </p>
+				  </div>
+				</div>
+
+	    	<!-- tasks go here  -->
+
+	    	<h3 class="govuk-heading-m" style="margin-bottom:0px">Charge Details</h3>
+
+				<table class="govuk-table form-table" style="margin-bottom:4px;">
+
+				  <thead class="govuk-table__head">
+				    <tr class="govuk-table__row">
+				      <th scope="col" class="govuk-table__header govuk-!-width-one-third"></th>
+				      <th scope="col" class="govuk-table__header govuk-!-width-two-thirds"></th>
+				    </tr>
+				  </thead>
+
+				  <tbody class="govuk-table__body">
+				    <tr class="govuk-table__row">
+				      <th scope="row" class="govuk-table__header">MD Reference</th>
+				      <td class="govuk-table__cell">
+				        <div id="regular-md"> MD53TTR <a href="#" id="change-button" style="float:right;" class="govuk-link">
+				            Change </a>
+				        </div>
+
+
+				        <div id="editing-md" style="display: none">
+
+				          {{
+				          govukInput({
+
+				          name: 'md-ref',
+				          id: 'md-ref-field',
+				          classes: 'govuk-input--width-5',
+				          formGroup: {
+				          classes: 'govuk-!-margin-bottom-1'
+				          },
+				          prefix: {
+				          text: "MD"
+				          },
+				          value: '53TTR',
+				          spellcheck: false
+
+				          }) }}
+
+				          <div style="display:flex">
+				            <a href="03-add-charge-entry-2.html" id="save-md-ref-button" role="button" draggable="false"
+				              class="govuk-button govuk-button--secondary" style="
+				            margin-bottom: 8px; margin-top: 4px;"> Save changes </a>
+
+				            <a id="save-md-ref-button" role="button" draggable="false" class="govuk-link"
+				              style="margin-top: 11px; margin-left:15px;"> Cancel changes </a>
+				          </div>
+				        </div>
+
+				      </td>
+
+				    </tr>
+
+				    <tr id="chargee-name" class="govuk-table__row">
+				      <th scope="row" class="govuk-table__header">Lender name</th>
+				      <td class="govuk-table__cell">Bank of England</td>
+				    </tr>
+
+
+				  </tbody>
+				</table>
+
+
+
+
+
+<div id="checkbox-md">
+
+  {{ govukCheckboxes({
+  name: 'undisclosed',
+  classes: 'govuk-checkboxes--small',
+  items: [
+  {
+  id: 'checkbox-md',
+  html: 'Charge does not have an MD reference',
+  value: 'No-MDRef',
+  checked: checked('undisclosed','No-MDRef')
+  }
+  ]
+  }) }}
+
+</div>
+
+<div id="register-entries"
+<h3 class="govuk-heading-m" style="margin-bottom:0px">Register Entries</h3>
+<table class="govuk-table form-table" style="margin-bottom:4px;">
+
+  <table class="govuk-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header"></th>
+      </tr>
+    </thead>
+
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">
+          <p class='govuk-body govuk-!-font-weight-bold' style=" margin-bottom: 0px" > Charge entry CD100 </p><br>
+          <p class='register-preview-no-margin'>REGISTERED CHARGE dated <b>14/02/2024</b></p>
+        </th>
+     </tr>
+
+     <tr class="govuk-table__row">
+       <th scope="row" class="govuk-table__header">
+         <p class='govuk-body govuk-!-font-weight-bold' style=" margin-bottom: 0px" > Lender entry CW507 </p>
+         <p class='register-preview-no-margin'> BANK OF ENGLAND (Co. Regn. No. RC000042) Threadneedle Street, London, EC2R 8AH.</p>
+       </th>
+   </tr>
+
+   </tbody>
+
+
+
+
+  </table>
+
+  </div>
+
+  <!-- COMPONENT FOR ADDING A NEW ENTRY-->
+
+  <div id="add-entry-block">
+
+    <div class="govuk-form-group" style=" margin-bottom: 15px">
+
+
+      <label class="govuk-heading-s" for="width-5">
+        Add another entry
+      </label>
+      <div id="contact-hint" class="govuk-hint">
+        For example CD100
+      </div>
+      <input class="govuk-input govuk-input--width-5" id="width-5" name="width-5" type="text">
+    </div>
+
+    <a id="add-entry-button-lender" role="button" draggable="false" class="govuk-button govuk-button--secondary1"> Add entry</a>
+    <div>
+      <a class="govuk-link" id="create-lender-entry-button-1" onclick="return false" href="#">Create a new lender
+        entry</a>
+    </div>
+</div>
+
+{% include "./_lender-entry-creation.html" %}
+
+
+
+
+
+
+	    	<!-- end of tasks  -->
+
+
+	    	<!-- Buttons and links -->
+
+        <div class="task-lists-submit">
+					<button class="govuk-button" data-module="govuk-button">
+						Save and continue
+					</button>
+					<a href="summary-interim-2" class="govuk-link reject-button">Cancel processing this transaction</a>
+				</div>
+
+			</form>
+
+
+
+	  </div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+
+  $('#change-button').click(function () {
+    $('#regular-md').hide();
+    $('#change-button').hide();
+    $('#chargee-name').hide();
+    $('#register-entries').hide();
+    $('#checkbox-md').hide();
+    $('#chargee-name').hide();
+    $('#special-instructions').hide();
+    $('#editing-md').show();
+   // $('#md-ref-field').focus();
+    var val = $('#md-ref-field').val(); //store the value of the element
+		$('#md-ref-field').val(''); //clear the value of the element
+		$('#md-ref-field').val(val); //set that value back.
+
+  });
+
+
+
+	$('#checkbox-md input:checkbox').change(function () {
+	  if ($(this).prop("checked") == true) {
+    	$("#warning").show();
+      $('.govuk-button').text('Send to Workflow');
+	  } else {
+    	$("#warning").hide();
+      $('.govuk-button').text('Next');
+  	}
+
+  });
+
+
+  //ENTER A NEW ENTRY (NEW CRE CODE ADDED)
+
+  //when the button to add a new entry is pressed
+  $('#add-entry-button-1').click(function (e) {
+    //then show the restriction entry
+    $('#restriction-entry').show();
+    //and hide the component for adding a new entry
+    $('#add-entry-block').hide();
+    //and reset the text field
+    $('#width-5').val('');
+
+
+  });
+
+  // when the button to save the cre code is added
+  $('#cre-button-save').click(function () {
+    //then hide the infills
+    $('#cre-edit-form').hide();
+    $("#infill-text-1, #infill-text-2, #infill-text-3").removeClass('highlight').addClass('edited-text-bold')
+    //and show the component for adding a new entry
+    $('#add-entry-block').show()
+  });
+
+  // Reveal edit button after save
+  $('#cre-button-save').click(function () {
+    $('#cre-buttons').show();
+  });
+
+
+
+
+
+
+
+
+
+  //CREATE NEW
+  //when the button to create a new lender entry is pressed
+  $('#create-lender-entry-button-1').click(function (e) {
+    // show the lender name component
+    $('#lender-name-1').show();
+    //and hide the component for adding an entry
+    $('#add-entry-block').hide()
+    //and hide the lender entry component
+    $('#lender-entry').hide()
+  });
+
+  //when the button to confirm the lender name entered is pressed
+  $('#save-lender-name-1').click(function (e) {
+    //hide the lender name component
+    $('#lender-name-1').hide();
+    // and show the lender address component (postcode search)
+    $('#lender-postal-address').show()
+  });
+
+  //when the button to find the address from the postcode is pressed
+  $('#find-address-button-1').click(function (e) {
+    // then show the results of the search
+    $('#search-2').show();
+    // and hide the lender address component (postcode search)
+    $('#search-1').hide();
+    //and hide the button add address
+    $('#find-address-button-1').hide();
+    //and show the button to clear the search
+    $('#clear-search-button-1').show()
+  });
+
+
+  //when the button to save the lender entry just created is pressed
+  $('#save-lender-address-1').click(function (e) {
+    //then show the newly created lender entry on the cre codes page
+    $('#add-entry-block').show();
+    //and show the newly created lender entry on the cre codes page
+    $('#lender-entry').show();
+    //and show the buttons to edit or remove
+    $('#cre-buttons-lender').show();
+    //and hide the lender address components
+    $('#lender-postal-address').hide()
+  });
+
+  //when the edit button on the lender entry is pressed
+  $('#cre-button-edit-lender').click(function (e) {
+    // show the lender name component
+    $('#lender-name-1').show();
+    //and hide the component for adding an entry
+    $('#add-entry-block').hide()
+    //and hide the lender entry component
+    $('#lender-entry').hide()
+
+    //when the button to save the lender entry just created is pressed
+    $('#cancel-adding-lender').click(function (e) {
+      //then show the newly created lender entry on the cre codes page
+      $('#add-entry-block').show();
+      //and show the newly created lender entry on the cre codes page
+      //and hide the lender address components
+      $('#lender-postal-address').hide()
+      $('#lender-name-1').hide()
+    });
+  });
+
+
+  // Infill section needs to:
+  // Update Freeform entries in real time
+  // Revert to infill text if free form box empty
+  // Remove highlight and infill box after clicking save and continue
+  // Reveal edit button after clicking save and continue
+  // Return to edit options after clicking edit
+
+
+  //Andy's code - free format infill 1
+  function updateFFInfill() {
+    const infill = document.getElementById('infill-text-1');
+    var textareaText = $('#field-1').val();
+
+    if (textareaText.trim() == '') {
+      textareaText = '[Infill 1]';
+    }
+
+    infill.textContent = textareaText;
+
+  }
+
+  // ****************
+  // free format textarea - listener
+  // ****************
+  $('#field-1').on('change keyup keydown', function (e) {
+
+    updateFFInfill();
+
+  });
+
+  //Andy's code - free format infill 2
+  function updateFFInfill2() {
+
+    const infill = document.getElementById('infill-text-2');
+
+    var textareaText = $('#field-2').val();
+
+    if (textareaText.trim() == '') {
+      textareaText = '[Infill 2]';
+    }
+
+    infill.textContent = textareaText;
+
+  }
+
+  // ****************
+  // free format textarea - listener
+  // ****************
+  $('#field-2').on('change keyup keydown', function (e) {
+
+    updateFFInfill2();
+
+  });
+
+
+
+  //Andy's code - free format infill 3
+  function updateFFInfill3() {
+
+    const infill = document.getElementById('infill-text-3');
+
+    var textareaText = $('#field-3').val();
+
+    if (textareaText.trim() == '') {
+      textareaText = '[Infill 3]';
+    }
+
+    infill.textContent = textareaText;
+
+  }
+
+  // ****************
+  // free format textarea - listener
+  // ****************
+  $('#field-3').on('change keyup keydown', function (e) {
+
+    updateFFInfill3();
+
+  });
+
+  // Infill 1
+
+  // Reveal edit fields after edit button clicked
+  $('#cre-buttons').click(function () {
+    $('#cre-edit-form').show();
+    $('#cre-buttons').hide();
+    $("#infill-text").removeClass('edited-text-bold').addClass('highlight')
+    $("#infill-text-2").removeClass('edited-text-bold').addClass('highlight')
+
+  });
+
+
+
+
+
+
+
+</script>
+
+
+{% endblock %}

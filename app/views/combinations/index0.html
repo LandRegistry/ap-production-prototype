@@ -10,15 +10,23 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
   <div class="govuk-grid-column-two-thirds">
     <a href="/index">Return to home</a>
     <br><br>
-    <h1 class="govuk-heading-xl">Charge - Deferral for compliance to restriction</h1>
+    <h1 class="govuk-heading-xl">Combinations - Phase 3, DTC + RX1</h1>
 
-    <p class="govuk-body">When an application contains a restriction which requires the consent of a specified party. If the consent is missing a requisition needs to be sent and the application deferred.</p>
-    <p>Caseworkers can manually defer a case in Workflow. This feature enables a caseworker to automatically defer from Application Processing when compliance to a restriction is missing.</p>
-    <p>This update includes:</p>
+    <p class="govuk-body">Applications which contain any of the following transactions, combined into a full application flow:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Subsequent discharge</li>
+      <li>Transfer for value</li>
+      <li>Charge</li>
+      <li>Adding a restriction (RX1)</li>
+    </ul>
+
+    <p>A combination in Application Processing will start with a summary page, which lists the inlcuded transactions and identifies where transactions may need to be completed in CORA. The first page of tasks in combinations is 'initial tasks' which cover the application level tasks. Transactions tasks are then presented in the order shown in the summary page.</p>
+    <p>Features of combinations include:</p>
 
     <ul class="govuk-list govuk-list--bullet">
-    	<li>A change to the existing restrictions question to include an option for referral and an automatic deferral option when no other PAS notes have been added.</li>
-    	<li>A second pass task following a customer reply if the application was deferrred in AP.</li>
+    	<li>Ability to skip a transaction - If a user can't proceed with a certain transaction they can skip it, to then continue processing in AP. The 'cancel processing this transaction' link replaces the 'return to workflow' link and takes the user to an interim summary page where they can choose to either continue processing or drop the whole case out to Workflow.</li>
+    	<li>Statuses - If a transaction has been skipped it will appear as 'Not drafted' in subsequent summary pages. The status of the transactions is confirmed in the final summary screen with information about what happens next and a dynamic button for if the case will submit to markoff or be sent to Workflow for the resolution of PAS notes.</li>
+    	<li>Partial saving - Transactions are saved once a user has moved past them. The 'save and continue' button at the end of each transaction marks each drafting save point.</li>
     </ul>
 <!--
     <p class="govuk-body">The system will:</p>
@@ -67,8 +75,8 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
     </ul>
 -->
 
-<h2 class="govuk-heading-l">Final version<h2>
-  <p><a href="/charge-defer/compliance-index">Compliance to restriction final design (in charges)</a></p>
+<h2 class="govuk-heading-l">Phase 3 version<h2>
+  <p><a href="/combinations/combos-index">Combinations flow (DTC+ RX1)</a></p>
 
   </div>
 </div>

@@ -1,0 +1,300 @@
+<!--Lender name-->
+
+<div id="lender-name-1" style="display: none;" aria-describedby="lender-name-1">
+
+  <fieldset class="govuk-fieldset">
+
+    <label class="govuk-heading-s" for="width-5" style="
+    margin-bottom: 16px;">
+     Lender entry <span><a href=# id="cancel-adding-lender" class=“govuk-link”>   - Cancel adding a new lender</a></span>
+    </label>
+
+      <!---  <h3 class=“govuk-heading-s”>Lender entry<span><a href=“#” class=“govuk-link”>   - Cancel adding a new lender</a></span>
+    </h3>  -->
+
+
+
+    <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+      <label class="govuk-label" for="sort">
+        Lender type
+      </label>
+      <div class="govuk-radios__item">
+
+        <input class="govuk-radios__input" id="individual-1" name="radios-1" type="radio" value="text"
+          data-aria-controls="conditional-individual-1">
+        <label class="govuk-label govuk-radios__label" for="individual-1">
+          Private individual
+        </label>
+      </div>
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden govuk-!-padding-top-2"
+        id="conditional-individual-1">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="type-individual-1">
+            First name
+          </label>
+          <input class="govuk-input govuk-!-width-one-third" id="type-individual-1" name="type-individual-1"
+            type="text">
+
+          <label class="govuk-label govuk-!-padding-top-4" for="type-individual-1">
+            Last name
+          </label>
+          <input class="govuk-input govuk-!-width-one-third" id="type-individual-1" name="type-individual-1"
+            type="text">
+        </div>
+      </div>
+
+
+      <div class="govuk-radios__item">
+
+        <input class="govuk-radios__input" id="company-1" name="radios-1" type="radio" value="text"
+          data-aria-controls="conditional-company-1">
+        <label class="govuk-label govuk-radios__label" for="company-1">
+          UK based company
+        </label>
+      </div>
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden govuk-!-padding-top-2"
+        id="conditional-company-1">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="type-company-name-1">
+            Company name
+          </label>
+          <input class="govuk-input govuk-!-width-one-third" id="type-company-name-1" name="type-company-name-1"
+            type="text">
+
+          <label class="govuk-label govuk-!-padding-top-4" for="type-company-number-1">
+            Company number
+          </label>
+          <div id="more-detail-hint" class="govuk-hint">
+            Include any prefix, for example, NI or SC
+          </div>
+          <input class="govuk-input govuk-!-width-one-third" id="type-company-number-1"
+            name="type-company-number-1" type="text">
+
+          <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="not-found-1" name="not-found-1" type="checkbox"
+                value="not-found-1">
+              <label class="govuk-label govuk-checkboxes__label" for="not-found-1">
+                I cannot find the company number
+              </label>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+  </fieldset>
+
+
+  <!--Dummy button to add a lender-->
+  <br>
+  <a href="#" id="add-button-1" class="govuk-link"> + Add another lender </a>
+  <br>
+
+<!--Button to save lender name-->
+
+  <a href="#" id='save-lender-name-1' role="button" draggable="false" class="govuk-button govuk-button--secondary"
+    onclick="return false" style="  margin-bottom: 12px;  margin-top: 16px;"> Save lender
+    name </a>
+
+
+</div>
+
+
+<div id="lender-postal-address" style="display: none;">
+
+<!--Lender address step 1-->
+
+  <fieldset class="govuk-fieldset" id="search-1" style="display:block;">
+
+    <label class="govuk-heading-s" for="width-5" style="
+    margin-bottom: 16px;">
+     Lender entry <span> <a href=# id="cancel-adding" class=“govuk-link”>   - Cancel adding a new lender</a></span>
+    </label>
+
+
+    <h2 class="govuk-fieldset__legend--s ">
+      Address for service 1: UK postcode and building name or number
+      <span>
+
+      </span>
+    </h2>
+
+
+    {{ govukInput({
+    id: 'search-postcode-1',
+    name: 'search-postcode-1',
+    value: 'BA22 2QC ',
+    classes: 'govuk-input govuk-input--width-20',
+    label: {
+    text: 'Enter UK postcode',
+    classes: 'govuk-body govuk-!-margin-top-2'
+    }
+    }) }}
+
+    <a href="#" role="button" id="find-address-button-1" draggable="false"
+      class="govuk-button govuk-button--secondary" style="
+    margin-bottom: 16px;" onclick="return false"> Find address</a>
+
+  </fieldset>
+
+<!--Lender address step 2-->
+
+
+  <fieldset class="govuk-fieldset" id="search-2" style="display:none;">
+
+    <label class="govuk-heading-s" for="width-5" style="
+    margin-bottom: 16px;">
+     Lender entry <span><a href=“” id="cancel-adding" class=“govuk-link”>   - Cancel adding a new lender</a></span>
+    </label>
+
+    <h2 class="govuk-fieldset__legend--s ">
+      Address for service 1: UK postcode and building name or number
+      <span>
+
+
+
+      </span>
+    </h2>
+
+    {{ govukSelect({
+    id: "search-results-1",
+    name: "search-results-1",
+    classes: 'govuk-input--width-20',
+    label: {
+    text: 'Select the address',
+    classes: 'govuk-body govuk-!-margin-top-2'
+    },
+
+    items: [
+    {
+    value: "1",
+    text: "245 Aspen Rowans, Swasils, Dorset, BA22 2QC",
+    selected: true
+
+    },
+    {
+    value: "1",
+    text: "247 Aspen Rowans, Swasils, Dorset, BA22 2QC "
+
+    },
+    {
+    value: "3",
+    text: "249 Aspen Rowans, Swasils, Dorset, BA22 2QC"
+    },
+    {
+    value: "4",
+    text: "251 Aspen Rowans, Swasils, Dorset, BA22 2QC"
+
+    },
+    {
+    value: "5",
+    text: "253 Aspen Rowans, Swasils, Dorset, BA22 2QC"
+    },
+    {
+    value: "6",
+    text: "255 Aspen Rowans, Swasils, Dorset, BA22 2QC"
+    }
+    ]
+    }) }}
+
+
+
+
+
+    <button class="govuk-button govuk-button--secondary" data-module="govuk-button" id='clear-search-button-1'
+      style="display: none">
+      Clear search
+    </button>
+  </fieldset>
+
+
+  {% set careAddressHtml %}
+  {{ govukInput({
+  id: "care-of-address-1",
+  name: "care-of-address-1",
+  spellcheck: false,
+  classes: " govuk-input--width-30",
+  label: {
+  text: "Enter the addressee’s name (optional)"
+  }
+  }) }}
+  {% endset -%}
+
+
+  {{ govukCheckboxes({
+  classes: 'govuk-checkboxes--small',
+
+  items: [
+  {
+  value: "I can not find the address on the list",
+  classes: 'govuk-checkboxes--small',
+  text: "I cannot find the address on the list"
+  },
+  {
+  value: "This is a care of address",
+  classes: 'govuk-checkboxes--small',
+  text: "This is a care of address",
+  conditional: {
+  html: careAddressHtml
+  }
+  }
+
+
+  ]
+  }) }}
+
+
+  {% call govukFieldset({
+  legend: {
+  text:'Select transferees for this address',
+  classes: "govuk-fieldset__legend govuk-fieldset__legend--s"
+  }
+  }) %}
+
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+
+    {{ govukTable ({
+    classes: 'govuk-checkboxes govuk-checkboxes--small',
+    head: [
+    {
+    },
+    {
+    }
+    ],
+    rows: [
+    [
+    {
+
+    html:
+    ' <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="transferee-1-2" name="transferee-1-2" type="checkbox"
+          value="transferee-1-2">
+        <label class="govuk-label govuk-checkboxes__label" for="transferee-1-2">
+          Arthur Marlebone
+        </label>
+      </div>
+    </div>'
+    }
+
+    ]
+
+    ]
+    })}}
+
+
+    {% endcall %}
+
+
+    <a href="#" id='save-lender-address-1' role="button" draggable="false"
+      class="govuk-button govuk-button--secondary" style="margin-bottom: 12px;"> Save new entry </a>
+</div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
