@@ -1,0 +1,349 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+Restriction (RX1)
+{% endblock %}
+
+{% block content %}
+
+<!-- application information  -->
+{% include "./includes/application-info-rx1.html" %}
+<!-- end - application information  -->
+
+<style>
+  .govuk-button--secondary1{
+      background-color:#6F777B;
+      -webkit-box-shadow:0 2px 0 #929191;
+      box-shadow:0 2px 0 #929191;
+      color: #ffffff
+  }
+  .govuk-button--secondary,.govuk-button--secondary1:active,.govuk-button--secondary1:hover,.govuk-button--secondary1:link,.govuk-button--secondary1:visited{
+      color:#0b0c0c
+  }
+  .govuk-button--secondary1:hover{
+      background-color:#dbdad9
+  }
+  .govuk-button--secondary:hover[disabled]{
+      background-color:#f3f2f1
+  }
+
+    #restriction-button-save {
+      margin-top: 15px;
+    }
+
+    #restriction-button-save-2 {
+      margin-top: 15px;
+    }
+
+    .edited-text-bold {
+      font-weight: 700;
+    }
+
+    .highlight{
+     background-color:#ffdd00
+   }
+
+   .save-entry-button {
+     background-color:#505a5f
+   }
+   .save-entry-button:hover{
+       background-color:#dbdad9
+   }
+  </style>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register-removing-3-new.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+
+    <div class="casework-tasks-container">
+
+    	<form action="11-restriction-page-1" method="post">
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Verified by automation
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <div class="checklist" data-testid="task-checklist-container">
+              <div class="checklist-header">
+                <p class="govuk-body govuk-body__extra-margin">You do not need to check these details.</p>
+              </div>
+              <div class="checklist-container">
+                <div class="checklist-items">
+                  <h3 class="govuk-heading-s">Daylist</h3>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>No prior applications</li>
+                    <li>No stops</li>
+                    <li>No official searches</li>
+                  </ul>
+                </div>
+                <div class="checklist-items">
+                  <h3 class="govuk-heading-s">Application</h3>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>Property matches description</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <hr style="height:1px;border-width:0;color:gray;background-color:gray;margin-bottom:25px">
+
+	      <h2 class="govuk-heading-m">Restriction details</h2>
+        <div id="restriction-selction">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="sort"><b>
+            Select a restriction to add </b>
+          </label>
+          <select class="govuk-select" id="sort" name="sort">
+            <option value="select-restriction" selected>Select restriction</option>
+            <option value="RX1-1">BX966</option>
+            <option value="RX1-2">BXL01</option>
+            <option value="RX1-3">BX572</option>
+            <option value="RX1-4">BXN01</option>
+            <option value="RX1-5">BX900</option>
+          </select>
+
+        </div>
+          <a id="add-restriction-button" role="button" draggable="false" class="govuk-button govuk-button--secondary1"> Add restriction</a>
+
+          	<hr style="height:1px;border-width:0;color:gray;background-color:gray;margin-bottom:25px">
+        </div>
+            <!-- Table starts here-->
+
+            <table class="govuk-table " style="
+            margin-bottom: 20px;">
+
+
+              <tbody class="govuk-table__body">
+
+
+                <!-- RESTRICTION ENTRY Form N -->
+
+                <tr class="govuk-table__row" style="display: none" id="restriction-entry">
+                  <th scope="row" class="govuk-table__header">
+                    <p class='govuk-body govuk-!-font-weight-bold' style=" margin-bottom: 4px"> Restriction entry BXN01 </p>
+                    {% include "./includes/_BX102N.html" %}
+                  </th>
+                </tr>
+
+
+
+              </tbody>
+            </table>
+
+            <!-- Table ends here-->
+	    	<!-- Buttons and links -->
+
+        <div class="task-lists-submit">
+					<button class="govuk-button" data-module="govuk-button">
+						Save and continue
+					</button>
+					<a href="summary-interim-4" class="govuk-link reject-button">Cancel processing this transaction</a>
+				</div>
+
+			</form>
+
+
+
+	  </div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+
+  //ENTER A NEW ENTRY (NEW CRE CODE ADDED)
+
+  //when the button to add a new entry is pressed
+  $('#add-restriction-button').click(function (e) {
+    //then show the restriction entry
+    $('#restriction-entry').show();
+    //then hide the restriction selection components
+    $('#restriction-selection').hide();
+    //and reset the text field
+    $('#width-5').val('');
+
+
+  });
+
+  // when the button to save the cre code is added
+  $('#restriction-button-save').click(function () {
+    //then hide the infills
+    $('#restriction-edit-form').hide();
+    $("#infill-text-1, #infill-text-2, #infill-text-3, #infill-text-4, #infill-text-5, #infill-text-6 ").removeClass('highlight').addClass('edited-text-bold')
+  });
+
+  // Reveal edit button after save
+  $('#restriction-button-save').click(function () {
+    $('#cre-buttons').show();
+  });
+
+
+
+
+  //Andy's code - free format infill 1
+  function updateFFInfill1() {
+    const infill = document.getElementById('infill-text-1');
+    var textareaText = $('#field-1').val();
+
+    if (textareaText.trim() == '') {
+      textareaText = '[Infill 1]';
+    }
+
+    infill.textContent = textareaText;
+
+  }
+
+  // ****************
+  // free format textarea - listener
+  // ****************
+  $('#field-1').on('change keyup keydown', function (e) {
+
+    updateFFInfill1();
+
+  });
+
+  //Andy's code - free format infill 2
+  function updateFFInfill2() {
+
+    const infill = document.getElementById('infill-text-2');
+
+    var textareaText = $('#field-2').val();
+
+    if (textareaText.trim() == '') {
+      textareaText = '[Infill 2]';
+    }
+
+    infill.textContent = textareaText;
+
+  }
+
+  // ****************
+  // free format textarea - listener
+  // ****************
+  $('#field-2').on('change keyup keydown', function (e) {
+
+    updateFFInfill2();
+
+  });
+
+
+
+  //Andy's code - free format infill 3
+  function updateFFInfill3() {
+
+    const infill = document.getElementById('infill-text-3');
+
+    var textareaText = $('#field-3').val();
+
+    if (textareaText.trim() == '') {
+      textareaText = '[Infill 3]';
+    }
+
+    infill.textContent = textareaText;
+
+  }
+
+  // ****************
+  // free format textarea - listener
+  // ****************
+  $('#field-3').on('change keyup keydown', function (e) {
+
+    updateFFInfill3();
+
+  });
+
+  //Andy's code - free format infill 4
+  function updateFFInfill4() {
+    const infill = document.getElementById('infill-text-4');
+    var textareaText = $('#field-4').val();
+
+    if (textareaText.trim() == '') {
+      textareaText = '[Infill 4]';
+    }
+
+    infill.textContent = textareaText;
+
+  }
+
+  // ****************
+  // free format textarea - listener
+  // ****************
+  $('#field-4').on('change keyup keydown', function (e) {
+
+    updateFFInfill4();
+
+  });
+
+  //Andy's code - free format infill 5
+  function updateFFInfill5() {
+    const infill = document.getElementById('infill-text-5');
+    var textareaText = $('#field-5').val();
+
+    if (textareaText.trim() == '') {
+      textareaText = '[Infill 5]';
+    }
+
+    infill.textContent = textareaText;
+
+  }
+
+  // ****************
+  // free format textarea - listener
+  // ****************
+  $('#field-5').on('change keyup keydown', function (e) {
+
+    updateFFInfill5();
+
+  });
+
+  //Andy's code - free format infill 6
+  function updateFFInfill6() {
+    const infill = document.getElementById('infill-text-6');
+    var textareaText = $('#field-6').val();
+
+    if (textareaText.trim() == '') {
+      textareaText = '[Infill 6]';
+    }
+
+    infill.textContent = textareaText;
+
+  }
+
+  // ****************
+  // free format textarea - listener
+  // ****************
+  $('#field-6').on('change keyup keydown', function (e) {
+
+    updateFFInfill6();
+
+  });
+
+  //Listener for loading spinner
+    window.addEventListener ("load", function () {
+      const loader = document.querySelector(".loader");
+      loader.className += " hidden"; //class "loader hidden"
+    });
+
+</script>
+
+{% endblock %}
