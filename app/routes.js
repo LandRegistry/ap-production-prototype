@@ -54,3 +54,7 @@ router.use(/\/combinations\/v([0-9a-z]+)/, (req, res, next) => {
 router.use("/trailing-info/prototype/", (req, res, next) => {
   return require("./views/trailing-info/prototype/_routes")(req, res, next);
 })
+
+router.use(/\/multi-titles\/v([0-9a-z]+)/, (req, res, next) => {
+  return require(`./views/multi-titles/v${req.params[0]}/_routes`)(req, res, next);
+})

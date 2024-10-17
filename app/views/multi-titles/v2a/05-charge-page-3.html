@@ -1,0 +1,102 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+Charge
+{% endblock %}
+
+{% block content %}
+
+<!-- application information  -->
+{% include "./includes/application-info-charge.html" %}
+<!-- end - application information  -->
+
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register-removing.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+
+    <div class="casework-tasks-container">
+      {{ govukBackLink({
+        text: 'Previous',
+        href: '04-charge-page-2'
+      }) }}
+
+
+    	<form action="05-charge-page-3" method="post">
+
+
+	      <h2 class="govuk-heading-m">Your tasks</h2>
+
+	    	<!-- tasks go here  -->
+
+        <!-- register restrictions -->
+	      {{ govukRadios({
+	        idPrefix: 'register-restrictions',
+	        name: 'register-restrictions',
+	        classes: 'govuk-radios--small',
+	        fieldset: {
+	          legend: {
+	            text: 'There are restrictions in the register. Can the application still be processed?',
+	            classes: 'govuk-fieldset__legend--s'
+	          }
+	        },
+          hint: {
+	          html: 'This question does not apply to charge and joint proprietor restrictions'
+	        },
+	        items: [
+	          {
+	            html: 'Yes',
+	            value: 'Yes',
+	            checked: checked('register-restrictions','Yes')
+	          },
+	          {
+	            html: 'No',
+	            value: 'No',
+	            checked: checked('register-restrictions','No')
+	          },
+            {
+              html: 'Needs a referral',
+              value: 'Needs a referral',
+              checked: checked('register-restrictions','Needs a referral')
+            }
+	        ]
+	      }) }}
+
+	    	<!-- end of tasks  -->
+
+
+
+
+	    	<!-- Buttons and links -->
+
+				<div class="task-lists-submit">
+			    <button class="govuk-button" data-module="govuk-button">
+			      Save and continue
+			    </button>
+          <a href="02-mid-summary-page-combo-not-drafted" class="govuk-link reject-button">Cancel processing this transaction</a>
+
+	 			</div>
+
+		  </form>
+
+
+
+	  </div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+{% endblock %}
