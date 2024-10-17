@@ -1,0 +1,154 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+Final tasks
+{% endblock %}
+
+{% block content %}
+
+<style>
+  .govuk-link-summary {
+    font-size: 19px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.25;
+    margin-bottom: 15px;
+    margin-top: 0;
+    font-weight: 400;
+  }
+
+  .govuk-table__header-summary {
+    border-bottom: 1px solid #b1b4b6;
+    padding: 10px 20px 10px 0;
+    text-align: left;
+    vertical-align: top;
+    font-weight: 400;
+  }
+
+  .govuk-table__header--numeric-summary {
+    border-bottom: 1px solid #b1b4b6;
+    padding: 10px 20px 10px 0;
+    text-align: left;
+    vertical-align: top;
+    font-weight: 400;
+  }
+
+  .govuk-table__cell--numeric-summary {
+    font-weight: 700;
+  }
+</style>
+
+<!-------------CODE STARTS HERE------------>
+<!--------------HEADER-------------->
+<!-- application information  -->
+{% include "./includes/application-info-final-tasks.html" %}
+<!-- end - application information  -->
+ <!-------------ONE HALF COLUMN------------------------>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-half column">
+            <!------------------------LEAD TITLE------------------------>
+            <table class="govuk-table">
+              <caption class="govuk-table__caption govuk-table__caption--m govuk-!-padding-top-6">
+                Lead title
+              </caption>
+              <!-------TITLE / ABR NUMBER------->
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header-summary">Title number: <strong>DN1029KU</strong></th>
+                  <th scope="col" class="govuk-table__header govuk-table__header--numeric-summary">
+                  </th>
+                  <th scope="col" class="govuk-table__header govuk-table__header--numeric-summary">ABR number:
+                    <strong>A312YYX</strong>
+                  </th>
+                </tr>
+              </thead>
+              <!-------DISCHARGE SECTION-------->
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">1. Discharge</th>
+                <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Drafted</strong></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <!-------CHARGE SECTION-------->
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">2. Charge</th>
+                <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Drafted</strong></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              </tbody>
+            </table>
+
+        <!-------------------------ATTACHED TITLE 1--------------------------->
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m govuk-!-padding-top-6">
+            Attached title 1
+          </caption>
+          <!-------TITLE / ABR NUMBER------->
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header-summary">Title number: <strong>DN5028YT</strong></th>
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric-summary">
+              </th>
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric-summary">ABR number:
+                <strong>A155OYX</strong>
+              </th>
+            </tr>
+          </thead>
+          <!-------CHARGE SECTION-------->
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">1. Charge</th>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Drafted</strong></td>
+            <td class="govuk-table__cell"></td>
+          </tr>
+        </table>
+          </div>
+        </div>
+        <!-------------ONE HALF COLUMN------------------------>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-half column">
+        <!-------------------------ATTACHED TITLE 2-------------------------->
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m govuk-!-padding-top-6">
+            Attached title 2
+          </caption>
+          <!-------TITLE / ABR NUMBER------->
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header-summary">Title number: <strong>DN1432OU</strong></th>
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric-summary">
+              </th>
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric-summary">ABR number:
+                <strong>A245UYX</strong>
+              </th>
+            </tr>
+          </thead>
+          <!-------CHARGE SECTION-------->
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">1. Charge</th>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Drafted</strong></td>
+            <td class="govuk-table__cell"></td>
+          </tr>
+        </table>
+          </div>
+        </div>
+        <br>
+ <!-------------ONE HALF COLUMN------------------------>
+ <div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half ">
+    <!--------------BUTTON-------------->
+    <h3 class="govuk-heading-m">What happens next?</h3>
+    <p> Send to Workflow to finish this application.
+      <br><br>
+      Drafting has been saved on completed transactions.</p>
+    <div class="govuk-button-group">
+      {{ govukButton({
+        html: 'Send to Workflow',
+    href: 'workflow'
+  }) }}
+</div>
+  </div>
+</div>
+
+</div>
+</div>
+
+{% endblock %}

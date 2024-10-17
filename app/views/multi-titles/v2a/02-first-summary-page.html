@@ -1,0 +1,174 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+Multi-title
+{% endblock %}
+
+{% block content %}
+
+
+<style>
+  .govuk-link-summary {
+    font-size: 19px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.25;
+    margin-bottom: 15px;
+    margin-top: 0;
+    font-weight: 400;
+  }
+
+  .govuk-table__header-summary {
+    border-bottom: 1px solid #b1b4b6;
+    padding: 10px 20px 10px 0;
+    text-align: left;
+    vertical-align: top;
+    font-weight: 400;
+  }
+
+  .govuk-table__header--numeric-summary {
+    border-bottom: 1px solid #b1b4b6;
+    padding: 10px 20px 10px 0;
+    text-align: left;
+    vertical-align: top;
+    font-weight: 400;
+  }
+
+  .govuk-table__cell--numeric-summary {
+    font-weight: 700;
+  }
+
+  .govuk-link-aside {
+  margin-left: 365px;
+}
+</style>
+
+<!-------------CODE STARTS HERE------------>
+<!--------------HEADER-------------->
+<!-- application information  -->
+{% include "./includes/application-info-mlt1.html" %}
+<!-- end - application information  -->
+
+<!-------------ONE HALF COLUMN------------------------>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half column">
+    <!------------------------LEAD TITLE------------------------>
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m govuk-!-padding-top-6">
+        Lead title
+      </caption>
+      <!-------TITLE / ABR NUMBER------->
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header-summary"><strong>Title number: DN1029KU</strong></th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric-summary">
+          </th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric-summary">
+            <strong>ABR number: A312YYX</strong>
+          </th>
+        </tr>
+      </thead>
+      <!-------DISCHARGE SECTION-------->
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">1. Discharge</th>
+        <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell"></td>
+      </tr>
+      <!-------CHARGE SECTION-------->
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">2. Charge</th>
+        <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-----<dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            1. Charge
+          </dt>
+          <dd class="govuk-summary-list__value govuk-table__cell--numeric">
+            <strong class="govuk-tag">
+              Completed
+            </strong>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            2. Transfer
+          </dt>
+          <dd class="govuk-summary-list__value govuk-table__cell--numeric">
+            <strong class="govuk-tag">
+              Completed
+            </strong>
+           </dd>
+        </div>
+      </dl>----->
+<!-------------ONE HALF COLUMN------------------------>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half ">
+    <div class="govuk-button-group">
+      {{ govukButton({
+      html: 'Start processing',
+      href: '/multi-titles/v2a/01-preliminary-1'
+      }) }}
+      <p>
+      <a class="govuk-link govuk-link-aside" href="workflow-no-drafting">Return to Workflow</a></p>
+    </div>
+  </div>
+</div>
+<!-------------ONE HALF COLUMN------------------------>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half ">
+    <!--------------ATTACHED TITLE 1-------------->
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m govuk-!-padding-top-6">
+        Attached title 1
+      </caption>
+      <!-------TITLE / ABR NUMBER------->
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header-summary"> <strong>Title number: DN5028YT</strong></th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric-summary">
+          </th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric-summary">
+            <strong>ABR number: A155OYX</strong>
+          </th>
+        </tr>
+      </thead>
+      <!-------CHARGE SECTION-------->
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">1. Charge</th>
+        <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell"></td>
+      </tr>
+    </table>
+    <!--------------ATTACHED TITLE 2-------------->
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m govuk-!-padding-top-6">
+        Attached title 2
+      </caption>
+      <!-------TITLE / ABR NUMBER------->
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header-summary"> <strong>Title number: DN1432OU</strong></th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric-summary">
+          </th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric-summary">
+            <strong>ABR number: A245UYX</strong>
+          </th>
+        </tr>
+      </thead>
+      <!-------CHARGE SECTION-------->
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">1. Charge</th>
+        <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+{% endblock %}
