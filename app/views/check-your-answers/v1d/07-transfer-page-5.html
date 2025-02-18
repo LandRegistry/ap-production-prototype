@@ -1,0 +1,245 @@
+{% extends "layouts/ap-flow-wide.html" %}
+{% block pageTitle %}
+Transfer
+{% endblock %}
+{% block content %}
+<!-- STYLESHEET TO OVERRIDE CERTAIN CSS IN BACKGROUND-->
+<style>
+	.stickyheader {
+		background-color: #ffffff;
+		padding: 10px;
+		position: sticky;
+		top: 0;
+		z-index: 100;
+	}
+
+	.white-background {
+		background: #ffffff !important;
+	}
+
+	.column {
+		height: 100px;
+	}
+
+	.register-column {
+		height: 905px;
+	}
+
+	.register {
+		padding-right: 10px;
+		padding-left: 10px;
+		border-right: 1px solid rgb(255, 255, 255);
+
+	}
+
+	.tasks {
+		padding-left: 20px;
+	}
+
+	.scroll {
+		overflow: auto;
+		background: #ffffff;
+		color: #878787;
+	}
+
+	* {
+		font-family: Arial, sans-serif !important;
+	}
+</style>
+  <!-- application information  -->
+	{% include "./includes/application-info-transfer.html" %}
+	<!-- end - application information  -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+    	{% include "./includes/register-removing-2-new-mixed.html" %}
+    </div>
+  </div>
+  <!-- Tasks section starts here -->
+  <div class="govuk-grid-column-one-half column">
+    <div class="casework-tasks-container">
+			<!-----------BACK LINK----------->
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+<br><br>
+    	<form action="07-transfer-page-5" method="post">
+	      <h2 class="govuk-heading-m">Your tasks</h2>
+	    	<!-- tasks go here  -->
+				{% set showentriesHtml %}
+	        {% call govukFieldset({
+	          legend: {
+	            html:'<br>Select additional entries to remove',
+	            classes: "govuk-fieldset__legend govuk-body"
+	          }
+	        }) %}
+						<div class= "entrylist-container">
+				      {{ govukCheckboxes({
+				        idPrefix: 'remove',
+				        name: 'remove',
+				        classes: 'js-register-remove / govuk-checkboxes--small entrylist-items',
+				        fieldset: {
+				          legend: {
+				          }
+				        },
+				          items: [
+				              {
+				              html: 'B3',
+				              value: 'B3',
+				              checked: checked('remove','B3'),
+				              attributes: {
+				                'data-register': '3',
+				                'data-item': '5'
+				              }
+				              }
+				            ]
+				      }) }}
+				      </div>
+				  {% endcall %}
+				{% endset -%}
+
+				{{ govukRadios({
+				  idPrefix: 'removed-entries',
+				  name: 'removed-entries',
+				  classes: 'govuk-radios--conditional govuk-radios--small govuk-radios',
+				  fieldset: {
+				    classes: 'govuk-radios govuk-radios--conditional',
+				    legend: {
+				      text: 'Are all entries to be removed indicated on the register?',
+				      classes: 'govuk-fieldset__legend--s'
+				    }
+				  },
+				  items: [
+				  {
+				      classes: 'govuk-radios--conditional govuk-radios__item govuk-radios--inline',
+				      html: 'Yes',
+				      value: 'Yes',
+				      checked: checked
+				  },
+				  {
+				    classes: 'govuk-radios--conditional govuk-radios__item govuk-radios--inline',
+				      html: 'No',
+				      value: 'No',
+				      conditional: {
+				        html: showentriesHtml
+				      }
+				  }
+				]
+				}) }}
+				<!-- personal-covenants
+				{{ govukRadios({
+					idPrefix: 'add-jp-restriction',
+					name: 'add-jp-restriction',
+					classes: 'govuk-radios--small govuk-radios--inline',
+					fieldset: {
+						legend: {
+							text: 'Transferees have indicated that they wish to hold the property in trust. Can a Joint proprietor restriction be added?',
+							classes: 'govuk-fieldset__legend--s'
+						}
+					},
+					items: [
+						{
+							html: 'Yes',
+							value: 'Yes',
+							checked: checked('add-jp-restriction','Yes')
+						},
+						{
+							html: 'No',
+							value: 'No',
+							checked: checked('add-jp-restriction','No')
+						}
+					]
+				}) }}
+-->
+					<!-- personal-covenants
+					{{ govukRadios({
+						idPrefix: 'personal-convenants',
+						name: 'personal-convenants',
+						classes: 'govuk-radios--small govuk-radios--inline',
+						fieldset: {
+							legend: {
+								text: 'Do any personal covenants need to be added?',
+								classes: 'govuk-fieldset__legend--s'
+							}
+						},
+						items: [
+							{
+								html: 'Yes',
+								value: 'Yes',
+								checked: checked('personal-convenants','Yes')
+							},
+							{
+								html: 'No',
+								value: 'No',
+								checked: checked('personal-convenants','No')
+							}
+						]
+					}) }}
+-->
+					<!-- adding-entries
+		    	{{ govukRadios({
+		        idPrefix: 'adding-entries',
+		        name: 'adding-entries',
+		        classes: 'govuk-radios--small govuk-radios--inline',
+		        fieldset: {
+		          legend: {
+		            text: 'Do any other new entries need to be added?',
+		            classes: 'govuk-fieldset__legend--s'
+		          }
+		        },
+		        items: [
+		          {
+		            html: 'Yes',
+		            value: 'Yes',
+		            checked: checked('adding-entries','Yes')
+		          },
+		          {
+		            html: 'No',
+		            value: 'No',
+		            checked: checked('adding-entries','No')
+		          }
+		        ]
+		      }) }}
+-->
+	      <!-- existing entries need amending?
+	    	{{ govukRadios({
+	        idPrefix: 'existing-entries',
+	        name: 'existing-entries',
+	        classes: 'govuk-radios--small govuk-radios--inline',
+	        fieldset: {
+	          legend: {
+	            text: 'Do any existing entries need to be amended?',
+	            classes: 'govuk-fieldset__legend--s'
+	          }
+	        },
+	        items: [
+	          {
+	            html: 'Yes',
+	            value: 'Yes',
+	            checked: checked('existing-entries','Yes')
+	          },
+	          {
+	            html: 'No',
+	            value: 'No',
+	            checked: checked('existing-entries','No')
+	          }
+	        ]
+	      }) }}
+-->
+	    	<!-- end of tasks  -->
+		</form>
+	</div>
+ 
+
+	  	<!-- Buttons and links -->
+		  <div class="task-lists-submit">
+			<a href="return-to-cya" role="button" draggable="false" class="govuk-button"
+				data-module="govuk-button">
+				Save and continue
+			</a>
+					<a href="#" class="govuk-link reject-button">Cancel processing this transaction</a>
+				</div>
+			</form>
+	  </div>
+	<!-- end Tasks column -->
+</div>
+</div>
+{% endblock %}

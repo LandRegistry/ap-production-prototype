@@ -1,0 +1,152 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+Transfer
+
+{% endblock %}
+
+{% block content %}
+
+<!-- STYLESHEET TO OVERRIDE CERTAIN CSS IN BACKGROUND-->
+<style>
+	.stickyheader {
+		background-color: #ffffff;
+		padding: 10px;
+		position: sticky;
+		top: 0;
+		z-index: 100;
+	}
+
+	.white-background {
+		background: #ffffff !important;
+	}
+
+	.column {
+		height: 100px;
+	}
+
+	.register-column {
+		height: 905px;
+	}
+
+	.register {
+		padding-right: 10px;
+		padding-left: 10px;
+		border-right: 1px solid rgb(255, 255, 255);
+
+	}
+
+	.tasks {
+		padding-left: 20px;
+	}
+
+	.scroll {
+		overflow: auto;
+		background: #ffffff;
+		color: #878787;
+	}
+
+	* {
+		font-family: Arial, sans-serif !important;
+	}
+</style>
+  <!-- application information  -->
+	{% include "./includes/application-info-transfer.html" %}
+	<!-- end - application information  -->
+
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register-removing-new.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+
+    <div class="casework-tasks-container">
+	<!-----------BACK LINK----------->
+	<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+<br><br>
+    	<form action="04-transfer-page-2" method="post">
+	      <h2 class="govuk-heading-m">Your tasks</h2>
+	    	<!-- tasks go here  -->
+			<!----NO IDEA WHAT QUESTION THIS IS BUT IS DOES NOT SHOW EITHER WAY
+			{#
+				{{ govukRadios({
+					idPrefix: 'transfer-name-match',
+					name: 'transfer-name-match',
+					classes: 'govuk-radios--small govuk-radios--inline',
+					fieldset: {
+						legend: {
+							html: 'The transferor&rsquo;s name in the application does not exactly match the register. Can the transfer still be processed?',
+							classes: 'govuk-fieldset__legend--s'
+						}
+					},
+					items: [
+						{
+							html: 'Yes',
+							value: 'Yes',
+							checked: checked('transfer-name-match','Yes')
+						},
+						{
+							html: 'No',
+							value: 'No',
+							checked: checked('transfer-name-match','No')
+						}
+					]
+				}) }}
+			#}---->
+
+				{{ govukRadios({
+				idPrefix: 'single-residential',
+				name: 'single-residential',
+				classes: 'govuk-radios--small govuk-radios--inline',
+				fieldset: {
+					legend: {
+						text: 'Is the property single residential?',
+						classes: 'govuk-fieldset__legend--s'
+					}
+				},
+				items: [
+					{
+						html: 'Yes',
+						value: 'Yes',
+						checked: checked
+					},
+					{
+						html: 'No',
+						value: 'No',
+						checked: checked('single-residential','No')
+					}
+				]
+				}) }}
+
+
+	    	<!-- end of tasks  -->
+	    	<!-- Buttons and links -->
+			<a href="05-transfer-page-3" role="button" draggable="false" class="govuk-button"
+			data-module="govuk-button">
+			Continue
+		</a>
+						<a href="#" class="govuk-link reject-button">Cancel processing this transaction</a>
+				</div>
+
+			</form>
+
+
+
+	  </div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+{% endblock %}

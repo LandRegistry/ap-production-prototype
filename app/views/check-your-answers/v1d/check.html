@@ -1,0 +1,276 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+Charge
+{% endblock %}
+
+{% block content %}
+<style>
+    .tabbedbkg {
+background: white;
+  }
+</style>
+
+  <!-- application information  -->
+  {% include "./includes/application-info-initial-tasks.html" %}
+  <!-- end - application information  -->
+  
+
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-half column">
+                <div class="govuk-tabs" data-module="govuk-tabs">
+                    <h2 class="govuk-tabs__title">
+                        Contents
+                    </h2>
+                    <ul class="govuk-tabs__list">
+                        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+                            <a class="govuk-tabs__tab" href="#titles">
+                                Summary (1)
+                            </a>
+                        </li>
+                        <li class="govuk-tabs__list-item">
+                            <a class="govuk-tabs__tab" href="#restriction">
+                                Check your answers
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="govuk-tabs__panel tabbedbkg" id="titles">
+                        <!---SUMMARY TAB-->
+                        <h2 class="govuk-heading-l">Summary</h2>
+                        <table class="govuk-table  ">
+                            <caption class="govuk-table__caption govuk-table__caption--m govuk-!-padding-top-6">
+                                Application for DN1029KU
+                            </caption>
+
+
+                            <thead class="govuk-table__head">
+                                <tr class="govuk-table__row">
+                                    <th scope="col" class="govuk-table__header"></th>
+                                    <th scope="col" class="govuk-table__header govuk-table__header--numeric"></th>
+                                </tr>
+                            </thead>
+                            <tbody class="govuk-table__body ">
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="govuk-table__header">1. Discharge</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric"> <strong
+                                            class="govuk-tag govuk-tag--green">
+                                            Drafted
+                                        </strong> </td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="govuk-table__header">2. Transfer</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric"> <strong
+                                            class="govuk-tag govuk-tag--green">
+                                            Drafted
+                                        </strong> </td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="govuk-table__header">3. Charge</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric"> <strong
+                                            class="govuk-tag govuk-tag--green">
+                                            Drafted
+                                        </strong> </td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="govuk-table__header">4. Restriction (RX1) </th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric"> <strong
+                                            class="govuk-tag govuk-tag--green">
+                                            Drafted
+                                        </strong> </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!---CYA TAB-->
+                    <div class="govuk-tabs__panel govuk-tabs__panel--hidden tabbedbkg" id="restriction">
+                        <h2 class="govuk-heading-l">Check your answers</h2>
+                        <div class="govuk-width-container">
+                            <main class="govuk-main-wrapper " id="main-content" role="main">
+                                <div class="govuk-grid-row">
+                                    <div class="govuk-grid-column-full">
+                                       
+        <h2 class="govuk-heading-m">Inital tasks</h2>
+
+        {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+        {
+        key: {
+        text: "Are the documents for the right property and title number?"
+        },
+        value: {
+        text: data['property-match']
+        },
+        actions: {
+        items: [
+        {
+        href: "/check-your-answers/v1b/01-preliminary",
+        text: "Change",
+        visuallyHiddenText: "property-match"
+        }
+        ]
+        }
+        },
+
+
+
+        {
+        key: {
+        text: "Do the following customer details match the documents?"
+        },
+        value: {
+        text: data['customer-match']
+        },
+        actions: {
+        items: [
+        {
+        href: "/check-your-answers/v1b/01-preliminary",
+        text: "Change",
+        visuallyHiddenText: "customer-match"
+        }
+        ]
+        }
+        },
+
+
+
+        {
+        key: {
+        text: "Has the application been lodged by as a conveyancer?"
+        },
+        value: {
+        text: data['conveyancer-match']
+        },
+        actions: {
+        items: [
+        {
+        href: "/check-your-answers/v1b/01-preliminary",
+        text: "Change",
+        visuallyHiddenText: "conveyancer-match"
+        }
+        ]
+        }
+        },
+
+
+
+
+
+        {
+        key: {
+        text: "Are the identity panels filled out correctly?"
+        },
+        value: {
+            text: data['id-check']
+        },
+        actions: {
+        items: [
+        {
+        href: "/check-your-answers/v1b/01-preliminary",
+        text: "Change",
+        visuallyHiddenText: "id-check"
+        }
+        ]
+        }
+        },
+
+
+
+
+        {
+        key: {
+        text: "Has the correct fee been paid?"
+        },
+        value: {
+       text: data['correct-fee']
+        },
+        actions: {
+        items: [
+        {
+        href: "/check-your-answers/v1b/01-preliminary",
+        text: "Change",
+        visuallyHiddenText: "correct-fee"
+        }
+        ]
+        }
+        },
+    
+
+
+
+
+        {
+        key: {
+        text: "Are included documents executed correctly?"
+        },
+        value: {
+        text: "Yes"
+        },
+        actions: {
+        items: [
+        {
+        href: "/check-your-answers/v1b/02-preliminary",
+        text: "Change",
+        visuallyHiddenText: "customer reference"
+        }
+        ]
+        }
+        },
+        {
+        key: {
+        text: "Do stops require any further action?"
+        },
+        value: {
+        text: ""
+        },
+        actions: {
+        items: [
+        {
+        href: "/check-your-answers/v1b/02-preliminary",
+        text: "Change",
+        visuallyHiddenText: "customer reference"
+        }
+        ]
+        }
+        },
+        {
+        key: {
+        text: "Does the search with priority protect the application?"
+        },
+        value: {
+        text: ""
+        },
+        actions: {
+        items: [
+        {
+        href: "/check-your-answers/v1b/02-preliminary",
+        text: "Change",
+        visuallyHiddenText: "customer reference"
+        }
+        ]
+        }
+        }
+        ]
+        }) }}
+                                           
+                                    </div>
+                                </div>
+                            </main>                            
+                        </div>
+                    </div>
+                </div>
+                <div class="govuk-button-group">
+                  {{ govukButton({
+                    html: 'Submit',
+                    href: '/endpage'
+                  }) }}
+                  <a href="workflow" class="govuk-link reject-button">Return to Workflow</a>
+                </div>
+                
+                
+                </div>
+                </div>
+                
+                {% endblock %}
