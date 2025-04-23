@@ -91,8 +91,8 @@ Charge
 
 	    	<!-- tasks go here  -->
         {{ govukRadios({
-          idPrefix: 'amend-existing-entries',
-          name: 'amend-existing-entries',
+          idPrefix: 'amend-existing-entries-3',
+          name: 'amend-existing-entries-3',
           classes: 'govuk-radios--small govuk-radios--inline',
           fieldset: {
             legend: {
@@ -104,19 +104,19 @@ Charge
             {
               html: 'Yes',
               value: 'Yes',
-              checked: checked('amend-existing-entries','Yes')
+              checked: checked('amend-existing-entries-3','Yes')
             },
             {
               html: 'No',
               value: 'No',
-              checked: checked('amend-existing-entries','No')
+              checked: checked('amend-existing-entries-3','No')
             }
           ]
         }) }}
 	      <!-- documents meet requirements?  -->
 	      {{ govukRadios({
-	        idPrefix: 'docs-meet-requirements',
-	        name: 'docs-meet-requirements',
+	        idPrefix: 'docs-meet-requirements-3',
+	        name: 'docs-meet-requirements-3',
 	        classes: 'govuk-radios--small govuk-radios--inline',
 	        fieldset: {
 	          legend: {
@@ -128,20 +128,20 @@ Charge
 	          {
 	            html: 'Yes',
 	            value: 'Yes',
-	            checked: checked('docs-meet-requirements','Yes')
+	            checked: checked('docs-meet-requirements-3','Yes')
 	          },
 	          {
 	            html: 'No',
 	            value: 'No',
-	            checked: checked('docs-meet-requirements','No')
+	            checked: checked('docs-meet-requirements-3','No')
 	          }
 	        ]
 	      }) }}
 
 	      <!-- additional transactions?  -->
 	      {{ govukRadios({
-	        idPrefix: 'additional-transactions',
-	        name: 'additional-transactions',
+	        idPrefix: 'additional-transactions-3',
+	        name: 'additional-transactions-3',
 	        classes: 'govuk-radios--small govuk-radios--inline',
 	        fieldset: {
 	          legend: {
@@ -153,12 +153,12 @@ Charge
 	          {
 	            html: 'Yes',
 	            value: 'Yes',
-	            checked: checked('additional-transactions','Yes')
+	            checked: checked('additional-transactions-3','Yes')
 	          },
 	          {
 	            html: 'No',
 	            value: 'No',
-	            checked: checked('additional-transactions','No')
+	            checked: checked('additional-transactions-3','No')
 	          }
 	        ]
 	      }) }}
