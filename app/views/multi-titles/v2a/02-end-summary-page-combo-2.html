@@ -151,18 +151,19 @@ Final tasks
 <br>
 <br>
 <!--------------BUTTON-------------->
+<form novalidate method="post">
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half ">
     <div class="govuk-button-group">
       {{ govukButton({
-      html: 'Submit',
-      href: 'workflow'
+      text: 'Submit'
       }) }}
       <p>
       <a class="govuk-link govuk-link-aside" href="workflow">Return application to Workflow</a></p>
     </div>
   </div>
 </div>
+</form>
 
 
 {% endblock %}

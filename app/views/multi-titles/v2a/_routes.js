@@ -86,22 +86,44 @@ router.post('/06-4-final-tasks-page-2', function (req, res) {
 	res.redirect('02-end-summary-page-combo-2');
 })
 
-router.post('/09-final-tasks-page-2', function (req, res) {
+router.post('/02-end-summary-page-combo-2', function (req, res) {
 
 	  if 	(req.session.data['property-match'] == 'No'
-     	|| req.session.data['id-check'] == 'No'
+      || req.session.data['property-match-2'] == 'No'
+      || req.session.data['property-match-3'] == 'No'
       || req.session.data['customer-match'] == 'No'
+      || req.session.data['customer-match-2'] == 'No'
+      || req.session.data['customer-match-3'] == 'No'
       || req.session.data['conveyancer-match'] == 'No'
+      || req.session.data['conveyancer-match-2'] == 'No'
+      || req.session.data['conveyancer-match-3'] == 'No'
+      || req.session.data['id-check'] == 'No'
+      || req.session.data['id-check-2'] == 'No'
+      || req.session.data['id-check-3'] == 'No'
       || req.session.data['correct-fee'] == 'No'
+      || req.session.data['execution-discrepancies'] == 'No'
+      || req.session.data['execution-discrepancies-2'] == 'No'
+      || req.session.data['execution-discrepancies-3'] == 'No'
 			|| req.session.data['undisclosed'] == 'No-MDRef'
       || req.session.data['register-restrictions'] == 'No'
       || req.session.data['register-restrictions'] == 'Needs a referral'
+      || req.session.data['register-restrictions-2'] == 'No'
+      || req.session.data['register-restrictions-2'] == 'Needs a referral'
+      || req.session.data['register-restrictions-3'] == 'No'
+      || req.session.data['register-restrictions-3'] == 'Needs a referral'
+      || req.session.data['amend-existing-entries'] == 'Yes'
+      || req.session.data['amend-existing-entries-2'] == 'Yes'
+      || req.session.data['amend-existing-entries-3'] == 'Yes'
 			|| req.session.data['docs-meet-requirements'] == 'No'
+      || req.session.data['docs-meet-requirements-2'] == 'No'
+      || req.session.data['docs-meet-requirements-3'] == 'No'
 			|| req.session.data['additional-transactions'] == 'Yes'
+      || req.session.data['additional-transactions-2'] == 'Yes'
+      || req.session.data['additional-transactions-3'] == 'Yes'
 	  	) {
-	    res.redirect('90-summary-page-workflow');
+	    res.redirect('workflow');
 	  } else {
-	    res.redirect('90-summary-page-drafted');
+	    res.redirect('success');
 	  }
 })
 
