@@ -1,0 +1,181 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+Transfer for value
+{% endblock %}
+
+{% block content %}
+
+  <!-- application information  -->
+	{% include "./includes/application-info-initial-tasks.html" %}
+	<!-- end - application information  -->
+
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register2.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+		{{ govukBackLink({
+			text: 'Previous',
+			href: '02-preliminary-2'
+		}) }}
+
+    <div class="casework-tasks-container">
+
+    	<form action="03-preliminary-3" method="post">
+
+	      <h2 class="govuk-heading-m">Your tasks</h2>
+
+<!-- Notification, if no selected -->
+				<div id="warning" class="govuk-notification-banner" role="region"
+				  aria-labelledby="govuk-notification-banner-title"
+				  data-module="govuk-notification-banner">
+				  <div class="govuk-notification-banner__header">
+				    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+				      Important
+				    </h2>
+				  </div>
+				  <div class="govuk-notification-banner__content">
+				    <p class="govuk-notification-banner__heading">
+				      <a class="govuk-notification-banner__link" href="workflow-no-drafting">Send to Workflow</a> to complete this application.
+				    </p>
+				  </div>
+				</div>
+
+
+	    <!-- tasks -->
+
+		  {{ govukInput({
+			id: 'transfer-amount',
+			name: 'transfer-amount',
+			classes: 'govuk-input--width-10',
+			prefix: {
+				text: "£"
+			  },
+			label: {
+			  html: 'What is the transfer value?',
+			  classes: 'govuk-label--s'
+			}
+		  }) }}
+		
+				<!--CONDITIONAL REVEAL YES - property type task with conditional reveal-->
+		{% set yesHtml %}
+		{{ govukRadios({
+			name: "property type",
+			classes: 'govuk-radios--small',
+			fieldset: {
+				legend: {
+					html: 'Select the property type',
+					classes: 'govuk-fieldset__legend--s'
+				}
+			},
+			hint: {
+				text: "To verify the property type, check Mapping or Google Maps"
+			  },
+			items: [
+				{
+					value: "D",
+					text: "Detached"
+				},
+				{
+					value: "S",
+					text: "Semi-detached"
+				},
+				{
+					value: "T",
+					text: "Terraced"
+				},
+				{
+					value: "F",
+					text: "Flat"
+				}
+			]
+		}) }}
+		{% endset -%}
+
+
+		{{ govukRadios({
+			idPrefix: 'single-residential',
+			name: 'single-residential',
+			classes: 'govuk-radios--small',
+			fieldset: {
+				legend: {
+					html: 'Is the property single residential?',
+					classes: 'govuk-fieldset__legend--s'
+				}
+			},
+			items: [
+				{
+					html: 'Yes',
+					value: 'Yes',
+					conditional: { html: yesHtml},
+					checked: checked('single-residential','Yes')
+					
+				},
+				{
+					html: 'No',
+					value: 'No',
+					checked: checked('single-residential','No')
+				}
+			]
+		}) }}
+
+	<!--ppi address placeholder task-->
+	<div id="select-lead-title">
+		<h3 class="govuk-heading-s" style="margin-bottom: 10px;">Select the address for PPI</h3>
+
+			<div class="govuk-form-group" style="	margin-bottom: 10px; margin-top: 10px;">
+		
+				<select class="govuk-select" id="sort" name="sort">
+					<option value="select" selected>Select address</option>
+					<option value="first-address">245 Apsen Rowans, Dorset BA22 2QC</option>
+					<option value="second-address">247 Apsen Rowans, Dorset BA22 2QC</option>
+					<option value="third-address">249 Apsen Rowans, Dorset BA22 2QC</option>
+					<option value="fourth-address">253 Apsen Rowans, Dorset BA22 2QC</option>
+				</select>
+			</div>
+	</div>
+		
+	
+	  <div class="govuk-checkboxes__item govuk-checkboxes--small">
+		<input class="govuk-checkboxes__input ons-js-checkbox ons-js-exclusive-option" id="charge-date-undisclosed" name="charge-date-undisclosed" type="checkbox" value="undisclosed" data-deselect-message="Selecting this will clear the date if one has been inputted">
+		<label class="govuk-label govuk-checkboxes__label" for="charge-date-undisclosed">
+	   There is no single LRPG address that covers all titles
+		</label>
+	  </div>
+	  <br>
+
+	
+
+	    <!-- Buttons and links -->
+
+	    <!-- Buttons and links -->
+
+		<div class="task-lists-submit">
+			<button class="govuk-button" data-module="govuk-button">
+				Next
+			</button>
+			<a href="workflow-no-drafting" class="govuk-link reject-button">Return to Workflow</a>
+		</div>
+		</form>
+
+
+
+	  </div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+{% endblock %}

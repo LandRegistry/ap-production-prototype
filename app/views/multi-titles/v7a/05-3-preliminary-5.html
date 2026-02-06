@@ -1,0 +1,215 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+Transfer for value
+{% endblock %}
+
+{% block content %}
+
+  <!-- application information  -->
+	{% include "./includes/application-info-title-3-final.html" %}
+	<!-- end - application information  -->
+
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register3.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+		{{ govukBackLink({
+			text: 'Previous',
+			href: '04-2-preliminary-4'
+		}) }}
+
+    <div class="casework-tasks-container">
+
+    	<form action="05-3-preliminary-5" method="post">
+
+	      <h2 class="govuk-heading-m">Your tasks</h2>
+
+<!-- Notification, if no selected -->
+				<div id="warning" class="govuk-notification-banner" role="region"
+				  aria-labelledby="govuk-notification-banner-title"
+				  data-module="govuk-notification-banner">
+				  <div class="govuk-notification-banner__header">
+				    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+				      Important
+				    </h2>
+				  </div>
+				  <div class="govuk-notification-banner__content">
+				    <p class="govuk-notification-banner__heading">
+				      <a class="govuk-notification-banner__link" href="workflow-no-drafting">Send to Workflow</a> to complete this application.
+				    </p>
+				  </div>
+				</div>
+
+
+	   	    	<!-- tasks go here  -->
+
+	    	 <h3 class="govuk-heading-s">Application documents</h3>
+			 <table class="govuk-table form-table">
+			   <thead class="govuk-table__head">
+				 <tr class="govuk-table__row">
+				   <th scope="col" class="govuk-table__header" style="width: 25%">Name</th>
+				   <th scope="col" class="govuk-table__header" style="width: 25%">Category</th>
+				   <th scope="col" class="govuk-table__header" style="width: 25%">Date</th>
+				   <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="width: 25%">Discard Document</th>
+				 </tr>
+			   </thead>
+	 
+			   {% set docTypes = [] %}
+	 
+			   {% for i in data['doc-types'] %}
+				 {% set docTypes = (docTypes.push({value: i, text: i}), docTypes) %}
+			   {% endfor %}
+			   <tbody class="govuk-table__body">
+				 <tr class="govuk-table__row">
+				   <td class="js-text / govuk-table__cell">
+					 <span style="display: block;"><b>1. eAP1</b></span>
+				   </td>
+	 
+				   <td class="js-text / govuk-table__cell">
+					 <span style="display: block;">Application form</span>
+				   </td>
+				   <td class="js-date-text / govuk-table__cell">
+					 <span style="display: block;">28 July 2025</span>
+				   </td>
+				   <td class="govuk-table__cell govuk-table__cell--numeric">
+					 <div class="govuk-form-group" style="margin-left: 10px">
+					   <div class="govuk-checkboxes govuk-checkboxes--small">
+						 <div class="govuk-checkboxes__item">
+						   <input class="js-remove / govuk-checkboxes__input" name="remove-1" type="checkbox">
+						   <label class="govuk-checkboxes__label">
+							 <span>Discard</span></label>
+						 </div>
+					   </div>
+					 </div>
+				   </td>
+				 </tr>
+	 
+			   <tbody class="govuk-table__body">
+				 <tr class="govuk-table__row">
+				   <td class="js-text / govuk-table__cell">
+					 <span style="display: block;"><b>2. Transfer</b></span>
+				   </td>
+	 
+				   <td class="js-text / govuk-table__cell">
+					 <span style="display: block;">Application form</span>
+				   </td>
+				   <td class="js-date-text / govuk-table__cell">
+					 <span style="display: block;">28 July 2025</span>
+				   </td>
+				   <td class="govuk-table__cell govuk-table__cell--numeric">
+					 <div class="govuk-form-group" style="margin-left: 10px">
+					   <div class="govuk-checkboxes govuk-checkboxes--small">
+						 <div class="govuk-checkboxes__item">
+						   <input class="js-remove / govuk-checkboxes__input" name="remove-1" type="checkbox">
+						   <label class="govuk-checkboxes__label">
+							 <span>Discard</span></label>
+						 </div>
+					   </div>
+					 </div>
+				   </td>
+				 </tr>
+	 
+				 <tbody class="govuk-table__body">
+				   <tr class="govuk-table__row">
+					 <td class="js-text / govuk-table__cell">
+					   <span style="display: block;"><b>3. SDLT</b></span>
+					 </td>
+	 
+					 <td class="js-text / govuk-table__cell">
+					   <span style="display: block;">Correspondence</span>
+					 </td>
+					 <td class="js-date-text / govuk-table__cell">
+					   <span style="display: block;">28 July 2025</span>
+					 </td>
+					 <td class="govuk-table__cell govuk-table__cell--numeric">
+					   <div class="govuk-form-group" style="margin-left: 10px">
+						 <div class="govuk-checkboxes govuk-checkboxes--small">
+						   <div class="govuk-checkboxes__item">
+							 <input class="js-remove / govuk-checkboxes__input" name="remove-1" type="checkbox">
+							 <label class="govuk-checkboxes__label">
+							   <span>Discard</span></label>
+						   </div>
+						 </div>
+					   </div>
+					 </td>
+				   </tr>
+	 
+	 
+	 
+	 
+			   </tbody>
+			 </table>
+			 <div style="margin-bottom: 30px">
+			 <a href="#" class="#">Change document category</a>
+			 </div>
+		   </div>
+	 
+	 
+		   <h3 class="govuk-heading-l" style="border-top:1px solid #a6a6a6; padding-top:20px">
+			 Correspondence
+		   </h3>
+	 
+		   <p>Send a requisition, stock letter or notice if needed.</p>
+		   {{ govukInsetText({
+			   text: "This is a multi-title application. Correspondence details will be entered using information from the lead title. This can be edited."
+		   }) }}
+	 
+		   <div style="border-bottom:1px solid #a6a6a6; padding-bottom:30px" onclick="myFunction()" class="js-pc-corres-window">
+		 <a href="">Send correspondence (opens in a new window)</a>
+		   </div>
+		   <br>
+	 
+	 
+	 
+				 <!-- end of tasks  -->
+<!-- AP implementation of the corres task
+				 <div>
+					<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+					<h3 class="govuk-heading-l">Correspondence</h3>
+					<p class="govuk-body">Send a requisition, stock letter or notice if needed.</p>
+					{% if combinations_info.multi_title_info%}
+					  {{
+						govukInsetText({
+						  "text": "This is a multi-title application. Correspondence details will be entered using information from the lead title. This can be edited."
+						})
+					  }}
+					{% endif %}
+					<a id="corres-button" class="govuk-link" href="{{corres_url}}">Send correspondence (opens in a new window)</a>
+					<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+				</div>
+				-->
+		 
+
+	    <!-- Buttons and links -->
+
+			<div class="task-lists-submit">
+				<button class="govuk-button" data-module="govuk-button">
+					Next
+				</button>
+				<a href="workflow-no-drafting" class="govuk-link reject-button">Return to Workflow</a>
+			</div>
+
+		</form>
+
+
+
+	  </div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+{% endblock %}

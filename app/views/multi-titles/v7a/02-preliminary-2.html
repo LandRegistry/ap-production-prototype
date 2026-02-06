@@ -1,0 +1,223 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+Transfer for value
+{% endblock %}
+
+{% block content %}
+
+  <!-- application information  -->
+	{% include "./includes/application-info-initial-tasks.html" %}
+	<!-- end - application information  -->
+
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register2.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+		{{ govukBackLink({
+			text: 'Previous',
+			href: '01-preliminary-1'
+		}) }}
+
+    <div class="casework-tasks-container">
+
+    	<form action="02-preliminary-2" method="post">
+
+	      <h2 class="govuk-heading-m">Your tasks</h2>
+
+<!-- Notification, if no selected -->
+				<div id="warning" class="govuk-notification-banner" role="region"
+				  aria-labelledby="govuk-notification-banner-title"
+				  data-module="govuk-notification-banner">
+				  <div class="govuk-notification-banner__header">
+				    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+				      Important
+				    </h2>
+				  </div>
+				  <div class="govuk-notification-banner__content">
+				    <p class="govuk-notification-banner__heading">
+				      <a class="govuk-notification-banner__link" href="workflow-no-drafting">Send to Workflow</a> to complete this application.
+				    </p>
+				  </div>
+				</div>
+
+
+	    <!-- tasks -->
+
+		{{ govukRadios({
+	        idPrefix: 'conveyancer-match',
+	        name: 'conveyancer-match',
+	        classes: 'govuk-radios--small govuk-radios--inline',
+	        fieldset: {
+	          legend: {
+	            html: 'Has the application been lodged by a conveyancer?',
+	            classes: 'govuk-fieldset__legend--s'
+	          }
+	        },
+
+	        items: [
+	          {
+	            html: 'Yes',
+	            value: 'Yes',
+	            checked: checked('conveyancer-match','Yes')
+	          },
+	          {
+	            html: 'No',
+	            value: 'No',
+	            checked: checked('conveyancer-match','No')
+	          }
+	        ]
+	      }) }}
+
+		  {{ govukDateInput({
+			id: 'transfer-date',
+			namePrefix: 'transfer-date',
+			fieldset: {
+			  legend: {
+				text: 'What is the date of the transfer?',
+				classes: 'govuk-fieldset__legend--s'
+			  }
+			},
+			  items: [
+			  {
+				  name: 'day',
+				  classes: 'govuk-input--width-2',
+				  value: '28'
+			  },
+			  {
+				  name: 'month',
+				  classes: 'govuk-input--width-2',
+				  value: '07'
+			  },
+			  {
+				  name: 'year',
+				  classes: 'govuk-input--width-4',
+				  value: '2025'
+			  }
+			  ]
+		  }) }}
+
+		  {{ govukRadios({
+			idPrefix: 'execution-discrepancies',
+			name: 'execution-discrepancies',
+			classes: 'govuk-radios--small govuk-radios--inline',
+			fieldset: {
+				legend: {
+					html: 'Are included documents executed correctly?',
+					classes: 'govuk-fieldset__legend--s'
+				}
+			},
+			items: [
+				{
+					html: 'Yes',
+					value: 'Yes',
+					checked: checked('execution-discrepancies','Yes')
+				},
+				{
+					html: 'No',
+					value: 'No',
+					checked: checked('execution-discrepancies','No')
+				}
+			]
+		}) }}
+
+		<!--apportionment task with conditional reveal-->
+
+	<!-- no and nominal conditional-->
+	{% set NoHtml %}
+	{{ govukRadios({
+		idPrefix: 'single-addressable',
+		name: 'single-addressable',
+		classes: 'govuk-radios--small',
+		fieldset: {
+			legend: {
+				html: 'Is the application for a single addressable property?',
+				classes: 'govuk-fieldset__legend--s'
+			}
+		},
+		items: [
+			{
+				html: 'Yes',
+				value: 'Yes',
+				checked: checked('single-addressable','Yes')
+				
+			},
+			{
+				html: 'No, range of properties',
+				value: 'No range',
+				checked: checked('single-addressable','No range')
+			},
+			{
+				html: 'No, unrelated or portfolio',
+				value: 'No unrelated',
+				checked: checked('single-addressable','No unrelated')
+			}
+		]
+	}) }}
+	{% endset %}
+
+	<!--base task-->
+	{{ govukRadios({
+		idPrefix: 'apportionment',
+		name: 'apportionment',
+		classes: 'govuk-radios--small',
+		fieldset: {
+			legend: {
+				html: 'Does the transfer value need to be apportioned across titles?',
+				classes: 'govuk-fieldset__legend--s'
+			}
+		},
+		items: [
+			{
+				html: 'Yes',
+				value: 'Yes',
+				checked: checked('apportionment','Yes')
+				
+			},
+			{
+				html: 'No',
+				value: 'No',
+				conditional: { html: NoHtml},
+				checked: checked('apportionment','No')
+			},
+			{
+				html: 'Nominal amount, PPI not required',
+				value: 'Nominal amount',
+				checked: checked('apportionment','Nominal amount')
+			}
+		]
+	}) }}
+
+
+	    <!-- Buttons and links -->
+
+			<div class="task-lists-submit">
+				<button class="govuk-button" data-module="govuk-button">
+					Next
+				</button>
+				<a href="workflow-no-drafting" class="govuk-link reject-button">Return to Workflow</a>
+			</div>
+
+		</form>
+
+
+
+	  </div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+{% endblock %}

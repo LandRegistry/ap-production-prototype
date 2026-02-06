@@ -1,0 +1,316 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+Transfer for value
+{% endblock %}
+
+{% block content %}
+
+  <!-- application information  -->
+	{% include "./includes/application-info-initial-tasks.html" %}
+	<!-- end - application information  -->
+
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register2.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+		{{ govukBackLink({
+			text: 'Previous',
+			href: ''
+		}) }}
+
+    <div class="casework-tasks-container">
+
+    	<form action="03-preliminary-3-extra" method="post">
+
+	      <h2 class="govuk-heading-m">PPI tasks</h2>
+
+<!-- Notification, if no selected -->
+				<div id="warning" class="govuk-notification-banner" role="region"
+				  aria-labelledby="govuk-notification-banner-title"
+				  data-module="govuk-notification-banner">
+				  <div class="govuk-notification-banner__header">
+				    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+				      Important
+				    </h2>
+				  </div>
+				  <div class="govuk-notification-banner__content">
+				    <p class="govuk-notification-banner__heading">
+				      <a class="govuk-notification-banner__link" href="workflow-no-drafting">Send to Workflow</a> to complete this application.
+				    </p>
+				  </div>
+				</div>
+
+
+	    <!-- tasks -->
+		
+				<!--CONDITIONAL REVEAL YES - property type task with conditional reveal-->
+		{% set yesHtml %}
+		{{ govukRadios({
+			name: "property type",
+			classes: 'govuk-radios--small',
+			fieldset: {
+				legend: {
+					html: 'Select the property type',
+					classes: 'govuk-fieldset__legend--s'
+				}
+			},
+			hint: {
+				text: "To verify the property type, check Mapping or Google Maps"
+			  },
+			items: [
+				{
+					value: "D",
+					text: "Detached"
+				},
+				{
+					value: "S",
+					text: "Semi-detached"
+				},
+				{
+					value: "T",
+					text: "Terraced"
+				},
+				{
+					value: "F",
+					text: "Flat"
+				}
+			]
+		}) }}
+		{% endset -%}
+		<!--CONDITIONAL REVEAL YES - property type task with conditional reveal-->
+		{% set noHtml %}
+		{{ govukRadios({
+			name: "single addressable",
+			classes: 'govuk-radios--small',
+			fieldset: {
+				legend: {
+					html: 'Is the application for a single addressable property?',
+					classes: 'govuk-fieldset__legend--s'
+				}
+			},
+			items: [
+				{
+					value: "Y",
+					text: "Yes"
+				},
+				{
+					value: "N",
+					text: "No, unrelated or portfolio"
+				}
+			]
+		}) }}
+		{% endset -%}
+
+		{{ govukRadios({
+			idPrefix: 'single-residential',
+			name: 'single-residential',
+			classes: 'govuk-radios--small',
+			fieldset: {
+				legend: {
+					html: 'Is the property single residential and being transferred to private individual(s)?',
+					classes: 'govuk-fieldset__legend--s'
+				}
+			},
+			hint: {
+				text: "This task applies to all titles within the application"
+			  },
+			items: [
+				{
+					html: 'Yes',
+					value: 'Yes',
+					conditional: { html: yesHtml},
+					checked: checked('single-residential','Yes')
+					
+				},
+				{
+					html: 'No',
+					value: 'No',
+					conditional: { html: noHtml},
+					checked: checked('single-residential','No')
+				}
+			]
+		}) }}
+
+	<!--ppi address placeholder task-->
+	<div id="select-lead-title">
+		<h3 class="govuk-heading-s" style="margin-bottom: 10px;">Select the address for PPI</h3>
+
+			<div class="govuk-form-group" style="	margin-bottom: 10px; margin-top: 10px;">
+		
+				<select class="govuk-select" id="sort" name="sort">
+					<option value="select" selected>Select address</option>
+					<option value="first-address">245 Apsen Rowans, Dorset BA22 2QC</option>
+					<option value="second-address">247 Apsen Rowans, Dorset BA22 2QC</option>
+					<option value="third-address">249 Apsen Rowans, Dorset BA22 2QC</option>
+					<option value="fourth-address">253 Apsen Rowans, Dorset BA22 2QC</option>
+				</select>
+			</div>
+	</div>
+		
+	  {{ govukCheckboxes({
+		  name: "no-lrpg-address",
+		  classes: "js-lrpg-checked govuk-checkboxes--small",
+		  items: [
+			  {
+				  value: "checked",
+				  text: "There is no single LRPG address that covers all titles"
+			  }
+		  ]
+	  }) }}
+
+	<!--apportionment task with conditional reveal-->
+
+	<!-- yes conditional-->
+		{% set yesApportionHtml %}
+
+		{{ govukInput({
+			label: {
+			  text: "DN1029KU"
+			},
+			prefix: {
+				text: "£"
+			  },
+			classes: "govuk-input--width-20",
+			id: "width-20",
+			name: "width20"
+		  }) }}
+
+		  {{ govukInput({
+			label: {
+			  text: "DN5028YT"
+			},
+			prefix: {
+				text: "£"
+			  },
+			classes: "govuk-input--width-20",
+			id: "width-20",
+			name: "width20"
+		  }) }}
+
+		  {{ govukInput({
+			label: {
+			  text: "DN1432OU"
+			},
+			prefix: {
+				text: "£"
+			  },
+			classes: "govuk-input--width-20",
+			id: "width-20",
+			name: "width20"
+		  }) }}
+		{% endset -%}
+
+		<!-- no and nominal conditional-->
+		{% set NoHtml %}
+		<div id="select-main-title">
+			<!--<h3 class="govuk-heading-s" style="margin-bottom: 10px;">Address 1</h3>-->
+				<div class="govuk-form-group" style="	margin-bottom: 10px; margin-top: 10px;">
+					<label class="govuk-label" for="sort">
+						Select title for PPI
+					</label>
+					<select class="govuk-select" id="sort" name="sort">
+						<option value="select" selected>Select title for PPI</option>
+						<option value="published">DN1029KU</option>
+						<option value="updated">DN5028YT</option>
+						<option value="updated">DN1432OU</option>
+					</select>
+				</div>
+		</div>
+
+		{{ govukInput({
+			label: {
+			  text: "Transfer value"
+			},
+			prefix: {
+				text: "£"
+			  },
+			classes: "govuk-input--width-20",
+			id: "width-20",
+			name: "width20"
+		  }) }}
+		{% endset %}
+
+		<!--base task-->
+		{{ govukRadios({
+			idPrefix: 'apportionment',
+			name: 'apportionment',
+			classes: 'govuk-radios--small',
+			fieldset: {
+				legend: {
+					html: 'Does the transfer value need to be apportioned across titles?',
+					classes: 'govuk-fieldset__legend--s'
+				}
+			},
+			items: [
+				{
+					html: 'Yes',
+					value: 'Yes',
+					conditional: { html: yesApportionHtml},
+					checked: checked('apportionment','Yes')
+					
+				},
+				{
+					html: 'No',
+					value: 'No',
+					conditional: { html: NoHtml},
+					checked: checked('apportionment','No')
+				},
+				{
+					html: 'Nominal amount, PPI not required',
+					value: 'Nominal amount',
+					conditional: { html: NoHtml},
+					checked: checked('apportionment','Nominal amount')
+				}
+			]
+		}) }}
+
+	    <!-- Buttons and links -->
+
+		<div class="govuk-grid-row">
+			<div class="govuk-grid-column-one-half ">
+			  <div class="govuk-button-group">
+				{{ govukButton({
+				html: 'Next',
+				href: '/multi-titles/ur-index-r2-sep2025'
+				}) }}
+				<p>
+				<a class="govuk-link govuk-link-aside" href="workflow-no-drafting">Return to Workflow</a></p>
+			  </div>
+			</div>
+		  </div>
+
+		</form>
+
+
+
+	  </div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+{% endblock %}
+ <script>
+
+// Show warning section for dropout questions
+$('.js-lrpg-checked input:checkbox').change(function () {
+  if ($(this).val() == 'checked') {
+    $('#select-lead-title').prop('disabled', true)
+  } else {
+    $('#select-lead-title').prop('disabled', false)
+  }
+});
+ </script>
