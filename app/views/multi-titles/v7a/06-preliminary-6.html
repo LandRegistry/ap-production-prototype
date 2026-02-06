@@ -1,0 +1,183 @@
+{% extends "layouts/ap-flow-wide.html" %}
+
+{% block pageTitle %}
+Transfer for value
+{% endblock %}
+
+{% block content %}
+
+  <!-- application information  -->
+	{% include "./includes/application-info-initial-tasks.html" %}
+	<!-- end - application information  -->
+
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-half register-column scroll ">
+  	<div id="register-container">
+
+    	{% include "./includes/register2.html" %}
+
+    </div>
+  </div>
+
+
+  <!-- Tasks section starts here -->
+
+  <div class="govuk-grid-column-one-half column">
+		{{ govukBackLink({
+			text: 'Previous',
+			href: '05-preliminary-5'
+		}) }}
+
+    <div class="casework-tasks-container">
+
+    	<form action="06-preliminary-6" method="post">
+
+	      <h2 class="govuk-heading-m">Your tasks</h2>
+
+<!-- Notification, if no selected -->
+				<div id="warning" class="govuk-notification-banner" role="region"
+				  aria-labelledby="govuk-notification-banner-title"
+				  data-module="govuk-notification-banner">
+				  <div class="govuk-notification-banner__header">
+				    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+				      Important
+				    </h2>
+				  </div>
+				  <div class="govuk-notification-banner__content">
+				    <p class="govuk-notification-banner__heading">
+				      <a class="govuk-notification-banner__link" href="workflow-no-drafting">Send to Workflow</a> to complete this application.
+				    </p>
+				  </div>
+				</div>
+
+
+	   	    	<!-- tasks go here  -->
+
+<!--Remove entries task-->
+		{% set removeEntriesHtml %}
+		{{ govukCheckboxes({
+			name: "entries list",
+			classes: "govuk-checkboxes--small",
+			items: [
+				{
+					value: "One",
+					text: "A2"
+				},
+				{
+					value: "Two",
+					text: "B3"
+				},
+				{
+					value: "Three",
+					text: "B4"
+				}
+			]
+		}) }}
+		{% endset %}
+
+				  {{ govukRadios({
+					idPrefix: 'remove-entries',
+					name: 'remove-entries',
+					classes: 'govuk-radios--small',
+					fieldset: {
+					  legend: {
+						text: 'Are all entries to be removed indicated on the register?',
+						classes: 'govuk-fieldset__legend--s'
+					  }
+					},
+					items: [
+					  {
+						html: 'Yes',
+						value: 'Yes',
+						checked: checked('remove-entries','Yes')
+					  },
+					  {
+						html: 'No',
+						value: 'No',
+						conditional: { html: removeEntriesHtml},
+						checked: checked('remove-entries','No')
+					  }
+					]
+				  }) }}
+
+<!--Amend existing entries task-->
+				   {{ govukRadios({
+					idPrefix: 'amend-existing-entries',
+					name: 'amend-existing-entries',
+					classes: 'govuk-radios--small govuk-radios--inline',
+					fieldset: {
+					  legend: {
+						text: 'Do any existing entries need to be amended?',
+						classes: 'govuk-fieldset__legend--s'
+					  }
+					},
+					items: [
+					  {
+						html: 'Yes',
+						value: 'Yes',
+						checked: checked('amend-existing-entries','Yes')
+					  },
+					  {
+						html: 'No',
+						value: 'No',
+						checked: checked('amend-existing-entries','No')
+					  }
+					]
+				  }) }}
+
+
+<!--personal covenants/ additional provisions task-->
+
+				  {% set yesCovenantHtml %}
+					{{ govukCheckboxes({
+					  name: "personal-covenants",
+					  classes: 'govuk-checkboxes--small',
+					  fieldset: {
+						  legend: {
+							  html: 'Select which entries to add',
+							  classes: 'govuk-fieldset__legend--s'
+						  }
+					  },
+					  items: [
+						  {
+							  value: "Indemnity covenant",
+							  text: "Indemnity covenant"
+						  },
+						  {
+							  value: "Implied covenant (BWICT)",
+							  text: "Implied covenant (BWICT)"
+						  },
+						  {
+							  value: "Other personal covenant",
+							  text: "Other personal covenant"
+						  }
+					  ]
+				  }) }}
+				  {% endset -%}
+
+
+				  
+				  				  
+	    <!-- Buttons and links -->
+
+			<div class="task-lists-submit">
+				<button class="govuk-button" data-module="govuk-button">
+					Save and continue
+				</button>
+				<a href="workflow-no-drafting" class="govuk-link reject-button">Return to Workflow</a>
+			</div>
+
+		</form>
+
+
+
+	  </div>
+
+	</div> <!-- end Tasks column -->
+
+</div>
+
+{% endblock %}

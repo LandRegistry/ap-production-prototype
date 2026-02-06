@@ -1,0 +1,78 @@
+{% extends "layouts/ap-documentation.html" %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="/index">Return to home</a>
+    <br><br>
+    <h1 class="govuk-heading-xl">Multi titles</h1>
+
+    <p class="govuk-body">This feature enables a caseworker to process DRS single transfer multi titles (up to 25 titles) in Application Processing. The linked demo represents the first state version in which apportionment will be handled in CORA, with a PAS notes added in AP to prevent mark off.</p>
+    <p>This demo includes:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+    	<li>An application with 3 titles (address, land to the back of and associated garage) submitted for private individual borrowers.</li>
+    	<li>Routing for different transfer scenarios (single addressable property, range of properties, portfolio of unrelated properties).</li>
+    </ul>
+
+    <p class="govuk-body">This feature will be iterated to enable apportionment in later phases.</p>
+    <p class="govuk-body">When using this demo multiple times, the data submitted may need to be cleared for the correct pages to show. This can be acheived by using the 'Clear data' link in the footer of the page. Clear the data and then use the browser back button to return to your place in the flow.</p>
+<!--
+    <p class="govuk-body">The system will:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+    	<li>add a PAS note, allowing the application to be stored until the consent is received</li>
+    	<li>put the application in a new 'pot' (category of work) to be picked up for evidence to be checked</li>
+    	<li>run all the business rules again, to see if anything else has changed</li>
+    </ul>
+
+    <h2 class="govuk-heading-l">Round 2 prototypes for user research</h2>
+
+    <p class="govuk-body">For the second round we are testing iterations of some elements of the design. These include new versions of the restrictions question which should clarify which restrictions it is referring to and updating the deferral confirmation screen to no longer mention workflow as that had caused confusion. We also want to test new scenarios to establish when certain screens are misaligned with caseworkers expectations despite accurately representing the systems actions.</p>
+
+    <p>view prototypes:</p>
+
+    <p><a href="/charge-defer/r2-index">link for user research</a></p>
+
+
+    <h2 class="govuk-heading-l">Round 1 prototypes for user research</h2>
+
+    <p class="govuk-body">From these scenarios we hoped to learn about the relationship between both deferral questions (charge evidence and restrictions), how users understood deferrals in charges, and how they navigate and review restrictions on the register.</p>
+
+    <p>view prototypes:</p>
+
+    <p><a href="/charge-defer/r1-index">link for user research</a></p>
+
+    <ul class="govuk-list govuk-list--bullet">
+    	<li>
+        <a class="govuk-link" href="charge-defer/v1a/00-worklist">A - Both UI tasks</a><br>
+        Scenario A: The register contains a charge with a restriction and another type of restriction. The other type of restriction does not require consent. The charge evidence is missing. The application should defer with the charge evidence, however our assumption is that it won't due to both tasks being present and caseworkers answering with workarounds.
+      </li>
+    	<li>
+        <a class="govuk-link" href="charge-defer/v1b/00-worklist">B - Two restrictions</a><br>
+        Scenario B: One restriction requires consent, one does not. Consent has not been provided for the restriction that requires it and the case should therefore defer.
+      </li>
+      <li>
+        <a class="govuk-link" href="charge-defer/v1c/07-wrap-up">C - Multiple restrictions</a><br>
+        Scenario C: Multiple restrictions, some needing consent and others not. Consent has been provided for all that require it and therefore the case should markoff.
+      </li>
+    	<li>
+        <a class="govuk-link" href="charge-defer/v1d/07-wrap-up">D - Referral</a><br>
+        Scenario D: One restriction that is above EO settlement (Form B). This will require the users to refer the case to a caseworker of a higher grade. The referral option then adds a PAS note and returns to Workflow.
+      </li>
+
+    </ul>
+-->
+
+<h2 class="govuk-heading-l">Final version<h2>
+  <p><a href="/multi-titles/v7a/00-worklist">Multi titles demo (transfers)</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

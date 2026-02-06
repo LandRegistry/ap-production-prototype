@@ -22,7 +22,7 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 	{% from "hmlr/components/footer/macro.njk" import hmlrFooter %}
 	{{ hmlrFooter({
    meta: {
-     items: [
+     items:[
        {
          href: "feedback",
          text: "feedback (opens in new tab)"
@@ -34,7 +34,11 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
        {
          href: "prototype-tools",
          text: "prototype tools"
-       }
+       },
+       {
+         href: "/manage-prototype/clear-data",
+        text: "Clear data"
+      }
      ],
      visuallyHiddenTitle: "Footer links"
    }
