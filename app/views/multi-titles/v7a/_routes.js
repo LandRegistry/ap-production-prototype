@@ -113,6 +113,7 @@ router.post('/05-3-preliminary-5', function (req, res) {
       || req.session.data['transfer-extent'] == 'Yes'
       || req.session.data['conveyancer-match'] == 'No'
       || req.session.data['execution-discrepancies'] == 'No'
+      || req.session.data['apportionment'] == 'Yes'
       || req.session.data['transferee-names-match'] == 'No'
       || req.session.data['amend-existing-entries'] == 'Yes'
       || req.session.data['personal-covenants'] == 'Other personal covenant'
